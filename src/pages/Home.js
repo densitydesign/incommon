@@ -216,7 +216,7 @@ export default function Home() {
         </div>
       </div>
       <div
-        className='block-right'
+        className='block-right  d-flex align-items-center justify-content-center'
         style={{ backgroundImage: menuOpen  ?
           `url('${menuOpen}.png')` :
           menuHover ?
@@ -224,9 +224,9 @@ export default function Home() {
           : ''}}>
           {menuOpen &&
             <Link
-              className='text-center explore-button d-flex justify-content-center pointer'
+              className='text-center explore-button pointer'
               to={'/about'}>
-                <img src={'/esplora.svg'} alt={menuOpen} />
+                  esplora
             </Link>
           }
       </div>
