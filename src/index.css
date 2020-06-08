@@ -2,3 +2,77 @@ body {
     background: black;
     color: white;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.block-left{
+  width: 25%;
+  height: 100vh;
+  border-right: 0.5px solid #555555;
+}
+
+.block-center{
+  width: 30%;
+  height: 100vh;
+  border-right: 0.5px solid #555555;
+}
+
+.block-right{
+  width: 45%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.text-home{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.credits {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  justify-content: space-between;
+}
+
+.item-menu{
+  border-bottom: 0.5px solid #555555;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 27px;
+  color: #FCFCFC;
+}
+
+.item-menu-hover{
+  border-bottom: 0.5px solid #5b5b5b;
+  border-left: 0.5px solid #5b5b5b;
+  border-right: 0.5px solid #5b5b5b;
+  border-top: 0.5px solid #5b5b5b;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 27px;
+  color: #FCFCFC;
+}
+
+.item-description{
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.explore-button {
+  height: 100%;
+}
+
+.rotate-show-hide {
+  transform: rotate(180deg);
+}
