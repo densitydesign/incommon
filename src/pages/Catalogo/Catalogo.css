@@ -1,0 +1,56 @@
+.block-filters{
+  width: 25%;
+  height: 100vh;
+  border-right: 0.5px solid #555555;
+}
+
+.raggruppa-button{
+  padding: 20px;
+  width: 60%;
+  border-right: 0.5px solid #555555;
+  border-bottom: 0.5px solid #555555;
+  font-size: 15px;
+}
+
+.reset-filtri{
+  border-bottom: 0.5px solid #555555;
+  padding: 20px;
+  font-size: 15px;
+  width: 40%;
+}
+
+.filters{
+  font-size: 18px;
+}
+
+.search-filter{
+  padding: 15px;
+  width: 100%;
+  border-top: 0.5px solid #555555;
+  border-bottom: 0.5px solid #555555;
+}
+
+.item-filter{
+  padding: 15px;
+  width: 100%;
+  border-bottom: 0.5px solid #555555;
+}
+
+.micro-filters{
+  margin-top: 15px;
+  font-size: 15px;
+  padding: 10px;
+  margin-left: 27px;
+  width: 100%;
+}
+
+.item-micro-filter:hover:before
+{
+    content: "+";
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.rotate-show-hide {
+  transform: rotate(180deg);
+}
