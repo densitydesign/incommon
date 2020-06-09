@@ -67,47 +67,47 @@ export default function Catalogo() {
                 }
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Evento</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Spettacolo</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Luogo</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Città</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Data</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Anno</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Persona</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Compagnia</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Organizzazione</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Rivista</span>
               </div>
               <div className='item-filter'>
-                <span><img src={'/show-hide-white.svg'} alt='Show Hide' /></span>
+                <span><img src={'/show-hide.svg'} alt='Show Hide' /></span>
                 <span className='ml-3'>Provenienza</span>
               </div>
             </div>

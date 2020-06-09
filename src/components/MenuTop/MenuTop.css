@@ -20,17 +20,17 @@
   -webkit-text-fill-color: transparent;
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 27px;
+  line-height: 27px;
   position: relative;
   transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
   display: inline-block;
 }
 
 .item-menu-top:hover{
-  width: 440px;
-  min-width: 440px;
-  max-width: 440px;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
   background: -webkit-linear-gradient(360deg, #FCFCFC, #FCFCFC);
   background-position: left;
   -webkit-background-clip: text;

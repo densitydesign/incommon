@@ -7,7 +7,7 @@ export default function MenuTop(){
     <div className='menu-top d-flex justify-content-between align-items-center'>
       <div className='d-flex align-items-center'>
         <div>
-          <Link to={'/'}><img src='/in-common.svg' alt='INCOMMON' height='62' /></Link>
+          <Link to={'/'}><img src='/in-common.svg' alt='INCOMMON' height='57' /></Link>
         </div>
         <div>
           <NavLink className='item-menu-top' to='/archivio'>Sparagmos dell’archivio</NavLink>

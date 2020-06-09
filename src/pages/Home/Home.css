@@ -66,7 +66,14 @@
   line-height: 24px;
   font-style: normal;
   font-weight: normal;
+  -webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.4s; /* Firefox < 16 */
+        -ms-animation: fadein 0.4s; /* Internet Explorer */
+         -o-animation: fadein 0.4s; /* Opera < 12.1 */
+            animation: fadein 0.4s;
 }
+
+
 
 .explore-button {
   font-style: normal;

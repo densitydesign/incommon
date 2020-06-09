@@ -1,7 +1,8 @@
 .block-filters{
   width: 25%;
-  height: 100vh;
+  height: 100%;
   border-right: 0.5px solid #555555;
+  padding-bottom: 30px;
 }
 
 .raggruppa-button{
@@ -36,12 +37,28 @@
   border-bottom: 0.5px solid #555555;
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .micro-filters{
   margin-top: 15px;
   font-size: 15px;
   padding: 10px;
   margin-left: 27px;
   width: 100%;
+  -webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.4s; /* Firefox < 16 */
+        -ms-animation: fadein 0.4s; /* Internet Explorer */
+         -o-animation: fadein 0.4s; /* Opera < 12.1 */
+            animation: fadein 0.4s;
 }
 
 .item-micro-filter:hover:before

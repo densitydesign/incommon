@@ -23,7 +23,7 @@ export default function Home() {
       <div className='block-left'>
         <div className='ml-3 mr-3 text-left'>
           <div className='mt-3'>
-            <img src={'/logo.svg'} alt='Incommon' />
+            <img src={'/logo.svg'} className='img-fluid'  alt='Incommon' />
           </div>
           <p className='mt-4 text-home' style={{ fontFamily: 'FormaDJRMicro'}}>
             INCOMMON. In praise of community.
