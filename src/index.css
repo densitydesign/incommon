@@ -12,3 +12,22 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+.text-red{
+  color: #D92100;
+}
+
+.circle-filter{
+  margin-top: 8px;
+  border: 1px solid #D92100;
+  border-radius: 16px;
+  color: #D92100;
+  font-size: 16px;
+  line-height: 19px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-align: center;
+  padding-left: 18px;
+  padding-right: 18px;
+  width: fit-content;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'
+import DettaglioDocumento from './pages/DettaglioDocumento'
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         </Route>
         <Route path="/catalogo" exact>
           <Catalogo />
+        </Route>
+        <Route path="/catalogo/:id" exact>
+          <DettaglioDocumento />
         </Route>
       </Switch>
     </Router>
