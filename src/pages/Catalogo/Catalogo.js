@@ -32,7 +32,7 @@ export default function Catalogo() {
         <div className='block-catalogo ml-4 mr-4 d-flex flex-row flex-wrap'>
           {images && images.map((image,key) => (
             <div style={{ height: 120 }} key={key} className='mr-4 mt-4 pointer'>
-              <Link to={'/catalogo/1'}>
+              <Link to={'/catalogo-dei-documenti/1'}>
                 <img height={120} src={`/catalogo/${image}`} alt='Catalogo' />
               </Link>
             </div>

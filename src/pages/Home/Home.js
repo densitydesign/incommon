@@ -3,6 +3,12 @@ import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
+const ARCHIVIO = "sparagmos-archivio"
+const SPETTACOLO = "ricomporre-uno-spettacolo"
+const FORMA = "la-forma-della-comunita"
+const LUOGHI = "tempi-e-luoghi"
+const CATALOGO = "catalogo-dei-documenti"
+
 export default function Home() {
 
   const [menuOpen,setMenuOpen] = useState(null)
@@ -65,19 +71,19 @@ export default function Home() {
       <div className='block-center'>
         <div className='menu'>
           <div
-            onMouseEnter={() => setMenuHover('archivio')}
+            onMouseEnter={() => setMenuHover(ARCHIVIO)}
             onMouseLeave={() => setMenuHover(null)}
-            onClick={() => toggleMenuOpen('archivio')}
+            onClick={() => toggleMenuOpen(ARCHIVIO)}
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
               <span>Sparagmos dell’archivio</span>
               <span className={classnames({
-                'rotate-show-hide': menuOpen === 'archivio'
+                'rotate-show-hide': menuOpen === ARCHIVIO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
             </div>
           </div>
-          {menuOpen === 'archivio' &&
+          {menuOpen === ARCHIVIO &&
           <p className='item-description'>
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et
@@ -95,19 +101,19 @@ export default function Home() {
           </p>
         }
           <div
-            onMouseEnter={() => setMenuHover('spettacolo')}
+            onMouseEnter={() => setMenuHover(SPETTACOLO)}
             onMouseLeave={() => setMenuHover(null)}
-            onClick={() => toggleMenuOpen('spettacolo')}
+            onClick={() => toggleMenuOpen(SPETTACOLO)}
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
               <span>Ricomporre uno spettacolo</span>
               <span className={classnames({
-                'rotate-show-hide': menuOpen === 'spettacolo'
+                'rotate-show-hide': menuOpen === SPETTACOLO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
             </div>
           </div>
-          {menuOpen === 'spettacolo' &&
+          {menuOpen === SPETTACOLO &&
           <p className='item-description'>
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et
@@ -125,19 +131,19 @@ export default function Home() {
           </p>
         }
           <div
-            onMouseEnter={() => setMenuHover('forma')}
+            onMouseEnter={() => setMenuHover(FORMA)}
             onMouseLeave={() => setMenuHover(null)}
-            onClick={() => toggleMenuOpen('forma')}
+            onClick={() => toggleMenuOpen(FORMA)}
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
               <span>La forma della comunità</span>
               <span className={classnames({
-                'rotate-show-hide': menuOpen === 'forma'
+                'rotate-show-hide': menuOpen === FORMA
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
             </div>
           </div>
-          {menuOpen === 'forma' &&
+          {menuOpen === FORMA &&
           <p className='item-description'>
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et
@@ -155,19 +161,19 @@ export default function Home() {
           </p>
         }
           <div
-            onMouseEnter={() => setMenuHover('luoghi')}
+            onMouseEnter={() => setMenuHover(LUOGHI)}
             onMouseLeave={() => setMenuHover(null)}
-            onClick={() => toggleMenuOpen('luoghi')}
+            onClick={() => toggleMenuOpen(LUOGHI)}
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
               <span>I tempi e i luoghi</span>
               <span className={classnames({
-                'rotate-show-hide': menuOpen === 'luoghi'
+                'rotate-show-hide': menuOpen === LUOGHI
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
             </div>
           </div>
-          {menuOpen === 'luoghi' &&
+          {menuOpen === LUOGHI &&
           <p className='item-description'>
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et
@@ -185,19 +191,19 @@ export default function Home() {
           </p>
         }
           <div
-            onMouseEnter={() => setMenuHover('catalogo')}
+            onMouseEnter={() => setMenuHover(CATALOGO)}
             onMouseLeave={() => setMenuHover(null)}
-            onClick={() => toggleMenuOpen('catalogo')}
+            onClick={() => toggleMenuOpen(CATALOGO)}
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
               <span>Catalogo dei documenti</span>
               <span className={classnames({
-                'rotate-show-hide': menuOpen === 'catalogo'
+                'rotate-show-hide': menuOpen === CATALOGO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
             </div>
           </div>
-          {menuOpen === 'catalogo' &&
+          {menuOpen === CATALOGO &&
           <p className='item-description'>
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et

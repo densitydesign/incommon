@@ -10,11 +10,31 @@ export default function MenuTop(){
           <Link to={'/'}><img src='/in-common.svg' alt='INCOMMON' height='57' /></Link>
         </div>
         <div>
-          <NavLink className='item-menu-top' to='/archivio'>Sparagmos dell’archivio</NavLink>
-          <NavLink className='item-menu-top' to='/spettacolo'>Ricomporre uno spettacolo</NavLink>
-          <NavLink className='item-menu-top' to='/forma'>La forma della comunità</NavLink>
-          <NavLink className='item-menu-top' to='/luoghi'>I tempi e i luoghi</NavLink>
-          <NavLink activeClassName='item-menu-top-active' className='item-menu-top' to='/catalogo'>Catalogo dei documenti</NavLink>
+          <NavLink
+            activeClassName='item-menu-top-active'
+            className='item-menu-top'
+            to='/sparagmos-archivio'
+          >Sparagmos dell’archivio</NavLink>
+          <NavLink
+            activeClassName='item-menu-top-active'
+            className='item-menu-top'
+            to='/ricomporre-uno-spettacolo'
+          >Ricomporre uno spettacolo</NavLink>
+          <NavLink
+            activeClassName='item-menu-top-active'
+            className='item-menu-top'
+            to='/la-forma-della-comunita'
+          >La forma della comunità</NavLink>
+          <NavLink
+            activeClassName='item-menu-top-active'
+            className='item-menu-top'
+            to='/tempi-e-luoghi'
+          >I tempi e i luoghi</NavLink>
+          <NavLink
+            activeClassName='item-menu-top-active'
+            className='item-menu-top'
+            to='/catalogo-dei-documenti'
+          >Catalogo dei documenti</NavLink>
         </div>
       </div>
       <div className='mr-3'>
