@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'
 import TempiELuoghi from './pages/TempiELuoghi'
 import DettaglioDocumento from './pages/DettaglioDocumento'
+import DettaglioSpettacolo from './pages/DettaglioSpettacolo'
 import Forma from './pages/Forma'
 import Spettacolo from './pages/Spettacolo'
 import Archivio from './pages/Archivio'
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/ricomporre-uno-spettacolo" exact>
           <Spettacolo />
+        </Route>
+        <Route path="/ricomporre-uno-spettacolo/:id" exact>
+          <DettaglioSpettacolo />
         </Route>
         <Route path="/sparagmos-archivio" exact>
           <Archivio />
