@@ -1,0 +1,64 @@
+.block-left-spettacolo{
+  border-right: 0.5px solid #555555;
+  width: 20%;
+  height: calc(100vh - 58px);
+  overflow: hidden;
+}
+
+.block-info-spettacolo{
+  padding: 24px;
+}
+
+.title-spettacolo{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FCFCFC;
+}
+
+.more-info{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FCFCFC;
+}
+
+.block-raggruppa{
+  margin-top: 48px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FCFCFC;
+}
+
+.item-group{
+  color: #686868;
+  line-height: 19px;
+  margin-top: 4px;
+}
+
+.item-group-active{
+  color: #FCFCFC;
+  line-height: 19px;
+  margin-top: 4px;
+}
+
+.filters-spettacolo{
+  margin-top: 48px;
+  -webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.4s; /* Firefox < 16 */
+        -ms-animation: fadein 0.4s; /* Internet Explorer */
+         -o-animation: fadein 0.4s; /* Opera < 12.1 */
+            animation: fadein 0.4s;
+}
+
+.filter-active{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FCFCFC;
+  text-transform: uppercase;
+  margin-top: 6px;
+}

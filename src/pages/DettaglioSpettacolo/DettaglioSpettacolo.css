@@ -1,0 +1,5 @@
+.body-spettacolo{
+  width: 80%;
+  overflow: hidden;
+  height: calc(100vh - 59px);
+}

@@ -111,16 +111,6 @@ export default function FiltersDocumentDetail(){
         </div>
         <div className='filter-block'>
           <div className='filter-name'>
-            provenienza
-          </div>
-          <div className='filter-body'>
-            <div className='circle-filter'>
-              Archivio Privato Giuliano Scabia
-            </div>
-          </div>
-        </div>
-        <div className='filter-block'>
-          <div className='filter-name'>
             creatore del documento
           </div>
           <div className='filter-body'>
