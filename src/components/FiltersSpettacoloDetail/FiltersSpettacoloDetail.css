@@ -1,0 +1,88 @@
+.FiltersSpettacoloDetail{
+  background: #FCFCFC;
+  width: 25%;
+  display: block;
+  /* height: calc(100vh - 58px); */
+  z-index: 100000;
+  position: absolute;
+  left: 0px;
+  top: 58px;
+  min-height: 100%;
+  -webkit-animation: slideIn 0.5s forwards;
+  -moz-animation: slideIn 0.5s forwards;
+  animation: slideIn 0.5s forwards;
+}
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.close-filters{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.title-spettacolo-filter{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+  color: #050500;
+  padding-bottom: 24px;
+}
+
+.description-document{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  padding-bottom: 32px;
+}
+
+.info-box{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  padding-bottom: 23px;
+}
+
+.block-filters-detail-spettacolo{
+  padding: 24px;
+}
+
+.label-filter-spettacolo{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.filter-block{
+  padding-bottom: 24px;
+  color: #000000;
+}
