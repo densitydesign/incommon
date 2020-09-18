@@ -25,6 +25,56 @@
   {
     "style": {
       "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/EP0003.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "60%",
+          "height": "auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "/slideshow/EP0004.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
       "top": "20%",
       "left": 0,
       "right": 0,
@@ -57,6 +107,126 @@
       },
       {
         "src": "/slideshow/EP0007.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/EP0009.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/MG0001.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/MG0002.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/EP0070.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/EP0008.png",
         "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
