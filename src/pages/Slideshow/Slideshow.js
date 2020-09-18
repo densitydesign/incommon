@@ -31,23 +31,23 @@ function AnimatedImageBase({ style, animatedStyle, time, src }, ref) {
 const AnimatedImage = React.forwardRef(AnimatedImageBase)
 
 export default function Slideshow() {
-  const indexRef = useRef(0)
+  const [currentIndex, setIndex] = useState(0)
   function goPrev() {
-    let index = indexRef.current
+    let index = currentIndex
     if (index > 0) {
       const image = imagesRef.current[index].current
       image.exit()
       index = index - 1
-      indexRef.current = index
+      setIndex(index)
     }
   }
   function goNext() {
-    let index = indexRef.current
+    let index = currentIndex
     if (index < totalImages - 1) {
       index = index + 1
       const image = imagesRef.current[index].current
       image.enter()
-      indexRef.current = index
+      setIndex(index)
     }
   }
 
@@ -65,8 +65,16 @@ export default function Slideshow() {
     image.enter()
   }, [])
 
+  function handleKeyDown(e) {
+    if (e.key === 'ArrowRight') {
+      goNext()
+    } else if (e.key === 'ArrowLeft') {
+      goPrev()
+    }
+  }
+
   return (
-    <div className="slideshow-container">
+    <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
       <MenuTop />
       <div className="slideshow-content">
         {slideshowConfig.map((container, i) => (
@@ -79,6 +87,9 @@ export default function Slideshow() {
         ))}
         <div onClick={goPrev} className="slide-click-spy-prev" />
         <div onClick={goNext} className="slide-click-spy-next" />
+        <div className="slide-index">
+          {currentIndex + 1} / {totalImages}
+        </div>
       </div>
     </div>
   )

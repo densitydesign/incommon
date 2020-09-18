@@ -11,6 +11,12 @@
   user-select: none;
 }
 
+.slide-index {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .slide-click-spy-prev {
   background: transparent;
   position: absolute;
