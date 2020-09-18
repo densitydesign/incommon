@@ -8,6 +8,7 @@ import DettaglioSpettacolo from './pages/DettaglioSpettacolo'
 import Forma from './pages/Forma'
 import Spettacolo from './pages/Spettacolo'
 import Archivio from './pages/Archivio'
+import Slideshow from './pages/Slideshow'
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path="/sparagmos-archivio" exact>
           <Archivio />
+        </Route>
+        <Route path="/slideshow" exact>
+          <Slideshow />
         </Route>
       </Switch>
     </Router>
