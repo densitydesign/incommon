@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import './Slideshow.css'
 import MenuTop from '../../components/MenuTop/MenuTop'
 import slideshowConfig from './slideshow.json'
@@ -11,20 +11,18 @@ const totalImages = slideshowConfig.reduce(
 function AnimatedImageBase({ style, animatedStyle, time, src }, ref) {
   const [entered, setEntered] = useState(false)
 
-  useEffect(() => {
-    setEntered(true)
-  }, [])
-
   let imageStyle = style
   if (entered && animatedStyle) {
     imageStyle = { ...imageStyle, ...animatedStyle }
   }
 
   useImperativeHandle(ref, () => ({
-    time,
-    goodbye: () => {
+    enter: () => {
+      setEntered(true)
+    },
+    exit: () => {
       setEntered(false)
-    }
+    },
   }))
 
   return <img style={imageStyle} src={src} alt="Slide" />
@@ -33,44 +31,24 @@ function AnimatedImageBase({ style, animatedStyle, time, src }, ref) {
 const AnimatedImage = React.forwardRef(AnimatedImageBase)
 
 export default function Slideshow() {
-  const [index, setIndex] = useState(0)
-
-  const viewSlideShow = useMemo(() => {
-    let outSlideShow = []
-
-    let ci = 0
-    let j = 0
-
-    while (j <= index) {
-      const container = slideshowConfig[ci]
-      const reachIndex = index - j
-      const showImages = container.images.filter((_, i) => i <= reachIndex)
-      if (showImages.length > 0) {
-        outSlideShow.push({ ...container, images: showImages })
-      }
-      j += showImages.length
-      ci++
-    }
-
-    return outSlideShow
-  }, [index])
-
-  const animatingRef = useRef(false)
+  const indexRef = useRef(0)
   function goPrev() {
-    if (animatingRef.current) {
-      return
+    let index = indexRef.current
+    if (index > 0) {
+      const image = imagesRef.current[index].current
+      image.exit()
+      index = index - 1
+      indexRef.current = index
     }
-    const lastImage = imagesRef.current[index].current
-    lastImage.goodbye()
-    animatingRef.current = true
-
-    setTimeout(() => {
-      setIndex((i) => (i > 0 ? i - 1 : i))
-      animatingRef.current = false
-    }, lastImage.time)
   }
   function goNext() {
-    setIndex((i) => (i < totalImages - 1 ? i + 1 : i))
+    let index = indexRef.current
+    if (index < totalImages - 1) {
+      index = index + 1
+      const image = imagesRef.current[index].current
+      image.enter()
+      indexRef.current = index
+    }
   }
 
   let z = 0
@@ -82,11 +60,16 @@ export default function Slideshow() {
     return imagesRef.current[i]
   }
 
+  useEffect(() => {
+    const image = imagesRef.current[0].current
+    image.enter()
+  }, [])
+
   return (
     <div className="slideshow-container">
       <MenuTop />
       <div className="slideshow-content">
-        {viewSlideShow.map((container, i) => (
+        {slideshowConfig.map((container, i) => (
           <div key={i} style={container.style}>
             {container.images.map((image, j) => {
               z++
