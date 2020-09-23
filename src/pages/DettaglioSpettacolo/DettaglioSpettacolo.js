@@ -30,7 +30,7 @@ export default function DettaglioSpettacolo() {
                 <div
                   style={img.style_list}
                   key={key}
-                  className='pointe'
+                  className='pointer'
                   onClick={() => history.push('/slideshow')}
                 >
                   <img src={img.src} alt="Img" width="450" />
