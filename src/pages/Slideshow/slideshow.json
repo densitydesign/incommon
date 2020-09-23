@@ -35,7 +35,6 @@
     "images": [
       {
         "src": "/slideshow/EP0003.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0,
@@ -59,7 +58,6 @@
     "images": [
       {
         "src": "/slideshow/EP0004.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0,
@@ -85,7 +83,6 @@
     "images": [
       {
         "src": "/slideshow/EP0005.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -96,7 +93,6 @@
       },
       {
         "src": "/slideshow/EP0006.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -107,7 +103,6 @@
       },
       {
         "src": "/slideshow/EP0007.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -131,7 +126,6 @@
     "images": [
       {
         "src": "/slideshow/EP0009.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -155,7 +149,6 @@
     "images": [
       {
         "src": "/slideshow/MG0001.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -179,7 +172,6 @@
     "images": [
       {
         "src": "/slideshow/MG0002.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -203,7 +195,6 @@
     "images": [
       {
         "src": "/slideshow/EP0070.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
@@ -227,7 +218,6 @@
     "images": [
       {
         "src": "/slideshow/EP0008.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
