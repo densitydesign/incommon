@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import MenuTop from "../../components/MenuTop"
+import DetailLuogo from "../../components/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"
 
 const Map = ReactMapboxGl({
@@ -8,20 +9,33 @@ const Map = ReactMapboxGl({
 })
 
 const points = [
-  { coordinates: [12.4829321, 41.8933203], radius: 20 },
-  { coordinates: [9.1905, 45.4668], radius: 30 },
-  { coordinates: [13.3524434, 38.1112268], radius: 10 },
-  { coordinates: [14.2487826, 40.8359336], radius: 7 },
-  { coordinates: [10.99416732788086, 45.43745422363281], radius: 10 },
+  { coordinates: [12.4829321, 41.8933203], radius: 20, name: 'Roma', luoghi: [] },
+  { coordinates: [9.1905, 45.4668], radius: 30, name: '' },
+  { coordinates: [13.3524434, 38.1112268], radius: 10, name: '', },
+  { coordinates: [14.2487826, 40.8359336], radius: 7, name: '', },
+  { coordinates: [10.99416732788086, 45.43745422363281], radius: 10, name: '' },
   { coordinates: [12.3345898 ,45.4371908], radius: 25 }
 ]
+
 
 const styleZoomControl = { position: "absolute", top: 80, right: 30 }
 
 export default function TempiELuoghi() {
+
+  const [town, setTown] = useState(null)
+
+  const toggleInfoTown = (town) => {
+    setTown(town)
+  }
+
+  console.log(town,'town')
+
   return (
-    <div className="TempiELuoghi">
+    <div className="TempiELuoghi position-relative">
       <MenuTop />
+      {town &&
+        <DetailLuogo town={town} toggleTown={toggleInfoTown} />
+      }
       <div className="body-tempi-e-luoghi">
         <Map
           // eslint-disable-next-line react/style-prop-object
@@ -37,6 +51,7 @@ export default function TempiELuoghi() {
             points.map((point, index) => {
               return (
                 <Layer
+                  onClick={() => toggleInfoTown(point)}
                   type="circle"
                   id={"range" + index}
                   paint={{
