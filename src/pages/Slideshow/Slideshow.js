@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import './Slideshow.css'
-import MenuTop from '../../components/MenuTop/MenuTop'
-import slideshowConfig from './slideshow.json'
+import React, { useState } from "react"
+import "./Slideshow.css"
+import { Link } from "react-router-dom"
+import MenuTop from "../../components/MenuTop/MenuTop"
+import slideshowConfig from "./slideshow.json"
 
 const totalImages = slideshowConfig.reduce(
   (t, cont) => t + cont.images.length,
@@ -42,9 +43,9 @@ export default function Slideshow() {
   let z = 0
 
   function handleKeyDown(e) {
-    if (e.key === 'ArrowRight') {
+    if (e.key === "ArrowRight") {
       goNext()
-    } else if (e.key === 'ArrowLeft') {
+    } else if (e.key === "ArrowLeft") {
       goPrev()
     }
   }
@@ -67,6 +68,13 @@ export default function Slideshow() {
         <div onClick={goNext} className="slide-click-spy-next" />
         <div className="slide-index">
           {index + 1} / {totalImages}
+          <Link
+            className="pointer ml-3"
+            to={'/ricomporre-uno-spettacolo/1'}
+            style={{ zIndex: 2000}}
+          >
+            <img src="/close-document.svg" alt="Close" />
+          </Link>
         </div>
       </div>
     </div>
