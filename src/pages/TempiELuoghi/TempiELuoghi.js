@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import MenuTop from "../../components/MenuTop"
 import DetailLuogo from "../../components/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"
-import Slider, { Range } from "rc-slider"
+import Slider from "rc-slider"
 import "rc-slider/assets/index.css"
 import "./TempiELuoghi.css"
 
@@ -54,7 +54,7 @@ const dataYears = {
 
 const ITALY_COORDINATES = [12.5736108, 41.29246]
 
-const styleZoomControl = { position: "absolute", top: 80, right: 30 }
+const styleZoomControl = { position: "absolute", top: 80, right: 30, border: 'red' }
 
 export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
@@ -118,8 +118,7 @@ export default function TempiELuoghi() {
         </Map>
         <div className="d-flex">
           <div
-            className="text-white p-3"
-            style={{ width: "35vh" }}
+            className="text-white p-3 border-right"
           >
             Mostra luoghi di Incommon <br />
             <small>Mostra luoghi di sfondo</small>
@@ -138,8 +137,9 @@ export default function TempiELuoghi() {
               }}
               marks={{
                 1969: "1969",
-                1972: "1972",
-                1974: "1974",
+                1971: "1971",
+                1973: "1973",
+                1975: "1975",
                 1977: "1977",
                 1979: "1979",
               }}

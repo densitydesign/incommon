@@ -5,3 +5,7 @@
 .rangeslider-horizontal .rangeslider__handle:after {
     display: none;
 }
+
+.rc-slider-mark-text{
+    color: #FFF;
+}
