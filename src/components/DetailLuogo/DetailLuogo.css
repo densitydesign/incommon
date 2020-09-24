@@ -1,0 +1,11 @@
+.DetailLuogo {
+  width: 25%;
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  top: 58px;
+  border-right: 0.5px solid #555555;
+  background-color: #000;
+  padding-bottom: 30px;
+  z-index: 10;
+}

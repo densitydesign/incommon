@@ -134,6 +134,13 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "rotate(0deg)",
+          "zIndex": 11
         }
       }
     ]
@@ -219,6 +226,13 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "translate(50px)",
+          "zIndex": 10
         }
       }
     ]
@@ -247,6 +261,13 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "translate(-50px)",
+          "zIndex": 9
         }
       }
     ]
@@ -276,6 +297,14 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "50%",
+
+          "top": "200",
+          "transform": "translate(100px)",
+          "zIndex": 7
         }
       },
       {
@@ -290,6 +319,13 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "translate(-100px)",
+          "zIndex": 6
         }
       },
       {
@@ -530,6 +566,13 @@
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "translate(20px 20px)",
+          "zIndex": 6
         }
       }
     ]
@@ -547,13 +590,19 @@
     "images": [
       {
         "src": "/slideshow/EP0009.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "translate(-100px, 200px)",
+          "zIndex": 5
         }
       }
     ]
@@ -571,13 +620,19 @@
     "images": [
       {
         "src": "/slideshow/MG0001.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "rotate(20deg)",
+          "zIndex": 4
         }
       }
     ]
@@ -595,13 +650,19 @@
     "images": [
       {
         "src": "/slideshow/MG0002.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "rotate(20deg)",
+          "zIndex": 3
         }
       }
     ]
@@ -619,13 +680,19 @@
     "images": [
       {
         "src": "/slideshow/EP0070.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "200",
+          "transform": "rotate(20deg)",
+          "zIndex": 2
         }
       }
     ]
@@ -643,13 +710,19 @@
     "images": [
       {
         "src": "/slideshow/EP0008.png",
-        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0
         },
         "animatedStyle": {
           "opacity": 1
+        },
+        "style_list": {
+          "position": "absolute",
+          "left": "40%",
+          "top": "12%",
+          "transform": "rotate(5deg)",
+          "zIndex": 1
         }
       }
     ]
