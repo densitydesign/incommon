@@ -1,0 +1,7 @@
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: #CCC;
+}
+
+.rangeslider-horizontal .rangeslider__handle:after {
+    display: none;
+}

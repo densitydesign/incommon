@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import MenuTop from "../../components/MenuTop"
-import 'react-rangeslider/lib/index.css'
+import "react-rangeslider/lib/index.css"
 import DetailLuogo from "../../components/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"
 import Slider from "react-rangeslider"
+import './TempiELuoghi.css'
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -17,15 +18,31 @@ const points = [
     name: "Roma",
     luoghi: [],
   },
-  { coordinates: [9.1905, 45.4668], radius: 30, name: "Milano" },
-  { coordinates: [13.3524434, 38.1112268], radius: 10, name: "Palermo" },
-  { coordinates: [14.2487826, 40.8359336], radius: 7, name: "Napoli" },
+  { coordinates: [9.1905, 45.4668], radius: 30, name: "Milano", luoghi: [] },
+  {
+    coordinates: [13.3524434, 38.1112268],
+    radius: 10,
+    name: "Palermo",
+    luoghi: [],
+  },
+  {
+    coordinates: [14.2487826, 40.8359336],
+    radius: 7,
+    name: "Napoli",
+    luoghi: [],
+  },
   {
     coordinates: [10.99416732788086, 45.43745422363281],
     radius: 10,
     name: "Verona",
+    luoghi: [],
   },
-  { coordinates: [12.3345898, 45.4371908], radius: 25, name: "Venezia" },
+  {
+    coordinates: [12.3345898, 45.4371908],
+    radius: 25,
+    name: "Venezia",
+    luoghi: [],
+  },
 ]
 
 const ITALY_COORDINATES = [12.5736108, 41.29246]
@@ -68,7 +85,8 @@ export default function TempiELuoghi() {
                   paint={{
                     "circle-radius": point.radius,
                     "circle-color": "red",
-                    "circle-opacity": town && town === point ? 0.7 : !town ? 0.4 : 0.2,
+                    "circle-opacity":
+                      town && town === point ? 0.7 : !town ? 0.4 : 0.2,
                     "circle-stroke-color": "#cc0000",
                     "circle-stroke-width": 0,
                     "circle-stroke-opacity": 1,
@@ -95,13 +113,13 @@ export default function TempiELuoghi() {
             Mostra luoghi di Incommon <br />
             <small>Mostra luoghi di sfondo</small>
           </div>
-          <div className='slider m-2 w-100 mt-4'>
+          <div className="slider custom-labels m-2 w-100 mt-4">
             <Slider
               min={1969}
               max={1990}
-              labels={{0: 1969, 25: 1974, 50: 1979, 75:1983, 100: 1990}}
+              labels={{ 0: 1969, 25: 1974, 50: 1979, 75: 1983, 100: 1990 }}
               value={year}
-              orientation={'horizontal'}
+              orientation={"horizontal"}
               onChange={(value) => setYear(value)}
             />
           </div>
