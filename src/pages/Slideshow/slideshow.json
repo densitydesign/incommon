@@ -5,16 +5,132 @@
       "top": 0,
       "left": 0,
       "right": 0,
-      "bottom": 0
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+
     },
     "images": [
       {
-        "src": "/slideshow/EP0002.png",
+        "src": "/slideshow/festival_di_beckett/MG0001.png",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "70%",
+          "height": "auto",
+          "objectFit": "scale-down",
+          "transform": "rotate(-4deg) translateX(-30%) scale(1.5)"
+
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0002.jpeg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "70%",
+          "height": "auto",
+          "objectFit": "scale-down",
+          "transform": "rotate(2deg) translateX(30%) scale(1.5)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0023_01.png",
+        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0,
           "width": "100%",
-          "height": "100%"
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-5deg) translateX(30%) translateY(10%) scale(1.4)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0053.jpeg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "objectFit": "scale-down",
+          "margin":"auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0054.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover"
         },
         "animatedStyle": {
           "opacity": 1
@@ -37,16 +153,76 @@
       "right": 0,
       "bottom": 0,
       "display": "flex",
-      "justifyContent": "center"
+      "alignItems": "center"
     },
     "images": [
       {
-        "src": "/slideshow/EP0003.png",
+        "src": "/slideshow/festival_di_beckett/MG0055.jpg",
+        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0,
           "width": "60%",
-          "height": "auto"
+          "height": "60%",
+          "objectFit": "scale-down",
+          "margin":"auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0056.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "90%",
+          "height": "90%",
+          "objectFit": "scale-down",
+          "margin":"auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0057.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "scale(1.4)",
+          "margin":"auto"
+
         },
         "animatedStyle": {
           "opacity": 1
@@ -61,6 +237,7 @@
       }
     ]
   },
+
   {
     "style": {
       "position": "absolute",
@@ -71,12 +248,16 @@
     },
     "images": [
       {
-        "src": "/slideshow/EP0004.png",
+        "src": "/slideshow/festival_di_beckett/MG0058.png",
+        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
           "opacity": 0,
           "width": "100%",
-          "height": "100%"
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "scale(1.1)"
+
         },
         "animatedStyle": {
           "opacity": 1
@@ -91,22 +272,28 @@
       }
     ]
   },
+
   {
     "style": {
       "position": "absolute",
-      "top": "20%",
+      "top": 0,
       "left": 0,
       "right": 0,
       "bottom": 0,
       "display": "flex",
+      "justifyContent": "space-around",
       "alignItems": "center"
     },
     "images": [
       {
-        "src": "/slideshow/EP0005.png",
+        "src": "/slideshow/festival_di_beckett/MG0059.jpg",
+        "time": 500,
         "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "35%",
+        "height": "auto",
+        "objectFit": "scale-down"
         },
         "animatedStyle": {
           "opacity": 1
@@ -121,10 +308,14 @@
         }
       },
       {
-        "src": "/slideshow/EP0006.png",
+        "src": "/slideshow/festival_di_beckett/MG0060.png",
+        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
-          "opacity": 0
+          "opacity": 0,
+          "width": "30%",
+          "height": "auto",
+          "objectFit": "scale-down"
         },
         "animatedStyle": {
           "opacity": 1
@@ -138,10 +329,240 @@
         }
       },
       {
-        "src": "/slideshow/EP0007.png",
+        "src": "/slideshow/festival_di_beckett/MG0061.png",
+        "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
-          "opacity": 0
+          "opacity": 0,
+          "width": "30%",
+          "height": "auto",
+          "objectFit": "scale-down"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0062.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-5deg) translateX(30%) translateY(10%) scale(1.4)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0064.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(2deg) translateY(10%) scale(1.4)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0065.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-2deg) translateX(-40%) translateY(25%) scale(1.7)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-start"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0066.jpeg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-2deg) translateX(-30%) scale(1.2)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0070.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-3deg) scale(1.1)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0071.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(4deg) translateX(20%) translateY(10%) scale(1.4)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0072.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "objectFit": "scale-down",
+          "margin":"auto",
+          "transform": "rotate(1deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "flex-end"
+    },
+    "images": [
+      {
+        "src": "/slideshow/festival_di_beckett/MG0076.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down",
+          "transform": "rotate(-5deg) translateX(30%) translateY(10%) scale(1.4)"
         },
         "animatedStyle": {
           "opacity": 1
