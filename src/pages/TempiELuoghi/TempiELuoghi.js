@@ -39,7 +39,10 @@ console.log({
 })
 
 const dataYears = {
-  1969: { Roma: 25, Venezia: 20, Palermo: 5 },
+  1969: { "Roma": {
+    radius: 25, luoghi: [
+      'Luogo 1', 'Luogo 2', 'Luogo 3'
+    ] }, Venezia: 20, Palermo: 5 },
   1970: { Roma: 30, Venezia: 10, Palermo: 10 },
   1971: { Roma: 10, Venezia: 60, Palermo: 15 },
   1972: { Roma: 45, Venezia: 5, Palermo: 20 },
@@ -132,7 +135,6 @@ export default function TempiELuoghi() {
               max={1979}
               value={year}
               onChange={(value) => {
-                toggleInfoTown(null)
                 setYear(value)
               }}
               marks={{
