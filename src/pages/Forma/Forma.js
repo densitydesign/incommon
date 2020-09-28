@@ -4,6 +4,7 @@ import Viva from 'vivagraphjs'
 import network from './network.json'
 import groupBy from 'lodash/groupBy'
 import uniqBy from 'lodash/uniqBy'
+import truncate from 'lodash/truncate'
 
 const eventi = uniqBy(network, 'Evento')
 const attori = uniqBy(network, 'Attore')
@@ -242,6 +243,7 @@ export default function Forma() {
     const renderer = Viva.Graph.View.renderer(graph, {
       container: graphRef.current,
       graphics: graphics,
+      interactive: 'scroll,drag',
     })
     var events = Viva.Graph.webglInputEvents(graphics, graph)
     events.click(function (node) {
@@ -284,7 +286,7 @@ export default function Forma() {
         if ((node.links ?? []).length > DRAW_LABEL_LINKS_COUNT) {
           var label = document.createElement('span')
           label.classList.add('node-label')
-          label.innerText = node.id
+          label.innerText = truncate(node.id)
           labels[node.id] = label
           graphRef.current.appendChild(label)
         }
@@ -298,7 +300,7 @@ export default function Forma() {
   }, [])
 
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       <MenuTop />
       <div
         ref={graphRef}
