@@ -1,14 +1,12 @@
-import React, { useState } from "react"
-import MenuTop from "../../components/MenuTop"
-import { useHistory } from 'react-router-dom'
-import InfoSpettacolo from "../../components/InfoSpettacolo"
-import FiltersSpettacoloDetail from "../../components/FiltersSpettacoloDetail"
+import React, { useState, useMemo } from 'react'
+import MenuTop from '../../components/MenuTop'
+import InfoSpettacolo from '../../components/InfoSpettacolo'
+import FiltersSpettacoloDetail from '../../components/FiltersSpettacoloDetail'
 import ImagesStack from '../../components/ImagesStack'
+import flatMap from 'lodash/flatMap'
 import { shuffle } from 'seed-shuffle'
-import "./DettaglioSpettacolo.css"
-import slideshowConfig from "../Slideshow/slideshow.json"
-
-const NUMBER_OF_IMAGES_PER_CATEGORY = 5
+import './DettaglioSpettacolo.css'
+import slideshowConfig from '../Slideshow/slideshow.json'
 
 // Mantain the same "random" for the entire user session
 // NOTE: Place a literal Es:. 5 to have ALWAYS the same random factor
@@ -21,11 +19,15 @@ export default function DettaglioSpettacolo() {
     setShowMoreInfo(!showMoreInfo)
   }
 
-  const docs = shuffle(slideshowConfig,RANDOM_SEED)
+  const images = useMemo(() => {
+    // TODO: Take images from API
+    const allImages = flatMap(slideshowConfig, (docs) =>
+      docs.images.map((i) => i.src)
+    )
+    return shuffle(allImages, RANDOM_SEED)
+  }, [])
 
-  console.log(docs,'docs')
-
-  const history = useHistory()
+  // console.log(images)
 
   return (
     <div className="DettaglioSpettacolo">
@@ -35,10 +37,8 @@ export default function DettaglioSpettacolo() {
           <FiltersSpettacoloDetail toggleShowMoreInfo={toggleShowMoreInfo} />
         )}
         <InfoSpettacolo toggleShowMoreInfo={toggleShowMoreInfo} />
-        <div className="body-spettacolo d-flex justify-content-center align-items-center">\
-          <ImagesStack
-            docs={docs}
-          />
+        <div className="body-spettacolo d-flex justify-content-center align-items-center">
+          <ImagesStack images={images} />
         </div>
       </div>
     </div>

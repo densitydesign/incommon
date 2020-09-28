@@ -11,7 +11,7 @@ function randomTransform() {
   )()}%,${randomInt(-5, 5)()}%) rotate(${randomInt(-5, 5)()}deg)`
 }
 
-function RandImage({ doc, randomize }) {
+function RandImage({ src, randomize }) {
   const [transform, setTransform] = useState(() => ({
     stable: randomTransform(),
     random: null,
@@ -40,8 +40,7 @@ function RandImage({ doc, randomize }) {
     <img
       className={'stackImage'}
       alt={'Spettacolo'}
-      key={1}
-      src={doc.src}
+      src={src}
       style={{
         transform: transform.random ?? transform.stable,
       }}
@@ -49,14 +48,10 @@ function RandImage({ doc, randomize }) {
   )
 }
 
-function ImagesStack({ docs, empty, style, link }) {
+function ImagesStack({ images, empty, style, link }) {
   const [randomize, setRandomize] = useState(false)
   return (
-    <Link
-      className={'stack'}
-      style={style}
-      to='/slideshow'
-    >
+    <Link className={'stack'} style={style} to="/slideshow">
       <div
         onMouseEnter={() => setRandomize(true)}
         onMouseLeave={() => setRandomize(false)}
@@ -65,14 +60,9 @@ function ImagesStack({ docs, empty, style, link }) {
           { border: empty }
         )}
       >
-
-        {docs.map((image) =>
-            image.images.map((img, key) => {
-              return (
-                <RandImage randomize={randomize} doc={img} key={key}></RandImage>
-              )
-            })
-          )}
+        {images.map((image) => (
+          <RandImage randomize={randomize} src={image} key={image}></RandImage>
+        ))}
       </div>
     </Link>
   )
