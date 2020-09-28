@@ -19,7 +19,7 @@ export default function DettaglioSpettacolo() {
   const toggleShowMoreInfo = () => {
     setShowMoreInfo(!showMoreInfo)
   }
-
+  
   const history = useHistory()
 
   return (
