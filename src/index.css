@@ -1,28 +1,27 @@
-@import "styles/fonts.css";
+@import 'styles/fonts.css';
 
 body {
-    background: black;
-    color: white;
-    font-family: FormaDJRMicro;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1.4em;
+  background: black;
+  color: white;
+  font-family: FormaDJRMicro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.4em;
 }
-
 
 .pointer {
   cursor: pointer;
 }
 
-.text-red{
-  color: #D92100;
+.text-red {
+  color: #d92100;
 }
 
-.circle-filter{
+.circle-filter {
   margin-top: 8px;
-  border: 1px solid #D92100;
+  border: 1px solid #d92100;
   border-radius: 16px;
-  color: #D92100;
+  color: #d92100;
   font-size: 16px;
   line-height: 19px;
   padding-top: 7px;
@@ -31,4 +30,14 @@ body {
   padding-left: 18px;
   padding-right: 18px;
   width: fit-content;
+}
+
+
+
+
+.node-label {
+  position: absolute;
+  pointer-events: none;
+  color: white;
+  /* z-index: 10; */
 }
