@@ -1,18 +1,41 @@
 import React, { useEffect, useRef } from 'react'
 import MenuTop from '../../components/MenuTop'
 import Viva from 'vivagraphjs'
+import network from './network.json'
+import groupBy from 'lodash/groupBy'
+import uniqBy from 'lodash/uniqBy'
+
+const eventi = uniqBy(network, 'Evento')
+const attori = uniqBy(network, 'Attore')
+const eventiWithAttori = groupBy(network, 'Evento')
+console.log('X', eventi, attori, eventiWithAttori)
+// console.log('U.u', )
 
 const graph = Viva.Graph.graph()
-
-graph.addNode('giova', {
-  name: 'Giova',
-  age: 29,
+eventi.forEach((evento) => {
+  graph.addNode(evento.Evento)
 })
-graph.addNode('rinne')
-graph.addNode('skaffo')
 
-graph.addLink('giova', 'rinne')
-graph.addLink('skaffo', 'rinne')
+attori.forEach((attore) => {
+  graph.addNode(attore.Attore)
+})
+
+Object.keys(eventiWithAttori).forEach((evento) => {
+  const attori = eventiWithAttori[evento]
+  attori.forEach((attore) => {
+    graph.addLink(evento, attore.Attore)
+  })
+})
+
+// graph.addNode('giova', {
+//   name: 'Giova',
+//   age: 29,
+// })
+// graph.addNode('rinne')
+// graph.addNode('skaffo')
+
+// graph.addLink('giova', 'rinne')
+// graph.addLink('skaffo', 'rinne')
 
 function buildCircleNodeShader() {
   // For each primitive we need 4 attributes: x, y, color and size.
@@ -194,6 +217,8 @@ function buildCircleNodeShader() {
   }
 }
 
+const DRAW_LABEL_LINKS_COUNT = 20
+
 export default function Forma() {
   const graphRef = useRef()
 
@@ -204,7 +229,7 @@ export default function Forma() {
     graphics.setNodeProgram(circleNode)
     graphics.node(function (node) {
       // The function is called every time renderer needs a ui to display node
-      const size = 10 + node.links.length * 2
+      const size = 10 + (node.links ?? []).length * 2
       // return Viva.Graph.View.webglSquare(size, '#00ff00')
       return {
         size,
@@ -218,35 +243,37 @@ export default function Forma() {
       container: graphRef.current,
       graphics: graphics,
     })
-    // var events = Viva.Graph.webglInputEvents(graphics, graph)
-    // events.click(function (node) {
-    //   console.log('Single click on node: ', node)
-    // })
+    var events = Viva.Graph.webglInputEvents(graphics, graph)
+    events.click(function (node) {
+      alert('Click ' + node.id)
+      // console.log('Single click on node: ', node)
+    })
     var domLabels = generateDOMLabels(graph)
 
     graphics.placeNode(function (ui, pos) {
       // This callback is called by the renderer before it updates
       // node coordinate. We can use it to update corresponding DOM
       // label position;
+      if ((ui.node.links ?? []).length > DRAW_LABEL_LINKS_COUNT) {
+        // we create a copy of layout position
+        var domPos = {
+          x: pos.x,
+          y: pos.y,
+        }
+        // var domLabels = generateDOMLabels(graph)
+        // And ask graphics to transform it to DOM coordinates:
+        graphics.transformGraphToClientCoordinates(domPos)
 
-      // we create a copy of layout position
-      var domPos = {
-        x: pos.x,
-        y: pos.y,
-      }
-      // var domLabels = generateDOMLabels(graph)
-      // And ask graphics to transform it to DOM coordinates:
-      graphics.transformGraphToClientCoordinates(domPos)
-
-      // then move corresponding dom label to its own position:
-      var nodeId = ui.node.id
-      var labelStyle = domLabels[nodeId].style
-      labelStyle.left = domPos.x + 'px'
-      labelStyle.top = domPos.y + 'px'
-      if (domPos.y <= 0) {
-        labelStyle.display = 'none'
-      } else {
-        labelStyle.display = 'initial'
+        // then move corresponding dom label to its own position:
+        var nodeId = ui.node.id
+        var labelStyle = domLabels[nodeId].style
+        labelStyle.left = domPos.x + 'px'
+        labelStyle.top = domPos.y + 'px'
+        if (domPos.y <= 0) {
+          labelStyle.display = 'none'
+        } else {
+          labelStyle.display = 'initial'
+        }
       }
     })
 
@@ -254,11 +281,13 @@ export default function Forma() {
       // this will map node id into DOM element
       var labels = {}
       graph.forEachNode(function (node) {
-        var label = document.createElement('span')
-        label.classList.add('node-label')
-        label.innerText = node.id
-        labels[node.id] = label
-        graphRef.current.appendChild(label)
+        if ((node.links ?? []).length > DRAW_LABEL_LINKS_COUNT) {
+          var label = document.createElement('span')
+          label.classList.add('node-label')
+          label.innerText = node.id
+          labels[node.id] = label
+          graphRef.current.appendChild(label)
+        }
       })
       // NOTE: If your graph changes over time you will need to
       // monitor graph changes and update DOM elements accordingly
