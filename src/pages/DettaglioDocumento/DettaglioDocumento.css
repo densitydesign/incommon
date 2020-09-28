@@ -18,6 +18,10 @@
   color: #686868;
 }
 
+.zoom-buttons:hover{
+  color: #FFF !important;
+}
+
 .img-document{
   overflow: auto;
   height: 100%;
