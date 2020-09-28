@@ -245,7 +245,7 @@ export default function Forma() {
     })
     var events = Viva.Graph.webglInputEvents(graphics, graph)
     events.click(function (node) {
-      alert('Click ' + node.id)
+      // alert('Click ' + node.id)
       // console.log('Single click on node: ', node)
     })
     var domLabels = generateDOMLabels(graph)

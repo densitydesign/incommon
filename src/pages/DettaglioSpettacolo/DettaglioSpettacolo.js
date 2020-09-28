@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import InfoSpettacolo from "../../components/InfoSpettacolo"
 import FiltersSpettacoloDetail from "../../components/FiltersSpettacoloDetail"
 import ImagesStack from '../../components/ImagesStack'
+import { shuffle } from 'seed-shuffle'
 import "./DettaglioSpettacolo.css"
 import slideshowConfig from "../Slideshow/slideshow.json"
 
@@ -19,7 +20,11 @@ export default function DettaglioSpettacolo() {
   const toggleShowMoreInfo = () => {
     setShowMoreInfo(!showMoreInfo)
   }
-  
+
+  const docs = shuffle(slideshowConfig,RANDOM_SEED)
+
+  console.log(docs,'docs')
+
   const history = useHistory()
 
   return (
@@ -30,9 +35,9 @@ export default function DettaglioSpettacolo() {
           <FiltersSpettacoloDetail toggleShowMoreInfo={toggleShowMoreInfo} />
         )}
         <InfoSpettacolo toggleShowMoreInfo={toggleShowMoreInfo} />
-        <div className="body-spettacolo d-flex justify-content-center align-items-center">
+        <div className="body-spettacolo d-flex justify-content-center align-items-center">\
           <ImagesStack
-            docs={slideshowConfig}
+            docs={docs}
           />
         </div>
       </div>
