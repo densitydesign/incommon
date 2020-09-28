@@ -345,7 +345,7 @@
           "left": "50%",
 
           "top": "200",
-          "transform": "translate(100px)",
+          "transform": "translate(80px)",
           "zIndex": 16
         }
       },
