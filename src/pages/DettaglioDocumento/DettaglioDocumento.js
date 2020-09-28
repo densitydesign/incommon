@@ -1,11 +1,10 @@
-import React, { useState, useRef, useCallback } from "react"
+import React from "react"
 import MenuTop from "../../components/MenuTop"
 import FiltersDocumentDetail from "../../components/FiltersDocumentDetail"
 import "./DettaglioDocumento.css"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
 export default function DettaglioDocumento() {
-  const [isZoomed, setIsZoomed] = useState(false)
 
   return (
     <div className="DettaglioDocumento">
