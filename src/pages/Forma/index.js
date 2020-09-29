@@ -1,1 +1,1 @@
-export { default } from './Forma'
+export { default } from './FormaVis'
