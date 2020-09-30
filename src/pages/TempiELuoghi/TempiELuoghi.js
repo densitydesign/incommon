@@ -3,6 +3,10 @@ import MenuTop from "../../components/MenuTop"
 import DetailLuogo from "../../components/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"
 import Slider from "rc-slider"
+import groupBy from "lodash/groupBy"
+import uniqBy from "lodash/uniqBy"
+import countBy from "lodash/countBy"
+import network from "../../data/network-luoghi.json"
 import "rc-slider/assets/index.css"
 import "./TempiELuoghi.css"
 
@@ -11,63 +15,49 @@ const Map = ReactMapboxGl({
     "pk.eyJ1IjoiaW5jb21tb242MDcwIiwiYSI6ImNrZmRwdmczMTFrMGwycWxkNW52b3NxbG4ifQ.YJHc6ilJWy4aUIh8YDehxQ",
 })
 
-const points = [
-  {
-    coordinates: [12.4829321, 41.8933203],
-    name: "Roma",
-    luoghi: [],
-  },
-  { coordinates: [9.1905, 45.4668], radius: 30, name: "Milano", luoghi: [] },
-  {
-    coordinates: [13.3524434, 38.1112268],
-    name: "Palermo",
-    luoghi: [],
-  },
-  {
-    coordinates: [12.3345898, 45.4371908],
-    name: "Venezia",
-    luoghi: [],
-  },
-]
+const dataByYears = groupBy(network, "anno")
+const years = uniqBy(network, "anno")
 
-console.log({
+const cities = uniqBy(network,'citta')
+
+const dataYearsTown = years.reduce((data, year) => {
+  const anno = year.anno
+  const yearData = dataByYears[anno]
+  const countTown = countBy(yearData, "citta")
+  data[anno] = countTown
+  return data
+}, {})
+
+const marks = {
+  1959: "1959",
+  1961: "1961",
+  1963: "1963",
+  1965: "1965",
+  1967: "1967",
   1969: "1969",
-  1972: "1972",
-  1974: "1974",
+  1971: "1971",
+  1973: "1973",
+  1975: "1975",
   1977: "1977",
   1979: "1979",
-})
-
-const dataYears = {
-  1969: { "Roma": {
-    radius: 25, luoghi: [
-      'Luogo 1', 'Luogo 2', 'Luogo 3'
-    ] }, Venezia: 20, Palermo: 5 },
-  1970: { Roma: 30, Venezia: 10, Palermo: 10 },
-  1971: { Roma: 10, Venezia: 60, Palermo: 15 },
-  1972: { Roma: 45, Venezia: 5, Palermo: 20 },
-  1973: { Roma: 60, Venezia: 15, Palermo: 24 },
-  1974: { Roma: 20, Venezia: 23, Palermo: 21 },
-  1975: { Roma: 10, Venezia: 67, Palermo: 10 },
-  1976: { Roma: 45, Venezia: 34, Palermo: 3 },
-  1977: { Roma: 10, Venezia: 32, Palermo: 16 },
-  1978: { Roma: 35, Venezia: 10, Palermo: 2 },
-  1979: { Roma: 10, Venezia: 5, Palermo: 10 },
 }
 
 const ITALY_COORDINATES = [12.5736108, 41.29246]
 
-const styleZoomControl = { position: "absolute", top: 80, right: 30, border: 'red' }
+const styleZoomControl = {
+  position: "absolute",
+  top: 80,
+  right: 30,
+  border: "red",
+}
 
 export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
-  const [year, setYear] = useState(1975)
+  const [year, setYear] = useState(1969)
 
   const toggleInfoTown = (town) => {
     setTown(town)
   }
-
-  console.log(year, "year")
 
   return (
     <div className="TempiELuoghi position-relative">
@@ -85,28 +75,33 @@ export default function TempiELuoghi() {
           scrollZoom={false}
           center={ITALY_COORDINATES}
         >
-          {points &&
-            points.map((point, index) => {
-              console.log(dataYears[year])
+          {cities &&
+            cities.map((citta, index) => {
+              const radiusTown = dataYearsTown[year][citta['citta']]
+                ? dataYearsTown[year][citta['citta']] * 7
+                : 0
+              const opacityCircle =
+                town && town === citta ? 0.7 : !town ? 0.4 : 0.2
+
+              const coords = [citta.coords[0]['longitude'],citta.coords[0]['latitude']]
+
+              console.log(coords,citta)
               return (
                 <Layer
                   key={`map-range-${index}`}
-                  onClick={() => toggleInfoTown(point)}
+                  onClick={() => toggleInfoTown(citta)}
                   type="circle"
                   id={"range" + index}
                   paint={{
-                    "circle-radius": dataYears[year][point.name]
-                      ? dataYears[year][point.name]
-                      : 0,
+                    "circle-radius": radiusTown,
                     "circle-color": "red",
-                    "circle-opacity":
-                      town && town === point ? 0.7 : !town ? 0.4 : 0.2,
+                    "circle-opacity": opacityCircle,
                     "circle-stroke-color": "#cc0000",
                     "circle-stroke-width": 0,
                     "circle-stroke-opacity": 1,
                   }}
                 >
-                  <Feature coordinates={point.coordinates} />
+                  <Feature coordinates={coords} />
                 </Layer>
               )
             })}
@@ -120,16 +115,14 @@ export default function TempiELuoghi() {
           <ZoomControl style={styleZoomControl} />
         </Map>
         <div className="d-flex">
-          <div
-            className="text-white p-3 border-right"
-          >
+          <div className="text-white p-3 border-right">
             Mostra luoghi di Incommon <br />
             <small>Mostra luoghi di sfondo</small>
           </div>
           <div className="p-4 mt-3 w-100">
             <Slider
               step={1}
-              min={1969}
+              min={1959}
               trackStyle={{ backgroundColor: "#242425" }}
               railStyle={{ backgroundColor: "#242425" }}
               max={1979}
@@ -137,14 +130,7 @@ export default function TempiELuoghi() {
               onChange={(value) => {
                 setYear(value)
               }}
-              marks={{
-                1969: "1969",
-                1971: "1971",
-                1973: "1973",
-                1975: "1975",
-                1977: "1977",
-                1979: "1979",
-              }}
+              marks={marks}
               dotStyle={{ display: "none" }}
               activeDotStyle={{
                 width: 20,

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import MenuTop from '../../components/MenuTop'
 import Viva from 'vivagraphjs'
-import network from './network.json'
+import network from '../../data/network-forma.json'
 import groupBy from 'lodash/groupBy'
 import uniqBy from 'lodash/uniqBy'
 import truncate from 'lodash/truncate'
@@ -243,7 +243,7 @@ export default function Forma() {
     const renderer = Viva.Graph.View.renderer(graph, {
       container: graphRef.current,
       graphics: graphics,
-      interactive: 'scroll,drag',
+      // interactive: 'scroll,drag',
     })
     var events = Viva.Graph.webglInputEvents(graphics, graph)
     events.click(function (node) {

@@ -27,8 +27,6 @@ export default function DettaglioSpettacolo() {
     return shuffle(allImages, RANDOM_SEED)
   }, [])
 
-  // console.log(images)
-
   return (
     <div className="DettaglioSpettacolo">
       <MenuTop />

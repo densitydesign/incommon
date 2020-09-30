@@ -41,3 +41,10 @@ body {
   color: white;
   /* z-index: 10; */
 }
+
+.node {
+  background-color: #00a2e8;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
