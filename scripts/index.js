@@ -26,11 +26,10 @@ async function parser() {
   const cities = uniq(compact(uniqBy(dataSet,'città_CORRETTA').map(d => d['città_CORRETTA'])))
   //const cityGeocoded = await geocodeCitiesWithRetry(geocoder, ['Bergamo'])
 
-  const newDataset = dataSet.map(data => {
-      
+  const newDataset = cities.map(data => {
       return (
       {
-          [data['città_CORRETTA']]: { cords: []}
+          [data]: { cords: []}
 
           //cords: cityGeocoded[data['città_CORRETTA']].value
       }
