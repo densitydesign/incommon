@@ -16,36 +16,26 @@ function writeJson(fileName, data){
 
 async function parser() {
   const geocoder = NodeGeocoder({
-    // provider: "openstreetmap",
-    provider: 'google',
-    apiKey: 'AIzaSyD7Chzl4Tw8wRHEymRtvzgzHx8B4yE7Zb4',
+    provider: "openstreetmap",
+    // provider: 'google',
+    // apiKey: 'AIzaSyD7Chzl4Tw8wRHEymRtvzgzHx8B4yE7Zb4',
   })
 
   const dataSet = readJson(path.join(__dirname,'/network-luoghi.json'))
 
   const cities = uniq(compact(uniqBy(dataSet,'città_CORRETTA').map(d => d['città_CORRETTA'])))
-  const cityGeocoded = await geocodeCitiesWithRetry(geocoder, ['Roma, Italia'])
-  console.log(JSON.stringify(cityGeocoded,null,2))
-
-  console.log(cityGeocoded)
-  //console.log(coordinate)
+  const cityGeocoded = await geocodeCitiesWithRetry(geocoder, cities)
 
   const newDataset = dataSet.map(data => {
       
       return (
       {
           ...data,
-          cords: cityGeocoded[data['città_CORRETTA']],
+          cords: cityGeocoded[data['città_CORRETTA']].value
       }
   )})
 
-  console.log(newDataset)
-
-  //writeJson(path.join(__dirname,'/network-luoghi_2.json'), newDataset)
-
-//   const cities = uniq(compact(["Palermo", "Olginate", "Ballabio"]))
-//   const cityGeocoded = await geocodeCitiesWithRetry(geocoder, cities)
-//   console.log(JSON.stringify(cityGeocoded,null,2))
+  writeJson(path.join(__dirname,'/network-luoghi.json'), newDataset)
 }
 
 parser()
