@@ -4,6 +4,7 @@ const reduce = require('lodash/reduce')
 const geocodeCities = (geocoder, cities) => {
   return new Promise((resolve, reject) => {
     geocoder.batchGeocode(cities, (err, results) => {
+      console.log(results,err)
       if (err) {
         return reject(err)
       }
@@ -43,7 +44,7 @@ const geocodeCities = (geocoder, cities) => {
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time))
 
-module.exports.geocodeCitiesWithRetry = async (geocoder, cities, retryTimes = 10) => {
+module.exports.geocodeCitiesWithRetry = async (geocoder, cities, retryTimes = 2) => {
   let times = 0
   let all = {}
   let geoCities = [...cities]

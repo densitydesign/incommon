@@ -24,18 +24,19 @@ async function parser() {
   const dataSet = readJson(path.join(__dirname,'/network-luoghi.json'))
 
   const cities = uniq(compact(uniqBy(dataSet,'città_CORRETTA').map(d => d['città_CORRETTA'])))
-  const cityGeocoded = await geocodeCitiesWithRetry(geocoder, cities)
+  //const cityGeocoded = await geocodeCitiesWithRetry(geocoder, ['Bergamo'])
 
   const newDataset = dataSet.map(data => {
       
       return (
       {
-          ...data,
-          cords: cityGeocoded[data['città_CORRETTA']].value
+          [data['città_CORRETTA']]: { cords: []}
+
+          //cords: cityGeocoded[data['città_CORRETTA']].value
       }
   )})
 
-  writeJson(path.join(__dirname,'/network-luoghi.json'), newDataset)
+  writeJson(path.join(__dirname,'/luoghi.json'), newDataset)
 }
 
 parser()
