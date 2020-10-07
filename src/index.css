@@ -48,3 +48,7 @@ body {
   height: 10px;
   position: absolute;
 }
+
+.medium-font {
+  font-weight: medium;
+}
