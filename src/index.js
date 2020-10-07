@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import rjLogger from 'react-rocketjump/logger'
+
+rjLogger()
 
 ReactDOM.render(
   <React.StrictMode>
