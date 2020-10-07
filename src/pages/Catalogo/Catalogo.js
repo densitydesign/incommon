@@ -132,6 +132,13 @@ export default function Catalogo() {
   const reset = () => {
     setQueryParams({
       tipologia: undefined,
+      spettacolo: undefined,
+      luogo: undefined,
+      anno: undefined,
+      citta: undefined,
+      rivista: undefined,
+      compagnia: undefined,
+      persona: undefined,
     })
     setPage(1)
   }
@@ -140,7 +147,7 @@ export default function Catalogo() {
     <div className="Catalogo">
       <MenuTop />
       <div className="d-flex">
-        <div className="block-filters">
+        <div className="block-filters position-sticky">
           <div className="d-flex">
             <div
               className="raggruppa-button pointer w-50"
