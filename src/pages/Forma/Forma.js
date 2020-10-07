@@ -9,7 +9,7 @@ import truncate from 'lodash/truncate'
 const eventi = uniqBy(network, 'Evento')
 const attori = uniqBy(network, 'Attore')
 const eventiWithAttori = groupBy(network, 'Evento')
-console.log('X', eventi, attori, eventiWithAttori)
+// console.log('X', eventi, attori, eventiWithAttori)
 // console.log('U.u', )
 
 const graph = Viva.Graph.graph()

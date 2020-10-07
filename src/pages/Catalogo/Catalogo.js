@@ -1,30 +1,48 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
-import { qpInt } from 'magik-react-hooks/qpUtils'
 import { Link } from 'react-router-dom'
 import MenuTop from '../../components/MenuTop'
 import FiltersCatalogo from '../../components/FiltersCatalogo'
 import './Catalogo.css'
 import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 import DocumentCatalogItem from '../../components/DocumentCatalogItem'
+import { qpList } from '../../utils'
 
-const params = {
-  page: 1,
-}
 export default function Catalogo() {
-  const [{ documents, hasNext, count }] = useDocuments(params)
   const [{ countInfo }] = useDocumentsCount()
 
-  const [{ page }, setQueryParams] = useQueryParams({
-    page: qpInt(),
+  const [page, setPage] = useState(1)
+  const [queryParams, setQueryParams] = useQueryParams({
+    tipologia: qpList(),
   })
-  console.log('P', page)
+
+  const filters = useMemo(
+    () => ({
+      ...queryParams,
+      page,
+    }),
+    [page, queryParams]
+  )
+
+  const [{ documents, hasNext, count }] = useDocuments(filters)
 
   const [isCollapsed, setCollapsed] = useState(false)
 
   const toggleCollapseDocuments = useCallback(() => {
-    setCollapsed(collapse => !collapse)
+    setCollapsed((collapse) => !collapse)
   }, [])
+
+  const addFilter = (name, value) => {
+    setQueryParams({ [name]: (queryParams[name] ?? []).concat(value) })
+    setPage(1)
+  }
+
+  const removeFilter = (name, value) => {
+    setQueryParams({
+      [name]: (queryParams[name] ?? []).filter((a) => a !== value),
+    })
+    setPage(1)
+  }
 
   return (
     <div className="Catalogo">
@@ -32,7 +50,12 @@ export default function Catalogo() {
       <div className="d-flex">
         <div className="block-filters">
           <div className="d-flex">
-            <div className="raggruppa-button" onClick={() => toggleCollapseDocuments()}>raggruppa i fascicoli</div>
+            <div
+              className="raggruppa-button"
+              onClick={() => toggleCollapseDocuments()}
+            >
+              raggruppa i fascicoli
+            </div>
             <div className="reset-filtri">cancella i filtri</div>
           </div>
           <div className="count-documents">
@@ -40,16 +63,29 @@ export default function Catalogo() {
               <>
                 <span className="medium-font font-weight-bold mr-2">
                   {count} / {countInfo.count}
-                </span>{" "}
+                </span>{' '}
                 documenti
               </>
             )}
           </div>
+          {(filters.tipologia ?? []).map((tipolgia) => (
+            <span
+              onClick={() => removeFilter('tipologia', tipolgia)}
+              className="mr-3"
+              key={tipolgia}
+            >
+              {tipolgia}
+            </span>
+          ))}
           <div className="container">
-            <FiltersCatalogo />
+            <FiltersCatalogo
+              countBy={countInfo?.countBy ?? {}}
+              filters={filters}
+              addFilter={addFilter}
+            />
           </div>
         </div>
-        <div className='block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap'>
+        <div className="block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap">
           {documents &&
             documents.map((document, index) => (
               <DocumentCatalogItem key={index} document={document} />
