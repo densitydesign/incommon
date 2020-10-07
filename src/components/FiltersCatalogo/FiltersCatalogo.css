@@ -70,7 +70,7 @@
 }
 
 .micro-filters{
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 15px;
   padding: 10px;
   width: 100%;
@@ -79,6 +79,14 @@
         -ms-animation: fadein 0.4s; /* Internet Explorer */
          -o-animation: fadein 0.4s; /* Opera < 12.1 */
             animation: fadein 0.4s;
+}
+
+.item-micro-filter{
+  margin-bottom: 10px;
+}
+
+.name-micro-filter{
+  width: 200px;
 }
 
 .item-micro-filter:hover:before
