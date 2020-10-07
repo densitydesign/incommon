@@ -43,16 +43,28 @@ export default function Catalogo() {
     setPage(1)
   }
 
+  const reset = () => {
+    setQueryParams({
+      tipologia: undefined,
+    })
+    setPage(1)
+  }
+
   return (
     <div className="Catalogo">
       <MenuTop />
       <div className="d-flex">
         <div className="block-filters">
           <div className="d-flex">
-            <div className="raggruppa-button pointer w-50" onClick={() => toggleCollapseDocuments()}>
+            <div
+              className="raggruppa-button pointer w-50"
+              onClick={() => toggleCollapseDocuments()}
+            >
               {isCollapsed ? 'separa i fascicoli' : 'raggruppa i fascicoli'}
             </div>
-            <div className="reset-filtri w-50">cancella i filtri</div>
+            <div onClick={() => reset()} className="reset-filtri w-50 pointer">
+              cancella i filtri
+            </div>
           </div>
           <div className="count-documents">
             {count && countInfo && (
@@ -81,10 +93,14 @@ export default function Catalogo() {
             />
           </div>
         </div>
-        <div className='block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap position-relative'>
+        <div className="block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap position-relative">
           {documents &&
             documents.map((document, index) => (
-              <DocumentCatalogItem isCollapsed={isCollapsed} key={index} document={document} />
+              <DocumentCatalogItem
+                isCollapsed={isCollapsed}
+                key={index}
+                document={document}
+              />
             ))}
         </div>
       </div>
