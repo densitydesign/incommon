@@ -1,8 +1,9 @@
 .raggruppa-button{
-  padding: 20px;
+  padding: 20px 15px 20px 15px;
   border-right: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
-  font-size: 15px;
+  font-size: 14px;
+  letter-spacing: 0.45px;
 }
 
 .count-documents{

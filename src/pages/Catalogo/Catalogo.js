@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
-import { Link } from 'react-router-dom'
 import MenuTop from '../../components/MenuTop'
 import FiltersCatalogo from '../../components/FiltersCatalogo'
 import './Catalogo.css'
@@ -50,13 +49,10 @@ export default function Catalogo() {
       <div className="d-flex">
         <div className="block-filters">
           <div className="d-flex">
-            <div
-              className="raggruppa-button"
-              onClick={() => toggleCollapseDocuments()}
-            >
-              raggruppa i fascicoli
+            <div className="raggruppa-button pointer w-50" onClick={() => toggleCollapseDocuments()}>
+              {isCollapsed ? 'separa i fascicoli' : 'raggruppa i fascicoli'}
             </div>
-            <div className="reset-filtri">cancella i filtri</div>
+            <div className="reset-filtri w-50">cancella i filtri</div>
           </div>
           <div className="count-documents">
             {count && countInfo && (
@@ -85,10 +81,10 @@ export default function Catalogo() {
             />
           </div>
         </div>
-        <div className="block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap">
+        <div className='block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap position-relative'>
           {documents &&
             documents.map((document, index) => (
-              <DocumentCatalogItem key={index} document={document} />
+              <DocumentCatalogItem isCollapsed={isCollapsed} key={index} document={document} />
             ))}
         </div>
       </div>
