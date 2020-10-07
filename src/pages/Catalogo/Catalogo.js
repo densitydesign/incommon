@@ -1,26 +1,61 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
+import useDebounce from 'magik-react-hooks/useDebounce'
 import MenuTop from '../../components/MenuTop'
 import FiltersCatalogo from '../../components/FiltersCatalogo'
 import './Catalogo.css'
 import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 import DocumentCatalogItem from '../../components/DocumentCatalogItem'
-import { qpList } from '../../utils'
+import {
+  qpList,
+  useMemoShallowList,
+  useDebounceCallback,
+} from '../../utils'
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
 
-  const [page, setPage] = useState(1)
   const [queryParams, setQueryParams] = useQueryParams({
     tipologia: qpList(),
   })
+  const { search = '' } = queryParams
+
+  const tipologia = useMemoShallowList(queryParams.tipologia)
+
+  // console.log('X', tipologia)
+
+  useEffect(() => {
+    console.log('TIPOLOGIA CHANGED!')
+  }, [tipologia])
+
+  const [{ page, filterSearch }, setLocalParams] = useState({
+    page: 1,
+    filterSearch: search,
+  })
+
+  const setPage = useCallback((page) => {
+    setLocalParams((params) => ({ ...params, page }))
+  }, [])
+
+  const debouncedSearch = useDebounceCallback((filterSearch) => {
+    console.log('DEBOUNCED!', filterSearch)
+    setLocalParams({ filterSearch, page: 1 })
+  }, 250)
+  const handleSearch = (e) => {
+    const search = e.target.value
+    debouncedSearch(search)
+    setQueryParams({ search })
+  }
+
+  // const debouncedSearch = useDebounce(search, 200)
 
   const filters = useMemo(
     () => ({
-      ...queryParams,
+      q: filterSearch,
+      tipologia,
       page,
     }),
-    [page, queryParams]
+    [page, filterSearch, tipologia]
   )
 
   const [{ documents, hasNext, count }] = useDocuments(filters)
@@ -46,8 +81,9 @@ export default function Catalogo() {
   const reset = () => {
     setQueryParams({
       tipologia: undefined,
+      search: undefined,
     })
-    setPage(1)
+    setLocalParams({ page: 1, search: '' })
   }
 
   return (
@@ -66,6 +102,7 @@ export default function Catalogo() {
               cancella i filtri
             </div>
           </div>
+          <button onClick={() => setPage(2)}>X</button>
           <div className="count-documents">
             {count && countInfo && (
               <>
@@ -76,15 +113,18 @@ export default function Catalogo() {
               </>
             )}
           </div>
-          {(filters.tipologia ?? []).map((tipolgia) => (
+          {(filters.tipologia ?? []).map((tipologia) => (
             <span
-              onClick={() => removeFilter('tipologia', tipolgia)}
+              onClick={() => removeFilter('tipologia', tipologia)}
               className="mr-3"
-              key={tipolgia}
+              key={tipologia}
             >
-              {tipolgia}
+              {tipologia}
             </span>
           ))}
+          <div className="search-filter">
+            <input type="search" value={search} onChange={handleSearch} />
+          </div>
           <div className="container">
             <FiltersCatalogo
               countBy={countInfo?.countBy ?? {}}

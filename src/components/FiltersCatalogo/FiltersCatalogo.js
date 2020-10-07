@@ -58,7 +58,6 @@ export default function FiltersCatalogo({ countBy, filters, addFilter }) {
 
   return (
     <div className="filters position-sticky">
-      <div className="search-filter">Cerca</div>
       <div className="item-filter">
         <span className="pointer" onClick={() => toggleFilterOpen('tipologia')}>
           <span>
