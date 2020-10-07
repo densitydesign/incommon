@@ -1,21 +1,64 @@
-import React, { useMemo, useState } from 'react'
-import classnames from 'classnames'
-import DatePicker, { registerLocale } from 'react-datepicker'
-import orderBy from 'lodash/orderBy'
-import it from 'date-fns/locale/it'
-import 'react-datepicker/dist/react-datepicker.css'
-import './FiltersCatalogo.css'
+import React, { useMemo, useState } from "react"
+import classnames from "classnames"
+import DatePicker, { registerLocale } from "react-datepicker"
+import orderBy from "lodash/orderBy"
+import it from "date-fns/locale/it"
+import "react-datepicker/dist/react-datepicker.css"
+import "./FiltersCatalogo.css"
 
-registerLocale('it', it)
+registerLocale("it", it)
 
-const MicroFilter = ({ name, count, onClick }) => {
+const ItemFilter = ({
+  toggleFilterOpen,
+  filterOpen,
+  countBy,
+  name,
+  filters,
+  addFilter,
+}) => {
+  return (
+    <div className="item-filter">
+      <span className="pointer" onClick={() => toggleFilterOpen(name)}>
+        <span>
+          <img
+            className={classnames({
+              "rotate-show-hide": filterOpen === name,
+            })}
+            src={"/show-hide.svg"}
+            alt="Show Hide"
+          />
+        </span>
+        <span className="ml-3 pointer text-capitalize">{name}</span>
+      </span>
+      {filterOpen === name && (
+        <MicroFilters
+          countBy={countBy}
+          filters={filters}
+          addFilter={addFilter}
+          name={name}
+        />
+      )}
+    </div>
+  )
+}
+
+const MicroFilter = ({ name, count, onClick, filterName }) => {
   return (
     <div className="item-micro-filter d-flex">
       <div
         className="d-flex w-100 pointer justify-content-between"
         onClick={onClick}
       >
-        <div>{name}</div>
+        {name === "null" ? (
+          <div>
+            <i>
+              <span className="text-capitalize">{filterName}</span> non
+              associato
+            </i>
+          </div>
+        ) : (
+          <div className="name-micro-filter">{name}</div>
+        )}
         <div>{count}</div>
       </div>
     </div>
@@ -29,19 +72,24 @@ const MicroFilters = ({ countBy, filters, name, addFilter }) => {
   const showCounts = useMemo(() => {
     return orderBy(
       counts.filter((c) => !values.includes(c.name)),
-      'count',
-      'desc'
+      "count",
+      "desc"
     )
   }, [counts, values])
 
-  return showCounts.map((c) => (
-    <MicroFilter
-      onClick={() => addFilter(name, c.name)}
-      key={c.name}
-      name={c.name}
-      count={c.count}
-    />
-  ))
+  return (
+    <div className="micro-filters">
+      {showCounts.map((c) => (
+        <MicroFilter
+          onClick={() => addFilter(name, c.name)}
+          key={c.name}
+          name={c.name}
+          filterName={name}
+          count={c.count}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default function FiltersCatalogo({ countBy, filters, addFilter }) {
@@ -59,116 +107,96 @@ export default function FiltersCatalogo({ countBy, filters, addFilter }) {
   return (
     <div className="filters position-sticky">
       <div className="search-filter">Cerca</div>
+      <ItemFilter
+        name="tipologia"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="spettacolo"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="luogo"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="citta"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
       <div className="item-filter">
-        <span className="pointer" onClick={() => toggleFilterOpen('tipologia')}>
+        <span className="pointer" onClick={() => toggleFilterOpen("data")}>
           <span>
             <img
               className={classnames({
-                'rotate-show-hide': filterOpen === 'tipologia',
+                "rotate-show-hide": filterOpen === "data",
               })}
-              src={'/show-hide.svg'}
-              alt="Show Hide"
-            />
-          </span>
-          <span className="ml-3 pointer">Tipologia</span>
-        </span>
-        {filterOpen === 'tipologia' && (
-          <div className="micro-filters">
-            <MicroFilters
-              countBy={countBy}
-              filters={filters}
-              addFilter={addFilter}
-              name="tipologia"
-            />
-          </div>
-        )}
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Evento</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Spettacolo</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Luogo</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Città</span>
-      </div>
-      <div className="item-filter">
-        <span className="pointer" onClick={() => toggleFilterOpen('data')}>
-          <span>
-            <img
-              className={classnames({
-                'rotate-show-hide': filterOpen === 'data',
-              })}
-              src={'/show-hide.svg'}
+              src={"/show-hide.svg"}
               alt="Show Hide"
             />
           </span>
           <span className="ml-3 pointer">Data</span>
         </span>
-        {filterOpen === 'data' && (
+        {filterOpen === "data" && (
           <div className="micro-filters">
             <DatePicker
               minDate={new Date(1959, 1, 1)}
               inline
               locale="it"
-              popperClassName={'datepicker-filter'}
+              popperClassName={"datepicker-filter"}
               selected={startDate}
               onChange={(date) => setStartDate(date)}
             />
           </div>
         )}
       </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Anno</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Persona</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Compagnia</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Organizzazione</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Rivista</span>
-      </div>
-      <div className="item-filter">
-        <span>
-          <img src={'/show-hide.svg'} alt="Show Hide" />
-        </span>
-        <span className="ml-3">Provenienza</span>
-      </div>
+      <ItemFilter
+        name="anno"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="persona"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="compagnia"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
+        name="rivista"
+        addFilter={addFilter}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
     </div>
   )
 }
