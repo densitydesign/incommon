@@ -4,7 +4,7 @@ import MenuTop from '../../components/MenuTop'
 import FiltersCatalogo from '../../components/FiltersCatalogo'
 import preval from 'preval.macro'
 import './Catalogo.css'
-import { useDocuments } from '../../hooks/documents'
+import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 
 const params = {
   page: 1,
@@ -13,6 +13,9 @@ export default function Catalogo() {
 
   const [{ documents, hasNext, count }] = useDocuments(params)
   console.log(documents, hasNext, count)
+
+  const [{ countInfo }] = useDocumentsCount()
+  console.log(countInfo)
 
   const images = preval`
     const fs = require('fs')
