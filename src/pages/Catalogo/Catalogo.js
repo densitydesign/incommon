@@ -1,17 +1,17 @@
-import React, { useCallback, useMemo, useState } from "react"
-import useQueryParams from "magik-react-hooks/useRouterQueryParams"
-import MenuTop from "../../components/MenuTop"
-import FiltersCatalogo from "../../components/FiltersCatalogo"
-import "./Catalogo.css"
-import { useDocuments, useDocumentsCount } from "../../hooks/documents"
-import DocumentCatalogItem from "../../components/DocumentCatalogItem"
-import { qpList } from "../../utils"
-import FiltersCatalogoActive from "../../components/FiltersCatalogoActive/FiltersCatalogoActive"
+import React, { useCallback, useMemo, useState } from 'react'
+import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
+import MenuTop from '../../components/MenuTop'
+import FiltersCatalogo from '../../components/FiltersCatalogo'
+import './Catalogo.css'
+import { useDocuments, useDocumentsCount } from '../../hooks/documents'
+import DocumentCatalogItem from '../../components/DocumentCatalogItem'
+import { qpList, useDebounceCallback, useMemoShallowList } from '../../utils'
+import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
 
-  const [page, setPage] = useState(1)
+  // TODO: IMPROVE THIS!
   const [queryParams, setQueryParams] = useQueryParams({
     tipologia: qpList(),
     spettacolo: qpList(),
@@ -22,13 +22,61 @@ export default function Catalogo() {
     rivista: qpList(),
     compagnia: qpList(),
   })
+  const { search = '' } = queryParams
+
+  const tipologia = useMemoShallowList(queryParams.tipologia)
+  const spettacolo = useMemoShallowList(queryParams.spettacolo)
+  const luogo = useMemoShallowList(queryParams.luogo)
+  const citta = useMemoShallowList(queryParams.citta)
+  const persona = useMemoShallowList(queryParams.persona)
+  const anno = useMemoShallowList(queryParams.anno)
+  const rivista = useMemoShallowList(queryParams.rivista)
+  const campagna = useMemoShallowList(queryParams.campagna)
+
+  const [{ page, filterSearch }, setLocalParams] = useState({
+    page: 1,
+    filterSearch: search,
+  })
+
+  const setPage = useCallback((page) => {
+    setLocalParams((params) => ({ ...params, page }))
+  }, [])
+
+  const debouncedSearch = useDebounceCallback((filterSearch) => {
+    setLocalParams({ filterSearch, page: 1 })
+  }, 250)
+
+  const handleSearch = (e) => {
+    const search = e.target.value
+    debouncedSearch(search)
+    setQueryParams({ search })
+  }
 
   const filters = useMemo(
     () => ({
-      ...queryParams,
+      q: filterSearch,
+      tipologia,
+      spettacolo,
+      luogo,
+      citta,
+      persona,
+      anno,
+      rivista,
+      campagna,
       page,
     }),
-    [page, queryParams]
+    [
+      filterSearch,
+      tipologia,
+      spettacolo,
+      luogo,
+      citta,
+      persona,
+      anno,
+      rivista,
+      campagna,
+      page,
+    ]
   )
 
   const [{ documents, hasNext, count }] = useDocuments(filters)
@@ -61,8 +109,9 @@ export default function Catalogo() {
       rivista: undefined,
       compagnia: undefined,
       persona: undefined,
+      search: undefined,
     })
-    setPage(1)
+    setLocalParams({ page: 1, search: '' })
   }
 
   return (
@@ -95,8 +144,23 @@ export default function Catalogo() {
                 </>
               )}
             </div>
-            <FiltersCatalogoActive
-              removeFilter={removeFilter}
+          </div>
+          <button onClick={() => setPage(2)}>X</button>
+          <input type='text' value={search} onChange={handleSearch} />
+          <div className="count-documents">
+            {count && countInfo && (
+              <>
+                <span className="medium-font font-weight-bold mr-2">
+                  {count} / {countInfo.count}
+                </span>{' '}
+                documenti
+              </>
+            )}
+          </div>
+          <FiltersCatalogoActive removeFilter={removeFilter} filters={filters} />
+          <div className="container">
+            <FiltersCatalogo
+              countBy={countInfo?.countBy ?? {}}
               filters={filters}
             />
           </div>
