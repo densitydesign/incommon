@@ -96,27 +96,11 @@ export default function Catalogo() {
               )}
             </div>
           </div>
-          <input type="text" value={search} onChange={handleSearch} />
-          <div className="count-documents">
-            {count && countInfo && (
-              <>
-                <span className="medium-font font-weight-bold mr-2">
-                  {count} / {countInfo.count}
-                </span>{' '}
-                documenti
-              </>
-            )}
-          </div>
+          <input type='text' value={search} onChange={handleSearch} />
           <FiltersCatalogoActive
             removeFilter={removeFilter}
             filters={debQueryParams}
-          />
-          <div className="container">
-            <FiltersCatalogo
-              countBy={countInfo?.countBy ?? {}}
-              filters={debQueryParams}
             />
-          </div>
           <FiltersCatalogo
             countBy={countInfo?.countBy ?? {}}
             filters={debQueryParams}
