@@ -20,8 +20,14 @@
 .filters {
   font-size: 18px;
   padding: 24px;
-  overflow: auto;
   height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.filters::-webkit-scrollbar{
+  display: none;
 }
 
 .search-filter {
@@ -32,11 +38,19 @@
 }
 
 .filters-active {
-  min-height: 80px;
   padding-left: 20px;
   padding-right: 20px;
+  height: 70px;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
   align-content: flex-start;
 }
+
+.filters-active::-webkit-scrollbar{
+  display: none;
+}
+
 
 .filters-active > span {
   border: 1px solid #fff;
@@ -49,9 +63,15 @@
   margin-bottom: 10px;
 }
 
+.block-filters{
+  width: 25%;
+  border-right: 0.5px solid #555555;
+  padding-bottom: 30px;
+}
+
 .block-catalogo {
+  width: 75%;
   overflow: auto;
-  height: calc(100vh - 59px);
   align-content: flex-start;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */

@@ -69,8 +69,8 @@ export default function Catalogo() {
     <div className="Catalogo">
       <MenuTop />
       <div className="d-flex page">
-        <div className="block-filters">
-          <div className="position-sticky">
+        <div className="block-filters position-sticky">
+          <div className="">
             <div className="d-flex">
               <div
                 className="raggruppa-button pointer w-50"
@@ -108,7 +108,7 @@ export default function Catalogo() {
             search={search}
           />
         </div>
-        <div className="block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap">
+        <div className="block-catalogo  overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
           {documents &&
             documents.map((document, index) => (
               <DocumentCatalogItem

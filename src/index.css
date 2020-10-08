@@ -9,6 +9,10 @@ body {
   line-height: 1.4em;
 }
 
+/* ::-webkit-scrollbar{
+  display: none;
+} */
+
 .pointer {
   cursor: pointer;
 }
@@ -54,5 +58,6 @@ body {
 }
 
 .page{
-  padding-top: 57px;
+  overflow: hidden;
+  height: calc(100vh - 59px);
 }

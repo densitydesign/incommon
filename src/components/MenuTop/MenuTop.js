@@ -4,7 +4,7 @@ import './MenuTop.css'
 
 export default function MenuTop(){
   return (
-    <div className='menu-top d-flex justify-content-between align-items-center position-fixed'>
+    <div className='menu-top d-flex justify-content-between align-items-center'>
       <div className='d-flex align-items-center'>
         <div>
           <Link to={'/'}><img src='/in-common.svg' alt='INCOMMON' height='57' /></Link>
