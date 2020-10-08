@@ -1,11 +1,11 @@
-import React, { useCallback, useMemo, useState } from 'react'
-import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
+import React, { useCallback, useState } from 'react'
+import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
+import { qpList } from 'magik-react-hooks/qpUtils'
 import MenuTop from '../../components/MenuTop'
 import FiltersCatalogo from '../../components/FiltersCatalogo'
 import './Catalogo.css'
 import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 import DocumentCatalogItem from '../../components/DocumentCatalogItem'
-import { qpList, useDebounceCallback, useMemoShallowList } from '../../utils'
 
 const FiltersActive = ({ filters, removeFilter }) => {
   return (
@@ -89,8 +89,12 @@ const FiltersActive = ({ filters, removeFilter }) => {
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
 
-  // TODO: IMPROVE THIS!
-  const [queryParams, setQueryParams] = useQueryParams({
+  const [
+    queryParams,
+    setQueryParams,
+    debQueryParams,
+    setDebQueryParams,
+  ] = useDebounceQueryParams({
     tipologia: qpList(),
     spettacolo: qpList(),
     luogo: qpList(),
@@ -100,64 +104,14 @@ export default function Catalogo() {
     rivista: qpList(),
     compagnia: qpList(),
   })
+
   const { search = '' } = queryParams
-
-  const tipologia = useMemoShallowList(queryParams.tipologia)
-  const spettacolo = useMemoShallowList(queryParams.spettacolo)
-  const luogo = useMemoShallowList(queryParams.luogo)
-  const citta = useMemoShallowList(queryParams.citta)
-  const persona = useMemoShallowList(queryParams.persona)
-  const anno = useMemoShallowList(queryParams.anno)
-  const rivista = useMemoShallowList(queryParams.rivista)
-  const campagna = useMemoShallowList(queryParams.campagna)
-
-  const [{ page, filterSearch }, setLocalParams] = useState({
-    page: 1,
-    filterSearch: search,
-  })
-
-  const setPage = useCallback((page) => {
-    setLocalParams((params) => ({ ...params, page }))
-  }, [])
-
-  const debouncedSearch = useDebounceCallback((filterSearch) => {
-    setLocalParams({ filterSearch, page: 1 })
-  }, 250)
-
   const handleSearch = (e) => {
     const search = e.target.value
-    debouncedSearch(search)
-    setQueryParams({ search })
+    setDebQueryParams({ search, page: 1 })
   }
 
-  const filters = useMemo(
-    () => ({
-      q: filterSearch,
-      tipologia,
-      spettacolo,
-      luogo,
-      citta,
-      persona,
-      anno,
-      rivista,
-      campagna,
-      page,
-    }),
-    [
-      filterSearch,
-      tipologia,
-      spettacolo,
-      luogo,
-      citta,
-      persona,
-      anno,
-      rivista,
-      campagna,
-      page,
-    ]
-  )
-
-  const [{ documents, hasNext, count }] = useDocuments(filters)
+  const [{ documents, hasNext, count }] = useDocuments(debQueryParams)
 
   const [isCollapsed, setCollapsed] = useState(false)
 
@@ -165,31 +119,22 @@ export default function Catalogo() {
     setCollapsed((collapse) => !collapse)
   }, [])
 
-  const addFilter = (name, value) => {
-    setQueryParams({ [name]: (queryParams[name] ?? []).concat(value) })
-    setPage(1)
-  }
+  const addFilter = useCallback((name, value) => {
+    setQueryParams(queryParams => ({
+      ...queryParams,
+      [name]: (queryParams[name] ?? []).concat(value)
+    }))
+  }, [setQueryParams])
 
-  const removeFilter = (name, value) => {
-    setQueryParams({
+  const removeFilter = useCallback((name, value) => {
+    setQueryParams(queryParams => ({
+      ...queryParams,
       [name]: (queryParams[name] ?? []).filter((a) => a !== value),
-    })
-    setPage(1)
-  }
+    }))
+  }, [setQueryParams])
 
   const reset = () => {
-    setQueryParams({
-      tipologia: undefined,
-      spettacolo: undefined,
-      luogo: undefined,
-      anno: undefined,
-      citta: undefined,
-      rivista: undefined,
-      compagnia: undefined,
-      persona: undefined,
-      search: undefined,
-    })
-    setLocalParams({ page: 1, search: '' })
+    setQueryParams(() => ({}))
   }
 
   return (
@@ -208,8 +153,7 @@ export default function Catalogo() {
               cancella i filtri
             </div>
           </div>
-          <button onClick={() => setPage(2)}>X</button>
-          <input type='text' value={search} onChange={handleSearch} />
+          <input type="text" value={search} onChange={handleSearch} />
           <div className="count-documents">
             {count && countInfo && (
               <>
@@ -220,11 +164,14 @@ export default function Catalogo() {
               </>
             )}
           </div>
-          <FiltersActive removeFilter={removeFilter} filters={filters} />
+          <FiltersActive
+            removeFilter={removeFilter}
+            filters={debQueryParams}
+          />
           <div className="container">
             <FiltersCatalogo
               countBy={countInfo?.countBy ?? {}}
-              filters={filters}
+              filters={debQueryParams}
               addFilter={addFilter}
             />
           </div>

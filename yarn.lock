@@ -6897,10 +6897,10 @@ magik-api@^0.1.1:
     rxjs "^6.6.3"
     tslib "^2.0.1"
 
-magik-react-hooks@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/magik-react-hooks/-/magik-react-hooks-2.1.0.tgz#130852386c80d8c91665c52f10556200714a45d8"
-  integrity sha512-jTnvMZcryUhKsQhoF+6VtJvDMBIuQ6Lkq0EXRP4VBhNQAjrzbp5pXmybP6/jtlvHYOmeIKrVHjXY31AnMy3scA==
+magik-react-hooks@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/magik-react-hooks/-/magik-react-hooks-2.2.0.tgz#911e50ec51627a403658143343770ddbbf0634a2"
+  integrity sha512-QeXZ9UFL7Pc7mCCJk7IvR3o1AzNxzWiifn066A8sSN0jGHmdLJyJYSkAWJjHBYVrmMFmK2IcnjAi1cHuEOtRyw==
   dependencies:
     lodash.isequal "^4.5.0"
     memoize-one "^5.0.5"

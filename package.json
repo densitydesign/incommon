@@ -12,7 +12,7 @@
     "d3-random": "^2.2.2",
     "lodash": "^4.17.20",
     "magik-api": "^0.1.1",
-    "magik-react-hooks": "^2.1.0",
+    "magik-react-hooks": "^2.2.0",
     "mapbox-gl": "^1.12.0",
     "preval.macro": "^5.0.0",
     "rc-slider": "^9.5.1",
