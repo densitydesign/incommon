@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import useQueryParams from 'magik-react-hooks/useRouterQueryParams'
 import MenuTop from '../../components/MenuTop'
-import FiltersCatalogo from '../../components/FiltersCatalogo'
+import FiltersCatalogo from '../../components/Catalogo/FiltersCatalogo'
 import './Catalogo.css'
 import { useDocuments, useDocumentsCount } from '../../hooks/documents'
-import DocumentCatalogItem from '../../components/DocumentCatalogItem'
+import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
 import { qpList, useDebounceCallback, useMemoShallowList } from '../../utils'
 import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
 
