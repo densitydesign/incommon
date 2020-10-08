@@ -60,3 +60,17 @@
 .block-catalogo::-webkit-scrollbar{
   display: none;
 }
+
+.search-input{
+  background-color: #000;
+  border: none;
+  color: #FFF;
+}
+
+input::placeholder{
+  color: #FFF;
+}
+
+input:focus {
+  outline: none !important;
+}

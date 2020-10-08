@@ -92,7 +92,13 @@ const MicroFilters = ({ countBy, filters, name, addFilter }) => {
   )
 }
 
-export default function FiltersCatalogo({ countBy, filters, addFilter }) {
+export default function FiltersCatalogo({
+  countBy,
+  filters,
+  addFilter,
+  handleSearch,
+  search,
+}) {
   const [filterOpen, setFilterOpen] = useState(null)
   const [startDate, setStartDate] = useState(null)
 
@@ -106,7 +112,15 @@ export default function FiltersCatalogo({ countBy, filters, addFilter }) {
 
   return (
     <div className="filters">
-      <div className="search-filter">Cerca</div>
+      <div className="search-filter">
+        <input
+          className="search-input"
+          placeholder="Cerca"
+          type="text"
+          value={search}
+          onChange={handleSearch}
+        />
+      </div>
       <ItemFilter
         name="tipologia"
         addFilter={addFilter}

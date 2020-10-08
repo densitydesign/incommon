@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from 'react'
-import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
-import { qpList } from 'magik-react-hooks/qpUtils'
-import MenuTop from '../../components/MenuTop'
-import FiltersCatalogo from '../../components/Catalogo/FiltersCatalogo'
-import './Catalogo.css'
-import { useDocuments, useDocumentsCount } from '../../hooks/documents'
-import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
-import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
+import React, { useCallback, useState } from "react"
+import useDebounceQueryParams from "magik-react-hooks/useRouterDebounceQueryParams"
+import { qpList } from "magik-react-hooks/qpUtils"
+import MenuTop from "../../components/MenuTop"
+import FiltersCatalogo from "../../components/Catalogo/FiltersCatalogo"
+import "./Catalogo.css"
+import { useDocuments, useDocumentsCount } from "../../hooks/documents"
+import DocumentCatalogItem from "../../components/Catalogo/DocumentCatalogItem"
+import FiltersCatalogoActive from "../../components/Catalogo/FiltersCatalogoActive"
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
@@ -27,7 +27,7 @@ export default function Catalogo() {
     compagnia: qpList(),
   })
 
-  const { search = '' } = queryParams
+  const { search = "" } = queryParams
   const handleSearch = (e) => {
     const search = e.target.value
     setDebQueryParams({ search, page: 1 })
@@ -76,7 +76,7 @@ export default function Catalogo() {
                 className="raggruppa-button pointer w-50"
                 onClick={() => toggleCollapseDocuments()}
               >
-                {isCollapsed ? 'separa i fascicoli' : 'raggruppa i fascicoli'}
+                {isCollapsed ? "separa i fascicoli" : "raggruppa i fascicoli"}
               </div>
               <div
                 onClick={() => reset()}
@@ -90,21 +90,22 @@ export default function Catalogo() {
                 <>
                   <span className="medium-font font-weight-bold mr-2">
                     {count} / {countInfo.count}
-                  </span>{' '}
+                  </span>{" "}
                   documenti
                 </>
               )}
             </div>
           </div>
-          <input type='text' value={search} onChange={handleSearch} />
           <FiltersCatalogoActive
             removeFilter={removeFilter}
             filters={debQueryParams}
-            />
+          />
           <FiltersCatalogo
+            handleSearch={handleSearch}
             countBy={countInfo?.countBy ?? {}}
             filters={debQueryParams}
             addFilter={addFilter}
+            search={search}
           />
         </div>
         <div className="block-catalogo ml-4 mr-4 mb-4 d-flex flex-row flex-wrap">
