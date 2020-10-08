@@ -52,3 +52,7 @@ body {
 .medium-font {
   font-weight: medium;
 }
+
+.page{
+  padding-top: 57px;
+}

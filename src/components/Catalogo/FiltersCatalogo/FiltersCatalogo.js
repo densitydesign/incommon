@@ -105,7 +105,7 @@ export default function FiltersCatalogo({ countBy, filters, addFilter }) {
   }
 
   return (
-    <div className="filters position-sticky">
+    <div className="filters">
       <div className="search-filter">Cerca</div>
       <ItemFilter
         name="tipologia"

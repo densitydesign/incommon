@@ -1,4 +1,4 @@
-.raggruppa-button{
+.raggruppa-button {
   padding: 20px 15px 20px 15px;
   border-right: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
@@ -6,37 +6,40 @@
   letter-spacing: 0.45px;
 }
 
-.count-documents{
+.count-documents {
   font-size: 15px;
   padding: 20px;
 }
 
-.reset-filtri{
+.reset-filtri {
   border-bottom: 0.5px solid #555555;
   padding: 20px;
   font-size: 15px;
 }
 
-.filters{
+.filters {
   font-size: 18px;
+  padding: 24px;
+  overflow: auto;
+  height: 100%;
 }
 
-.search-filter{
+.search-filter {
   padding: 15px;
   width: 100%;
   border-top: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
 }
 
-.filters-active{
-  min-height: 150px;
+.filters-active {
+  min-height: 80px;
   padding-left: 20px;
   padding-right: 20px;
   align-content: flex-start;
 }
 
 .filters-active > span {
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
   height: 22px;
   cursor: pointer;
   font-size: 12px;
@@ -46,6 +49,14 @@
   margin-bottom: 10px;
 }
 
-.block-catalogo{
+.block-catalogo {
+  overflow: auto;
+  height: calc(100vh - 59px);
   align-content: flex-start;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.block-catalogo::-webkit-scrollbar{
+  display: none;
 }

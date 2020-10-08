@@ -1,6 +1,9 @@
 .menu-top{
   border-bottom: 0.5px solid #555555;
   line-height: 0px;
+  height: 57px;
+  z-index: 1000;
+  background: black;
 }
 
 .item-menu-top{

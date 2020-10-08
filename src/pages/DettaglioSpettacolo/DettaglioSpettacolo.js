@@ -30,7 +30,7 @@ export default function DettaglioSpettacolo() {
   return (
     <div className="DettaglioSpettacolo">
       <MenuTop />
-      <div className="d-flex">
+      <div className="d-flex page">
         {showMoreInfo && (
           <FiltersSpettacoloDetail toggleShowMoreInfo={toggleShowMoreInfo} />
         )}

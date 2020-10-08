@@ -9,7 +9,7 @@ export default function DettaglioDocumento() {
   return (
     <div className="DettaglioDocumento">
       <MenuTop />
-      <div className="d-flex">
+      <div className="d-flex page">
         <FiltersDocumentDetail />
         <TransformWrapper
           defaultScale={1}
