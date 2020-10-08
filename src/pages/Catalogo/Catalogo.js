@@ -147,23 +147,7 @@ export default function Catalogo() {
           </div>
           <button onClick={() => setPage(2)}>X</button>
           <input type='text' value={search} onChange={handleSearch} />
-          <div className="count-documents">
-            {count && countInfo && (
-              <>
-                <span className="medium-font font-weight-bold mr-2">
-                  {count} / {countInfo.count}
-                </span>{' '}
-                documenti
-              </>
-            )}
-          </div>
           <FiltersCatalogoActive removeFilter={removeFilter} filters={filters} />
-          <div className="container">
-            <FiltersCatalogo
-              countBy={countInfo?.countBy ?? {}}
-              filters={filters}
-            />
-          </div>
           <FiltersCatalogo
             countBy={countInfo?.countBy ?? {}}
             filters={filters}
