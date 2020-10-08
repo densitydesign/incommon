@@ -63,7 +63,7 @@ export default function TempiELuoghi() {
     <div className="TempiELuoghi position-relative">
       <MenuTop />
       {town && <DetailLuogo town={town} toggleTown={toggleInfoTown} />}
-      <div className="body-tempi-e-luoghi">
+      <div className="body-tempi-e-luoghi page">
         <Map
           // eslint-disable-next-line react/style-prop-object
           style="mapbox://styles/incommon6070/ckfe38qug02ay19msu65esswa"

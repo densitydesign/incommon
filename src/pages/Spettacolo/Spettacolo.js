@@ -7,7 +7,7 @@ export default function Spettacolo(){
   return (
     <div className='Spettacolo'>
       <MenuTop />
-        <div className='container-fluid'>
+        <div className='container-fluid page'>
           <div className='row mt-3'>
             <div className='col-md-4'>
               <Link className='link-spettacolo' to={'/ricomporre-uno-spettacolo/1'}>
