@@ -1,6 +1,6 @@
 import React from "react"
 import MenuTop from "../../components/MenuTop"
-import FiltersDocumentDetail from "../../components/FiltersDocumentDetail"
+import FiltersDocumentDetail from "../../components/DettaglioDocumento/FiltersDocumentDetail"
 import "./DettaglioDocumento.css"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
