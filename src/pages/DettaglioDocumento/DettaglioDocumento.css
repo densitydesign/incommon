@@ -25,4 +25,12 @@
 .img-document{
   overflow: auto;
   height: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
 }
+
+.img-document::-webkit-scrollbar{
+  display: none;
+}
+
+

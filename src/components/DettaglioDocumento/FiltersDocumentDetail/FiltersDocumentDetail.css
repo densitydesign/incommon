@@ -6,7 +6,7 @@
 }
 
 .block-info-document{
-  padding: 24px;
+  padding: 15px 24px 15px 24px;
   border-bottom: 0.5px solid #555555;
 }
 
@@ -52,7 +52,7 @@
   color: #000000;
 }
 
-.filter-block{
-  padding-bottom: 24px;
+.filter-block-document{
+  padding-bottom: 12px;
   color: #000000;
 }
