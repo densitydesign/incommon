@@ -49,17 +49,12 @@ const MicroFilter = ({ name, count, onClick, filterName }) => {
         className="d-flex w-100 pointer justify-content-between"
         onClick={onClick}
       >
-        {name === "null" ? (
-          <div>
-            <i>
-              <span className="text-capitalize">{filterName}</span> non
-              associato
-            </i>
-          </div>
-        ) : (
-          <div className="name-micro-filter">{name}</div>
+        {name !== 'null' && (
+          <>
+            <div className="name-micro-filter">{name}</div>
+            <div>{count}</div>
+          </>
         )}
-        <div>{count}</div>
       </div>
     </div>
   )

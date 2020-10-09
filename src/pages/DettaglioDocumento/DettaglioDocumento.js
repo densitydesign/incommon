@@ -6,11 +6,13 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import { useDocument } from "../../hooks/documents"
-import { useParams } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 export default function DettaglioDocumento() {
   const { id } = useParams()
   const [{ document }] = useDocument(id)
+
+  const history = useHistory()
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -60,9 +62,12 @@ export default function DettaglioDocumento() {
                           <img src="/arrow-right.svg" alt="back" />
                         </div>
                       )}
+                    <div onClick={() => history.goBack()} className='pointer ml-4'>
+                      <img src='/close-document.svg' alt='Close document' />
+                    </div>
                   </div>
                 </div>
-                <div className="img-document d-flex justify-content-center mt-4 mb-4">
+                <div className="img-document d-flex align-items-center justify-content-center mb-4">
                   <TransformComponent>
                     <Carousel
                       showArrows={false}
@@ -77,7 +82,7 @@ export default function DettaglioDocumento() {
                             <img
                               src={image.image}
                               alt={document.spettacolo}
-                              style={{ width: "60%" }}
+                              style={{ width: "40%" }}
                             />
                           </div>
                         ))}
