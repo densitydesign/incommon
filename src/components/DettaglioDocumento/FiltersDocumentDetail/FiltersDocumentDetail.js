@@ -14,7 +14,7 @@ export default function FiltersDocumentDetail({ document }) {
 
   return (
     <div className="block-left-detail position-relative">
-      <div className="block-info-document position-sticky">
+      <div className="block-info-document">
         {document && (
           <div className="title-document">{document.spettacolo}</div>
         )}

@@ -110,18 +110,20 @@ export default function Catalogo() {
           />
         </div>
         <div className="block-catalogo  overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
-          <Waypoint onLeave={() => console.log("xxxx")}>
-            <div>
-              {documents &&
-                documents.map((document, index) => (
-                  <DocumentCatalogItem
-                    isCollapsed={isCollapsed}
-                    key={index}
-                    document={document}
-                  />
-                ))}
-            </div>
-          </Waypoint>
+          <React.Suspense fallback={<>Loading users...</>}>
+            <Waypoint onLeave={() => setQueryParams({ page: 2 })}>
+              <div>
+                {documents &&
+                  documents.map((document, index) => (
+                    <DocumentCatalogItem
+                      isCollapsed={isCollapsed}
+                      key={index}
+                      document={document}
+                    />
+                  ))}
+              </div>
+            </Waypoint>
+          </React.Suspense>
         </div>
       </div>
     </div>

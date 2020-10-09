@@ -24,8 +24,6 @@ export default function DettaglioDocumento() {
     setCurrentSlide(currentSlide + 1)
   }
 
-  console.log(document)
-
   return (
     <div className="DettaglioDocumento">
       <MenuTop />
@@ -38,18 +36,39 @@ export default function DettaglioDocumento() {
                 <div className="header-images d-flex justify-content-between">
                   <div className="zoom-buttons d-flex align-items-center">
                     <div className="pointer" onClick={zoomOut}>
-                      <img src={"/zoom-out.svg"} alt="Zoom out" />
+                      <img
+                        onMouseOver={(e) =>
+                          (e.currentTarget.src = "/zoom-out-white.svg")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.src = "/zoom-out.svg")
+                        }
+                        src={"/zoom-out.svg"}
+                        alt="Zoom out"
+                      />
                     </div>
-                    <div className="ml-3 pointer" onClick={resetTransform}>
+                    <div
+                      className="ml-3 pointer reset"
+                      onClick={resetTransform}
+                    >
                       reset
                     </div>
                     <div className="ml-3 pointer" onClick={zoomIn}>
-                      <img src={"/zoom-in.svg"} alt="Zoom in" />
+                      <img
+                        onMouseOver={(e) =>
+                          (e.currentTarget.src = "/zoom-in-white.svg")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.src = "/zoom-in.svg")
+                        }
+                        src={"/zoom-in.svg"}
+                        alt="Zoom in"
+                      />
                     </div>
                   </div>
                   <div className="d-flex align-items-center">
                     {currentSlide !== 0 && (
-                      <div className='pointer' onClick={() => prev()}>
+                      <div className="pointer" onClick={() => prev()}>
                         <img src="/arrow-left.svg" alt="back" />
                       </div>
                     )}
@@ -62,8 +81,11 @@ export default function DettaglioDocumento() {
                           <img src="/arrow-right.svg" alt="back" />
                         </div>
                       )}
-                    <div onClick={() => history.goBack()} className='pointer ml-4'>
-                      <img src='/close-document.svg' alt='Close document' />
+                    <div
+                      onClick={() => history.goBack()}
+                      className="pointer ml-4"
+                    >
+                      <img src="/close-document.svg" alt="Close document" />
                     </div>
                   </div>
                 </div>

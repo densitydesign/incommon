@@ -18,13 +18,13 @@
   color: #686868;
 }
 
-.zoom-buttons:hover{
+.reset:hover{
   color: #FFF !important;
 }
 
 .img-document{
   overflow: auto;
-  height: 100%;
+  margin-top: 20px;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; 
 }
