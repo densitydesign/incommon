@@ -24,6 +24,7 @@
     "react-rocketjump": "^2.6.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-waypoint": "^9.0.3",
     "react-zoom-pan-pinch": "^1.6.1",
     "seed-shuffle": "^1.0.0",
     "vivagraphjs": "^0.12.0"

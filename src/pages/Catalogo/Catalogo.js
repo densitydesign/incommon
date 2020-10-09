@@ -7,6 +7,7 @@ import "./Catalogo.css"
 import { useDocuments, useDocumentsCount } from "../../hooks/documents"
 import DocumentCatalogItem from "../../components/Catalogo/DocumentCatalogItem"
 import FiltersCatalogoActive from "../../components/Catalogo/FiltersCatalogoActive"
+import { Waypoint } from "react-waypoint"
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
@@ -27,10 +28,10 @@ export default function Catalogo() {
     compagnia: qpList(),
   })
 
-  const { search = "" } = queryParams
+  const { q = "" } = queryParams
   const handleSearch = (e) => {
-    const search = e.target.value
-    setDebQueryParams({ search, page: 1 })
+    const q = e.target.value
+    setDebQueryParams({ q, page: 1 })
   }
 
   const [{ documents, hasNext, count }] = useDocuments(debQueryParams)
@@ -105,18 +106,22 @@ export default function Catalogo() {
             countBy={countInfo?.countBy ?? {}}
             filters={debQueryParams}
             addFilter={addFilter}
-            search={search}
+            search={q}
           />
         </div>
         <div className="block-catalogo  overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
-          {documents &&
-            documents.map((document, index) => (
-              <DocumentCatalogItem
-                isCollapsed={isCollapsed}
-                key={index}
-                document={document}
-              />
-            ))}
+          <Waypoint onLeave={() => console.log("xxxx")}>
+            <div>
+              {documents &&
+                documents.map((document, index) => (
+                  <DocumentCatalogItem
+                    isCollapsed={isCollapsed}
+                    key={index}
+                    document={document}
+                  />
+                ))}
+            </div>
+          </Waypoint>
         </div>
       </div>
     </div>

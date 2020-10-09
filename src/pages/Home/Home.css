@@ -38,6 +38,7 @@
   padding-right: 24px;
   padding-top: 15px;
   padding-bottom: 15px;
+  overflow: auto;
   color: #FCFCFC;
   font-style: normal;
   font-weight: normal;
