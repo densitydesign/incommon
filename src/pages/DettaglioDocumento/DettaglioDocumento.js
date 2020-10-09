@@ -15,11 +15,11 @@ export default function DettaglioDocumento() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const prev = () => {
-    setCurrentSlide(currentSlide-1)
+    setCurrentSlide(currentSlide - 1)
   }
 
   const next = () => {
-    setCurrentSlide(currentSlide+1)
+    setCurrentSlide(currentSlide + 1)
   }
 
   console.log(document)
@@ -45,10 +45,21 @@ export default function DettaglioDocumento() {
                       <img src={"/zoom-in.svg"} alt="Zoom in" />
                     </div>
                   </div>
-                  <div className='d-flex align-items-center'>
-                    <div onClick={() => prev()}><img src='/arrow-left.svg' alt='back' /></div>
-                    <div className='ml-2'>{currentSlide} / {document.images.length}</div>
-                    <div className='ml-2' onClick={() => next()}><img src='/arrow-right.svg' alt='back' /></div>
+                  <div className="d-flex align-items-center">
+                    {currentSlide !== 0 && (
+                      <div className='pointer' onClick={() => prev()}>
+                        <img src="/arrow-left.svg" alt="back" />
+                      </div>
+                    )}
+                    <div className="ml-2">
+                      {currentSlide + 1} / {document.images.length}
+                    </div>
+                    {currentSlide !== document.images.length - 1 &&
+                      document.images.length > 1 && (
+                        <div className="ml-2 pointer" onClick={() => next()}>
+                          <img src="/arrow-right.svg" alt="back" />
+                        </div>
+                      )}
                   </div>
                 </div>
                 <div className="img-document d-flex justify-content-center mt-4 mb-4">
