@@ -46,15 +46,6 @@
   line-height: 32px;
 }
 
-.item-menu:hover{
-  border-bottom: 0.5px solid #5b5b5b;
-  border-left: 0.5px solid #5b5b5b;
-  border-right: 0.5px solid #5b5b5b;
-  border-top: 0.5px solid #5b5b5b;
-  font-style: normal;
-  font-weight: normal;
-  color: #FCFCFC;
-}
 
 .item-description{
   text-align: left;
