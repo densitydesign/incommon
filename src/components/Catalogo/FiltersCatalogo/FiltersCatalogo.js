@@ -1,12 +1,7 @@
 import React, { useMemo, useState } from "react"
 import classnames from "classnames"
-import DatePicker, { registerLocale } from "react-datepicker"
 import orderBy from "lodash/orderBy"
-import it from "date-fns/locale/it"
-import "react-datepicker/dist/react-datepicker.css"
 import "./FiltersCatalogo.css"
-
-registerLocale("it", it)
 
 const ItemFilter = ({
   toggleFilterOpen,
@@ -148,32 +143,6 @@ export default function FiltersCatalogo({
         toggleFilterOpen={toggleFilterOpen}
         countBy={countBy}
       />
-      <div className="item-filter">
-        <span className="pointer" onClick={() => toggleFilterOpen("data")}>
-          <span>
-            <img
-              className={classnames({
-                "rotate-show-hide": filterOpen === "data",
-              })}
-              src={"/show-hide.svg"}
-              alt="Show Hide"
-            />
-          </span>
-          <span className="ml-3 pointer">Data</span>
-        </span>
-        {filterOpen === "data" && (
-          <div className="micro-filters">
-            <DatePicker
-              minDate={new Date(1959, 1, 1)}
-              inline
-              locale="it"
-              popperClassName={"datepicker-filter"}
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </div>
-        )}
-      </div>
       <ItemFilter
         name="anno"
         addFilter={addFilter}
@@ -191,15 +160,7 @@ export default function FiltersCatalogo({
         countBy={countBy}
       />
       <ItemFilter
-        name="compagnia"
-        addFilter={addFilter}
-        filters={filters}
-        filterOpen={filterOpen}
-        toggleFilterOpen={toggleFilterOpen}
-        countBy={countBy}
-      />
-      <ItemFilter
-        name="rivista"
+        name="provenienza"
         addFilter={addFilter}
         filters={filters}
         filterOpen={filterOpen}

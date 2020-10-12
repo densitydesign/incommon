@@ -11,7 +11,7 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
       {document.images &&
         document.images.map((img, index) => (
           <img
-            className={classnames("mr-4 mt-4 pointer", {
+            className={classnames("mr-4 mt-4 pointer img-catalog", {
               'position-absolute': isCollapsed
             })}
             onClick={() => history.push('/catalogo-dei-documenti/'+document.id)}

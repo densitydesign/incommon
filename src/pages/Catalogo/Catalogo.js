@@ -111,7 +111,7 @@ export default function Catalogo() {
         </div>
         <div className="block-catalogo  overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
           <React.Suspense fallback={<>Loading users...</>}>
-            <Waypoint onLeave={() => setQueryParams({ page: 2 })}>
+            <Waypoint topOffset={'50%'} onLeave={() => setQueryParams({ page: [1,2] })}>
               <div>
                 {documents &&
                   documents.map((document, index) => (

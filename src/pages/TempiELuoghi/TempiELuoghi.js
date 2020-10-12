@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import MenuTop from "../../components/MenuTop"
-// import DetailLuogo from "../../components/DetailLuogo"
+import DetailLuogo from "../../components/TempiELuoghi/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"
 import Slider from "rc-slider"
 import groupBy from "lodash/groupBy"
@@ -62,7 +62,7 @@ export default function TempiELuoghi() {
   return (
     <div className="TempiELuoghi position-relative">
       <MenuTop />
-      {/* {town && <DetailLuogo town={town} toggleTown={toggleInfoTown} />} */}
+      {town && <DetailLuogo town={town} toggleTown={toggleInfoTown} />}
       <div className="body-tempi-e-luoghi page">
         <Map
           // eslint-disable-next-line react/style-prop-object
@@ -84,8 +84,6 @@ export default function TempiELuoghi() {
                 town && town === citta ? 0.7 : !town ? 0.4 : 0.2
 
               const coords = [citta.coords[0]['longitude'],citta.coords[0]['latitude']]
-
-              console.log(coords,citta)
               return (
                 <Layer
                   key={`map-range-${index}`}

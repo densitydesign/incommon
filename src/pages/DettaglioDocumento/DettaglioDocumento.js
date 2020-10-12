@@ -8,6 +8,29 @@ import { Carousel } from "react-responsive-carousel"
 import { useDocument } from "../../hooks/documents"
 import { useHistory, useParams } from "react-router-dom"
 
+const CarouselImages = ({ currentSlide, document }) => {
+  return (
+    <Carousel
+      showArrows={false}
+      showStatus={false}
+      showIndicators={false}
+      showThumbs={false}
+      selectedItem={currentSlide}
+    >
+      {document.images &&
+        document.images.map((image, key) => (
+          <div key={key}>
+            <img
+              src={image.image}
+              alt={document.spettacolo}
+              style={{ width: "50%" }}
+            />
+          </div>
+        ))}
+    </Carousel>
+  )
+}
+
 export default function DettaglioDocumento() {
   const { id } = useParams()
   const [{ document }] = useDocument(id)
@@ -91,24 +114,10 @@ export default function DettaglioDocumento() {
                 </div>
                 <div className="img-document d-flex align-items-center justify-content-center mb-4">
                   <TransformComponent>
-                    <Carousel
-                      showArrows={false}
-                      showStatus={false}
-                      showIndicators={false}
-                      showThumbs={false}
-                      selectedItem={currentSlide}
-                    >
-                      {document.images &&
-                        document.images.map((image, key) => (
-                          <div key={key}>
-                            <img
-                              src={image.image}
-                              alt={document.spettacolo}
-                              style={{ width: "40%" }}
-                            />
-                          </div>
-                        ))}
-                    </Carousel>
+                    <CarouselImages
+                      currentSlide={currentSlide}
+                      document={document}
+                    />
                   </TransformComponent>
                 </div>
               </div>
