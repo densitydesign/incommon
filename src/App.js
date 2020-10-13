@@ -17,25 +17,25 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/catalogo-dei-documenti" exact>
+        <Route path="/catalogue" exact>
           <Catalogo />
         </Route>
-        <Route path="/tempi-e-luoghi" exact>
+        <Route path="/times-and-places" exact>
           <TempiELuoghi />
         </Route>
-        <Route path="/catalogo-dei-documenti/:id" exact>
+        <Route path="/catalogue/:id" exact>
           <DettaglioDocumento />
         </Route>
-        <Route path="/la-forma-della-comunita" exact>
+        <Route path="/the-shape-of-community" exact>
           <Forma />
         </Route>
-        <Route path="/ricomporre-uno-spettacolo" exact>
+        <Route path="/recomposition" exact>
           <Spettacolo />
         </Route>
-        <Route path="/ricomporre-uno-spettacolo/:id" exact>
+        <Route path="/recomposition/:id" exact>
           <DettaglioSpettacolo />
         </Route>
-        <Route path="/sparagmos-archivio" exact>
+        <Route path="/performance-remains" exact>
           <Archivio />
         </Route>
         <Route path="/slideshow" exact>

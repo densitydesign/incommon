@@ -3,11 +3,11 @@ import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
-const ARCHIVIO = "sparagmos-archivio"
-const SPETTACOLO = "ricomporre-uno-spettacolo"
-const FORMA = "la-forma-della-comunita"
-const LUOGHI = "tempi-e-luoghi"
-const CATALOGO = "catalogo-dei-documenti"
+const ARCHIVIO = "performance-remains"
+const SPETTACOLO = "recomposition"
+const FORMA = "the-shape-of-community"
+const LUOGHI = "times-and-places"
+const CATALOGO = "catalogue"
 
 export default function Home() {
 
@@ -77,7 +77,7 @@ export default function Home() {
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
-              <span>Sparagmos dell’archivio</span>
+              <span>Performance Remains</span>
               <span className={classnames({
                 'rotate-show-hide': menuOpen === ARCHIVIO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
@@ -107,7 +107,7 @@ export default function Home() {
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
-              <span>Ricomporre uno spettacolo</span>
+              <span>Recomposition</span>
               <span className={classnames({
                 'rotate-show-hide': menuOpen === SPETTACOLO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
@@ -137,7 +137,7 @@ export default function Home() {
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
-              <span>La forma della comunità</span>
+              <span>The Shape of Community</span>
               <span className={classnames({
                 'rotate-show-hide': menuOpen === FORMA
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
@@ -167,7 +167,7 @@ export default function Home() {
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
-              <span>I tempi e i luoghi</span>
+              <span>Times and Places</span>
               <span className={classnames({
                 'rotate-show-hide': menuOpen === LUOGHI
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>
@@ -197,7 +197,7 @@ export default function Home() {
             className='pointer item-menu'
           >
             <div className='d-flex justify-content-between'>
-              <span>Catalogo dei documenti</span>
+              <span>Catalogue</span>
               <span className={classnames({
                 'rotate-show-hide': menuOpen === CATALOGO
               })}><img src={'/show-hide.svg'} alt='Show Hide' /></span>

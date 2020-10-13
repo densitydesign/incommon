@@ -10,7 +10,7 @@ export default function Spettacolo(){
         <div className='container-fluid page'>
           <div className='row mt-3'>
             <div className='col-md-4'>
-              <Link className='link-spettacolo' to={'/ricomporre-uno-spettacolo/1'}>
+              <Link className='link-spettacolo' to={'/recomposition/1'}>
                 <div className='item-spettacolo' style={{ backgroundImage: 'url(/spettacolo/A-charlie-parker.png)'}}>
                   <div className='info-documento d-flex justify-content-between'>
                     <div className='num_documenti'>100 doc.</div>

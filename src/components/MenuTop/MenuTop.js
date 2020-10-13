@@ -13,28 +13,28 @@ export default function MenuTop(){
           <NavLink
             activeClassName='item-menu-top-active'
             className='item-menu-top'
-            to='/sparagmos-archivio'
-          >Sparagmos dell’archivio</NavLink>
+            to='/performance-remains'
+          >Performance Remains</NavLink>
           <NavLink
             activeClassName='item-menu-top-active'
             className='item-menu-top'
-            to='/ricomporre-uno-spettacolo'
-          >Ricomporre uno spettacolo</NavLink>
+            to='/recomposition'
+          >Recomposition</NavLink>
           <NavLink
             activeClassName='item-menu-top-active'
             className='item-menu-top'
-            to='/la-forma-della-comunita'
-          >La forma della comunità</NavLink>
+            to='/the-shape-of-community'
+          >The Shape of Community</NavLink>
           <NavLink
             activeClassName='item-menu-top-active'
             className='item-menu-top'
-            to='/tempi-e-luoghi'
-          >I tempi e i luoghi</NavLink>
+            to='/times-and-places'
+          >Times and Places</NavLink>
           <NavLink
             activeClassName='item-menu-top-active'
             className='item-menu-top'
-            to='/catalogo-dei-documenti'
-          >Catalogo dei documenti</NavLink>
+            to='/catalogue'
+          >Catalogue</NavLink>
         </div>
       </div>
       <div className='mr-3'>
