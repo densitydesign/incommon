@@ -1,11 +1,11 @@
 import { rj, useRunRj } from "react-rocketjump"
-import api from "magik-api"
-import { makeMapPaginatedResponse, PAGE_SIZE, rjIncommonList } from "../api"
+import api from '../api'
+import { makeMapPaginatedResponse, PAGE_SIZE, rjIncommonList } from "../common"
 
 const DocumentsState = rj(rjIncommonList(), {
   name: "Documents",
   effect: (params = {}) =>
-    api()
+    api
       .mapResponse(makeMapPaginatedResponse(params))
       .get("/api/documents", {
         ...params,
@@ -22,7 +22,7 @@ const DocumentsState = rj(rjIncommonList(), {
 
 const DocumentsCountState = rj({
   name: "DocumentsCount",
-  effect: () => api().get("/api/documents/count"),
+  effect: () => api.get("/api/documents/count"),
   computed: {
     countInfo: "getData",
   },
@@ -30,7 +30,7 @@ const DocumentsCountState = rj({
 
 const DocumenState = rj({
   name: "DocumenState",
-  effect: (id) => api().get(`/api/documents/${id}`),
+  effect: (id) => api.get(`/api/documents/${id}`),
   computed: {
     document: "getData",
   },
