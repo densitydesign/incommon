@@ -78,13 +78,24 @@ export default function Catalogo() {
                 onClick={() => toggleCollapseDocuments()}
               >
                 {isCollapsed ? "separa i fascicoli" : "raggruppa i fascicoli"}
-                <img height='12' className='ml-2' src='raggruppa_fascicoli.svg' alt='Raggruppa fascicoli' />
+                <img
+                  height="12"
+                  className="ml-2"
+                  src="raggruppa_fascicoli.svg"
+                  alt="Raggruppa fascicoli"
+                />
               </div>
               <div
                 onClick={() => reset()}
                 className="reset-filtri w-45 pointer"
               >
-                 cancella i filtri <img height='13' className='ml-2' src='mostra_filtri.svg' alt='Reset filtri' />
+                cancella i filtri{" "}
+                <img
+                  height="13"
+                  className="ml-2"
+                  src="mostra_filtri.svg"
+                  alt="Reset filtri"
+                />
               </div>
             </div>
             <div className="count-documents">
@@ -110,22 +121,17 @@ export default function Catalogo() {
             search={q}
           />
         </div>
-        <div className="block-catalogo  overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
-          <Waypoint
-            topOffset={"50%"}
-            onLeave={() => setQueryParams({ page: [1, 2] })}
-          >
-            <div>
-              {documents &&
-                documents.map((document, index) => (
-                  <DocumentCatalogItem
-                    isCollapsed={isCollapsed}
-                    key={index}
-                    document={document}
-                  />
-                ))}
-            </div>
-          </Waypoint>
+        <div className="block-catalogo overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
+          <div>
+            {documents &&
+              documents.map((document, index) => (
+                <DocumentCatalogItem
+                  isCollapsed={isCollapsed}
+                  key={index}
+                  document={document}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>

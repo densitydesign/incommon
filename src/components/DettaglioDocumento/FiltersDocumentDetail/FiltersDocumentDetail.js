@@ -15,14 +15,9 @@ export default function FiltersDocumentDetail({ document }) {
   return (
     <div className="block-left-detail position-relative">
       <div className="block-info-document">
+        {document && <div className="title-document">{document.titolo}</div>}
         {document && (
-          <div className="title-document">{document.spettacolo}</div>
-        )}
-        {document && (
-          <div className="description-document">
-            Cartellina con {document.images.length} fogli manoscritti con note e
-            frammenti per il testo di {document.spettacolo}.
-          </div>
+          <div className="description-document">{document.descrizione}</div>
         )}
         <div className="info-box">
           <div onClick={() => toggleShowMoreInfo(true)} className="pointer">
@@ -40,21 +35,29 @@ export default function FiltersDocumentDetail({ document }) {
           {showMoreInfo && (
             <div className="mt-4">
               {document && (
-                <div>
-                  <span>id</span>
-                  <span className="ml-5 text-red">{document.id}</span>
+                <div className='row'>
+                  <span className='col-md-3'>id</span>
+                  <span className="col-md-9 text-red">{document.id}</span>
                 </div>
               )}
-              {/* <div className="mt-2">
-                <span>diritti</span>
-                <span className="ml-5 text-red"></span>
-              </div> */}
-              {document.persona && (
+              {document.rights && (
+                <div className="row mt-2">
+                  <span className='col-md-3'>diritti</span>
+                  <span className="col-md-9 text-red">{document.rights}</span>
+                </div>
+              )}
+              {document.rights && document.content_provider && (
+                <div className="mt-2">
+                  <div>informazioni sui diritti dei documenti</div>
+                  <div className="text-red">{document.content_provider} - {document.rights}</div>
+                </div>
+              )}
+              {/* {document.persona && (
                 <div className="mt-2">
                   <span>referente</span>
                   <span className="ml-5 text-red"></span>
                 </div>
-              )}
+              )} */}
               {/* <div className="mt-3">
                 informazioni sui diritti del documento
                 <div className="text-red mt-1">
@@ -76,7 +79,7 @@ export default function FiltersDocumentDetail({ document }) {
                   <div
                     onClick={() =>
                       history.push(
-                        `/catalogo-dei-documenti?spettacolo=${document.spettacolo}`
+                        `/catalogue?spettacolo=${document.spettacolo}`
                       )
                     }
                     className="circle-filter pointer"
@@ -93,9 +96,7 @@ export default function FiltersDocumentDetail({ document }) {
                   {document.luogo && (
                     <div
                       onClick={() =>
-                        history.push(
-                          `/catalogo-dei-documenti?luogo=${document.luogo}`
-                        )
+                        history.push(`/catalogue?luogo=${document.luogo}`)
                       }
                       className="circle-filter pointer"
                     >
@@ -105,9 +106,7 @@ export default function FiltersDocumentDetail({ document }) {
                   {document.citta && (
                     <div
                       onClick={() =>
-                        history.push(
-                          `/catalogo-dei-documenti?citta=${document.citta}`
-                        )
+                        history.push(`/catalogue?citta=${document.citta}`)
                       }
                       className="circle-filter pointer"
                     >
@@ -121,19 +120,19 @@ export default function FiltersDocumentDetail({ document }) {
               <div className="filter-block-document">
                 <div className="filter-name">data</div>
                 <div className="filter-body">
-                  <div className="circle-filter">{document.data}</div>
                   {document.anno && (
                     <div
                       onClick={() =>
-                        history.push(
-                          `/catalogo-dei-documenti?anno=${document.anno}`
-                        )
+                        history.push(`/catalogue?anno=${document.anno}`)
                       }
                       className="circle-filter pointer"
                     >
                       {document.anno}
                     </div>
                   )}
+                  {document.anno !== document.data &&
+                   <div className="circle-filter">{document.data}</div>
+                  }
                 </div>
               </div>
             )}
@@ -143,9 +142,7 @@ export default function FiltersDocumentDetail({ document }) {
                 <div className="filter-body">
                   <div
                     onClick={() =>
-                      history.push(
-                        `/catalogo-dei-documenti?tipologia=${document.tipologia}`
-                      )
+                      history.push(`/catalogue?tipologia=${document.tipologia}`)
                     }
                     className="circle-filter pointer"
                   >
@@ -154,19 +151,34 @@ export default function FiltersDocumentDetail({ document }) {
                 </div>
               </div>
             )}
-            {document.persona && (
+            {document.content_provider && (
+              <div className="filter-block-document">
+                <div className="filter-name">provenienza</div>
+                <div className="filter-body">
+                  <div
+                    onClick={() =>
+                      history.push(
+                        `/catalogue?content_provider=${document.content_provider}`
+                      )
+                    }
+                    className="circle-filter pointer"
+                  >
+                    {document.content_provider}
+                  </div>
+                </div>
+              </div>
+            )}
+            {document.rights && (
               <div className="filter-block-document">
                 <div className="filter-name">creatore del documento</div>
                 <div className="filter-body">
                   <div
                     onClick={() =>
-                      history.push(
-                        `/catalogo-dei-documenti?persona=${document.persona}`
-                      )
+                      history.push(`/catalogue?rights=${document.rights}`)
                     }
                     className="circle-filter pointer"
                   >
-                    {document.persona}
+                    {document.rights}
                   </div>
                 </div>
               </div>
