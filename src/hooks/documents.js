@@ -9,6 +9,7 @@ const DocumentsState = rj(rjIncommonList(), {
       .mapResponse(makeMapPaginatedResponse(params))
       .get("/api/documents", {
         ...params,
+        q: params.q === '' ? undefined : params.q,
         pagesize: PAGE_SIZE,
       }),
   computed: {
