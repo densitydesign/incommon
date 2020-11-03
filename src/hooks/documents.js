@@ -13,11 +13,9 @@ const DocumentsState = rj(rjIncommonList(), {
         pagesize: PAGE_SIZE,
       }),
   computed: {
-    count: "getCount",
     documents: "getList",
     loading: "isLoading",
     error: "getError",
-    hasNext: "hasNext",
   },
 })
 

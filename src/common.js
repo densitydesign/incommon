@@ -31,7 +31,7 @@ const makeIncommonPaginationAdapter = (pageSize) => ({
 
 export const makeMapPaginatedResponse = (params) => (r) => ({
   ...r.response,
-  page: params.page ?? 1,
+  page: Number(params.page ?? 1),
 })
 
 export const rjIncommonList = (config = {}) => {

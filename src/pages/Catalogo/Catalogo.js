@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from "react"
-import useDebounceQueryParams from "magik-react-hooks/useRouterDebounceQueryParams"
-import { qpList } from "magik-react-hooks/qpUtils"
-import MenuTop from "../../components/MenuTop"
-import FiltersCatalogo from "../../components/Catalogo/FiltersCatalogo"
-import "./Catalogo.css"
-import { useDocuments, useDocumentsCount } from "../../hooks/documents"
-import DocumentCatalogItem from "../../components/Catalogo/DocumentCatalogItem"
-import FiltersCatalogoActive from "../../components/Catalogo/FiltersCatalogoActive"
-import { Waypoint } from "react-waypoint"
+import React, { useCallback, useMemo, useState } from 'react'
+import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
+import { qpList } from 'magik-react-hooks/qpUtils'
+import MenuTop from '../../components/MenuTop'
+import FiltersCatalogo from '../../components/Catalogo/FiltersCatalogo'
+import './Catalogo.css'
+import { useDocuments, useDocumentsCount } from '../../hooks/documents'
+import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
+import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
+import { Waypoint } from 'react-waypoint'
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
@@ -28,13 +28,19 @@ export default function Catalogo() {
     compagnia: qpList(),
   })
 
-  const { q = "" } = queryParams
+  const { q = '' } = queryParams
   const handleSearch = (e) => {
     const q = e.target.value
-    setDebQueryParams({ q, page: 1 })
+    setDebQueryParams({ q })
   }
 
-  const [{ documents, hasNext, count }] = useDocuments(debQueryParams)
+  const apiParams = useMemo(() => ({ ...debQueryParams, page: 1 }), [
+    debQueryParams,
+  ])
+  const [
+    { documents, pagination, loading },
+    { run: fetchDocs }
+  ] = useDocuments(apiParams)
 
   const [isCollapsed, setCollapsed] = useState(false)
 
@@ -66,6 +72,12 @@ export default function Catalogo() {
     setQueryParams(() => ({}))
   }
 
+  function onReachBottom() {
+    if (pagination.hasNext && !loading) {
+      fetchDocs({ ...debQueryParams, page: pagination.next.page })
+    }
+  }
+
   return (
     <div className="Catalogo">
       <MenuTop />
@@ -77,7 +89,7 @@ export default function Catalogo() {
                 className="raggruppa-button pointer w-55"
                 onClick={() => toggleCollapseDocuments()}
               >
-                {isCollapsed ? "separa i fascicoli" : "raggruppa i fascicoli"}
+                {isCollapsed ? 'separa i fascicoli' : 'raggruppa i fascicoli'}
                 <img
                   height="12"
                   className="ml-2"
@@ -89,7 +101,7 @@ export default function Catalogo() {
                 onClick={() => reset()}
                 className="reset-filtri w-45 pointer"
               >
-                cancella i filtri{" "}
+                cancella i filtri{' '}
                 <img
                   height="13"
                   className="ml-2"
@@ -99,11 +111,11 @@ export default function Catalogo() {
               </div>
             </div>
             <div className="count-documents">
-              {count && countInfo && (
+              {pagination.count && countInfo && (
                 <>
                   <span className="medium-font font-weight-bold mr-2">
-                    {count} / {countInfo.count}
-                  </span>{" "}
+                    {pagination.count} / {countInfo.count}
+                  </span>{' '}
                   documenti
                 </>
               )}
@@ -132,6 +144,7 @@ export default function Catalogo() {
                 />
               ))}
           </div>
+          <Waypoint onEnter={onReachBottom} />
         </div>
       </div>
     </div>
