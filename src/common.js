@@ -1,6 +1,7 @@
 import rjList from 'react-rocketjump/plugins/list'
 
 export const PAGE_SIZE = 100
+export const BIG_PAGE_SIZE = 1000
 
 const makeIncommonPaginationAdapter = (pageSize) => ({
   list: 'results',
