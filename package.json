@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "csv2json": "^2.0.2",
-    "node-geocoder": "^3.27.0"
+    "node-geocoder": "^3.27.0",
+    "superagent": "^6.1.0"
   }
 }
