@@ -80,10 +80,20 @@ export default function TempiELuoghi() {
     setTown(town)
   }
 
+  const spettacoliYear = useMemo(() => {
+    if (spettacoli === null && !town){
+      return []
+    }
+    console.log(town)
+    return spettacoli.filter(spettacolo => spettacolo.anno === year && spettacolo.citta === town)
+  },[spettacoli, year, town])
+
+  console.log(spettacoliYear,'spettacoliYear')
+
   return (
     <div className="TempiELuoghi position-relative">
       <MenuTop />
-      {town && <DetailLuogo town={town} toggleTown={toggleInfoTown} />}
+      {town && <DetailLuogo spettacoli={spettacoliYear} town={town} toggleTown={toggleInfoTown} />}
       <div className="body-tempi-e-luoghi page">
         <Map
           // eslint-disable-next-line react/style-prop-object
@@ -102,13 +112,12 @@ export default function TempiELuoghi() {
               if (showBackgound) {
                 radiusTown += dataYearsTown[year]?.[citta['citta']] ?? 0
               }
-              console.log(radiusTown, citta['citta'])
 
               // NOTE: Skaffo trick to have a reasonable radius...
               radiusTown = radiusTown * 7
 
               const opacityCircle =
-                town && town === citta ? 0.7 : !town ? 0.4 : 0.2
+                town && town === citta.citta ? 0.7 : !town ? 0.4 : 0.2
 
               const coords = [
                 citta.coords[0]['longitude'],
@@ -117,7 +126,7 @@ export default function TempiELuoghi() {
               return (
                 <Layer
                   key={`map-range-${index}`}
-                  onClick={() => toggleInfoTown(citta)}
+                  onClick={() => toggleInfoTown(citta.citta)}
                   type="circle"
                   id={'range' + index}
                   paint={{

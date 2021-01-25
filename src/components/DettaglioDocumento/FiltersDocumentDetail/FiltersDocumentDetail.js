@@ -35,21 +35,23 @@ export default function FiltersDocumentDetail({ document }) {
           {showMoreInfo && (
             <div className="mt-4">
               {document && (
-                <div className='row'>
-                  <span className='col-md-3'>id</span>
+                <div className="row">
+                  <span className="col-md-3">id</span>
                   <span className="col-md-9 text-red">{document.id}</span>
                 </div>
               )}
               {document.rights && (
                 <div className="row mt-2">
-                  <span className='col-md-3'>diritti</span>
+                  <span className="col-md-3">diritti</span>
                   <span className="col-md-9 text-red">{document.rights}</span>
                 </div>
               )}
               {document.rights && document.content_provider && (
                 <div className="mt-2">
                   <div>informazioni sui diritti dei documenti</div>
-                  <div className="text-red">{document.content_provider} - {document.rights}</div>
+                  <div className="text-red">
+                    {document.content_provider} - {document.rights}
+                  </div>
                 </div>
               )}
               {/* {document.persona && (
@@ -130,9 +132,16 @@ export default function FiltersDocumentDetail({ document }) {
                       {document.anno}
                     </div>
                   )}
-                  {document.anno !== document.data &&
-                   <div className="circle-filter">{document.data}</div>
-                  }
+                  {document.anno !== document.data && (
+                    <div
+                      onClick={() =>
+                        history.push(`/catalogue?anno=${document.anno}`)
+                      }
+                      className="circle-filter pointer"
+                    >
+                      {document.data}
+                    </div>
+                  )}
                 </div>
               </div>
             )}

@@ -70,7 +70,7 @@ export default function Slideshow() {
           {index + 1} / {totalImages}
           <Link
             className="pointer ml-3"
-            to={'/ricomporre-uno-spettacolo/1'}
+            to={'/recomposition/1'}
             style={{ zIndex: 2000}}
           >
             <img src="/close-document.svg" alt="Close" />

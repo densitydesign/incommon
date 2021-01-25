@@ -6,7 +6,14 @@
 .block-info-document{
   padding: 15px 24px 15px 24px;
   border-bottom: 0.5px solid #555555;
-  min-height: 40%;
+  height: 50%;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.block-info-document::-webkit-scrollbar{
+  display: none;
 }
 
 .title-document{
@@ -39,7 +46,7 @@
 .block-filters-detail{
   padding: 24px;
   overflow: auto;
-  height: 60%;
+  height: 50%;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
