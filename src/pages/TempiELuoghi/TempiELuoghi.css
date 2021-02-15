@@ -1,3 +1,7 @@
+.TempiELuoghi{
+    overflow-y: hidden;
+}
+
 .rangeslider-horizontal .rangeslider__fill {
     background-color: #CCC;
 }
