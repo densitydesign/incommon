@@ -65,7 +65,7 @@ const styleZoomControl = {
 
 export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
-  const [year, setYear] = useState(1965)
+  const [year, setYear] = useState(1969)
   const [showBackgound, setShowBackground] = useState(false)
 
   const [{ spettacoli }] = useSpettacoli()
@@ -84,7 +84,6 @@ export default function TempiELuoghi() {
     if (spettacoli === null && !town) {
       return []
     }
-    console.log(town)
     return spettacoli.filter(
       (spettacolo) => spettacolo.anno === year && spettacolo.citta === town
     )
@@ -102,8 +101,6 @@ export default function TempiELuoghi() {
     )
   }, [year, town])
 
-  console.log(networkYear)
-
   return (
     <div className="TempiELuoghi position-relative vh-100">
       <MenuTop />
@@ -113,7 +110,10 @@ export default function TempiELuoghi() {
           spettacoli={spettacoliYear}
           networkYear={networkYear}
           town={town}
+          year={year}
           toggleTown={toggleInfoTown}
+          incommonDataYearsTown={incommonDataYearsTown}
+          dataYearsTown={dataYearsTown}
         />
       )}
       <div className="body-tempi-e-luoghi page">
