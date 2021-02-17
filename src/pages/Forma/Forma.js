@@ -9,16 +9,14 @@ import truncate from 'lodash/truncate'
 const eventi = uniqBy(network, 'Evento')
 const attori = uniqBy(network, 'Attore')
 const eventiWithAttori = groupBy(network, 'Evento')
-// console.log('X', eventi, attori, eventiWithAttori)
-// console.log('U.u', )
 
 const graph = Viva.Graph.graph()
 eventi.forEach((evento) => {
-  graph.addNode(evento.Evento)
+  graph.addNode(evento.Evento, { __glType: "evento" })
 })
 
 attori.forEach((attore) => {
-  graph.addNode(attore.Attore)
+  graph.addNode(attore.Attore, { __glType: "attore" })
 })
 
 Object.keys(eventiWithAttori).forEach((evento) => {
@@ -28,25 +26,19 @@ Object.keys(eventiWithAttori).forEach((evento) => {
   })
 })
 
-// graph.addNode('giova', {
-//   name: 'Giova',
-//   age: 29,
-// })
-// graph.addNode('rinne')
-// graph.addNode('skaffo')
-
-// graph.addLink('giova', 'rinne')
-// graph.addLink('skaffo', 'rinne')
-
 function buildCircleNodeShader() {
-  // For each primitive we need 4 attributes: x, y, color and size.
-  var ATTRIBUTES_PER_PRIMITIVE = 4,
+  // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
+  var ATTRIBUTES_PER_PRIMITIVE = 6,
     nodesFS = [
       'precision mediump float;',
       'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
       'void main(void) {',
-      '   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25) {',
+      '   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {',
+      '     gl_FragColor = border;',
+      '   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {',
       '     gl_FragColor = color;',
       '   } else {',
       '     gl_FragColor = vec4(0);',
@@ -54,28 +46,35 @@ function buildCircleNodeShader() {
       '}',
     ].join('\n'),
     nodesVS = [
+      'precision mediump float;',
       'attribute vec2 a_vertexPos;',
-      // Pack color and size into vector. First elemnt is color, second - size.
-      // Since it's floating point we can only use 24 bit to pack colors...
-      // thus alpha channel is dropped, and is always assumed to be 1.
-      'attribute vec2 a_customAttributes;',
+      'attribute vec4 a_customAttributes;',
       'uniform vec2 u_screenSize;',
       'uniform mat4 u_transform;',
       'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
       'void main(void) {',
       '   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);',
-      '   gl_PointSize = a_customAttributes[1] * u_transform[0][0];',
-      '   float c = a_customAttributes[0];',
+      '   gl_PointSize = a_customAttributes[0] * u_transform[0][0];',
+      '   float c = a_customAttributes[1];',
       '   color.b = mod(c, 256.0); c = floor(c/256.0);',
       '   color.g = mod(c, 256.0); c = floor(c/256.0);',
-      '   color.r = mod(c, 256.0); c = floor(c/256.0); color /= 255.0;',
-      '   color.a = 1.0;',
+      '   color.r = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.a = 255.0;',
+      '   color /= 255.0;',
+      '   float b = a_customAttributes[2];',
+      '   border.b = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.g = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.r = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.a = 255.0;',
+      '   border /= 255.0;',
+      '   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];',
       '}',
     ].join('\n')
 
   let program,
-    gl,
     buffer,
     locations,
     nodes = new Float32Array(64),
@@ -85,6 +84,11 @@ function buildCircleNodeShader() {
     canvasHeight,
     transform,
     isCanvasDirty
+
+  /**
+   * @type {WebGLRenderingContext}
+   */
+  let gl
 
   return {
     /**
@@ -119,8 +123,10 @@ function buildCircleNodeShader() {
       var idx = nodeUI.id
       nodes[idx * ATTRIBUTES_PER_PRIMITIVE] = pos.x
       nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 1] = -pos.y
-      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 2] = nodeUI.color
-      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 3] = nodeUI.size
+      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 2] = nodeUI.size
+      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 3] = nodeUI.fill
+      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 4] = nodeUI.stroke
+      nodes[idx * ATTRIBUTES_PER_PRIMITIVE + 5] = nodeUI.strokeSize
     },
 
     /**
@@ -148,7 +154,7 @@ function buildCircleNodeShader() {
       )
       gl.vertexAttribPointer(
         locations.customAttributes,
-        2,
+        ATTRIBUTES_PER_PRIMITIVE - 2,
         gl.FLOAT,
         false,
         ATTRIBUTES_PER_PRIMITIVE * Float32Array.BYTES_PER_ELEMENT,
@@ -231,14 +237,34 @@ export default function Forma() {
     graphics.node(function (node) {
       // The function is called every time renderer needs a ui to display node
       const size = 10 + (node.links ?? []).length * 2
-      // return Viva.Graph.View.webglSquare(size, '#00ff00')
-      return {
-        size,
-        color: 0xe84a00,
+      // Each node has 4 attributes
+      // - size = full circle radius (including border)
+      // - fill = color to use for the center of the circle
+      // - stroke = color to use for the border of the circle
+      // - strokeSize = thickness of the border (MUST be < size)
+
+      // To draw a hollow circle, set fill to the same color of the background
+      // To draw a filled circle without border, just set strokeSize to 0 and stroke to an arbitrary color 
+      //    In this case, stroke will be ignored, but it is required to set it to mantain the fixed size
+      //    of the webgl node structure
+      
+      if (node.data.__glType === "attore") {
+        return {
+          size,
+          fill: 0xFF0000,
+          stroke: 0x000000,
+          strokeSize: 0.0
+        }
+      } else {
+        // node.data.__glType === "evento"
+        return {
+          size,
+          fill: 0x000000,
+          stroke: 0xFF0000,
+          strokeSize: 6.0
+        }
       }
-      // .attr('width', 24)
-      // .attr('height', 24)
-      // .link(node.data.url) // node.data holds custom object passed to graph.addNode();
+      
     })
     const renderer = Viva.Graph.View.renderer(graph, {
       container: graphRef.current,
@@ -269,8 +295,14 @@ export default function Forma() {
         // then move corresponding dom label to its own position:
         var nodeId = ui.node.id
         var labelStyle = domLabels[nodeId].style
-        labelStyle.left = domPos.x + 'px'
-        labelStyle.top = domPos.y + 'px'
+        if(ui.node.links.length > 50){
+          labelStyle.fontSize = '50px'
+          labelStyle.left = (domPos.x - 100) + 'px'
+        } else {
+          labelStyle.fontSize = ui.node.links.length - 5 + 'px'
+          labelStyle.left = (domPos.x - 50) + 'px'
+        }
+        labelStyle.top = domPos.y - 5 + 'px'
         if (domPos.y <= 0) {
           labelStyle.display = 'none'
         } else {
