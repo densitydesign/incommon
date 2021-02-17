@@ -1,23 +1,23 @@
-import React, { useEffect, useRef } from "react"
-import MenuTop from "../../components/MenuTop"
-import Viva from "vivagraphjs"
-import networkBig from "../../data/network-forma.json"
-import groupBy from "lodash/groupBy"
-import uniqBy from "lodash/uniqBy"
-import truncate from "lodash/truncate"
+import React, { useEffect, useRef } from 'react'
+import MenuTop from '../../components/MenuTop'
+import Viva from 'vivagraphjs'
+import networkBig from '../../data/network-forma.json'
+import groupBy from 'lodash/groupBy'
+import uniqBy from 'lodash/uniqBy'
+import truncate from 'lodash/truncate'
 
-const network = networkBig //.slice(0, 50)
-const eventi = uniqBy(network, "Evento")
-const attori = uniqBy(network, "Attore")
-const eventiWithAttori = groupBy(network, "Evento")
+const network = networkBig //slice(0, 1)
+const eventi = uniqBy(network, 'Evento')
+const attori = uniqBy(network, 'Attore')
+const eventiWithAttori = groupBy(network, 'Evento')
 
 const graph = Viva.Graph.graph()
 eventi.forEach((evento) => {
-  graph.addNode(evento.Evento, { __glType: "evento" })
+  graph.addNode(evento.Evento, { __glType: 'evento' })
 })
 
 attori.forEach((attore) => {
-  graph.addNode(attore.Attore, { __glType: "attore" })
+  graph.addNode(attore.Attore, { __glType: 'attore' })
 })
 
 Object.keys(eventiWithAttori).forEach((evento) => {
@@ -31,49 +31,49 @@ function buildCircleNodeShader() {
   // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
   var ATTRIBUTES_PER_PRIMITIVE = 6,
     nodesFS = [
-      "precision mediump float;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {",
-      "     gl_FragColor = border;",
-      "   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {",
-      "     gl_FragColor = color;",
-      "   } else {",
-      "     gl_FragColor = vec4(0);",
-      "   }",
-      "}",
-    ].join("\n"),
+      'void main(void) {',
+      '   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {',
+      '     gl_FragColor = border;',
+      '   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {',
+      '     gl_FragColor = color;',
+      '   } else {',
+      '     gl_FragColor = vec4(0);',
+      '   }',
+      '}',
+    ].join('\n'),
     nodesVS = [
-      "precision mediump float;",
-      "attribute vec2 a_vertexPos;",
-      "attribute vec4 a_customAttributes;",
-      "uniform vec2 u_screenSize;",
-      "uniform mat4 u_transform;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'attribute vec2 a_vertexPos;',
+      'attribute vec4 a_customAttributes;',
+      'uniform vec2 u_screenSize;',
+      'uniform mat4 u_transform;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);",
-      "   gl_PointSize = a_customAttributes[0] * u_transform[0][0];",
-      "   float c = a_customAttributes[1];",
-      "   color.b = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.g = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.r = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.a = 255.0;",
-      "   color /= 255.0;",
-      "   float b = a_customAttributes[2];",
-      "   border.b = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.g = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.r = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.a = 255.0;",
-      "   border /= 255.0;",
-      "   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];",
-      "}",
-    ].join("\n")
+      'void main(void) {',
+      '   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);',
+      '   gl_PointSize = a_customAttributes[0] * u_transform[0][0];',
+      '   float c = a_customAttributes[1];',
+      '   color.b = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.g = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.r = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.a = 255.0;',
+      '   color /= 255.0;',
+      '   float b = a_customAttributes[2];',
+      '   border.b = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.g = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.r = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.a = 255.0;',
+      '   border /= 255.0;',
+      '   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];',
+      '}',
+    ].join('\n')
 
   let program,
     buffer,
@@ -102,10 +102,10 @@ function buildCircleNodeShader() {
       program = webglUtils.createProgram(nodesVS, nodesFS)
       gl.useProgram(program)
       locations = webglUtils.getLocations(program, [
-        "a_vertexPos",
-        "a_customAttributes",
-        "u_screenSize",
-        "u_transform",
+        'a_vertexPos',
+        'a_customAttributes',
+        'u_screenSize',
+        'u_transform',
       ])
 
       gl.enableVertexAttribArray(locations.vertexPos)
@@ -228,11 +228,16 @@ function buildCircleNodeShader() {
 const DRAW_LABEL_LINKS_COUNT = 20
 const LABEL_BASE_FONT = 16
 const LABEL_FONT_MUL = 0.3
+const LINKS_COUNT_PROGRESSIVE_MULLER = 6
+const MAX_FONT_SIZE = 25
 
 export default function Forma() {
   const graphRef = useRef()
 
   useEffect(() => {
+    const containerHeight = graphRef.current.clientHeight
+    const containerWidth = graphRef.current.clientWidth
+
     var graphics = Viva.Graph.View.webglGraphics()
 
     var circleNode = buildCircleNodeShader()
@@ -251,7 +256,7 @@ export default function Forma() {
       //    In this case, stroke will be ignored, but it is required to set it to mantain the fixed size
       //    of the webgl node structure
 
-      if (node.data.__glType === "attore") {
+      if (node.data.__glType === 'attore') {
         return {
           size,
           fill: 0xff0000,
@@ -286,12 +291,13 @@ export default function Forma() {
       // label position;
       const zoom = renderer.getTransform().scale
       const showLinksCount = Math.ceil(
-        DRAW_LABEL_LINKS_COUNT + (1 - Math.max(1, zoom)) * 3
+        DRAW_LABEL_LINKS_COUNT +
+          (1 - Math.max(1, zoom)) * LINKS_COUNT_PROGRESSIVE_MULLER
       )
 
       if ((ui.node.links ?? []).length > showLinksCount) {
         // we create a copy of layout position
-        var domPos = {
+        const domPos = {
           x: pos.x,
           y: pos.y,
         }
@@ -317,24 +323,30 @@ export default function Forma() {
         //   labelStyle.left = (domPos.x - 50) + 'px'
         // }
 
-        if (domPos.y <= 0) {
-          labelStyle.display = "none"
+        if (
+          domPos.y <= 0 ||
+          domPos.x <= 0 ||
+          domPos.y >= containerHeight ||
+          domPos.x >= containerWidth
+        ) {
+          labelStyle.display = 'none'
         } else {
-          labelStyle.display = "initial"
-          labelStyle.left = domPos.x + "px"
-          labelStyle.top = domPos.y - 10 + "px"
+          labelStyle.display = 'initial'
+          labelStyle.left = domPos.x + 'px'
+          labelStyle.top = domPos.y - 10 + 'px'
           labelStyle.fontSize =
-            (LABEL_BASE_FONT +
-              (ui.node.links.length - DRAW_LABEL_LINKS_COUNT) *
-                LABEL_FONT_MUL) *
-              Math.min(zoom, 2) +
-            "px"
-          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + "px"
+            Math.min(
+              (LABEL_BASE_FONT +
+                (ui.node.links.length - showLinksCount) * LABEL_FONT_MUL) *
+                zoom,
+              MAX_FONT_SIZE
+            ) + 'px'
+          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + 'px'
         }
       } else {
         const nodeId = ui.node.id
         const labelStyle = domLabels[nodeId].style
-        labelStyle.display = "none"
+        labelStyle.display = 'none'
       }
     })
 
@@ -343,8 +355,8 @@ export default function Forma() {
       var labels = {}
       graph.forEachNode(function (node) {
         //if ((node.links ?? []).length > DRAW_LABEL_LINKS_COUNT) {
-        var label = document.createElement("span")
-        label.classList.add("node-label")
+        var label = document.createElement('span')
+        label.classList.add('node-label')
         label.innerText = truncate(node.id)
         labels[node.id] = label
         graphRef.current.appendChild(label)
@@ -359,15 +371,24 @@ export default function Forma() {
   }, [])
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ overflow: 'hidden' }}>
       <MenuTop />
       <div className="d-flex">
-        <div style={{ width: '25%', zIndex: 100000}}>xxxx</div>
+        <div
+          style={{
+            background: 'black',
+            width: '25%',
+            zIndex: 100000,
+            borderRight: '1px solid red',
+          }}
+        >
+          xxxx
+        </div>
         <div
           ref={graphRef}
           style={{
-            position: "relative",
-            height: "calc(100vh - 58px)",
+            position: 'relative',
+            height: 'calc(100vh - 58px)',
             flex: 1,
             // background: 'purple',
           }}
