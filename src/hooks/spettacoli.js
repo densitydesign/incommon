@@ -1,6 +1,6 @@
 import { rj, useRunRj } from 'react-rocketjump'
 import api from '../api'
-import { BIG_PAGE_SIZE } from '../common'
+import { BIG_PAGE_SIZE, rjIncommonList } from '../common'
 
 const YearRegex = /[0-9]{4}/
 function extractYear(spettacolo) {

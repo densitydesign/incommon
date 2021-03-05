@@ -1,13 +1,8 @@
-import React, { useState } from "react"
-import "./Slideshow.css"
-import { Link } from "react-router-dom"
-import MenuTop from "../../components/MenuTop/MenuTop"
-import slideshowConfig from "./slideshow.json"
-
-const totalImages = slideshowConfig.reduce(
-  (t, cont) => t + cont.images.length,
-  0
-)
+import React, { useMemo, useState } from 'react'
+import './Slideshow.css'
+import { Link, useParams } from 'react-router-dom'
+import MenuTop from '../../components/MenuTop/MenuTop'
+import allSlideShows from './allSlideshows'
 
 function AnimatedImageBase({ style, animatedStyle, time, src, entered }) {
   let imageStyle = style
@@ -20,7 +15,10 @@ function AnimatedImageBase({ style, animatedStyle, time, src, entered }) {
 
 const AnimatedImage = React.memo(AnimatedImageBase)
 
-export default function Slideshow() {
+function RunSlideshow({ slideshowConfig, slug }) {
+  const totalImages = useMemo(() => {
+    return slideshowConfig.reduce((t, cont) => t + cont.images.length, 0)
+  }, [slideshowConfig])
   const [index, setIndex] = useState(0)
 
   function goPrev() {
@@ -43,9 +41,9 @@ export default function Slideshow() {
   let z = 0
 
   function handleKeyDown(e) {
-    if (e.key === "ArrowRight") {
+    if (e.key === 'ArrowRight') {
       goNext()
-    } else if (e.key === "ArrowLeft") {
+    } else if (e.key === 'ArrowLeft') {
       goPrev()
     }
   }
@@ -70,13 +68,26 @@ export default function Slideshow() {
           {index + 1} / {totalImages}
           <Link
             className="pointer ml-3"
-            to={'/recomposition/1'}
-            style={{ zIndex: 2000}}
+            to={`/recomposition/${slug}`}
+            style={{ zIndex: 2000 }}
           >
             <img src="/close-document.svg" alt="Close" />
           </Link>
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Slideshow() {
+  const { slug } = useParams()
+  const slideshowConfig = allSlideShows[slug]
+
+  if (!slideshowConfig) {
+    return null
+  }
+
+  return (
+    <RunSlideshow key={slug} slug={slug} slideshowConfig={slideshowConfig} />
   )
 }

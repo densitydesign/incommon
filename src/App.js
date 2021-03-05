@@ -4,11 +4,9 @@ import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'
 import TempiELuoghi from './pages/TempiELuoghi'
 import DettaglioDocumento from './pages/DettaglioDocumento'
-import DettaglioSpettacolo from './pages/DettaglioSpettacolo'
 import Forma from './pages/Forma'
-import Spettacolo from './pages/Spettacolo'
+import CaseStudies from './pages/CaseStudies'
 import Archivio from './pages/Archivio'
-import Slideshow from './pages/Slideshow'
 
 function App() {
   return (
@@ -29,17 +27,11 @@ function App() {
         <Route path="/the-shape-of-community" exact>
           <Forma />
         </Route>
-        <Route path="/recomposition" exact>
-          <Spettacolo />
-        </Route>
-        <Route path="/recomposition/:id" exact>
-          <DettaglioSpettacolo />
+        <Route path="/recomposition">
+          <CaseStudies />
         </Route>
         <Route path="/performance-remains" exact>
           <Archivio />
-        </Route>
-        <Route path="/slideshow" exact>
-          <Slideshow />
         </Route>
       </Switch>
     </Router>
