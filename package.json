@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "commander": "^7.1.0",
     "csv2json": "^2.0.2",
     "mkdirp": "^1.0.4",
     "node-geocoder": "^3.27.0",
