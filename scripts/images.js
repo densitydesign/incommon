@@ -6,7 +6,7 @@ const PAGE_SIZE = 200
 async function fetchDocs(page = 1) {
   const docs = await request
     .get(
-      `https://archivio.in-common.org/api/documents?page=1&pagesize=${PAGE_SIZE}`
+      `https://archivio.in-common.org/api/documents?page=${page}&pagesize=${PAGE_SIZE}`
     )
     .then((r) => r.body)
   return docs

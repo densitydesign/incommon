@@ -9,7 +9,7 @@ const PAGE_SIZE = 200
 async function fetchDocs(page = 1) {
   const docs = await request
     .get(
-      `https://archivio.in-common.org/api/documents?page=1&pagesize=${PAGE_SIZE}`
+      `https://archivio.in-common.org/api/documents?page=${page}&pagesize=${PAGE_SIZE}`
     )
     .then((r) => r.body)
   return docs
@@ -63,7 +63,12 @@ async function makeImagePreview(image, clean) {
       __dirname,
       `../public/preview/${size}/${fileName}`
     )
-    await sharp(imageBlob).resize(SIZES[size]).toFile(outFile)
+    try {
+      await sharp(imageBlob).resize(SIZES[size]).toFile(outFile)
+    } catch (e) {
+      console.log(`Error in resizing ${image.image}, skipping.`)
+      console.log(e)
+    }
   }
 }
 
@@ -76,7 +81,7 @@ async function resizeAllImages(clean) {
   let page = 1
   let fetchCount = 0
   let count = 0
-  let resized = 0
+  let resizedDocs = 0
 
   do {
     const data = await fetchDocs(page)
@@ -87,9 +92,10 @@ async function resizeAllImages(clean) {
     for (const doc of results) {
       for (const image of doc.images) {
         await makeImagePreview(image, clean)
-        resized++
-        console.log(`${image.image} resized! ${resized}/${count}`)
+        console.log(`${image.image} resized!`)
       }
+      console.log(`Doc resized: ${resizedDocs}/${count}`)
+      resizedDocs++
     }
     page++
   } while (fetchCount < count)
