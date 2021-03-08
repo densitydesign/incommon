@@ -4,7 +4,7 @@ import { makeMapPaginatedResponse, PAGE_SIZE, rjIncommonList } from '../common'
 
 const GRAB_BASENAME_REGEX = /\/([^/]+\.[^.]+)$/
 
-function imageWithLocaPreview(image) {
+export function imageWithLocaPreview(image) {
   const match = image.image.match(GRAB_BASENAME_REGEX)
   if (!match) {
     return image
@@ -12,7 +12,8 @@ function imageWithLocaPreview(image) {
   const basename = match[1]
   return {
     ...image,
-    localPreview: `/preview/small/${basename}`
+    localPreview: `/preview/small/${basename}`,
+    mediumPreview: `/preview/medium/${basename}`
   }
 }
 

@@ -1,11 +1,11 @@
-const request = require('superagent')
-const sharp = require('sharp')
-const path = require('path')
-const mkdirp = require('mkdirp')
-const rimraf = require('rimraf')
-const fs = require('fs')
+const request = require("superagent")
+const sharp = require("sharp")
+const path = require("path")
+const mkdirp = require("mkdirp")
+const rimraf = require("rimraf")
+const fs = require("fs")
 
-const PAGE_SIZE = 200
+const PAGE_SIZE = 650
 async function fetchDocs(page = 1) {
   const docs = await request
     .get(
@@ -15,14 +15,14 @@ async function fetchDocs(page = 1) {
   return docs
 }
 
-const VALID_RESIZE_EXTS = ['.jpg', '.jpeg', '.png']
+const VALID_RESIZE_EXTS = [".jpg", ".jpeg", ".png"]
 
 const SIZES = {
   small: {
-    height: 100,
+    height: 120,
   },
   medium: {
-    height: 400,
+    height: 500,
   },
 }
 
@@ -54,7 +54,7 @@ async function makeImagePreview(image, clean) {
 
   const imageBlob = await request
     .get(image.image)
-    .responseType('blob')
+    .responseType("blob")
     .then((r) => r.body)
 
   for (const size of doSizes) {
@@ -101,9 +101,9 @@ async function resizeAllImages(clean) {
   } while (fetchCount < count)
 }
 
-const { program } = require('commander')
+const { program } = require("commander")
 
-program.option('-c, --clean', 'Clean previous preview')
+program.option("-c, --clean", "Clean previous preview")
 
 program.parse(process.argv)
 
@@ -111,10 +111,10 @@ const options = program.opts()
 
 resizeAllImages(!!options.clean).then(
   () => {
-    console.log('Done!')
+    console.log("Done!")
   },
   (e) => {
-    console.log('Something went wrong')
+    console.log("Something went wrong")
     console.error(e)
   }
 )

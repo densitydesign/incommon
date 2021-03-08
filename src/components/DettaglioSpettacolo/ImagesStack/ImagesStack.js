@@ -50,6 +50,7 @@ function RandImage({ src, randomize }) {
 
 function ImagesStack({ images, empty, style, link }) {
   const [randomize, setRandomize] = useState(false)
+  console.log(images)
   return (
     <Link className={'stack'} style={style} to={link}>
       <div
@@ -61,7 +62,7 @@ function ImagesStack({ images, empty, style, link }) {
         )}
       >
         {images.map((image) => (
-          <RandImage randomize={randomize} src={image} key={image}></RandImage>
+          <RandImage randomize={randomize} src={image.mediumPreview} key={image.mediumPreview}></RandImage>
         ))}
       </div>
     </Link>
