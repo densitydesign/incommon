@@ -37,10 +37,9 @@ export default function Catalogo() {
   const apiParams = useMemo(() => ({ ...debQueryParams, page: 1 }), [
     debQueryParams,
   ])
-  const [
-    { documents, pagination, loading },
-    { run: fetchDocs }
-  ] = useDocuments(apiParams)
+  const [{ documents, pagination, loading }, { run: fetchDocs }] = useDocuments(
+    apiParams
+  )
 
   const [isCollapsed, setCollapsed] = useState(false)
 
@@ -74,7 +73,9 @@ export default function Catalogo() {
 
   function onReachBottom() {
     if (pagination.hasNext && !loading) {
-      fetchDocs({ ...debQueryParams, page: pagination.next.page })
+      fetchDocs
+        .withMeta({ append: true })
+        .run({ ...debQueryParams, page: pagination.next.page })
     }
   }
 
