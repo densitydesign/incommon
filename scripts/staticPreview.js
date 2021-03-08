@@ -95,16 +95,15 @@ async function resizeAllImages(clean) {
   } while (fetchCount < count)
 }
 
-const { program } = require('commander');
+const { program } = require('commander')
 
-program
-  .option('-c, --clean', 'Clean previous preview')
+program.option('-c, --clean', 'Clean previous preview')
 
-program.parse(process.argv);
+program.parse(process.argv)
 
-const options = program.opts();
+const options = program.opts()
 
-resizeAllImages(options.clean ?? false).then(
+resizeAllImages(!!options.clean).then(
   () => {
     console.log('Done!')
   },
