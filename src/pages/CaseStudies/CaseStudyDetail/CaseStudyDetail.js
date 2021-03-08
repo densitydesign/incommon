@@ -22,14 +22,14 @@ function CaseStudy({ caseStudy }) {
     setShowMoreInfo(!showMoreInfo)
   }
 
-  // const images = useMemo(() => {
-  //   // TODO: FIlter correct types ....
-  //   return shuffle(
-  //     caseStudy.images.map((i) => i.image),
-  //     RANDOM_SEED
-  //   )
-  // }, [caseStudy.images])
-  const images = []
+  const images = useMemo(() => {
+    // TODO: FIlter correct types ....
+    return shuffle(
+      caseStudy.images.map((i) => i.image),
+      RANDOM_SEED
+    )
+  }, [caseStudy.images])
+  // const images = []
 
   const [{ documents }] = useDocuments(useMemoCompare({
     casestudy: caseStudy.titolo

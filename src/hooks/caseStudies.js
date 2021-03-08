@@ -1,3 +1,4 @@
+import React from 'react'
 import { keyBy } from 'lodash'
 import { useMemo } from 'react'
 import { rj, useRunRj } from 'react-rocketjump'
@@ -7,7 +8,7 @@ import { BIG_PAGE_SIZE, rjIncommonList } from '../common'
 export const configCaseStudies = [
   {
     titolo: 'Luci della città',
-    caption: 'Luci della città',
+    caption: <span>Luci della <br/> città</span>,
     slug: 'luci-della-citta',
     backgroundImage: 'url(/spettacolo/Aspettando-godot.png)',
     year: 1970,

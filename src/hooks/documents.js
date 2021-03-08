@@ -2,7 +2,7 @@ import { rj, useRunRj } from 'react-rocketjump'
 import api from '../api'
 import { makeMapPaginatedResponse, PAGE_SIZE, rjIncommonList } from '../common'
 
-const GRAB_BASENAME_REGEX = /\/([^/]+\.[^\.]+)$/
+const GRAB_BASENAME_REGEX = /\/([^/]+\.[^.]+)$/
 
 function imageWithLocaPreview(image) {
   const match = image.image.match(GRAB_BASENAME_REGEX)
