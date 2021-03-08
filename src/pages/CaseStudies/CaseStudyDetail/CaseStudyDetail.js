@@ -48,9 +48,9 @@ function CaseStudy({ caseStudy }) {
     <div className="d-flex page">
       {/* TODO: Rename 2 case study */}
       {showMoreInfo && (
-        <FiltersSpettacoloDetail toggleShowMoreInfo={toggleShowMoreInfo} />
+        <FiltersSpettacoloDetail caseStudy={caseStudy} toggleShowMoreInfo={toggleShowMoreInfo} />
       )}
-      <InfoSpettacolo toggleShowMoreInfo={toggleShowMoreInfo} />
+      <InfoSpettacolo caseStudy={caseStudy} toggleShowMoreInfo={toggleShowMoreInfo} />
       <div className="body-spettacolo d-flex justify-content-center align-items-center">
         <ImagesStack images={images} link={`/recomposition/${caseStudy.slug}/slideshow`} />
       </div>

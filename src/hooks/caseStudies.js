@@ -15,6 +15,14 @@ export const configCaseStudies = [
     images: [],
   },
   {
+    titolo: "La faticosa messinscena dell'Amleto di William Shakespeare",
+    caption: "La faticosa messinscena dell'Amleto di William Shakespeare",
+    slug: 'la-faticosa-messinscena-dell-amleto-di-william-shakespeare',
+    backgroundImage: 'url(/spettacolo/Aspettando-godot.png)',
+    year: 1970,
+    images: [],
+  },
+  {
     titolo: 'Edoardo II',
     caption: 'Edoardo II',
     slug: 'edoardo-2',
