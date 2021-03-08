@@ -13,14 +13,14 @@ const MicroFilter = ({ name, count }) => {
   )
 }
 
-export default function InfoSpettacolo({ toggleShowMoreInfo }){
+export default function InfoSpettacolo({ toggleShowMoreInfo, caseStudy }){
   const [group,setGroup] = useState(null)
 
   return (
     <div className='block-left-spettacolo'>
       <div className='block-info-spettacolo'>
         <div className='title-spettacolo'>
-          La faticosa messainscena dell’Amleto di William Shakespeare
+          {caseStudy.caption}
         </div>
         <div className='mt-4 pointer more-info' onClick={toggleShowMoreInfo}>
           + Info
