@@ -525,9 +525,10 @@ export default function Forma() {
             width: '21.7%',
             zIndex: 100000,
             borderRight: '1px solid #555555',
+            overflow: 'auto'
           }}
         >
-          <div className="ml-4 mr-4" style={{ marginTop: 100 }}>
+          <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
             {!selectedItem && <SearchResults
               search={search}
               onTextChange={setSearch}
@@ -549,7 +550,7 @@ export default function Forma() {
             )}
 
             {searchResults.length === 0 && (
-              <>
+              <div style={{ marginTop: 100 }}>
                 <u>Filtra per tipo di relazione</u>
                 <div>
                   {Object.keys(relazioniCount).map((relazione) => (
@@ -573,7 +574,7 @@ export default function Forma() {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

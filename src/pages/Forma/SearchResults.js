@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 export default function SearchResults({
   search,
@@ -9,12 +9,14 @@ export default function SearchResults({
   return (
     <div>
       <input
+        className='input-forma'
         type="text"
+        placeholder="Cerca un nodo"
         value={search}
         onChange={(e) => onTextChange(e.target.value)}
       />
       <div>
-        <ul>
+        <ul className='list-search-items'>
           {searchResults.map((result, i) => (
             <li
               onClick={() => onSelect(result)}

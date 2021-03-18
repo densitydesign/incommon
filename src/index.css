@@ -61,3 +61,27 @@ body {
   overflow: hidden;
   height: calc(100vh - 59px);
 }
+
+.input-forma{
+  background: #000;
+  width: 100%;
+  border-bottom: 2px solid #FFF;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: #FFF;
+}
+
+.input-forma::placeholder{
+  color: #6c757d;
+}
+
+.list-search-items{
+  list-style: none;
+  padding: 0;
+}
+
+.list-search-items li{
+  padding-top: 5px;
+  color: #6c757d;
+}
