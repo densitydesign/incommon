@@ -19,6 +19,7 @@ export default function SearchResults({
         <ul className='list-search-items'>
           {searchResults.map((result, i) => (
             <li
+              className='pointer'
               onClick={() => onSelect(result)}
               key={`${result.type}-${result.title}`}
             >

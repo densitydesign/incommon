@@ -525,7 +525,8 @@ export default function Forma() {
             width: '21.7%',
             zIndex: 100000,
             borderRight: '1px solid #555555',
-            overflow: 'auto'
+            overflow: 'auto',
+            height: '100vh'
           }}
         >
           <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
