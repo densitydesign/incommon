@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import MenuTop from '../../components/MenuTop'
 import Viva from 'vivagraphjs'
 import networkBig from '../../data/network-forma.json'
@@ -7,12 +7,19 @@ import uniqBy from 'lodash/uniqBy'
 import truncate from 'lodash/truncate'
 import { countBy } from 'lodash'
 import classNames from 'classnames'
+import SearchResults from './SearchResults'
+import SelectedCard from './SelectedCard'
 
-const network = networkBig //slice(0, 1)
+const network = networkBig.slice(0, 100)
 
+// NOTE: Maybe calculate them inside react component
+// The downside to have this here is that memory is always used
+// ... also in other page ... but for now is ok
+// .. on the other hand .. have stuff here speed up inital rendering
 const eventi = uniqBy(network, 'Evento')
 const attori = uniqBy(network, 'Attore')
 const eventiWithAttori = groupBy(network, 'Evento')
+const attoriWithEventi = groupBy(network, 'Attore')
 const relazioniCount = countBy(network, 'Relazione')
 
 function buildCircleNodeShader() {
@@ -453,20 +460,59 @@ export default function Forma() {
       })
 
       // Hide display
-      document.querySelectorAll('.node-label').forEach(label => {
+      document.querySelectorAll('.node-label').forEach((label) => {
         label.style.display = 'none'
       })
       eventiScreenSet.forEach((evento) => {
         const nodeUI = graphics.getNodeUI(evento)
         const size = 10 + (nodeUI.node.links ?? []).length * 2
         nodeUI.size = size
-        const label = document.getElementById(`ma-graph-label-${nodeUI.node.id}`)
+        const label = document.getElementById(
+          `ma-graph-label-${nodeUI.node.id}`
+        )
         if (label) {
           label.style.display = 'initial'
         }
       })
       rerenderRef.current.rerender()
     }
+  }
+
+  const [search, setSearch] = useState('bene')
+
+  const searchResults = useMemo(() => {
+    const results = []
+    if (search === '') {
+      return results
+    }
+    eventi
+      .filter((evento) => {
+        return evento.Evento.toLowerCase().indexOf(search) !== -1
+      })
+      .forEach((evento) =>
+        results.push({
+          title: evento.Evento,
+          type: 'evento',
+        })
+      )
+    attori
+      .filter((attore) => {
+        return attore.Attore.toLowerCase().indexOf(search) !== -1
+      })
+      .forEach((evento) =>
+        results.push({
+          title: evento.Attore,
+          type: 'attore',
+        })
+      )
+    return results
+  }, [search])
+
+  const [selectedItem, setSelectedItem] = useState(null)
+
+  function enterItem(item, type) {
+    console.log('X', item, type)
+
   }
 
   return (
@@ -482,29 +528,53 @@ export default function Forma() {
           }}
         >
           <div className="ml-4 mr-4" style={{ marginTop: 100 }}>
-            <u>Filtra per tipo di relazione</u>
-            <div>
-              {Object.keys(relazioniCount).map((relazione) => (
-                <div
-                  onClick={() =>
-                    relazione === relazioneState
-                      ? filterRelazione(null)
-                      : filterRelazione(relazione)
-                  }
-                  key={relazione}
-                  className={classNames(
-                    'mt-2 d-flex justify-content-between pointer',
-                    {
-                      'text-secondary':
-                        relazioneState && relazioneState !== relazione,
-                    }
-                  )}
-                >
-                  <div>{relazione}</div>
-                  <div>{relazioniCount[relazione]}</div>
+            {!selectedItem && <SearchResults
+              search={search}
+              onTextChange={setSearch}
+              searchResults={searchResults}
+              onSelect={setSelectedItem}
+            />}
+
+            {selectedItem && (
+              <SelectedCard
+                onSelected={enterItem}
+                onClose={() => setSelectedItem(null)}
+                item={selectedItem}
+                relations={
+                  selectedItem.type === 'attore'
+                    ? attoriWithEventi[selectedItem.title]
+                    : eventiWithAttori[selectedItem.tile]
+                }
+              />
+            )}
+
+            {searchResults.length === 0 && (
+              <>
+                <u>Filtra per tipo di relazione</u>
+                <div>
+                  {Object.keys(relazioniCount).map((relazione) => (
+                    <div
+                      onClick={() =>
+                        relazione === relazioneState
+                          ? filterRelazione(null)
+                          : filterRelazione(relazione)
+                      }
+                      key={relazione}
+                      className={classNames(
+                        'mt-2 d-flex justify-content-between pointer',
+                        {
+                          'text-secondary':
+                            relazioneState && relazioneState !== relazione,
+                        }
+                      )}
+                    >
+                      <div>{relazione}</div>
+                      <div>{relazioniCount[relazione]}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
         </div>
         <div
