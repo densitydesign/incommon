@@ -75,6 +75,15 @@ export default function FiltersCatalogoActive({ filters, removeFilter }) {
             {persona} <small className="ml-1">x</small>
           </span>
         ))}
+        {(filters.content_provider ?? []).map((content_provider) => (
+          <span
+            onClick={() => removeFilter("content_provider", content_provider)}
+            className="mr-3"
+            key={content_provider}
+          >
+            {content_provider} <small className="ml-1">x</small>
+          </span>
+        ))}
       </div>
     )
   }

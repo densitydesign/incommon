@@ -8,6 +8,7 @@ const ItemFilter = ({
   filterOpen,
   countBy,
   name,
+  nameToShow = null,
   filters,
   addFilter,
 }) => {
@@ -23,7 +24,7 @@ const ItemFilter = ({
             alt="Show Hide"
           />
         </span>
-        <span className="ml-3 pointer text-capitalize">{name}</span>
+        <span className="ml-3 pointer text-capitalize">{nameToShow ? nameToShow : name}</span>
       </span>
       {filterOpen === name && (
         <MicroFilters
@@ -160,7 +161,8 @@ export default function FiltersCatalogo({
         countBy={countBy}
       />
       <ItemFilter
-        name="provenienza"
+        name="content_provider"
+        nameToShow={'Provenienza'}
         addFilter={addFilter}
         filters={filters}
         filterOpen={filterOpen}
