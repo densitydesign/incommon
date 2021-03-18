@@ -271,7 +271,7 @@ export default function Forma() {
           size,
           fill: 0x000000,
           stroke: 0xff0000,
-          strokeSize: 6.0,
+          strokeSize: 2.0,
         }
       }
     })
@@ -381,7 +381,7 @@ export default function Forma() {
             background: "black",
             width: "21.7%",
             zIndex: 100000,
-            borderRight: "1px solid red",
+            borderRight: "1px solid #555555",
           }}
         >
           <div className="ml-4 mr-4" style={{ marginTop: 100 }}>

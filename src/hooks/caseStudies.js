@@ -46,6 +46,7 @@ export const configCaseStudies = [
     year: 1970,
     images: [],
   },
+  
 ]
 
 export const CaseStudiesState = rj(rjIncommonList(), {
