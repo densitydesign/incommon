@@ -5,7 +5,7 @@ import networkBig from '../../data/network-forma.json'
 import groupBy from 'lodash/groupBy'
 import uniqBy from 'lodash/uniqBy'
 import truncate from 'lodash/truncate'
-import { countBy } from 'lodash'
+import { countBy, orderBy } from 'lodash'
 import classNames from 'classnames'
 import SearchResults from './SearchResults'
 import SelectedCard from './SelectedCard'
@@ -516,7 +516,7 @@ export default function Forma() {
     if (nodeScreenSet !== null) {
       results = results.filter((r) => nodeScreenSet.has(r.title))
     }
-    return results.slice(0, 100)
+    return orderBy(results.slice(0, 100), 'title')
   }, [nodeScreenSet, search])
 
   const [selectedItem, setSelectedItem] = useState(null)
@@ -527,7 +527,7 @@ export default function Forma() {
     const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
     renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
     let zoom = renderer.getTransform().scale
-    const toZoom = 3.5
+    const toZoom = 3
     while (zoom < toZoom) {
       zoom = renderer.zoomIn()
     }
@@ -543,17 +543,17 @@ export default function Forma() {
             width: '21.7%',
             zIndex: 100000,
             borderRight: '1px solid #555555',
+            overflow: 'auto',
+            height: '100vh'
           }}
         >
-          <div className="ml-4 mr-4" style={{ marginTop: 100 }}>
-            {!selectedItem && (
-              <SearchResults
-                search={search}
-                onTextChange={setSearch}
-                searchResults={searchResults}
-                onSelect={setSelectedItem}
-              />
-            )}
+          <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
+            {!selectedItem && <SearchResults
+              search={search}
+              onTextChange={setSearch}
+              searchResults={searchResults}
+              onSelect={setSelectedItem}
+            />}
 
             {selectedItem && (
               <SelectedCard
@@ -569,7 +569,7 @@ export default function Forma() {
             )}
 
             {searchResults.length === 0 && (
-              <>
+              <div style={{ marginTop: 100 }}>
                 <u>Filtra per tipo di relazione</u>
                 <div>
                   {Object.keys(relazioniCount).map((relazione) => (
@@ -593,7 +593,7 @@ export default function Forma() {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
