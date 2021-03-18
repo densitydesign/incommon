@@ -5,7 +5,7 @@ import networkBig from '../../data/network-forma.json'
 import groupBy from 'lodash/groupBy'
 import uniqBy from 'lodash/uniqBy'
 import truncate from 'lodash/truncate'
-import { countBy } from 'lodash'
+import { countBy, orderBy } from 'lodash'
 import classNames from 'classnames'
 import SearchResults from './SearchResults'
 import SelectedCard from './SelectedCard'
@@ -370,9 +370,9 @@ export default function Forma() {
     }
   }, [])
 
-  function filterGraphRelation(filterRelazione) {
-    console.log('Filter 4', filterRelazione)
+  const [nodeScreenSet, setNodeScreenSet] = useState(null)
 
+  function filterGraphRelation(filterRelazione) {
     const graph = graphRef.current
     if (graph) {
       // Calculate the new output that should go to screen
@@ -474,6 +474,14 @@ export default function Forma() {
           label.style.display = 'initial'
         }
       })
+      if (filterRelazione) {
+        const onScreenSet = new Set(
+          Array.from(eventiScreenSet).concat(Array.from(attoriScreenSet))
+        )
+        setNodeScreenSet(onScreenSet)
+      } else {
+        setNodeScreenSet(null)
+      }
       rerenderRef.current.rerender()
     }
   }
@@ -481,7 +489,7 @@ export default function Forma() {
   const [search, setSearch] = useState('')
 
   const searchResults = useMemo(() => {
-    const results = []
+    let results = []
     if (search === '') {
       return results
     }
@@ -505,14 +513,24 @@ export default function Forma() {
           type: 'attore',
         })
       )
-    return results
-  }, [search])
+    if (nodeScreenSet !== null) {
+      results = results.filter((r) => nodeScreenSet.has(r.title))
+    }
+    return orderBy(results.slice(0, 100), 'title')
+  }, [nodeScreenSet, search])
 
   const [selectedItem, setSelectedItem] = useState(null)
 
   function enterItem(item, type) {
-    console.log('X', item, type)
-
+    const renderer = rerenderRef.current
+    const nodeId = type === 'attore' ? item.Evento : item.Attore
+    const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
+    renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
+    let zoom = renderer.getTransform().scale
+    const toZoom = 3
+    while (zoom < toZoom) {
+      zoom = renderer.zoomIn()
+    }
   }
 
   return (
