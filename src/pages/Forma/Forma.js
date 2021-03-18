@@ -524,7 +524,7 @@ export default function Forma() {
 
   function enterItem(item, type) {
     const renderer = rerenderRef.current
-    const nodeId = type === 'attore' ? item.Attore : item.Evento
+    const nodeId = type === "attore" ? item.Attore : item.Evento
     const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
     if (nodeUI) {
       renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
@@ -545,9 +545,9 @@ export default function Forma() {
   useEffect(() => {
     const label = document.getElementById(`ma-graph-label-${lightNode}`)
     if (label) {
-      label.classList.add('ligh-selected-label-graph')
+      label.classList.add("ligh-selected-label-graph")
       return () => {
-        label.classList.remove('ligh-selected-label-graph')
+        label.classList.remove("ligh-selected-label-graph")
       }
     }
   }, [lightNode])
@@ -557,7 +557,7 @@ export default function Forma() {
       return null
     }
     const relations =
-      selectedItem.type === 'attore'
+      selectedItem.type === "attore"
         ? attoriWithEventi[selectedItem.title]
         : eventiWithAttori[selectedItem.title]
     if (relazioneState) {
@@ -581,21 +581,23 @@ export default function Forma() {
             overflow: "auto",
             height: "calc(100vh - 58px)",
           }}
-          className='position-relative'
+          className="position-relative"
         >
           {selectedItem && (
             <div
-              onClick={() => setSelectedItem(null)}
+              onClick={() => {
+                const renderer = rerenderRef.current
+                setSelectedItem(null)
+                setLightNode(null)
+                renderer.resume()
+              }}
               style={{ top: 5, right: 5 }}
               className="position-absolute pointer"
             >
               <X color="white" size={30} />
             </div>
           )}
-          <div
-            className="ml-4 mr-4"
-            style={{ marginTop: 30 }}
-          >
+          <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
             {!selectedItem && (
               <SearchResults
                 search={search}
@@ -608,12 +610,6 @@ export default function Forma() {
               <SelectedCard
                 onSelected={enterItem}
                 selectedNode={lightNode}
-                onClose={() => {
-                  const renderer = rerenderRef.current
-                  setSelectedItem(null)
-                  setLightNode(null)
-                  renderer.resume()
-                }}
                 item={selectedItem}
                 relations={selectedRelations}
               />
