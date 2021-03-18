@@ -523,15 +523,45 @@ export default function Forma() {
 
   function enterItem(item, type) {
     const renderer = rerenderRef.current
-    const nodeId = type === 'attore' ? item.Evento : item.Attore
+    const nodeId = type === 'attore' ? item.Attore : item.Evento
     const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
-    renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
-    let zoom = renderer.getTransform().scale
-    const toZoom = 3
-    while (zoom < toZoom) {
-      zoom = renderer.zoomIn()
+    if (nodeUI) {
+      renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
+      let zoom = renderer.getTransform().scale
+      const toZoom = 3
+      while (zoom < toZoom) {
+        zoom = renderer.zoomIn()
+      }
+      setLightNode(nodeId)
     }
   }
+
+  const [lightNode, setLightNode] = useState(null)
+  useEffect(() => {
+    const label = document.getElementById(`ma-graph-label-${lightNode}`)
+    if (label) {
+      label.classList.add('ligh-selected-label-graph')
+      return () => {
+        label.classList.remove('ligh-selected-label-graph')
+      }
+    }
+  }, [lightNode])
+
+  const selectedRelations = useMemo(() => {
+    if (!selectedItem) {
+      return null
+    }
+    const relations =
+      selectedItem.type === 'attore'
+        ? attoriWithEventi[selectedItem.title]
+        : eventiWithAttori[selectedItem.title]
+    if (relazioneState) {
+      return relations.filter((relation) => {
+        return relation.Relazione === relazioneState
+      })
+    }
+    return relations
+  }, [relazioneState, selectedItem])
 
   return (
     <div style={{ overflow: 'hidden' }}>
@@ -544,27 +574,28 @@ export default function Forma() {
             zIndex: 100000,
             borderRight: '1px solid #555555',
             overflow: 'auto',
-            height: '100vh'
+            height: '100vh',
           }}
         >
           <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
-            {!selectedItem && <SearchResults
-              search={search}
-              onTextChange={setSearch}
-              searchResults={searchResults}
-              onSelect={setSelectedItem}
-            />}
+            {!selectedItem && (
+              <SearchResults
+                search={search}
+                onTextChange={setSearch}
+                searchResults={searchResults}
+                onSelect={setSelectedItem}
+              />
+            )}
 
             {selectedItem && (
               <SelectedCard
                 onSelected={enterItem}
-                onClose={() => setSelectedItem(null)}
+                onClose={() => {
+                  setSelectedItem(null)
+                  setLightNode(null)
+                }}
                 item={selectedItem}
-                relations={
-                  selectedItem.type === 'attore'
-                    ? attoriWithEventi[selectedItem.title]
-                    : eventiWithAttori[selectedItem.tile]
-                }
+                relations={selectedRelations}
               />
             )}
 
