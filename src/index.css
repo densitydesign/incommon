@@ -76,17 +76,31 @@ body {
   color: #6c757d;
 }
 
-.list-search-items{
+.list-search-items, .list-events-actors{
   list-style: none;
   padding: 0;
+}
+
+.list-events-actors li{
+  font-size: 11px;
+  color: #FFF;
 }
 
 .list-search-items li{
   padding-top: 7px;
   font-size: 14px;
-  width: 80%;
   text-overflow: ellipsis;
   white-space: nowrap;
-    overflow: hidden !important;
+  overflow: hidden !important;
   color: #6c757d;
+}
+
+.actor-event-item{
+  margin-right: 10px;
+}
+
+.relation-name{
+  font-size: 13px;
+  color: #FFF;
+  text-decoration: underline;
 }
