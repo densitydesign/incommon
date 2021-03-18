@@ -3,6 +3,15 @@
   isolation: isolate;
   width: 500px;
   margin-bottom: 15px;
+  margin-right: 50px;
+}
+
+.stack-multi {
+  position: relative;
+  isolation: isolate;
+  width: 300px;
+  margin-bottom: 15px;
+  margin-right: 50px;
 }
 
 h3 {

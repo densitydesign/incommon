@@ -75,7 +75,7 @@ function CaseStudy({ caseStudy }) {
       />
       <div className="body-spettacolo d-flex justify-content-center align-items-center">
         {group && group === "archivio" ? (
-          Object.keys(imagesByArchivio).map((archivio) => (
+          Object.keys(imagesByArchivio).map((archivio, i) => (
             <ImagesStack
               key={archivio}
               images={imagesByArchivio[archivio]}
