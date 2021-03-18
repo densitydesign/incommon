@@ -44,20 +44,18 @@ function CaseStudy({ caseStudy }) {
     if (documents === null) {
       return []
     }
-    return flatMap(documents, (doc) => doc.images)
+    return flatMap(documents, (doc) => doc.images[0])
   }, [documents])
-
-  console.log("CaseStudy", { caseStudy, imagesOfDocs })
 
   return (
     <div className="d-flex page">
       {/* TODO: Rename 2 case study */}
-      {showMoreInfo && (
+      {/* {showMoreInfo && (
         <FiltersSpettacoloDetail
           caseStudy={caseStudy}
           toggleShowMoreInfo={toggleShowMoreInfo}
         />
-      )}
+      )} */}
       <InfoSpettacolo
         caseStudy={caseStudy}
         toggleShowMoreInfo={toggleShowMoreInfo}

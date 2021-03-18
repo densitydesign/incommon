@@ -13,8 +13,6 @@ const attori = uniqBy(network, "Attore")
 const relazioniCount = countBy(network, "Relazione")
 const eventiWithAttori = groupBy(network, "Evento")
 
-console.log(relazioniCount)
-
 const graph = Viva.Graph.graph()
 eventi.forEach((evento) => {
   graph.addNode(evento.Evento, { __glType: "evento" })

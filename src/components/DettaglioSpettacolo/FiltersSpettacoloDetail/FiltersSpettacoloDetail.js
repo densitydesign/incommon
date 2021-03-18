@@ -6,7 +6,6 @@ export default function FiltersSpettacoloDetail({
   toggleShowMoreInfo,
   caseStudy,
 }) {
-  console.log("caseStudy", caseStudy, "ciao")
 
   const dates = uniqBy(caseStudy.dates.filter((d) => !!d && d !== '0000-00-00'))
   const luoghi = uniqBy(caseStudy.luoghi.filter((d) => !!d))

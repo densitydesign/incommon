@@ -16,8 +16,8 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
             })}
             onClick={() => history.push('/catalogue/'+document.id)}
             key={index}
-            src={img.localPreview}
-            // src={img.preview}
+            //src={img.localPreview}
+            src={img.preview}
             alt={document.nome}
             height="120"
           />
