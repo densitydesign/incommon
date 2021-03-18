@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import SearchResults from './SearchResults'
 import SelectedCard from './SelectedCard'
 
-const network = networkBig.slice(0, 100)
+const network = networkBig
 
 // NOTE: Maybe calculate them inside react component
 // The downside to have this here is that memory is always used
@@ -478,7 +478,7 @@ export default function Forma() {
     }
   }
 
-  const [search, setSearch] = useState('bene')
+  const [search, setSearch] = useState('')
 
   const searchResults = useMemo(() => {
     const results = []
