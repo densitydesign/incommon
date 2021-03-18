@@ -534,6 +534,10 @@ export default function Forma() {
       }
       setLightNode(nodeId)
     }
+    // Yazzy!
+    setTimeout(() => {
+      renderer.pause()
+    }, 200)
   }
 
   const [lightNode, setLightNode] = useState(null)
@@ -591,8 +595,10 @@ export default function Forma() {
               <SelectedCard
                 onSelected={enterItem}
                 onClose={() => {
+                  const renderer = rerenderRef.current
                   setSelectedItem(null)
                   setLightNode(null)
+                  renderer.resume()
                 }}
                 item={selectedItem}
                 relations={selectedRelations}
