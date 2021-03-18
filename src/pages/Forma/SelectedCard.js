@@ -1,8 +1,8 @@
 import { groupBy } from "lodash"
 import React, { useMemo } from "react"
-import { X } from "react-bootstrap-icons"
+import classNames from 'classnames'
 
-export default function SelectedCard({ item, relations, onSelected, onClose }) {
+export default function SelectedCard({ item, relations, onSelected, selectedNode }) {
   const relationsByType = useMemo(() => groupBy(relations, "Relazione"), [
     relations,
   ])
@@ -15,7 +15,9 @@ export default function SelectedCard({ item, relations, onSelected, onClose }) {
           <ul className="list-events-actors">
             {relationsByType[relationName].map((relation, i) => (
               <li
-                className="d-flex justify-content-between pointer"
+                className={classNames("d-flex justify-content-between pointer",{
+                  'ligh-selected-label-graph': selectedNode === (item.type === "attore" ? relation.Evento : relation.Attore)
+                })}
                 key={i}
                 onClick={() => {
                   if (item.type === "attore") {

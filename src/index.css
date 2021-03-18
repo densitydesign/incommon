@@ -89,6 +89,7 @@ body {
 .list-search-items li{
   padding-top: 7px;
   font-size: 14px;
+  width: 80%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden !important;
@@ -106,5 +107,5 @@ body {
 }
 
 .ligh-selected-label-graph {
-  color: gold;
+  color: gold !important;
 }

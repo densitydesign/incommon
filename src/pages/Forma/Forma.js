@@ -607,6 +607,7 @@ export default function Forma() {
             {selectedItem && (
               <SelectedCard
                 onSelected={enterItem}
+                selectedNode={lightNode}
                 onClose={() => {
                   const renderer = rerenderRef.current
                   setSelectedItem(null)
