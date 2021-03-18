@@ -524,15 +524,49 @@ export default function Forma() {
 
   function enterItem(item, type) {
     const renderer = rerenderRef.current
-    const nodeId = type === "attore" ? item.Evento : item.Attore
+    const nodeId = type === 'attore' ? item.Attore : item.Evento
     const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
-    renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
-    let zoom = renderer.getTransform().scale
-    const toZoom = 3
-    while (zoom < toZoom) {
-      zoom = renderer.zoomIn()
+    if (nodeUI) {
+      renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
+      let zoom = renderer.getTransform().scale
+      const toZoom = 3
+      while (zoom < toZoom) {
+        zoom = renderer.zoomIn()
+      }
+      setLightNode(nodeId)
     }
+    // Yazzy!
+    setTimeout(() => {
+      renderer.pause()
+    }, 200)
   }
+
+  const [lightNode, setLightNode] = useState(null)
+  useEffect(() => {
+    const label = document.getElementById(`ma-graph-label-${lightNode}`)
+    if (label) {
+      label.classList.add('ligh-selected-label-graph')
+      return () => {
+        label.classList.remove('ligh-selected-label-graph')
+      }
+    }
+  }, [lightNode])
+
+  const selectedRelations = useMemo(() => {
+    if (!selectedItem) {
+      return null
+    }
+    const relations =
+      selectedItem.type === 'attore'
+        ? attoriWithEventi[selectedItem.title]
+        : eventiWithAttori[selectedItem.title]
+    if (relazioneState) {
+      return relations.filter((relation) => {
+        return relation.Relazione === relazioneState
+      })
+    }
+    return relations
+  }, [relazioneState, selectedItem])
 
   return (
     <div style={{ overflow: "hidden" }}>
@@ -573,13 +607,14 @@ export default function Forma() {
             {selectedItem && (
               <SelectedCard
                 onSelected={enterItem}
-                onClose={() => setSelectedItem(null)}
+                onClose={() => {
+                  const renderer = rerenderRef.current
+                  setSelectedItem(null)
+                  setLightNode(null)
+                  renderer.resume()
+                }}
                 item={selectedItem}
-                relations={
-                  selectedItem.type === "attore"
-                    ? attoriWithEventi[selectedItem.title]
-                    : eventiWithAttori[selectedItem.tile]
-                }
+                relations={selectedRelations}
               />
             )}
 

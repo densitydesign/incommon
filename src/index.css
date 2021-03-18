@@ -95,6 +95,7 @@ body {
   color: #6c757d;
 }
 
+<<<<<<< HEAD
 .actor-event-item{
   margin-right: 10px;
 }
@@ -103,4 +104,8 @@ body {
   font-size: 13px;
   color: #FFF;
   text-decoration: underline;
+=======
+.ligh-selected-label-graph {
+  color: gold;
+>>>>>>> eeb68f807156086ec49833f71b67fb448a40feff
 }
