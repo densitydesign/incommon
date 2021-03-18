@@ -18,10 +18,10 @@ export default function InfoSpettacolo({
   toggleShowMoreInfo,
   caseStudy,
   setArchivio,
+  group,
+  setGroup,
   setTipologia,
 }) {
-  const [group, setGroup] = useState(null)
-
   const countByTipologia = countBy(
     caseStudy.images.filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i)),
     "tipologia"
