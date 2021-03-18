@@ -17,6 +17,8 @@ const RANDOM_SEED = 1 + Math.floor(Math.random() * 1000)
 
 function CaseStudy({ caseStudy }) {
   const [showMoreInfo, setShowMoreInfo] = useState(false)
+  const [archivio,setArchivio] = useState(null)
+  const [tipologia,setTipologia] = useState(null)
 
   const toggleShowMoreInfo = () => {
     setShowMoreInfo(!showMoreInfo)
@@ -28,10 +30,12 @@ function CaseStudy({ caseStudy }) {
     return shuffle(
       caseStudy.images
         .filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i))
+        .filter((i) => tipologia ? i.tipologia === tipologia : i)
+        .filter((i) => archivio ? i.content_provider === archivio : i)
         .map((i) => imageWithLocaPreview(i)),
       RANDOM_SEED
     )
-  }, [caseStudy.images])
+  }, [archivio, caseStudy.images, tipologia])
   // const images = []
 
   const [{ documents }] = useDocuments(
@@ -44,8 +48,10 @@ function CaseStudy({ caseStudy }) {
     if (documents === null) {
       return []
     }
-    return flatMap(documents, (doc) => doc.images[0])
+    return flatMap(documents, (doc) => doc.images)
   }, [documents])
+
+  console.log(tipologia)
 
   return (
     <div className="d-flex page">
@@ -58,6 +64,8 @@ function CaseStudy({ caseStudy }) {
       )} */}
       <InfoSpettacolo
         caseStudy={caseStudy}
+        setArchivio={setArchivio}
+        setTipologia={setTipologia}
         toggleShowMoreInfo={toggleShowMoreInfo}
       />
       <div className="body-spettacolo d-flex justify-content-center align-items-center">

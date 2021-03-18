@@ -8,7 +8,7 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
 
   return (
     <Fragment>
-      {document.images &&
+      {document.images.filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i)) &&
         document.images.map((img, index) => (
           <img
             className={classnames("mr-4 mt-4 pointer img-catalog", {
@@ -25,3 +25,5 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
     </Fragment>
   )
 }
+
+
