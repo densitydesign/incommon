@@ -1,81 +1,66 @@
-import React, { useEffect, useRef } from "react"
-import MenuTop from "../../components/MenuTop"
-import Viva from "vivagraphjs"
-import networkBig from "../../data/network-forma.json"
-import groupBy from "lodash/groupBy"
-import uniqBy from "lodash/uniqBy"
-import truncate from "lodash/truncate"
-import { countBy } from "lodash"
+import React, { useEffect, useRef } from 'react'
+import MenuTop from '../../components/MenuTop'
+import Viva from 'vivagraphjs'
+import networkBig from '../../data/network-forma.json'
+import groupBy from 'lodash/groupBy'
+import uniqBy from 'lodash/uniqBy'
+import truncate from 'lodash/truncate'
+import { countBy } from 'lodash'
 
 const network = networkBig //slice(0, 1)
-const eventi = uniqBy(network, "Evento")
-const attori = uniqBy(network, "Attore")
-const relazioniCount = countBy(network, "Relazione")
-const eventiWithAttori = groupBy(network, "Evento")
 
-const graph = Viva.Graph.graph()
-eventi.forEach((evento) => {
-  graph.addNode(evento.Evento, { __glType: "evento" })
-})
-
-attori.forEach((attore) => {
-  graph.addNode(attore.Attore, { __glType: "attore" })
-})
-
-Object.keys(eventiWithAttori).forEach((evento) => {
-  const attori = eventiWithAttori[evento]
-  attori.forEach((attore) => {
-    graph.addLink(evento, attore.Attore)
-  })
-})
+const eventi = uniqBy(network, 'Evento')
+const attori = uniqBy(network, 'Attore')
+const eventiWithAttori = groupBy(network, 'Evento')
+const relazioniCount = countBy(network, 'Relazione')
 
 function buildCircleNodeShader() {
   // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
   var ATTRIBUTES_PER_PRIMITIVE = 6,
     nodesFS = [
-      "precision mediump float;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {",
-      "     gl_FragColor = border;",
-      "   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {",
-      "     gl_FragColor = color;",
-      "   } else {",
-      "     gl_FragColor = vec4(0);",
-      "   }",
-      "}",
-    ].join("\n"),
+      'void main(void) {',
+      '   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {',
+      '     gl_FragColor = border;',
+      '   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {',
+      '     gl_FragColor = color;',
+      '   } else {',
+      '     gl_FragColor = vec4(0);',
+      '   }',
+      '}',
+    ].join('\n'),
     nodesVS = [
-      "precision mediump float;",
-      "attribute vec2 a_vertexPos;",
-      "attribute vec4 a_customAttributes;",
-      "uniform vec2 u_screenSize;",
-      "uniform mat4 u_transform;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'attribute vec2 a_vertexPos;',
+      'attribute vec4 a_customAttributes;',
+      'uniform vec2 u_screenSize;',
+      'uniform mat4 u_transform;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);",
-      "   gl_PointSize = a_customAttributes[0] * u_transform[0][0];",
-      "   float c = a_customAttributes[1];",
-      "   color.b = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.g = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.r = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.a = 255.0;",
-      "   color /= 255.0;",
-      "   float b = a_customAttributes[2];",
-      "   border.b = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.g = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.r = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.a = 255.0;",
-      "   border /= 255.0;",
-      "   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];",
-      "}",
-    ].join("\n")
+      'void main(void) {',
+      '   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);',
+      '   gl_PointSize = a_customAttributes[0] * u_transform[0][0];',
+      '   float c = a_customAttributes[1];',
+      '   color.b = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.g = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.r = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.a = 255.0;',
+      '   color /= 255.0;',
+      '   float b = a_customAttributes[2];',
+      '   border.b = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.g = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.r = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.a = 255.0;',
+      '   border /= 255.0;',
+      '   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];',
+      '}',
+    ].join('\n')
 
   let program,
     buffer,
@@ -104,10 +89,10 @@ function buildCircleNodeShader() {
       program = webglUtils.createProgram(nodesVS, nodesFS)
       gl.useProgram(program)
       locations = webglUtils.getLocations(program, [
-        "a_vertexPos",
-        "a_customAttributes",
-        "u_screenSize",
-        "u_transform",
+        'a_vertexPos',
+        'a_customAttributes',
+        'u_screenSize',
+        'u_transform',
       ])
 
       gl.enableVertexAttribArray(locations.vertexPos)
@@ -234,11 +219,35 @@ const LINKS_COUNT_PROGRESSIVE_MULLER = 6
 const MAX_FONT_SIZE = 25
 
 export default function Forma() {
+  const graphDomRef = useRef()
   const graphRef = useRef()
+  const rerenderRef = useRef()
 
   useEffect(() => {
-    const containerHeight = graphRef.current.clientHeight
-    const containerWidth = graphRef.current.clientWidth
+    const graph = Viva.Graph.graph()
+    graphRef.current = graph
+
+    eventi.forEach((evento) => {
+      graph.addNode(evento.Evento, { __glType: 'evento' })
+    })
+    attori.forEach((attore) => {
+      graph.addNode(attore.Attore, { __glType: 'attore' })
+    })
+
+    Object.keys(eventiWithAttori).forEach((evento) => {
+      const attori = eventiWithAttori[evento]
+      const attoriLinksSet = new Set()
+      attori.forEach((attore) => {
+        const nomeAttore = attore.Attore
+        if (!attoriLinksSet.has(nomeAttore)) {
+          graph.addLink(evento, nomeAttore)
+          attoriLinksSet.add(nomeAttore)
+        }
+      })
+    })
+
+    const containerHeight = graphDomRef.current.clientHeight
+    const containerWidth = graphDomRef.current.clientWidth
 
     var graphics = Viva.Graph.View.webglGraphics()
 
@@ -258,7 +267,7 @@ export default function Forma() {
       //    In this case, stroke will be ignored, but it is required to set it to mantain the fixed size
       //    of the webgl node structure
 
-      if (node.data.__glType === "attore") {
+      if (node.data.__glType === 'attore') {
         return {
           size,
           fill: 0xff0000,
@@ -275,12 +284,14 @@ export default function Forma() {
         }
       }
     })
+
     const renderer = Viva.Graph.View.renderer(graph, {
-      container: graphRef.current,
+      container: graphDomRef.current,
       graphics: graphics,
       // interactive: 'scroll,drag',
     })
-    var events = Viva.Graph.webglInputEvents(graphics, graph)
+    rerenderRef.current = renderer
+    const events = Viva.Graph.webglInputEvents(graphics, graph)
     events.click(function (node) {
       // alert('Click ' + node.id)
       // console.log('Single click on node: ', node)
@@ -331,24 +342,24 @@ export default function Forma() {
           domPos.y >= containerHeight ||
           domPos.x >= containerWidth
         ) {
-          labelStyle.display = "none"
+          labelStyle.display = 'none'
         } else {
-          labelStyle.display = "initial"
-          labelStyle.left = domPos.x + "px"
-          labelStyle.top = domPos.y - 10 + "px"
+          labelStyle.display = 'initial'
+          labelStyle.left = domPos.x + 'px'
+          labelStyle.top = domPos.y - 10 + 'px'
           labelStyle.fontSize =
             Math.min(
               (LABEL_BASE_FONT +
                 (ui.node.links.length - showLinksCount) * LABEL_FONT_MUL) *
                 zoom,
               MAX_FONT_SIZE
-            ) + "px"
-          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + "px"
+            ) + 'px'
+          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + 'px'
         }
       } else {
         const nodeId = ui.node.id
         const labelStyle = domLabels[nodeId].style
-        labelStyle.display = "none"
+        labelStyle.display = 'none'
       }
     })
 
@@ -357,38 +368,142 @@ export default function Forma() {
       var labels = {}
       graph.forEachNode(function (node) {
         //if ((node.links ?? []).length > DRAW_LABEL_LINKS_COUNT) {
-        var label = document.createElement("span")
-        label.classList.add("node-label")
+        var label = document.createElement('span')
+        label.classList.add('node-label')
         label.innerText = truncate(node.id)
         labels[node.id] = label
-        graphRef.current.appendChild(label)
+        graphDomRef.current.appendChild(label)
         //}
       })
       // NOTE: If your graph changes over time you will need to
       // monitor graph changes and update DOM elements accordingly
       return labels
     }
-
+    console.log(renderer)
     renderer.run()
   }, [])
 
+  function filterGraphRelation(filterRelazione) {
+    console.log('Filter 4', filterRelazione)
+
+    const graph = graphRef.current
+    if (graph) {
+      // Calculate the new output that should go to screen
+      const attoriScreenSet = new Set()
+      const eventiScreenSet = new Set()
+      const linksScreenSet = new Set()
+
+      Object.keys(eventiWithAttori).forEach((evento) => {
+        const attori = eventiWithAttori[evento]
+        let added = false
+        attori.forEach((attore) => {
+          const nomeAttore = attore.Attore
+          if (attore.Relazione === filterRelazione) {
+            attoriScreenSet.add(nomeAttore)
+            linksScreenSet.add(evento + '👉 ' + nomeAttore)
+            added = true
+          }
+        })
+        if (added) {
+          eventiScreenSet.add(evento)
+        }
+      })
+
+      // Calcute the set of diffs to avoid useless screens operations
+      const addAttoriSet = new Set(attoriScreenSet)
+      const removeAttoriSet = new Set()
+
+      const addEventiSet = new Set(eventiScreenSet)
+      const removeEventiSet = new Set()
+
+      const addLinksSet = new Set(linksScreenSet)
+      const removeLinksSet = new Set(linksScreenSet)
+
+      graph.forEachNode(node => {
+        if (node.data.__glType === 'attore') {
+          if (attoriScreenSet.has(node.id)) {
+            addAttoriSet.delete(node.id)
+          } else {
+            removeAttoriSet.add(node.id)
+          }
+        } else if (node.data.__glType === 'evento') {
+          if (eventiScreenSet.has(node.id)) {
+            addEventiSet.delete(node.id)
+          } else {
+            removeEventiSet.add(node.id)
+          }
+        }
+        node.links.forEach(link => {
+          if (linksScreenSet.has(link.id)) {
+            addLinksSet.delete(link.id)
+          } else {
+            removeLinksSet.add(link)
+          }
+        })
+      })
+
+      // Apply the diff on WebGel screen
+      removeLinksSet.forEach((link) => {
+        graph.removeLink(link)
+      })
+      removeEventiSet.forEach(evento => {
+        graph.removeNode(evento)
+      })
+      removeAttoriSet.forEach(attore => {
+        graph.removeNode(attore)
+      })
+      attoriScreenSet.forEach(attore => {
+        graph.addNode(attore, { __glType: 'attore' })
+      })
+      eventiScreenSet.forEach(evento => {
+        graph.addNode(evento, { __glType: 'evento' })
+      })
+      addLinksSet.forEach((linkId) => {
+        const [evento, attore] = linkId.split('👉 ')
+        graph.addLink(evento, attore)
+      })
+
+      const graphics = rerenderRef.current.getGraphics()
+
+      attoriScreenSet.forEach(attore => {
+        const nodeUI = graphics.getNodeUI(attore)
+        const links = graph.getLinks(attore)
+        const size = 10 + (links ?? []).length * 2
+        nodeUI.size = size
+      })
+
+      eventiScreenSet.forEach(evento => {
+        const nodeUI = graphics.getNodeUI(evento)
+        const links = graph.getLinks(evento)
+        const size = 10 + (links ?? []).length * 2
+        nodeUI.size = size
+      })
+
+      rerenderRef.current.rerender()
+    }
+  }
+
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ overflow: 'hidden' }}>
       <MenuTop />
       <div className="d-flex">
         <div
           style={{
-            background: "black",
-            width: "21.7%",
+            background: 'black',
+            width: '21.7%',
             zIndex: 100000,
-            borderRight: "1px solid #555555",
+            borderRight: '1px solid #555555',
           }}
         >
           <div className="ml-4 mr-4" style={{ marginTop: 100 }}>
             <u>Filtra per tipo di relazione</u>
             <div>
-              {Object.keys(relazioniCount).map(relazione => (
-                <div className='mt-2 d-flex justify-content-between'>
+              {Object.keys(relazioniCount).map((relazione) => (
+                <div
+                  onClick={() => filterGraphRelation(relazione)}
+                  key={relazione}
+                  className="mt-2 d-flex justify-content-between"
+                >
                   <div>{relazione}</div>
                   <div>{relazioniCount[relazione]}</div>
                 </div>
@@ -397,10 +512,10 @@ export default function Forma() {
           </div>
         </div>
         <div
-          ref={graphRef}
+          ref={graphDomRef}
           style={{
-            position: "relative",
-            height: "calc(100vh - 58px)",
+            position: 'relative',
+            height: 'calc(100vh - 58px)',
             flex: 1,
             // background: 'purple',
           }}
