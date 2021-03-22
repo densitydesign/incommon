@@ -1,7 +1,6 @@
 import React, { useMemo, useRef, useEffect, useState } from "react";
 import chunk from "lodash/chunk";
 import range from "lodash/range";
-import mapValues from "lodash/mapValues";
 import flatten from "lodash/flatten";
 import { randomUniform, randomInt } from "d3-random";
 import { max } from "lodash";
@@ -88,7 +87,15 @@ function makeSize(width, height, numCols, numRows) {
   };
 }
 
-function ImgContainer({ imageWidth, imageHeight, index, image, left, top }) {
+function ImgContainer({
+  imageWidth,
+  imageHeight,
+  index,
+  image,
+  left,
+  top,
+  randomize,
+}) {
   const props = useSpring({
     top,
     left,
@@ -107,7 +114,11 @@ function ImgContainer({ imageWidth, imageHeight, index, image, left, top }) {
         top: props.top,
       }}
     >
-      <RandImage index={index} randomize={true} src={image.preview}></RandImage>
+      <RandImage
+        index={index}
+        randomize={randomize}
+        src={image.preview}
+      ></RandImage>
     </animated.div>
   );
 }
@@ -141,6 +152,7 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
         <React.Fragment key={groupName}>
           {imagesByGroup[groupName].map((image, index) => (
             <ImgContainer
+              randomize={false}
               key={image.preview}
               imageHeight={imageHeight}
               imageWidth={imageWidth}
