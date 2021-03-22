@@ -87,15 +87,7 @@ function makeSize(width, height, numCols, numRows) {
   };
 }
 
-function ImgContainer({
-  imageWidth,
-  imageHeight,
-  index,
-  image,
-  left,
-  top,
-  randomize,
-}) {
+function ImgContainer({ imageWidth, imageHeight, index, image, left, top, randomize, toggleRandomize }) {
   const props = useSpring({
     top,
     left,
@@ -105,6 +97,8 @@ function ImgContainer({
 
   return (
     <animated.div
+      onMouseEnter={toggleRandomize}
+      onMouseLeave={toggleRandomize}
       style={{
         width: props.width,
         height: props.height,
@@ -114,11 +108,7 @@ function ImgContainer({
         top: props.top,
       }}
     >
-      <RandImage
-        index={index}
-        randomize={randomize}
-        src={image.preview}
-      ></RandImage>
+      <RandImage index={index} randomize={randomize} src={image.preview}></RandImage>
     </animated.div>
   );
 }
@@ -146,13 +136,25 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
 
   const groupNames = Object.keys(imagesByGroup);
 
+  const [randomizeGroup, setRandomizeGroup] = useState(null)
+  const toggleRandomizeGroup = (groupName) => () => {
+      if(randomizeGroup === groupName){
+        setRandomizeGroup(null)
+      } else {
+        setRandomizeGroup(groupName)
+      }
+  }
+
+
+
   return (
     <div ref={ref} style={{ position: "relative" }} className="w-100 h-100">
       {groupNames.map((groupName, groupIndex) => (
         <React.Fragment key={groupName}>
           {imagesByGroup[groupName].map((image, index) => (
             <ImgContainer
-              randomize={false}
+              randomize={randomizeGroup===groupName}
+              toggleRandomize={toggleRandomizeGroup(groupName)}
               key={image.preview}
               imageHeight={imageHeight}
               imageWidth={imageWidth}
