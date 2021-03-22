@@ -7,6 +7,7 @@ import InfoSpettacolo from "../../../components/DettaglioSpettacolo/InfoSpettaco
 import MenuTop from "../../../components/MenuTop"
 import { shuffle } from "seed-shuffle"
 import ImagesStack from "../../../components/DettaglioSpettacolo/ImagesStack"
+import AnimatedImageStack from "../../../components/DettaglioSpettacolo/AnimatedImageStack"
 import "./CaseStudy.css"
 import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
 import { flatMap, groupBy } from "lodash"
@@ -45,8 +46,11 @@ function CaseStudy({ caseStudy }) {
     })
   )
 
-  const imagesByTipologia = groupBy(images, "tipologia")
-  const imagesByArchivio = groupBy(images, "content_provider")
+  //const imagesByTipologia = groupBy(images, "tipologia")
+  const imagesByTipologia = groupBy(images.map((img, index) => ({...img, index})), img => img.index % 3)
+
+  //const imagesByArchivio = groupBy(images, "content_provider")
+  const imagesByArchivio = groupBy(images.map((img, index) => ({...img, index})), img => img.index % 4)
   // const imagesOfDocs = useMemo(() => {
   //   if (documents === null) {
   //     return []
@@ -55,6 +59,15 @@ function CaseStudy({ caseStudy }) {
   // }, [documents])
 
   // console.log(images)
+
+  const byGroup = useMemo(() => {
+
+    return {
+      archivio: imagesByArchivio,
+      tipologia: imagesByTipologia,
+    }
+
+  })
 
   return (
     <div className="d-flex page">
@@ -74,7 +87,13 @@ function CaseStudy({ caseStudy }) {
         toggleShowMoreInfo={toggleShowMoreInfo}
       />
       <div className="body-spettacolo d-flex justify-content-center align-items-center">
-        {group && group === "archivio" ? (
+
+        <AnimatedImageStack
+          group={group}
+          images={images}
+          byGroup={byGroup}
+        />
+        {/* {group && group === "archivio" ? (
           Object.keys(imagesByArchivio).map((archivio, i) => (
             <ImagesStack
               key={archivio}
@@ -95,7 +114,7 @@ function CaseStudy({ caseStudy }) {
             images={images}
             link={`/recomposition/${caseStudy.slug}/slideshow`}
           />
-        )}
+        )} */}
       </div>
     </div>
   )
