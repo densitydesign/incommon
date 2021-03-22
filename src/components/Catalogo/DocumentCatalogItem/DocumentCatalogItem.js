@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useMemo } from "react"
 import classnames from 'classnames'
 import { useHistory } from 'react-router-dom'
 
@@ -6,14 +6,18 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
 
   const history = useHistory()
 
+  const images = useMemo(() => {
+    return document.images.filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i))
+  },[document.images])
+
+
   return (
-    <Fragment>
-      {document.images.filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i)) &&
-        document.images.map((img, index) => (
+    <div className='position-relative d-inline-block'>
+      { 
+        images.map((img, index) => (
           <img
-            className={classnames("mr-4 mt-4 pointer img-catalog", {
-              'position-absolute': isCollapsed
-            })}
+            style={{ zIndex: index, marginLeft: index === 0 ? 0 : '-90%' }}
+            className={classnames("mr-4 mt-4 pointer img-catalog")}
             onClick={() => history.push('/catalogue/'+document.id)}
             key={index}
             //src={img.localPreview}
@@ -22,7 +26,7 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
             height="120"
           />
         ))}
-    </Fragment>
+    </div>
   )
 }
 

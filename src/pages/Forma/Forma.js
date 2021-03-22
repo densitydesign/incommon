@@ -283,9 +283,12 @@ export default function Forma() {
           size,
           fill: 0x000000,
           stroke: 0xff0000,
-          strokeSize: 2.0,
+          strokeSize: 5.0,
         }
       }
+    })
+    graphics.link(function (link) {
+      return Viva.Graph.View.webglLine(0xff000040)
     })
 
     const renderer = Viva.Graph.View.renderer(graph, {
