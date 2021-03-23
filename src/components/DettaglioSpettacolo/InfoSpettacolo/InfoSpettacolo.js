@@ -7,6 +7,8 @@ const MicroFilter = ({
   name,
   count,
   tipologia = null,
+  setArchivio,
+  setTipologia,
   archivio = null,
   ...props
 }) => {
@@ -92,7 +94,8 @@ export default function InfoSpettacolo({
               <div className="mt-4">
                 {Object.keys(countByTipologia).map((tipologiaItem) => (
                   <MicroFilter
-                    onClick={() => setTipologia(tipologiaItem)}
+                    setTipologia={setTipologia}
+                    onClick={() => tipologia !== tipologiaItem ? setTipologia(tipologiaItem) : setTipologia(null)}
                     key={tipologiaItem}
                     tipologia={tipologia}
                     name={tipologiaItem}
@@ -105,8 +108,9 @@ export default function InfoSpettacolo({
               <div className="mt-4">
                 {Object.keys(countByArchivio).map((archivioItem) => (
                   <MicroFilter
-                    onClick={() => setArchivio(archivioItem)}
+                    onClick={() => archivio !== archivioItem ? setArchivio(archivioItem) : setArchivio(null)}
                     key={archivioItem}
+                    setArchivio={setArchivio}
                     archivio={archivio}
                     name={archivioItem}
                     count={countByArchivio[archivioItem]}

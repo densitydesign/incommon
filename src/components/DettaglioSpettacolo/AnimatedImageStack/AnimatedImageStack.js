@@ -1,99 +1,116 @@
-import React, { useMemo, useRef, useEffect, useState } from "react";
-import chunk from "lodash/chunk";
-import range from "lodash/range";
-import flatten from "lodash/flatten";
-import { randomUniform, randomInt } from "d3-random";
-import { max } from "lodash";
-import { useSpring, animated } from "react-spring";
+import React, { useMemo, useRef, useEffect, useState } from "react"
+import chunk from "lodash/chunk"
+import range from "lodash/range"
+import flatten from "lodash/flatten"
+import { randomUniform, randomInt } from "d3-random"
+import { max } from "lodash"
+import { useSpring, animated } from "react-spring"
+import { Link } from "react-router-dom"
 
-const MAX_STACKS_PER_ROW = 3;
+const MAX_STACKS_PER_ROW = 3
 
 function randomTransform() {
   return `scale(${randomUniform(0.6, 1)()}) translate(${randomInt(
     -20,
     20
-  )()}%,${randomInt(-5, 5)()}%) rotate(${randomInt(-5, 5)()}deg)`;
+  )()}%,${randomInt(-5, 5)()}%) rotate(${randomInt(-5, 5)()}deg)`
 }
 
-function RandImage({ src, randomize }) {
+function RandImage({ src, randomize, width, height, top, left }) {
   const [transform, setTransform] = useState(() => ({
     stable: randomTransform(),
     random: null,
-  }));
+  }))
 
   useEffect(() => {
     if (randomize) {
       setTransform((s) => ({
         ...s,
         random: randomTransform(),
-      }));
+      }))
     } else {
       setTransform((s) => {
         if (s.random === null) {
-          return s;
+          return s
         }
         return {
           ...s,
           random: null,
-        };
-      });
+        }
+      })
     }
-  }, [randomize]);
+  }, [randomize])
 
   return (
-    <img
+    <animated.img
       className={"stackImage"}
       alt={"Spettacolo"}
       src={src}
+      width={width}
+      height={height}
       style={{
         transform: transform.random ?? transform.stable,
+        top: top,
+        left: left,
       }}
     />
-  );
+  )
 }
 
 function makeCenters(width, height, imagesByGroup) {
-  const keys = Object.keys(imagesByGroup);
-  const num = keys.length;
+  const keys = Object.keys(imagesByGroup)
+  const num = keys.length
 
   const chunked =
-    num === 4 ? chunk(range(num), 2) : chunk(range(num), MAX_STACKS_PER_ROW);
-  const numRows = chunked.length;
-  const rowDelta = height / (numRows + 1);
+    num === 4 ? chunk(range(num), 2) : chunk(range(num), MAX_STACKS_PER_ROW)
+
+  console.log(chunked, "chunked")
+
+  const numRows = chunked.length
+  const rowDelta = height / (numRows + 1)
 
   const centersFlat = flatten(
     chunked.map((c, rowIndex) => {
-      const colDelta = width / (c.length + 1);
-      const y = rowDelta * (rowIndex + 1);
+      const colDelta = width / (c.length + 1)
+      const y = rowDelta * (rowIndex + 1)
       return c.map((item, colIndex) => {
-        const x = colDelta * (colIndex + 1);
-        return { x, y };
-      });
+        const x = colDelta * (colIndex + 1)
+        return { x, y }
+      })
     })
-  );
+  )
 
   const centers = keys.reduce((acc, item, index) => {
-    acc[item] = centersFlat[index];
-    return acc;
-  }, {});
-  const chunksLength = chunked.map((c) => c.length);
-  return { centers, numRows, numColumns: max(chunksLength) };
+    acc[item] = centersFlat[index]
+    return acc
+  }, {})
+  const chunksLength = chunked.map((c) => c.length)
+  return { centers, numRows, numColumns: max(chunksLength) }
 }
 
 function makeSize(width, height, numCols, numRows) {
   return {
-    imageWidth: (width / numCols) * 0.6,
-    imageHeight: (height / numRows) * 0.6,
-  };
+    imageWidth: (width / numCols) * 0.55,
+    imageHeight: (height / numRows) * 0.55,
+  }
 }
 
-function ImgContainer({ imageWidth, imageHeight, index, image, left, top, randomize, toggleRandomize }) {
+function ImgContainer({
+  imageWidth,
+  imageHeight,
+  index,
+  image,
+  left,
+  top,
+  randomize,
+  toggleRandomize,
+}) {
   const props = useSpring({
     top,
     left,
     width: imageWidth,
     height: imageHeight,
-  });
+  })
 
   return (
     <animated.div
@@ -108,57 +125,61 @@ function ImgContainer({ imageWidth, imageHeight, index, image, left, top, random
         top: props.top,
       }}
     >
-      <RandImage index={index} randomize={randomize} src={image.preview}></RandImage>
+      <RandImage
+        width={props.width}
+        height={props.height}
+        index={index}
+        randomize={randomize}
+        src={image.preview}
+      ></RandImage>
     </animated.div>
-  );
+  )
 }
 
-export default function AnimatedImageStack({ group, images, byGroup }) {
+export default function AnimatedImageStack({ group, images, byGroup, link }) {
   const imagesByGroup = useMemo(() => {
-    return group ? byGroup[group] : { "": images };
-  }, [byGroup, group, images]);
+    return group ? byGroup[group] : { "": images }
+  }, [byGroup, group, images])
 
-  const ref = useRef();
-  const width = ref.current ? ref.current.clientWidth : 0;
-  const height = ref.current ? ref.current.clientHeight : 0;
+  const ref = useRef()
+  const width = ref.current ? ref.current.clientWidth : 0
+  const height = ref.current ? ref.current.clientHeight : 0
 
   const { centers, numRows, numColumns } = makeCenters(
     width,
     height,
     imagesByGroup
-  );
+  )
 
-  console.log(numRows,numColumns)
+  console.log(numRows, numColumns)
 
   const { imageWidth, imageHeight } = makeSize(
     width,
     height,
     numColumns,
     numRows
-  );
+  )
 
-  const groupNames = Object.keys(imagesByGroup);
+  const groupNames = Object.keys(imagesByGroup)
 
   //console.log(groupNames,'groupNames')
 
   const [randomizeGroup, setRandomizeGroup] = useState(null)
   const toggleRandomizeGroup = (groupName) => () => {
-      if(randomizeGroup === groupName){
-        setRandomizeGroup(null)
-      } else {
-        setRandomizeGroup(groupName)
-      }
+    if (randomizeGroup === groupName) {
+      setRandomizeGroup(null)
+    } else {
+      setRandomizeGroup(groupName)
+    }
   }
-
-
 
   return (
     <div ref={ref} style={{ position: "relative" }} className="w-100 h-100">
       {groupNames.map((groupName, groupIndex) => (
-        <div key={groupName}>
+        <Link to={link} key={groupName}>
           {imagesByGroup[groupName].map((image, index) => (
             <ImgContainer
-              randomize={randomizeGroup===groupName}
+              randomize={randomizeGroup === groupName}
               toggleRandomize={toggleRandomizeGroup(groupName)}
               key={image.preview}
               imageHeight={imageHeight}
@@ -169,8 +190,8 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
               top={centers[groupName].y - imageHeight / 2}
             ></ImgContainer>
           ))}
-        </div>
+        </Link>
       ))}
     </div>
-  );
+  )
 }
