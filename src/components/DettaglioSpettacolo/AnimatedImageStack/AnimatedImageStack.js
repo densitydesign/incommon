@@ -127,6 +127,9 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
     height,
     imagesByGroup
   );
+
+  console.log(numRows,numColumns)
+
   const { imageWidth, imageHeight } = makeSize(
     width,
     height,
@@ -135,6 +138,8 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
   );
 
   const groupNames = Object.keys(imagesByGroup);
+
+  //console.log(groupNames,'groupNames')
 
   const [randomizeGroup, setRandomizeGroup] = useState(null)
   const toggleRandomizeGroup = (groupName) => () => {
@@ -150,7 +155,7 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
   return (
     <div ref={ref} style={{ position: "relative" }} className="w-100 h-100">
       {groupNames.map((groupName, groupIndex) => (
-        <React.Fragment key={groupName}>
+        <div key={groupName}>
           {imagesByGroup[groupName].map((image, index) => (
             <ImgContainer
               randomize={randomizeGroup===groupName}
@@ -164,7 +169,7 @@ export default function AnimatedImageStack({ group, images, byGroup }) {
               top={centers[groupName].y - imageHeight / 2}
             ></ImgContainer>
           ))}
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );

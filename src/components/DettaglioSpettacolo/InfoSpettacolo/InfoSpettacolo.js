@@ -3,9 +3,21 @@ import classnames from "classnames"
 import "./InfoSpettacolo.css"
 import { countBy } from "lodash"
 
-const MicroFilter = ({ name, count, ...props }) => {
+const MicroFilter = ({
+  name,
+  count,
+  tipologia = null,
+  archivio = null,
+  ...props
+}) => {
   return (
-    <div {...props} className="item-micro-spettacolo mt-2 d-flex">
+    <div
+      {...props}
+      className={classnames("item-micro-spettacolo mt-2 d-flex", {
+        "text-secondary":
+          (tipologia && tipologia !== name) || (archivio && archivio !== name),
+      })}
+    >
       <div className="d-flex w-100 pointer justify-content-between align-items-center">
         <div style={{ width: "80%" }}>{name}</div>
         <div>{count}</div>
@@ -18,6 +30,8 @@ export default function InfoSpettacolo({
   toggleShowMoreInfo,
   caseStudy,
   setArchivio,
+  tipologia,
+  archivio,
   group,
   setGroup,
   setTipologia,
@@ -38,14 +52,14 @@ export default function InfoSpettacolo({
     <div className="block-left-spettacolo">
       <div className="block-info-spettacolo">
         <div className="title-spettacolo">{caseStudy.caption}</div>
-        <div className="mt-4 pointer more-info" onClick={toggleShowMoreInfo}>
+        {/* <div className="mt-4 pointer more-info" onClick={toggleShowMoreInfo}>
           + Info
-        </div>
+        </div> */}
         <div className="block-raggruppa">
           <u>Raggruppa per</u>:
           <div
             onClick={() => {
-              setGroup("archivio")
+              group === "archivio" ? setGroup("") : setGroup("archivio")
               setArchivio(null)
               setTipologia(null)
             }}
@@ -57,7 +71,7 @@ export default function InfoSpettacolo({
           </div>
           <div
             onClick={() => {
-              setGroup("tipologia")
+              group === "tipologia" ? setGroup("") : setGroup("tipologia")
               setArchivio(null)
               setTipologia(null)
             }}
@@ -76,24 +90,26 @@ export default function InfoSpettacolo({
             </div>
             {group === "tipologia" && (
               <div className="mt-4">
-                {Object.keys(countByTipologia).map((tipologia) => (
+                {Object.keys(countByTipologia).map((tipologiaItem) => (
                   <MicroFilter
-                    onClick={() => setTipologia(tipologia)}
-                    key={tipologia}
-                    name={tipologia}
-                    count={countByTipologia[tipologia]}
+                    onClick={() => setTipologia(tipologiaItem)}
+                    key={tipologiaItem}
+                    tipologia={tipologia}
+                    name={tipologiaItem}
+                    count={countByTipologia[tipologiaItem]}
                   />
                 ))}
               </div>
             )}
             {group === "archivio" && (
               <div className="mt-4">
-                {Object.keys(countByArchivio).map((archivio) => (
+                {Object.keys(countByArchivio).map((archivioItem) => (
                   <MicroFilter
-                    onClick={() => setArchivio(archivio)}
-                    key={archivio}
-                    name={archivio}
-                    count={countByArchivio[archivio]}
+                    onClick={() => setArchivio(archivioItem)}
+                    key={archivioItem}
+                    archivio={archivio}
+                    name={archivioItem}
+                    count={countByArchivio[archivioItem]}
                   />
                 ))}
               </div>

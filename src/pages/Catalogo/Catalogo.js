@@ -8,6 +8,7 @@ import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
 import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
 import { Waypoint } from 'react-waypoint'
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()

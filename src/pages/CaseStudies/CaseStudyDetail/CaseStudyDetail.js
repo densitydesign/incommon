@@ -46,11 +46,14 @@ function CaseStudy({ caseStudy }) {
     })
   )
 
-  //const imagesByTipologia = groupBy(images, "tipologia")
-  const imagesByTipologia = groupBy(images.map((img, index) => ({...img, index})), img => img.index % 3)
+  const imagesByTipologiaLength = Object.keys(groupBy(images, "tipologia")).length
+  const imagesByTipologia = groupBy(images.map((img, index) => ({...img, index})), img => img.index % imagesByTipologiaLength)
 
-  //const imagesByArchivio = groupBy(images, "content_provider")
-  const imagesByArchivio = groupBy(images.map((img, index) => ({...img, index})), img => img.index % 4)
+  const imagesByArchivioLength = Object.keys(groupBy(images, "content_provider")).length
+  const imagesByArchivio = groupBy(images.map((img, index) => ({...img, index})), img => img.index % imagesByArchivioLength)
+
+  console.log(imagesByArchivio)
+
   // const imagesOfDocs = useMemo(() => {
   //   if (documents === null) {
   //     return []
@@ -67,7 +70,7 @@ function CaseStudy({ caseStudy }) {
       tipologia: imagesByTipologia,
     }
 
-  })
+  },[imagesByArchivio, imagesByTipologia])
 
   return (
     <div className="d-flex page">
@@ -83,6 +86,8 @@ function CaseStudy({ caseStudy }) {
         setArchivio={setArchivio}
         setTipologia={setTipologia}
         group={group}
+        archivio={archivio}
+        tipologia={tipologia}
         setGroup={setGroup}
         toggleShowMoreInfo={toggleShowMoreInfo}
       />
