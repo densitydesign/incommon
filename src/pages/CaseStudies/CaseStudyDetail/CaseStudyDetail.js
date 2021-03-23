@@ -1,12 +1,13 @@
 import find from "lodash/find"
 import React, { useMemo, useState } from "react"
 import useMemoCompare from "magik-react-hooks/useMemoCompare"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import FiltersSpettacoloDetail from "../../../components/DettaglioSpettacolo/FiltersSpettacoloDetail"
 import InfoSpettacolo from "../../../components/DettaglioSpettacolo/InfoSpettacolo"
 import MenuTop from "../../../components/MenuTop"
 import { shuffle } from "seed-shuffle"
 import ImagesStack from "../../../components/DettaglioSpettacolo/ImagesStack"
+import AnimatedImageStack from "../../../components/DettaglioSpettacolo/AnimatedImageStack"
 import "./CaseStudy.css"
 import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
 import { flatMap, groupBy } from "lodash"
@@ -45,8 +46,38 @@ function CaseStudy({ caseStudy }) {
     })
   )
 
-  const imagesByTipologia = groupBy(images, "tipologia")
-  const imagesByArchivio = groupBy(images, "content_provider")
+  // const imagesByTipologiaLength = Object.keys(groupBy(images, "tipologia"))
+  //   .length
+  // const imagesByTipologia = groupBy(
+  //   images.map((img, index) => ({ ...img, index })),
+  //   (img) => img.index % imagesByTipologiaLength
+  // )
+
+  const groupedArchivio = groupBy(images, "content_provider")
+  const groupedTipologia = groupBy(images, "tipologia")
+  const imagesByArchivio = Object.assign(
+    {},
+    Object.keys(groupedArchivio).map(
+      (archivio) => groupedArchivio[archivio]
+    )
+  )
+  const imagesByTipologia = Object.assign(
+    {},
+    Object.keys(groupedTipologia).map(
+      (tipologia) => groupedTipologia[tipologia]
+    )
+  )
+
+  // const imagesByArchivioLength = Object.keys(
+  //   groupBy(images, "content_provider")
+  // ).length
+  // const imagesByArchivioOld = groupBy(
+  //   images.map((img, index) => ({ ...img, index })),
+  //   (img) => img.index % imagesByArchivioLength
+  // )
+
+  // console.log(imagesByArchivio, imagesByArchivioOld)
+
   // const imagesOfDocs = useMemo(() => {
   //   if (documents === null) {
   //     return []
@@ -55,6 +86,13 @@ function CaseStudy({ caseStudy }) {
   // }, [documents])
 
   // console.log(images)
+
+  const byGroup = useMemo(() => {
+    return {
+      archivio: imagesByArchivio,
+      tipologia: imagesByTipologia,
+    }
+  }, [imagesByArchivio, imagesByTipologia])
 
   return (
     <div className="d-flex page">
@@ -70,11 +108,21 @@ function CaseStudy({ caseStudy }) {
         setArchivio={setArchivio}
         setTipologia={setTipologia}
         group={group}
+        archivio={archivio}
+        tipologia={tipologia}
         setGroup={setGroup}
         toggleShowMoreInfo={toggleShowMoreInfo}
       />
       <div className="body-spettacolo d-flex justify-content-center align-items-center">
-        {group && group === "archivio" ? (
+        {images && (
+          <AnimatedImageStack
+            group={group}
+            link={`/recomposition/${caseStudy.slug}/slideshow`}
+            images={images}
+            byGroup={byGroup}
+          />
+        )}
+        {/* {group && group === "archivio" ? (
           Object.keys(imagesByArchivio).map((archivio, i) => (
             <ImagesStack
               key={archivio}
@@ -95,7 +143,7 @@ function CaseStudy({ caseStudy }) {
             images={images}
             link={`/recomposition/${caseStudy.slug}/slideshow`}
           />
-        )}
+        )} */}
       </div>
     </div>
   )

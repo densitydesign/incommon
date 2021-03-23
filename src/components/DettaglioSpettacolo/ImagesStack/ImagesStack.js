@@ -50,6 +50,7 @@ function RandImage({ src, randomize }) {
 
 function ImagesStack({ images, empty, style, link }) {
   const [randomize, setRandomize] = useState(false)
+
   return (
     <Link className={'stack'} style={style} to={link}>
       <div
