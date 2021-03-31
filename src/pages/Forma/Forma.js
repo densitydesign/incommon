@@ -233,6 +233,7 @@ export default function Forma() {
   const rerenderRef = useRef()
 
   const [relazioneState, setRelazione] = useState(null)
+  const [hoverNode, setHoverNode] = useState(null)
 
   const filterRelazione = (relazione) => {
     setRelazione(relazione)
@@ -288,7 +289,7 @@ export default function Forma() {
       }
     })
     graphics.link(function (link) {
-      return Viva.Graph.View.webglLine(0xff000040)
+      return Viva.Graph.View.webglLine(0x6c757d99)
     })
 
     const renderer = Viva.Graph.View.renderer(graph, {
@@ -297,9 +298,7 @@ export default function Forma() {
       // interactive: 'scroll,drag',
     })
     rerenderRef.current = renderer
-    // const events = Viva.Graph.webglInputEvents(graphics, graph)
-    // events.click(function (node) {
-    // })
+
     const domLabels = generateDOMLabels(graph)
 
     graphics.placeNode(function (ui, pos) {
@@ -352,6 +351,63 @@ export default function Forma() {
         const labelStyle = domLabels[nodeId].style
         labelStyle.display = "none"
       }
+    })
+
+    const events = Viva.Graph.webglInputEvents(graphics, graph)
+    events.mouseEnter(function (node) {
+      const graphics = rerenderRef.current.getGraphics()
+      const nodeUI = graphics.getNodeUI(node.id)
+      const size = 10 + (nodeUI.node.links ?? []).length * 2
+      nodeUI.size = size
+      if (node.data.__glType === "attore") {
+        nodeUI.fill = 0xff0000
+        nodeUI.stroke = 0x000000
+      } else {
+        nodeUI.fill = 0x000000
+        nodeUI.stroke = 0xff0000
+      }
+      const labelStyle = domLabels[nodeUI.node.id].style
+      console.log(labelStyle, "labelStyle")
+      labelStyle.display = "initial"
+      console.log(labelStyle, "labelStyle")
+
+      graph.forEachLinkedNode(node.id, function (node, link) {
+        const graphics = rerenderRef.current.getGraphics()
+        const nodeUI = graphics.getNodeUI(node.id)
+        const size = 10 + (nodeUI.node.links ?? []).length * 2
+        if (node.data.__glType === "attore") {
+          nodeUI.fill = 0xff0000
+          nodeUI.stroke = 0x000000
+        } else {
+          nodeUI.fill = 0x000000
+          nodeUI.stroke = 0xff0000
+        }
+        nodeUI.size = size
+        const linkUI = graphics.getLinkUI(link.id)
+        linkUI.color = 0xffffffff
+      })
+    })
+
+    events.mouseLeave(function (node) {
+      const graphics = rerenderRef.current.getGraphics()
+      graph.forEachNode((node) => {
+        const nodeUI = graphics.getNodeUI(node.id)
+        const size = 10 + (nodeUI.node.links ?? []).length * 2
+        if (node.data.__glType === "attore") {
+          nodeUI.fill = 0xff0000
+          nodeUI.stroke = 0x000000
+        } else {
+          nodeUI.fill = 0x000000
+          nodeUI.stroke = 0xff0000
+        }
+        nodeUI.size = size
+      })
+
+      graph.forEachLinkedNode(node.id, function (node, link) {
+        const graphics = rerenderRef.current.getGraphics()
+        const linkUI = graphics.getLinkUI(link.id)
+        linkUI.color = 0x6c757d99
+      })
     })
 
     function generateDOMLabels(graph) {
@@ -554,6 +610,15 @@ export default function Forma() {
       }
     }
   }, [lightNode])
+
+  // useEffect(() => {
+  //   if (hoverNode) {
+  //     const label = document.getElementById(`ma-graph-label-${hoverNode}`)
+  //     if (label) {
+  //       label.style.display = "initial"
+  //     }
+  //   }
+  // }, [hoverNode])
 
   const selectedRelations = useMemo(() => {
     if (!selectedItem) {
