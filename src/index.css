@@ -9,6 +9,10 @@ body {
   line-height: 1.4em;
 }
 
+:root {
+  --topbar-height: 58px;
+}
+
 /* ::-webkit-scrollbar{
   display: none;
 } */
@@ -104,8 +108,4 @@ body {
   font-size: 13px;
   color: #FFF;
   text-decoration: underline;
-}
-
-.ligh-selected-label-graph {
-  color: gold !important;
 }

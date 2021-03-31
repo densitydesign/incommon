@@ -2,11 +2,10 @@
   background: #FCFCFC;
   width: 25%;
   display: block;
-  /* height: calc(100vh - 58px); */
   z-index: 100000;
   position: absolute;
   left: 0px;
-  top: 58px;
+  top: var(--topbar-height);
   min-height: 100%;
   -webkit-animation: slideIn 0.5s forwards;
   -moz-animation: slideIn 0.5s forwards;

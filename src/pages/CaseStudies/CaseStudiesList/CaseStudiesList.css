@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
-  line-height: 58px;
+  line-height: var(--topbar-height);
 }
 
 .info-documento{

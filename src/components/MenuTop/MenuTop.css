@@ -1,7 +1,7 @@
 .menu-top{
   border-bottom: 0.5px solid #555555;
   line-height: 0px;
-  height: 57px;
+  height: calc(var(--topbar-height) - 1px);
   z-index: 1000;
   background: black;
 }
@@ -19,7 +19,7 @@
   padding-right: 20px;
   line-height: normal;
   background: -webkit-linear-gradient(360deg, #FCFCFC, #050500);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-style: normal;
   font-weight: normal;

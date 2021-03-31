@@ -16,4 +16,5 @@
 
 .mapboxgl-canvas {
   cursor: pointer;
+  outline: none;
 }

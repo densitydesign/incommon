@@ -1,7 +1,7 @@
 .block-left-spettacolo{
   border-right: 0.5px solid #555555;
   width: 20%;
-  height: calc(100vh - 58px);
+  height: calc(100vh - var(--topbar-height));
   overflow: hidden;
 }
 

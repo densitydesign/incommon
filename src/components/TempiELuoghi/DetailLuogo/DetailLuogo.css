@@ -3,7 +3,7 @@
   position: absolute;
   height: 100%;
   left: 0px;
-  top: 58px;
+  top: var(--topbar-height);
   border-right: 0.5px solid #555555;
   background-color: #000;
   padding-bottom: 100px;

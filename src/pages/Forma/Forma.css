@@ -1,0 +1,13 @@
+
+.ligh-selected-label-graph {
+  color: gold !important;
+}
+
+.Graph-ZoomControls {
+  position: absolute;
+  top: var(--topbar-height);
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background: red;
+}

@@ -10,6 +10,8 @@ import classNames from "classnames"
 import SearchResults from "./SearchResults"
 import SelectedCard from "./SelectedCard"
 import { X } from "react-bootstrap-icons"
+import ZoomControls from './ZoomControls'
+import './Forma.css'
 
 const network = networkBig
 
@@ -233,7 +235,6 @@ export default function Forma() {
   const rerenderRef = useRef()
 
   const [relazioneState, setRelazione] = useState(null)
-  const [hoverNode, setHoverNode] = useState(null)
 
   const filterRelazione = (relazione) => {
     setRelazione(relazione)
@@ -619,15 +620,6 @@ export default function Forma() {
     }
   }, [lightNode])
 
-  // useEffect(() => {
-  //   if (hoverNode) {
-  //     const label = document.getElementById(`ma-graph-label-${hoverNode}`)
-  //     if (label) {
-  //       label.style.display = "initial"
-  //     }
-  //   }
-  // }, [hoverNode])
-
   const selectedRelations = useMemo(() => {
     if (!selectedItem) {
       return null
@@ -655,7 +647,7 @@ export default function Forma() {
             zIndex: 100000,
             borderRight: "1px solid #555555",
             overflow: "auto",
-            height: "calc(100vh - 58px)",
+            height: "calc(100vh - var(--topbar-height))",
           }}
           className="position-relative"
         >
@@ -720,11 +712,12 @@ export default function Forma() {
             )}
           </div>
         </div>
+        <ZoomControls />
         <div
           ref={graphDomRef}
           style={{
             position: "relative",
-            height: "calc(100vh - 58px)",
+            height: "calc(100vh - var(--topbar-height))",
             flex: 1,
             // background: 'purple',
           }}
