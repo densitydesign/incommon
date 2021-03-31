@@ -366,10 +366,10 @@ export default function Forma() {
         nodeUI.fill = 0x000000
         nodeUI.stroke = 0xff0000
       }
-      const labelStyle = domLabels[nodeUI.node.id].style
-      console.log(labelStyle, "labelStyle")
-      labelStyle.display = "initial"
-      console.log(labelStyle, "labelStyle")
+      // const labelStyle = domLabels[nodeUI.node.id].style
+      // console.log(labelStyle, "labelStyle")
+      // labelStyle.display = "initial"
+      // console.log(labelStyle, "labelStyle")
 
       graph.forEachLinkedNode(node.id, function (node, link) {
         const graphics = rerenderRef.current.getGraphics()
@@ -386,6 +386,7 @@ export default function Forma() {
         const linkUI = graphics.getLinkUI(link.id)
         linkUI.color = 0xffffffff
       })
+      renderer.rerender()
     })
 
     events.mouseLeave(function (node) {
@@ -408,6 +409,7 @@ export default function Forma() {
         const linkUI = graphics.getLinkUI(link.id)
         linkUI.color = 0x6c757d99
       })
+      renderer.rerender()
     })
 
     function generateDOMLabels(graph) {
