@@ -4,10 +4,49 @@
 }
 
 .Graph-ZoomControls {
+  color: #656565;
   position: absolute;
-  top: var(--topbar-height);
-  width: 100px;
-  height: 100px;
+  right: 20px;
+  top: calc(var(--topbar-height) + 50px);
+  /* width: 100px;
+  height: 100px; */
   display: inline-block;
-  background: red;
+  user-select: none;
+  /* background: red; */
+  z-index: 200;
+}
+.Graph-ZoomControls .Zoom-Plus {
+  border: 0.5px solid #656565;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  height: 30px;
+  width: 28px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  justify-content: center;
+  background: black;
+}
+
+.Graph-ZoomControls .Zoom-Reset {
+  border: 0.5px solid #656565;
+  border-bottom: 0;
+  border-top: 0;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  background: black;
+}
+
+.Graph-ZoomControls .Zoom-Minus {
+  cursor: pointer;
+  border: 0.5px solid #656565;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 30px;
+  background: black;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }

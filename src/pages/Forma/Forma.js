@@ -1,15 +1,15 @@
-import React, { useEffect, useMemo, useRef, useState } from "react"
-import MenuTop from "../../components/MenuTop"
-import Viva from "vivagraphjs"
-import networkBig from "../../data/network-forma.json"
-import groupBy from "lodash/groupBy"
-import uniqBy from "lodash/uniqBy"
-import truncate from "lodash/truncate"
-import { countBy, orderBy } from "lodash"
-import classNames from "classnames"
-import SearchResults from "./SearchResults"
-import SelectedCard from "./SelectedCard"
-import { X } from "react-bootstrap-icons"
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import MenuTop from '../../components/MenuTop'
+import Viva from 'vivagraphjs'
+import networkBig from '../../data/network-forma.json'
+import groupBy from 'lodash/groupBy'
+import uniqBy from 'lodash/uniqBy'
+import truncate from 'lodash/truncate'
+import { countBy, orderBy } from 'lodash'
+import classNames from 'classnames'
+import SearchResults from './SearchResults'
+import SelectedCard from './SelectedCard'
+import { X } from 'react-bootstrap-icons'
 import ZoomControls from './ZoomControls'
 import './Forma.css'
 
@@ -19,59 +19,59 @@ const network = networkBig
 // The downside to have this here is that memory is always used
 // ... also in other page ... but for now is ok
 // .. on the other hand .. have stuff here speed up inital rendering
-const eventi = uniqBy(network, "Evento")
-const attori = uniqBy(network, "Attore")
-const eventiWithAttori = groupBy(network, "Evento")
-const attoriWithEventi = groupBy(network, "Attore")
-const relazioniCount = countBy(network, "Relazione")
+const eventi = uniqBy(network, 'Evento')
+const attori = uniqBy(network, 'Attore')
+const eventiWithAttori = groupBy(network, 'Evento')
+const attoriWithEventi = groupBy(network, 'Attore')
+const relazioniCount = countBy(network, 'Relazione')
 
 function buildCircleNodeShader() {
   // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
   const ATTRIBUTES_PER_PRIMITIVE = 6,
     nodesFS = [
-      "precision mediump float;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {",
-      "     gl_FragColor = border;",
-      "   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {",
-      "     gl_FragColor = color;",
-      "   } else {",
-      "     gl_FragColor = vec4(0);",
-      "   }",
-      "}",
-    ].join("\n"),
+      'void main(void) {',
+      '   if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < 0.25 && (gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) > radius) {',
+      '     gl_FragColor = border;',
+      '   } else if ((gl_PointCoord.x - 0.5) * (gl_PointCoord.x - 0.5) + (gl_PointCoord.y - 0.5) * (gl_PointCoord.y - 0.5) < radius) {',
+      '     gl_FragColor = color;',
+      '   } else {',
+      '     gl_FragColor = vec4(0);',
+      '   }',
+      '}',
+    ].join('\n'),
     nodesVS = [
-      "precision mediump float;",
-      "attribute vec2 a_vertexPos;",
-      "attribute vec4 a_customAttributes;",
-      "uniform vec2 u_screenSize;",
-      "uniform mat4 u_transform;",
-      "varying vec4 color;",
-      "varying vec4 border;",
-      "varying float radius;",
+      'precision mediump float;',
+      'attribute vec2 a_vertexPos;',
+      'attribute vec4 a_customAttributes;',
+      'uniform vec2 u_screenSize;',
+      'uniform mat4 u_transform;',
+      'varying vec4 color;',
+      'varying vec4 border;',
+      'varying float radius;',
 
-      "void main(void) {",
-      "   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);",
-      "   gl_PointSize = a_customAttributes[0] * u_transform[0][0];",
-      "   float c = a_customAttributes[1];",
-      "   color.b = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.g = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.r = mod(c, 256.0); c = floor(c/256.0);",
-      "   color.a = 255.0;",
-      "   color /= 255.0;",
-      "   float b = a_customAttributes[2];",
-      "   border.b = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.g = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.r = mod(b, 256.0); b = floor(b/256.0);",
-      "   border.a = 255.0;",
-      "   border /= 255.0;",
-      "   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];",
-      "}",
-    ].join("\n")
+      'void main(void) {',
+      '   gl_Position = u_transform * vec4(a_vertexPos/u_screenSize, 0, 1);',
+      '   gl_PointSize = a_customAttributes[0] * u_transform[0][0];',
+      '   float c = a_customAttributes[1];',
+      '   color.b = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.g = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.r = mod(c, 256.0); c = floor(c/256.0);',
+      '   color.a = 255.0;',
+      '   color /= 255.0;',
+      '   float b = a_customAttributes[2];',
+      '   border.b = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.g = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.r = mod(b, 256.0); b = floor(b/256.0);',
+      '   border.a = 255.0;',
+      '   border /= 255.0;',
+      '   radius = 0.25 * (a_customAttributes[0] - a_customAttributes[3]) / a_customAttributes[0];',
+      '}',
+    ].join('\n')
 
   let program,
     buffer,
@@ -100,10 +100,10 @@ function buildCircleNodeShader() {
       program = webglUtils.createProgram(nodesVS, nodesFS)
       gl.useProgram(program)
       locations = webglUtils.getLocations(program, [
-        "a_vertexPos",
-        "a_customAttributes",
-        "u_screenSize",
-        "u_transform",
+        'a_vertexPos',
+        'a_customAttributes',
+        'u_screenSize',
+        'u_transform',
       ])
 
       gl.enableVertexAttribArray(locations.vertexPos)
@@ -246,10 +246,10 @@ export default function Forma() {
     graphRef.current = graph
 
     eventi.forEach((evento) => {
-      graph.addNode(evento.Evento, { __glType: "evento" })
+      graph.addNode(evento.Evento, { __glType: 'evento' })
     })
     attori.forEach((attore) => {
-      graph.addNode(attore.Attore, { __glType: "attore" })
+      graph.addNode(attore.Attore, { __glType: 'attore' })
     })
 
     Object.keys(eventiWithAttori).forEach((evento) => {
@@ -273,7 +273,7 @@ export default function Forma() {
     graphics.setNodeProgram(circleNode)
     graphics.node(function (node) {
       const size = 10 + (node.links ?? []).length * 2
-      if (node.data.__glType === "attore") {
+      if (node.data.__glType === 'attore') {
         return {
           size,
           fill: 0xff0000,
@@ -339,24 +339,24 @@ export default function Forma() {
           domPos.y >= containerHeight ||
           domPos.x >= containerWidth
         ) {
-          labelStyle.display = "none"
+          labelStyle.display = 'none'
         } else {
-          labelStyle.display = "initial"
-          labelStyle.left = domPos.x + "px"
-          labelStyle.top = domPos.y - 10 + "px"
+          labelStyle.display = 'initial'
+          labelStyle.left = domPos.x + 'px'
+          labelStyle.top = domPos.y - 10 + 'px'
           labelStyle.fontSize =
             Math.min(
               (LABEL_BASE_FONT +
                 (ui.node.links.length - showLinksCount) * LABEL_FONT_MUL) *
                 zoom,
               MAX_FONT_SIZE
-            ) + "px"
-          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + "px"
+            ) + 'px'
+          labelStyle.left = domPos.x - domLabels[nodeId].clientWidth / 2 + 'px'
         }
       } else {
         const nodeId = ui.node.id
         const labelStyle = domLabels[nodeId].style
-        labelStyle.display = "none"
+        labelStyle.display = 'none'
       }
     })
 
@@ -366,7 +366,7 @@ export default function Forma() {
       const nodeUI = graphics.getNodeUI(node.id)
       const size = 10 + (nodeUI.node.links ?? []).length * 2
       nodeUI.size = size
-      if (node.data.__glType === "attore") {
+      if (node.data.__glType === 'attore') {
         nodeUI.fill = 0xff0000
         nodeUI.stroke = 0x000000
       } else {
@@ -380,7 +380,7 @@ export default function Forma() {
         const graphics = rerenderRef.current.getGraphics()
         const nodeUI = graphics.getNodeUI(node.id)
         const size = 10 + (nodeUI.node.links ?? []).length * 2
-        if (node.data.__glType === "attore") {
+        if (node.data.__glType === 'attore') {
           nodeUI.fill = 0xff0000
           nodeUI.stroke = 0x000000
         } else {
@@ -399,7 +399,7 @@ export default function Forma() {
       graph.forEachNode((node) => {
         const nodeUI = graphics.getNodeUI(node.id)
         const size = 10 + (nodeUI.node.links ?? []).length * 2
-        if (node.data.__glType === "attore") {
+        if (node.data.__glType === 'attore') {
           nodeUI.fill = 0xff0000
           nodeUI.stroke = 0x000000
         } else {
@@ -423,8 +423,8 @@ export default function Forma() {
       // this will map node id into DOM element
       const labels = {}
       graph.forEachNode(function (node) {
-        const label = document.createElement("span")
-        label.classList.add("node-label")
+        const label = document.createElement('span')
+        label.classList.add('node-label')
         label.id = `ma-graph-label-${node.id}`
         label.innerText = truncate(node.id)
         labels[node.id] = label
@@ -456,7 +456,7 @@ export default function Forma() {
           const nomeAttore = attore.Attore
           if (attore.Relazione === filterRelazione || !filterRelazione) {
             attoriScreenSet.add(nomeAttore)
-            linksScreenSet.add(evento + "👉 " + nomeAttore)
+            linksScreenSet.add(evento + '👉 ' + nomeAttore)
             added = true
           }
         })
@@ -476,13 +476,13 @@ export default function Forma() {
       const removeLinksSet = new Set(linksScreenSet)
 
       graph.forEachNode((node) => {
-        if (node.data.__glType === "attore") {
+        if (node.data.__glType === 'attore') {
           if (attoriScreenSet.has(node.id)) {
             addAttoriSet.delete(node.id)
           } else {
             removeAttoriSet.add(node.id)
           }
-        } else if (node.data.__glType === "evento") {
+        } else if (node.data.__glType === 'evento') {
           if (eventiScreenSet.has(node.id)) {
             addEventiSet.delete(node.id)
           } else {
@@ -509,13 +509,13 @@ export default function Forma() {
         graph.removeNode(attore)
       })
       attoriScreenSet.forEach((attore) => {
-        graph.addNode(attore, { __glType: "attore" })
+        graph.addNode(attore, { __glType: 'attore' })
       })
       eventiScreenSet.forEach((evento) => {
-        graph.addNode(evento, { __glType: "evento" })
+        graph.addNode(evento, { __glType: 'evento' })
       })
       addLinksSet.forEach((linkId) => {
-        const [evento, attore] = linkId.split("👉 ")
+        const [evento, attore] = linkId.split('👉 ')
         graph.addLink(evento, attore)
       })
 
@@ -529,8 +529,8 @@ export default function Forma() {
       })
 
       // Hide display
-      document.querySelectorAll(".node-label").forEach((label) => {
-        label.style.display = "none"
+      document.querySelectorAll('.node-label').forEach((label) => {
+        label.style.display = 'none'
       })
       eventiScreenSet.forEach((evento) => {
         const nodeUI = graphics.getNodeUI(evento)
@@ -540,7 +540,7 @@ export default function Forma() {
           `ma-graph-label-${nodeUI.node.id}`
         )
         if (label) {
-          label.style.display = "initial"
+          label.style.display = 'initial'
         }
       })
       if (filterRelazione) {
@@ -555,11 +555,11 @@ export default function Forma() {
     }
   }
 
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
 
   const searchResults = useMemo(() => {
     let results = []
-    if (search === "") {
+    if (search === '') {
       return results
     }
     eventi
@@ -569,7 +569,7 @@ export default function Forma() {
       .forEach((evento) =>
         results.push({
           title: evento.Evento,
-          type: "evento",
+          type: 'evento',
         })
       )
     attori
@@ -579,20 +579,20 @@ export default function Forma() {
       .forEach((evento) =>
         results.push({
           title: evento.Attore,
-          type: "attore",
+          type: 'attore',
         })
       )
     if (nodeScreenSet !== null) {
       results = results.filter((r) => nodeScreenSet.has(r.title))
     }
-    return orderBy(results.slice(0, 100), "title")
+    return orderBy(results.slice(0, 100), 'title')
   }, [nodeScreenSet, search])
 
   const [selectedItem, setSelectedItem] = useState(null)
 
   function enterItem(item, type) {
     const renderer = rerenderRef.current
-    const nodeId = type === "attore" ? item.Attore : item.Evento
+    const nodeId = type === 'attore' ? item.Attore : item.Evento
     const nodeUI = renderer.getGraphics().getNodeUI(nodeId)
     if (nodeUI) {
       renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
@@ -613,9 +613,9 @@ export default function Forma() {
   useEffect(() => {
     const label = document.getElementById(`ma-graph-label-${lightNode}`)
     if (label) {
-      label.classList.add("ligh-selected-label-graph")
+      label.classList.add('ligh-selected-label-graph')
       return () => {
-        label.classList.remove("ligh-selected-label-graph")
+        label.classList.remove('ligh-selected-label-graph')
       }
     }
   }, [lightNode])
@@ -625,7 +625,7 @@ export default function Forma() {
       return null
     }
     const relations =
-      selectedItem.type === "attore"
+      selectedItem.type === 'attore'
         ? attoriWithEventi[selectedItem.title]
         : eventiWithAttori[selectedItem.title]
     if (relazioneState) {
@@ -637,17 +637,17 @@ export default function Forma() {
   }, [relazioneState, selectedItem])
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ overflow: 'hidden' }}>
       <MenuTop />
       <div className="d-flex">
         <div
           style={{
-            background: "black",
-            width: "21.7%",
+            background: 'black',
+            width: '21.7%',
             zIndex: 100000,
-            borderRight: "1px solid #555555",
-            overflow: "auto",
-            height: "calc(100vh - var(--topbar-height))",
+            borderRight: '1px solid #555555',
+            overflow: 'auto',
+            height: 'calc(100vh - var(--topbar-height))',
           }}
           className="position-relative"
         >
@@ -696,9 +696,9 @@ export default function Forma() {
                       }
                       key={relazione}
                       className={classNames(
-                        "mt-2 d-flex justify-content-between pointer",
+                        'mt-2 d-flex justify-content-between pointer',
                         {
-                          "text-secondary":
+                          'text-secondary':
                             relazioneState && relazioneState !== relazione,
                         }
                       )}
@@ -712,12 +712,35 @@ export default function Forma() {
             )}
           </div>
         </div>
-        <ZoomControls />
+        <ZoomControls
+          onZoomIn={() => {
+            const renderer = rerenderRef.current
+            renderer.zoomIn()
+          }}
+          onZoomReset={() => {
+            const renderer = rerenderRef.current
+            let zoom = renderer.getTransform().scale
+            const toZoom = 1
+            if (zoom > toZoom) {
+              while (zoom > toZoom) {
+                zoom = renderer.zoomOut()
+              }
+            } else if (zoom < toZoom) {
+              while (zoom < toZoom) {
+                zoom = renderer.zoomIn()
+              }
+            }
+          }}
+          onZoomOut={() => {
+            const renderer = rerenderRef.current
+            renderer.zoomOut()
+          }}
+        />
         <div
           ref={graphDomRef}
           style={{
-            position: "relative",
-            height: "calc(100vh - var(--topbar-height))",
+            position: 'relative',
+            height: 'calc(100vh - var(--topbar-height))',
             flex: 1,
             // background: 'purple',
           }}
