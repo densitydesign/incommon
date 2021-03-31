@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import MenuTop from '../../components/MenuTop'
 import Viva from 'vivagraphjs'
 import networkBig from '../../data/network-forma.json'
@@ -636,6 +636,25 @@ export default function Forma() {
     return relations
   }, [relazioneState, selectedItem])
 
+  const onItemSelectFromSearch = useCallback((item) => {
+    const renderer = rerenderRef.current
+    const nodeUI = renderer.getGraphics().getNodeUI(item.title)
+    if (nodeUI) {
+      renderer.moveTo(nodeUI.position.x, nodeUI.position.y)
+      let zoom = renderer.getTransform().scale
+      const toZoom = 3
+      while (zoom < toZoom) {
+        zoom = renderer.zoomIn()
+      }
+      setLightNode(item.title)
+    }
+    // Yazzy!
+    setTimeout(() => {
+      renderer.pause()
+    }, 200)
+    setSelectedItem(item)
+  }, [])
+
   return (
     <div style={{ overflow: 'hidden' }}>
       <MenuTop />
@@ -671,7 +690,7 @@ export default function Forma() {
                 search={search}
                 onTextChange={setSearch}
                 searchResults={searchResults}
-                onSelect={setSelectedItem}
+                onSelect={onItemSelectFromSearch}
               />
             )}
             {selectedItem && (
