@@ -301,6 +301,9 @@ export default function Forma() {
 
     const domLabels = generateDOMLabels(graph)
 
+    // Welcome Back Spaghetti code! (i'm also italian)
+    const forceLabelsToShow = new Set()
+
     graphics.placeNode(function (ui, pos) {
       // This callback is called by the renderer before it updates
       // node coordinate. We can use it to update corresponding DOM
@@ -311,7 +314,10 @@ export default function Forma() {
           (1 - Math.max(1, zoom)) * LINKS_COUNT_PROGRESSIVE_MULLER
       )
 
-      if ((ui.node.links ?? []).length > showLinksCount) {
+      if (
+        forceLabelsToShow.has(ui.node.id) ||
+        (ui.node.links ?? []).length > showLinksCount
+      ) {
         // we create a copy of layout position
         const domPos = {
           x: pos.x,
@@ -366,10 +372,8 @@ export default function Forma() {
         nodeUI.fill = 0x000000
         nodeUI.stroke = 0xff0000
       }
-      // const labelStyle = domLabels[nodeUI.node.id].style
-      // console.log(labelStyle, "labelStyle")
-      // labelStyle.display = "initial"
-      // console.log(labelStyle, "labelStyle")
+
+      forceLabelsToShow.add(nodeUI.node.id)
 
       graph.forEachLinkedNode(node.id, function (node, link) {
         const graphics = rerenderRef.current.getGraphics()
@@ -403,6 +407,8 @@ export default function Forma() {
         }
         nodeUI.size = size
       })
+
+      forceLabelsToShow.delete(node.id)
 
       graph.forEachLinkedNode(node.id, function (node, link) {
         const graphics = rerenderRef.current.getGraphics()
