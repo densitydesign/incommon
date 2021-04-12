@@ -1,0 +1,170 @@
+--> 1 img landscape full screen <--
+
+{
+"style": {
+  "position": "absolute",
+  "top": 0,
+  "left": 0,
+  "right": 0,
+  "bottom": 0
+
+},
+"images": [
+  {
+    "src": "https://archivio.in-common.org/cdn/C0BA9960-EC98-11EA-8242-092868B8DF2D/PD0086.jpg",
+    "style": {
+      "transition": "opacity 0.5s ease-in",
+      "opacity": 0,
+      "width": "100%",
+      "height": "100%",
+      "object-fit": "cover"
+    },
+    "animatedStyle": {
+      "opacity": 1
+    }
+  }
+]
+},
+
+--> 1 img landscape oversized  <--
+
+{
+"style": {
+"position": "absolute",
+"top": 0,
+"left": 0,
+"right": 0,
+"bottom": 0
+
+},
+"images": [
+{
+"src": "/slideshow/nostra_signora/PD0059_1.jpeg",
+"style": {
+  "transition": "opacity 0.5s ease-in",
+  "opacity": 0,
+  "width": "130%",
+  "height": "130%",
+  "object-fit": "cover",
+  "transform": "translateX(-5%)"
+
+},
+"animatedStyle": {
+  "opacity": 1
+}
+}
+]
+},
+
+--> 1 img small centered <--
+
+{
+"style": {
+"position": "absolute",
+"top": "10%",
+"left": 0,
+"right": 0,
+"bottom": 0,
+"display": "flex",
+"justifyContent": "center"
+},
+"images": [
+{
+  "src": "https://archivio.in-common.org/cdn/B4EC8D90-D236-11EA-AB26-4102AE9D545D/PD0038.jpg",
+  "time": 500,
+  "style": {
+    "transition": "opacity 0.5s ease-in",
+    "opacity": 0,
+    "width": "90%",
+    "height": "90%",
+    "object-fit": "scale-down",
+    "transform": "rotate(0deg)"
+  },
+  "animatedStyle": {
+    "opacity": 1
+  }
+}
+]
+},
+
+--> 2 img small centered <--
+
+{
+"style": {
+  "position": "absolute",
+  "top": 0,
+  "left": 0,
+  "right": 0,
+  "bottom": 0,
+  "display": "flex",
+  "alignItems": "center"
+},
+"images": [
+  {
+    "src": "https://archivio.in-common.org/cdn/70F7A680-EC92-11EA-AFD2-F5F6D5A0764D/PD0074.jpg",
+    "time": 500,
+    "style": {
+      "transition": "opacity 0.5s ease-in",
+      "opacity": 0,
+      "width": "70%",
+      "height": "70%",
+      "objectFit": "scale-down",
+      "margin":"auto"
+    },
+    "animatedStyle": {
+      "opacity": 1
+    }
+  },
+  {
+    "src": "https://archivio.in-common.org/cdn/B4EC8D90-D236-11EA-AB26-4102AE9D545D/PD0038.jpg",
+    "time": 500,
+    "style": {
+      "transition": "opacity 0.5s ease-in",
+      "opacity": 0,
+      "width": "70%",
+      "height": "70%",
+      "objectFit": "scale-down",
+      "margin":"auto"
+    },
+    "animatedStyle": {
+      "opacity": 1
+    }
+  }
+
+]
+},
+
+--> 1 img portrait repeated <--
+{
+"style": {
+"position": "absolute",
+"top": 0,
+"left": 0,
+"right": 0,
+"bottom": 0,
+"display": "flex",
+"justifyContent": "center",
+"background-image":"url('https://archivio.in-common.org/cdn/A3A0DEE0-EC96-11EA-8242-092868B8DF2D/PD0081.jpg')",
+"background-repeat":"repeat",
+"background-size":"75vh",
+"background-position-x": "center",
+"background-position-y": "bottom"
+},
+"images": [
+{
+"src": "/slideshow/placeholder-slideshow.png",
+"time": 500,
+"style": {
+  "transition": "opacity 0.5s ease-in",
+  "opacity": 0,
+  "width": "100%",
+  "height": "100%",
+  "objectFit": "scale-down"
+
+  },
+"animatedStyle": {
+  "opacity": 1
+}
+}
+]
+},
