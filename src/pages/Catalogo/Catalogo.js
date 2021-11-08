@@ -132,8 +132,8 @@ export default function Catalogo() {
             search={q}
           />
         </div>
-        <div className="block-catalogo overflow-scroll ml-4 mr-4 d-flex flex-row flex-wrap">
-          <div>
+        <div className="block-catalogo overflow-scroll ml-4 mr-4">
+          <div className=" d-flex flex-row flex-wrap">
             {documents &&
               documents.map((document, index) => (
                 <DocumentCatalogItem
