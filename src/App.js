@@ -7,13 +7,14 @@ import DettaglioDocumento from './pages/DettaglioDocumento'
 import Forma from './pages/Forma'
 import CaseStudies from './pages/CaseStudies'
 import Archivio from './pages/Archivio'
+import HomeNew from './pages/Home/HomeNew'
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <HomeNew />
         </Route>
         <Route path="/catalogue" exact>
           <Catalogo />
