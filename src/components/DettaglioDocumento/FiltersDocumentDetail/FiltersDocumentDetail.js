@@ -41,7 +41,7 @@ export default function FiltersDocumentDetail({ document }) {
             {(document.luogo || document.citta) && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">place</div>
-                <div className="filter-body">
+                <div className="filter-body-detail">
                   {document.luogo && (
                     <div
                       onClick={() =>
@@ -68,7 +68,7 @@ export default function FiltersDocumentDetail({ document }) {
             {(document.data || document.anno) && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">date</div>
-                <div className="filter-body">
+                <div className="filter-body-detail">
                   {document.anno && (
                     <div
                       onClick={() =>
@@ -95,7 +95,7 @@ export default function FiltersDocumentDetail({ document }) {
             {document.tipologia && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">type of document</div>
-                <div className="filter-body">
+                <div className="filter-body-detail">
                   <div
                     onClick={() =>
                       history.push(`/catalogue?tipologia=${document.tipologia}`)
@@ -110,7 +110,7 @@ export default function FiltersDocumentDetail({ document }) {
             {document.content_provider && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">archive</div>
-                <div className="filter-body">
+                <div className="filter-body-detail">
                   <div
                     onClick={() =>
                       history.push(
