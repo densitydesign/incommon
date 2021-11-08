@@ -76,3 +76,14 @@
   font-style: normal;
   font-weight: normal;
 }
+
+.first-circle {
+  transform: translateY(-60px);
+  transition: all 0.5s ease-in-out;
+}
+
+.second-circle {
+  transform: translateY(80px);
+  transition: all 0.5s ease-in-out;
+}
+
