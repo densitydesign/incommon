@@ -1,44 +1,60 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import './MenuTop.css'
+import React from "react"
+import { NavLink, Link } from "react-router-dom"
+import "./MenuTop.css"
 
-export default function MenuTop(){
+export default function MenuTop({ setPanelInfo, panelInfo = false }) {
   return (
-    <div className='menu-top d-flex justify-content-between align-items-center'>
-      <div className='d-flex align-items-center'>
+    <div className="menu-top d-flex justify-content-between align-items-center">
+      <div className="d-flex align-items-center">
         <div>
-          <Link to={'/'}><img src='/in-common.svg' alt='INCOMMON' height='57' /></Link>
+          <Link to={"/"}>
+            <img src="/in-common.svg" alt="INCOMMON" height="57" />
+          </Link>
         </div>
         <div>
           <NavLink
-            activeClassName='item-menu-top-active'
-            className='item-menu-top'
-            to='/performance-remains'
-          >Performance Remains</NavLink>
+            activeClassName="item-menu-top-active"
+            className="item-menu-top"
+            to="/performance-remains"
+          >
+            Performance Remains
+          </NavLink>
           <NavLink
-            activeClassName='item-menu-top-active'
-            className='item-menu-top'
-            to='/recomposition'
-          >Recomposition</NavLink>
+            activeClassName="item-menu-top-active"
+            className="item-menu-top"
+            to="/recomposition"
+          >
+            Recomposition
+          </NavLink>
           <NavLink
-            activeClassName='item-menu-top-active'
-            className='item-menu-top'
-            to='/the-shape-of-community'
-          >The Shape of Community</NavLink>
+            activeClassName="item-menu-top-active"
+            className="item-menu-top"
+            to="/the-shape-of-community"
+          >
+            The Shape of Community
+          </NavLink>
           <NavLink
-            activeClassName='item-menu-top-active'
-            className='item-menu-top'
-            to='/times-and-places'
-          >Times and Places</NavLink>
+            activeClassName="item-menu-top-active"
+            className="item-menu-top"
+            to="/times-and-places"
+          >
+            Times and Places
+          </NavLink>
           <NavLink
-            activeClassName='item-menu-top-active'
-            className='item-menu-top'
-            to='/catalogue'
-          >Catalogue</NavLink>
+            activeClassName="item-menu-top-active"
+            className="item-menu-top"
+            to="/catalogue"
+          >
+            Catalogue
+          </NavLink>
         </div>
       </div>
-      <div className='mr-3'>
-        <img src='/open-right-panel-button.svg' alt='Info Panel' />
+      <div className="panel-info-icon" onClick={() => setPanelInfo(!panelInfo)}>
+        {panelInfo ? (
+          <img src="/close-document.svg" alt="close" />
+        ) : (
+          <img src="/open-right-panel-button.svg" alt="Info Panel" />
+        )}
       </div>
     </div>
   )

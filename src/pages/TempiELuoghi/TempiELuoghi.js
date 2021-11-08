@@ -11,6 +11,7 @@ import network from "../../data/network-luoghi.json"
 import "rc-slider/assets/index.css"
 import "./TempiELuoghi.css"
 import useSpettacoli from "../../hooks/spettacoli"
+import PannelloInfo from "../../components/PannelloInfo"
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -67,6 +68,7 @@ export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
   const [year, setYear] = useState(1969)
   const [showBackgound, setShowBackground] = useState(false)
+  const [panelInfo, setPanelInfo] = useState(false)
 
   const [{ spettacoli }] = useSpettacoli()
   const incommonDataYearsTown = useMemo(() => {
@@ -103,7 +105,7 @@ export default function TempiELuoghi() {
 
   return (
     <div className="TempiELuoghi position-relative vh-100">
-      <MenuTop />
+      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       {town && (
         <DetailLuogo
           showBackground={showBackgound}
@@ -206,6 +208,7 @@ export default function TempiELuoghi() {
           </div>
         </div>
       </div>
+      {panelInfo && <PannelloInfo />}
     </div>
   )
 }
