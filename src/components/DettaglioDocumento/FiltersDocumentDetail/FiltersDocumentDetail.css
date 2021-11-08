@@ -1,70 +1,93 @@
-.block-left-detail{
-  background: #FCFCFC;
+.block-left-detail {
+  background: #000000;
   width: 25%;
+  border-right: 0.5px solid #555555;
 }
 
-.block-info-document{
-  padding: 15px 24px 15px 24px;
+.block-info-document {
+  padding: 20px 24px 20px 24px;
   border-bottom: 0.5px solid #555555;
-  height: 50%;
   overflow: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.block-info-document::-webkit-scrollbar{
+.block-info-document::-webkit-scrollbar {
   display: none;
 }
 
-.title-document{
+.title-document-detail {
   font-style: normal;
   font-weight: normal;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 34px;
-  color: #050500;
-  padding-bottom: 24px;
+  color: #fff;
+  padding-bottom: 18px;
 }
 
-.description-document{
+.description-document-detail {
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 19px;
-  color: #000000;
-  padding-bottom: 32px;
+  color: #fff;
+  padding-bottom: 16px;
 }
 
-.info-box{
+.document-creator {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.info-box {
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #fff;
   padding-bottom: 23px;
 }
 
-.block-filters-detail{
+.block-filters-detail {
   padding: 24px;
   overflow: auto;
-  height: 50%;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  height: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.block-filters-detail::-webkit-scrollbar{
+.block-filters-detail::-webkit-scrollbar {
   display: none;
 }
 
-.label-filter{
+.label-filter-detail {
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 17px;
   text-decoration-line: underline;
-  color: #000000;
+  color: #fff;
 }
 
-.filter-block-document{
+.filter-block-document {
   padding-bottom: 12px;
-  color: #000000;
+  color: #fff;
+}
+
+.filter-name-detail {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.circle-filter-detail {
+  border: 0.5px solid #ffffff;
+  border-radius: 17px;
+  font-size: 11px;
+  text-align: center;
+  width: max-content;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-top: 8px;
 }

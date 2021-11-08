@@ -15,76 +15,29 @@ export default function FiltersDocumentDetail({ document }) {
   return (
     <div className="block-left-detail position-relative">
       <div className="block-info-document">
-        {document && <div className="title-document">{document.titolo}</div>}
+        {document && <div className="title-document-detail">{document.titolo}</div>}
         {document && (
-          <div className="description-document">{document.descrizione}</div>
+          <div className="description-document-detail">{document.descrizione}</div>
         )}
-        <div className="info-box">
-          <div onClick={() => toggleShowMoreInfo(true)} className="pointer">
-            informazioni supplementari
-            <span>
-              <img
-                className={classnames("ml-2", {
-                  "rotate-show-hide": showMoreInfo,
-                })}
-                src={"/hide-show-black.svg"}
-                alt="Show Hide"
-              />
-            </span>
-          </div>
-          {showMoreInfo && (
-            <div className="mt-4">
-              {document && (
-                <div className="row">
-                  <span className="col-md-3">id</span>
-                  <span className="col-md-9 text-red">{document.id}</span>
-                </div>
-              )}
-              {document.rights && (
-                <div className="row mt-2">
-                  <span className="col-md-3">diritti</span>
-                  <span className="col-md-9 text-red">{document.rights}</span>
-                </div>
-              )}
-              {document.rights && document.content_provider && (
-                <div className="mt-2">
-                  <div>informazioni sui diritti dei documenti</div>
-                  <div className="text-red">
-                    {document.content_provider} - {document.rights}
-                  </div>
-                </div>
-              )}
-              {/* {document.persona && (
-                <div className="mt-2">
-                  <span>referente</span>
-                  <span className="ml-5 text-red"></span>
-                </div>
-              )} */}
-              {/* <div className="mt-3">
-                informazioni sui diritti del documento
-                <div className="text-red mt-1">
-                  Archivio Privato Giuliano Scabia, Firenze - Giuliano Scabia
-                </div>
-              </div> */}
-            </div>
-          )}
-        </div>
+        {document &&
+          <div className='document-creator'><strong>Creator</strong>: {document.rights}</div>
+        }
       </div>
       <div className="block-filters-detail overflow-auto">
-        <div className="label-filter">Filtra il catalogo per:</div>
+        <div className="label-filter-detail">Filter the catalogue by:</div>
         {document && (
           <>
             {document.spettacolo && (
               <div className="filter-block-document mt-3">
-                <div className="filter-name">spettacolo</div>
-                <div className="filter-body">
+                <div className="filter-name-detail">performance</div>
+                <div className="filter-body-detail">
                   <div
                     onClick={() =>
                       history.push(
                         `/catalogue?spettacolo=${document.spettacolo}`
                       )
                     }
-                    className="circle-filter pointer"
+                    className="circle-filter-detail pointer"
                   >
                     {document.spettacolo}
                   </div>
@@ -93,14 +46,14 @@ export default function FiltersDocumentDetail({ document }) {
             )}
             {(document.luogo || document.citta) && (
               <div className="filter-block-document">
-                <div className="filter-name">luogo</div>
+                <div className="filter-name-detail">place</div>
                 <div className="filter-body">
                   {document.luogo && (
                     <div
                       onClick={() =>
                         history.push(`/catalogue?luogo=${document.luogo}`)
                       }
-                      className="circle-filter pointer"
+                      className="circle-filter-detail pointer"
                     >
                       {document.luogo}
                     </div>
@@ -110,7 +63,7 @@ export default function FiltersDocumentDetail({ document }) {
                       onClick={() =>
                         history.push(`/catalogue?citta=${document.citta}`)
                       }
-                      className="circle-filter pointer"
+                      className="circle-filter-detail pointer"
                     >
                       {document.citta}
                     </div>
@@ -120,14 +73,14 @@ export default function FiltersDocumentDetail({ document }) {
             )}
             {(document.data || document.anno) && (
               <div className="filter-block-document">
-                <div className="filter-name">data</div>
+                <div className="filter-name-detail">date</div>
                 <div className="filter-body">
                   {document.anno && (
                     <div
                       onClick={() =>
                         history.push(`/catalogue?anno=${document.anno}`)
                       }
-                      className="circle-filter pointer"
+                      className="circle-filter-detail pointer"
                     >
                       {document.anno}
                     </div>
@@ -137,7 +90,7 @@ export default function FiltersDocumentDetail({ document }) {
                       onClick={() =>
                         history.push(`/catalogue?anno=${document.anno}`)
                       }
-                      className="circle-filter pointer"
+                      className="circle-filter-detail pointer"
                     >
                       {document.data}
                     </div>
@@ -147,13 +100,13 @@ export default function FiltersDocumentDetail({ document }) {
             )}
             {document.tipologia && (
               <div className="filter-block-document">
-                <div className="filter-name">tipologia</div>
+                <div className="filter-name-detail">type of document</div>
                 <div className="filter-body">
                   <div
                     onClick={() =>
                       history.push(`/catalogue?tipologia=${document.tipologia}`)
                     }
-                    className="circle-filter pointer"
+                    className="circle-filter-detail pointer"
                   >
                     {document.tipologia}
                   </div>
@@ -162,7 +115,7 @@ export default function FiltersDocumentDetail({ document }) {
             )}
             {document.content_provider && (
               <div className="filter-block-document">
-                <div className="filter-name">provenienza</div>
+                <div className="filter-name-detail">archive</div>
                 <div className="filter-body">
                   <div
                     onClick={() =>
@@ -170,24 +123,9 @@ export default function FiltersDocumentDetail({ document }) {
                         `/catalogue?content_provider=${document.content_provider}`
                       )
                     }
-                    className="circle-filter pointer"
+                    className="circle-filter-detail pointer"
                   >
                     {document.content_provider}
-                  </div>
-                </div>
-              </div>
-            )}
-            {document.rights && (
-              <div className="filter-block-document">
-                <div className="filter-name">creatore del documento</div>
-                <div className="filter-body">
-                  <div
-                    onClick={() =>
-                      history.push(`/catalogue?rights=${document.rights}`)
-                    }
-                    className="circle-filter pointer"
-                  >
-                    {document.rights}
                   </div>
                 </div>
               </div>
