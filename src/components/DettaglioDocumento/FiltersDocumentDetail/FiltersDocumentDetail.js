@@ -1,14 +1,8 @@
-import React, { useState } from "react"
-import classnames from "classnames"
+import React from "react"
 import { useHistory } from "react-router-dom"
 import "./FiltersDocumentDetail.css"
 
 export default function FiltersDocumentDetail({ document }) {
-  const [showMoreInfo, setShowMoreInfo] = useState(false)
-
-  const toggleShowMoreInfo = () => {
-    setShowMoreInfo(!showMoreInfo)
-  }
 
   const history = useHistory()
 

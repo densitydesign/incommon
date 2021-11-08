@@ -31,7 +31,6 @@
   display: flex;
   cursor: pointer;
   height: max-content;
-  align-items: center;
 }
 
 .text-page-home {
