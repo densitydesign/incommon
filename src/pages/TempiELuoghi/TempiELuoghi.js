@@ -208,7 +208,7 @@ export default function TempiELuoghi() {
           </div>
         </div>
       </div>
-      {panelInfo && <PannelloInfo />}
+      {panelInfo && <PannelloInfo type="luoghi" />}
     </div>
   )
 }

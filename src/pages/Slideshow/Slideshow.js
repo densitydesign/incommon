@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from 'react'
-import './Slideshow.css'
-import { Link, useParams } from 'react-router-dom'
-import MenuTop from '../../components/MenuTop/MenuTop'
-import allSlideShows from './allSlideshows'
+import React, { useMemo, useState } from "react"
+import "./Slideshow.css"
+import { Link, useParams } from "react-router-dom"
+import MenuTop from "../../components/MenuTop/MenuTop"
+import allSlideShows from "./allSlideshows"
+import PannelloInfo from "../../components/PannelloInfo"
 
 function AnimatedImageBase({ style, animatedStyle, time, src, entered }) {
   let imageStyle = style
@@ -20,6 +21,7 @@ function RunSlideshow({ slideshowConfig, slug }) {
     return slideshowConfig.reduce((t, cont) => t + cont.images.length, 0)
   }, [slideshowConfig])
   const [index, setIndex] = useState(0)
+  const [panelInfo, setPanelInfo] = useState(false)
 
   function goPrev() {
     setIndex((index) => {
@@ -41,16 +43,16 @@ function RunSlideshow({ slideshowConfig, slug }) {
   let z = 0
 
   function handleKeyDown(e) {
-    if (e.key === 'ArrowRight') {
+    if (e.key === "ArrowRight") {
       goNext()
-    } else if (e.key === 'ArrowLeft') {
+    } else if (e.key === "ArrowLeft") {
       goPrev()
     }
   }
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
-      <MenuTop />
+      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       <div className="slideshow-content">
         {slideshowConfig.map((container, i) => (
           <div key={i} style={container.style}>
@@ -75,6 +77,7 @@ function RunSlideshow({ slideshowConfig, slug }) {
           </Link>
         </div>
       </div>
+      {panelInfo && <PannelloInfo type="spettacoli" />}
     </div>
   )
 }

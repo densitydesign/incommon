@@ -1,47 +1,45 @@
-import React, { useCallback, useMemo, useState } from 'react'
-import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
-import { qpList } from 'magik-react-hooks/qpUtils'
-import MenuTop from '../../components/MenuTop'
-import FiltersCatalogo from '../../components/Catalogo/FiltersCatalogo'
-import './Catalogo.css'
-import { useDocuments, useDocumentsCount } from '../../hooks/documents'
-import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
-import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
-import { Waypoint } from 'react-waypoint'
+import React, { useCallback, useMemo, useState } from "react"
+import useDebounceQueryParams from "magik-react-hooks/useRouterDebounceQueryParams"
+import { qpList } from "magik-react-hooks/qpUtils"
+import MenuTop from "../../components/MenuTop"
+import FiltersCatalogo from "../../components/Catalogo/FiltersCatalogo"
+import "./Catalogo.css"
+import { useDocuments, useDocumentsCount } from "../../hooks/documents"
+import DocumentCatalogItem from "../../components/Catalogo/DocumentCatalogItem"
+import FiltersCatalogoActive from "../../components/Catalogo/FiltersCatalogoActive"
+import { Waypoint } from "react-waypoint"
+import PannelloInfo from "../../components/PannelloInfo"
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
 
-  const [
-    queryParams,
-    setQueryParams,
-    debQueryParams,
-    setDebQueryParams,
-  ] = useDebounceQueryParams({
-    tipologia: qpList(),
-    spettacolo: qpList(),
-    luogo: qpList(),
-    citta: qpList(),
-    persona: qpList(),
-    anno: qpList(),
-    rivista: qpList(),
-    compagnia: qpList(),
-  })
+  const [queryParams, setQueryParams, debQueryParams, setDebQueryParams] =
+    useDebounceQueryParams({
+      tipologia: qpList(),
+      spettacolo: qpList(),
+      luogo: qpList(),
+      citta: qpList(),
+      persona: qpList(),
+      anno: qpList(),
+      rivista: qpList(),
+      compagnia: qpList(),
+    })
 
-  const { q = '' } = queryParams
+  const { q = "" } = queryParams
   const handleSearch = (e) => {
     const q = e.target.value
     setDebQueryParams({ q })
   }
 
-  const apiParams = useMemo(() => ({ ...debQueryParams, page: 1 }), [
-    debQueryParams,
-  ])
-  const [{ documents, pagination, loading }, { run: fetchDocs }] = useDocuments(
-    apiParams
+  const apiParams = useMemo(
+    () => ({ ...debQueryParams, page: 1 }),
+    [debQueryParams]
   )
+  const [{ documents, pagination, loading }, { run: fetchDocs }] =
+    useDocuments(apiParams)
 
   const [isCollapsed, setCollapsed] = useState(false)
+  const [panelInfo, setPanelInfo] = useState(false)
 
   const toggleCollapseDocuments = useCallback(() => {
     setCollapsed((collapse) => !collapse)
@@ -81,7 +79,7 @@ export default function Catalogo() {
 
   return (
     <div className="Catalogo">
-      <MenuTop />
+      <MenuTop setPanelInfo={setPanelInfo} panelInfo={panelInfo} />
       <div className="d-flex page">
         <div className="block-filters position-sticky">
           <div className="">
@@ -90,7 +88,7 @@ export default function Catalogo() {
                 className="raggruppa-button pointer w-55"
                 onClick={() => toggleCollapseDocuments()}
               >
-                {isCollapsed ? 'separa i fascicoli' : 'raggruppa i fascicoli'}
+                {isCollapsed ? "separa i fascicoli" : "raggruppa i fascicoli"}
                 <img
                   height="12"
                   className="ml-2"
@@ -102,7 +100,7 @@ export default function Catalogo() {
                 onClick={() => reset()}
                 className="reset-filtri w-45 pointer"
               >
-                cancella i filtri{' '}
+                cancella i filtri{" "}
                 <img
                   height="13"
                   className="ml-2"
@@ -116,7 +114,7 @@ export default function Catalogo() {
                 <>
                   <span className="medium-font font-weight-bold mr-2">
                     {pagination.count} / {countInfo.count}
-                  </span>{' '}
+                  </span>{" "}
                   documenti
                 </>
               )}
@@ -148,6 +146,7 @@ export default function Catalogo() {
           <Waypoint onEnter={onReachBottom} />
         </div>
       </div>
+      {panelInfo && <PannelloInfo type="catalogo" />}
     </div>
   )
 }

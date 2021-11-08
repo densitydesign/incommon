@@ -1,15 +1,17 @@
-import React, { useMemo } from 'react'
-import chunk from 'lodash/chunk'
-import MenuTop from '../../../components/MenuTop'
-import CardCaseStudy from './CardCaseStudy'
-import './CaseStudiesList.css'
+import React, { useMemo, useState } from "react"
+import chunk from "lodash/chunk"
+import MenuTop from "../../../components/MenuTop"
+import CardCaseStudy from "./CardCaseStudy"
+import "./CaseStudiesList.css"
+import PannelloInfo from "../../../components/PannelloInfo"
 
 export default function CaseStudiesList({ caseStudies }) {
   const chunkedCaseStudies = useMemo(() => chunk(caseStudies, 3), [caseStudies])
+  const [panelInfo, setPanelInfo] = useState(false)
 
   return (
     <div className="Spettacolo">
-      <MenuTop />
+      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       <div className="container-fluid">
         {chunkedCaseStudies.map((chunkCaseStudies, i) => (
           <div key={i} className="row mt-3">
@@ -21,6 +23,9 @@ export default function CaseStudiesList({ caseStudies }) {
           </div>
         ))}
       </div>
+      {panelInfo &&
+        <PannelloInfo type='spettacoli' />
+      }
     </div>
   )
 }

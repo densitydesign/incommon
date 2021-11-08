@@ -10,6 +10,7 @@ import ImagesStack from "../../../components/DettaglioSpettacolo/ImagesStack"
 import AnimatedImageStack from "../../../components/DettaglioSpettacolo/AnimatedImageStack"
 import "./CaseStudy.css"
 import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
+import PannelloInfo from "../../../components/PannelloInfo"
 import { flatMap, groupBy } from "lodash"
 
 // Mantain the same "random" for the entire user session
@@ -151,6 +152,7 @@ function CaseStudy({ caseStudy }) {
 
 export default function CaseStudyDetail({ caseStudies }) {
   const { slug } = useParams()
+  const [panelInfo, setPanelInfo] = useState(false)
 
   const caseStudy = useMemo(() => find(caseStudies, { slug }), [
     caseStudies,
@@ -159,8 +161,11 @@ export default function CaseStudyDetail({ caseStudies }) {
 
   return (
     <div className="DettaglioSpettacolo">
-      <MenuTop />
+      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       {caseStudy && <CaseStudy caseStudy={caseStudy} />}
+      {panelInfo &&
+        <PannelloInfo type='spettacoli' />
+      }
     </div>
   )
 }
