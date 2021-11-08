@@ -67,7 +67,7 @@ const styleZoomControl = {
 export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
   const [year, setYear] = useState(1969)
-  const [showBackgound, setShowBackground] = useState(false)
+  const [showBackgound, setShowBackground] = useState(true)
   const [panelInfo, setPanelInfo] = useState(false)
 
   const [{ spettacoli }] = useSpettacoli()
@@ -177,17 +177,6 @@ export default function TempiELuoghi() {
           <ZoomControl style={styleZoomControl} />
         </Map>
         <div className="d-flex">
-          <div className="text-white p-3 border-right">
-            Mostra luoghi di Incommon <br />
-            <small
-              onClick={() => setShowBackground((a) => !a)}
-              className={classNames("pointer", {
-                "text-muted": !showBackgound,
-              })}
-            >
-              Mostra luoghi di sfondo
-            </small>
-          </div>
           <div className="p-4 mt-3 w-100">
             <Slider
               step={1}
