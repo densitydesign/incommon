@@ -54,11 +54,14 @@ export default function InfoSpettacolo({
     <div className="block-left-spettacolo">
       <div className="block-info-spettacolo">
         <div className="title-spettacolo">{caseStudy.caption}</div>
+        <div className='description-spettacolo'>
+          {caseStudy.description}
+        </div>
         {/* <div className="mt-4 pointer more-info" onClick={toggleShowMoreInfo}>
           + Info
         </div> */}
         <div className="block-raggruppa">
-          <u>Raggruppa per</u>:
+          <u>Group by</u>:
           <div
             onClick={() => {
               group === "archivio" ? setGroup("") : setGroup("archivio")
@@ -69,7 +72,7 @@ export default function InfoSpettacolo({
               "item-group-active": group === "archivio",
             })}
           >
-            Archivio
+            Archive
           </div>
           <div
             onClick={() => {
@@ -81,17 +84,17 @@ export default function InfoSpettacolo({
               "item-group-active": group === "tipologia",
             })}
           >
-            Tipologia
+            Type
           </div>
         </div>
         {group && (
           <div className="filters-spettacolo">
-            <u>Filtra:</u>
-            <div className="filter-active">
+            <u>Filter:</u>
+            {/* <div className="filter-active">
               {group === "archivio" ? "Archivio" : "Tipologia"}
-            </div>
+            </div> */}
             {group === "tipologia" && (
-              <div className="mt-4">
+              <div className="mt-2">
                 {Object.keys(countByTipologia).map((tipologiaItem) => (
                   <MicroFilter
                     setTipologia={setTipologia}
@@ -105,7 +108,7 @@ export default function InfoSpettacolo({
               </div>
             )}
             {group === "archivio" && (
-              <div className="mt-4">
+              <div className="mt-2">
                 {Object.keys(countByArchivio).map((archivioItem) => (
                   <MicroFilter
                     onClick={() => archivio !== archivioItem ? setArchivio(archivioItem) : setArchivio(null)}

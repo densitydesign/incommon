@@ -17,6 +17,13 @@
   color: #FCFCFC;
 }
 
+.description-spettacolo{
+  padding-top: 21px;
+  padding-bottom: 21px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .more-info{
   font-style: normal;
   font-weight: normal;

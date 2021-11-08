@@ -15,6 +15,7 @@ export const configCaseStudies = [
     ),
     slug: "luci-della-citta",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    description: 'Lorem ipsum',
     year: 1970,
     images: [],
   },
@@ -24,6 +25,7 @@ export const configCaseStudies = [
     slug: "la-faticosa-messinscena-dell-amleto-di-william-shakespeare",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -32,6 +34,7 @@ export const configCaseStudies = [
     slug: "edoardo-2",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -40,6 +43,7 @@ export const configCaseStudies = [
     slug: "robotolo",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -48,6 +52,7 @@ export const configCaseStudies = [
     slug: "don-chisciotte",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -56,6 +61,7 @@ export const configCaseStudies = [
     slug: "nostra-signora-dei-turchi",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -64,6 +70,7 @@ export const configCaseStudies = [
     slug: "sir-and-lady-macbeth",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -72,6 +79,7 @@ export const configCaseStudies = [
     slug: "orlando-furioso",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -80,6 +88,7 @@ export const configCaseStudies = [
     slug: "festival-di-s-beckett",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1970,
+    description: 'Lorem ipsum',
     images: [],
   },
 ]
