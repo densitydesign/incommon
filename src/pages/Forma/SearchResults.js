@@ -14,7 +14,7 @@ export default function SearchResults({
         <input
           className="input-forma ml-2"
           type="text"
-          placeholder="Cerca un nodo"
+          placeholder="Search node"
           value={search}
           onChange={(e) => onTextChange(e.target.value)}
         />

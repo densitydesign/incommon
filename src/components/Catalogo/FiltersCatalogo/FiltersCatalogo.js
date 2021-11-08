@@ -106,7 +106,7 @@ export default function FiltersCatalogo({
       <div className="search-filter">
         <input
           className="search-input"
-          placeholder="Cerca"
+          placeholder="Search"
           type="text"
           value={search}
           onChange={handleSearch}
@@ -115,6 +115,7 @@ export default function FiltersCatalogo({
       <ItemFilter
         name="tipologia"
         addFilter={addFilter}
+        nameToShow={'Type of document'}
         filters={filters}
         filterOpen={filterOpen}
         toggleFilterOpen={toggleFilterOpen}
@@ -123,6 +124,7 @@ export default function FiltersCatalogo({
       <ItemFilter
         name="spettacolo"
         addFilter={addFilter}
+        nameToShow={'Performance'}
         filters={filters}
         filterOpen={filterOpen}
         toggleFilterOpen={toggleFilterOpen}
@@ -131,6 +133,7 @@ export default function FiltersCatalogo({
       <ItemFilter
         name="luogo"
         addFilter={addFilter}
+        nameToShow={'Venue'}
         filters={filters}
         filterOpen={filterOpen}
         toggleFilterOpen={toggleFilterOpen}
@@ -139,6 +142,7 @@ export default function FiltersCatalogo({
       <ItemFilter
         name="citta"
         addFilter={addFilter}
+        nameToShow={'City'}
         filters={filters}
         filterOpen={filterOpen}
         toggleFilterOpen={toggleFilterOpen}
@@ -147,6 +151,7 @@ export default function FiltersCatalogo({
       <ItemFilter
         name="anno"
         addFilter={addFilter}
+        nameToShow={'Year'}
         filters={filters}
         filterOpen={filterOpen}
         toggleFilterOpen={toggleFilterOpen}
@@ -154,6 +159,7 @@ export default function FiltersCatalogo({
       />
       <ItemFilter
         name="persona"
+        nameToShow={'Person'}
         addFilter={addFilter}
         filters={filters}
         filterOpen={filterOpen}
@@ -162,7 +168,7 @@ export default function FiltersCatalogo({
       />
       <ItemFilter
         name="content_provider"
-        nameToShow={'Provenienza'}
+        nameToShow={'Content provider'}
         addFilter={addFilter}
         filters={filters}
         filterOpen={filterOpen}

@@ -88,7 +88,7 @@ export default function Catalogo() {
                 className="raggruppa-button pointer w-55"
                 onClick={() => toggleCollapseDocuments()}
               >
-                {isCollapsed ? "separa i fascicoli" : "raggruppa i fascicoli"}
+                {isCollapsed ? "separe booklets" : "group booklets"}
                 <img
                   height="12"
                   className="ml-2"
@@ -100,7 +100,7 @@ export default function Catalogo() {
                 onClick={() => reset()}
                 className="reset-filtri w-45 pointer"
               >
-                cancella i filtri{" "}
+                clear filters{" "}
                 <img
                   height="13"
                   className="ml-2"
@@ -115,7 +115,7 @@ export default function Catalogo() {
                   <span className="medium-font font-weight-bold mr-2">
                     {pagination.count} / {countInfo.count}
                   </span>{" "}
-                  documenti
+                  documents
                 </>
               )}
             </div>

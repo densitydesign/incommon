@@ -706,7 +706,7 @@ export default function Forma() {
 
             {searchResults.length === 0 && (
               <div style={{ marginTop: 100 }}>
-                <u>Filtra per tipo di relazione</u>
+                <u>Filter by relation</u>
                 <div>
                   {Object.keys(relazioniCount).map((relazione) => (
                     <div
