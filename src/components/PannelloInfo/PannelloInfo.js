@@ -2,22 +2,14 @@ import React from "react"
 import PerformancePanel from "./components/PerformancePanel"
 import RecompositionPanel from "./components/RecompositionPanel"
 import ShapePanel from "./components/ShapePanel"
+import TimesPanel from "./components/TimesPanel"
 import "./PannelloInfo.css"
 
 export default function PannelloInfo({ type }) {
   return (
     <div className={"PannelloInfo"}>
       {type === "luoghi" && (
-        <div>
-          <span className={"title-panel"}>Times and Places</span> shows the
-          geographical and temporal extent of the community. The visualization
-          displays the places affected by the Incommon community from 1959 to
-          1979. Geographical places are represented with red circles sized
-          according to the number of mentions in a given year. By selecting each
-          circle, the trend for that location is shown, and specific venues and
-          events are displayed in a list. By moving the slider on the bottom,
-          one can change the year visualised on the map.
-        </div>
+        <TimesPanel />
       )}
       {type === "catalogo" && (
         <div>
@@ -34,15 +26,9 @@ export default function PannelloInfo({ type }) {
           item, the document card opens up, showing the associated metadata.
         </div>
       )}
-      {type === "archivio" && (
-        <PerformancePanel />
-      )}
-      {type === "spettacoli" && (
-        <RecompositionPanel />
-      )}
-      {type === "forma" && (
-        <ShapePanel />
-      )}
+      {type === "archivio" && <PerformancePanel />}
+      {type === "spettacoli" && <RecompositionPanel />}
+      {type === "forma" && <ShapePanel />}
     </div>
   )
 }
