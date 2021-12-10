@@ -109,3 +109,14 @@ body {
   color: #FFF;
   text-decoration: underline;
 }
+
+.info-red-bottom{
+  color: #E52F52;
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 540px;
+}
+
+.info-bottom {
+  margin-top: 60px;
+}
