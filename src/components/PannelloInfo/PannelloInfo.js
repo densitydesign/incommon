@@ -1,6 +1,7 @@
 import React from "react"
 import PerformancePanel from "./components/PerformancePanel"
 import RecompositionPanel from "./components/RecompositionPanel"
+import ShapePanel from "./components/ShapePanel"
 import "./PannelloInfo.css"
 
 export default function PannelloInfo({ type }) {
@@ -40,23 +41,7 @@ export default function PannelloInfo({ type }) {
         <RecompositionPanel />
       )}
       {type === "forma" && (
-        <div>
-          <span className={"title-panel"}>The shape of community</span>{" "}
-          visualizes the network of relations emerging from the archive. It
-          shows the background network of people and events of the Incommon
-          community from 1959 to 1979. In the network people are represented
-          with red filled circles and events with black filled circles. Each
-          circle is sized according to the number of mentions in the dataset.
-          The network layout is based on force-directed graph drawing
-          algorithm01, meaning that the nodes’ position is calculated so to
-          there are as few crossing edges as possible. The relationships that
-          link people and events are of different types: acting, directing,
-          writing, sets and costumes, music. The network can be filtered
-          according to these criteria, displaying only a portion of the
-          community. A search bar allows the user to search for specific names,
-          and visualizes their connections, offering a fluid and frictionless
-          navigation through the community.
-        </div>
+        <ShapePanel />
       )}
     </div>
   )
