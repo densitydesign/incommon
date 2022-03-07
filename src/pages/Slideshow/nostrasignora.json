@@ -1,6 +1,5 @@
 [
-
-    {
+{
 "style": {
   "position": "absolute",
   "top": 0,
@@ -33,7 +32,7 @@
   }
 ]
 },
-    {
+{
     "style": {
       "position": "absolute",
       "top": 0,
@@ -58,7 +57,7 @@
       }
     ]
   },
-    {
+{
   "style": {
     "position": "absolute",
     "top": 0,
@@ -83,7 +82,7 @@
     }
   ]
 },
-    {
+{
 "style": {
   "position": "absolute",
   "top": 0,
@@ -108,7 +107,7 @@
   }
 ]
 },
-    {
+{
 "style": {
 "position": "absolute",
 "top": 0,
@@ -138,7 +137,7 @@
 }
 ]
 },
-    {
+{
 "style": {
 "position": "absolute",
 "top": 0,
@@ -559,9 +558,6 @@
   }
 ]
 },
-
-
-
 {
 "style": {
   "position": "absolute",
@@ -645,8 +641,6 @@
   }
 ]
 },
-
-
 {
 "style": {
 "position": "absolute",
@@ -674,7 +668,6 @@
 }
 ]
 },
-
 {
 "style": {
   "position": "absolute",
@@ -704,7 +697,6 @@
   }
 ]
 },
-
 {
 "style": {
 "position": "absolute",
@@ -732,7 +724,7 @@
 }
 ]
 },
-    {
+{
 "style": {
 "position": "absolute",
 "top": 0,
@@ -760,8 +752,6 @@
 }
 ]
 },
-
-
 {
   "style": {
     "position": "absolute",
@@ -817,7 +807,6 @@
       }
   ]
 },
-
 {
   "style": {
     "position": "absolute",
