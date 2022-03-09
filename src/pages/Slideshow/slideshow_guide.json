@@ -6,18 +6,21 @@
   "top": 0,
   "left": 0,
   "right": 0,
-  "bottom": 0
+  "bottom": 0,
+  "display": "flex",
+  "alignItems": "center"
 
 },
 "images": [
   {
-    "src": "https://archivio.in-common.org/cdn/C0BA9960-EC98-11EA-8242-092868B8DF2D/PD0086.jpg",
+    "src": "https://archivio.in-common.org/cdn/ECDC7442-1AA8-11EA-8188-107B44B1D8D7/MG0053.jpeg",
     "style": {
       "transition": "opacity 0.5s ease-in",
       "opacity": 0,
-      "width": "100%",
+      "width": "auto",
       "height": "100%",
-      "object-fit": "cover"
+      "objectFit": "scale-down",
+      "margin": "auto"
     },
     "animatedStyle": {
       "opacity": 1
