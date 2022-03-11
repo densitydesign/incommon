@@ -5,6 +5,7 @@ import nostrasignora from './nostrasignora.json'
 import zip from './zip.json'
 import donchisciotte from './don-chisciotte.json'
 import orlandofurioso from './orlandofurioso.json'
+import scontrigenerali from './scontri-generali.json'
 
 
 export default {
@@ -16,6 +17,7 @@ export default {
   'zip': zip,
   'don-chisciotte': donchisciotte,
   'orlando-furioso': orlandofurioso,
+  'scontri-generali': scontrigenerali,
 
 
 
