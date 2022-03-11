@@ -221,3 +221,34 @@
 }
 ]
 },
+
+--> 1 allineata in alto full screen <--
+{
+  "style": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0,
+    "display": "flex",
+    "alignItems":"flex-start"
+
+  },
+  "images": [
+    {
+      "src": "https://archivio.in-common.org/cdn/3BA5FF00-567C-11EB-AD25-E529050670E1/ST0029_200.jpeg",
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "100%",
+        "height": "auto",
+        "objectFit": "contain",
+        "transform": "translateX(0%) translateY(0%)",
+        "filter": "grayscale(100%) contrast(150%)"
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    }
+  ]
+}
