@@ -6,6 +6,7 @@ import zip from './zip.json'
 import donchisciotte from './don-chisciotte.json'
 import orlandofurioso from './orlandofurioso.json'
 import scontrigenerali from './scontri-generali.json'
+import cenerella from './cenerella.json'
 
 
 export default {
@@ -18,6 +19,7 @@ export default {
   'don-chisciotte': donchisciotte,
   'orlando-furioso': orlandofurioso,
   'scontri-generali': scontrigenerali,
+  'cenerella': cenerella,
 
 
 
