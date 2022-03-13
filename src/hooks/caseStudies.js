@@ -86,7 +86,7 @@ export const configCaseStudies = [
     slug: "la-rivolta-degli-oggetti",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1976,
-    description: 'Lorem ipsum',
+    description: 'The first play ever staged by La Gaia Scienza, La rivolta degli oggetti springs from an assemblage of texts by Mayakovsky, fragmented and divided between voices and movements. The case study gathers materials from the first three performances of the work, starting with the debut at Beat 72. The documents (drafts of the script, posters, notes) come in large part from the private archives of Marco Solari, the photographs from that of Andrea Fiorentino: there are additional materials from the Franco Quadri Fonds, the unpublished notebooks of Alessandra Vanzi and the photographs, also heretofore unpublished, by Giorgio Piredda. The story of the work also unfurls through a valuable audio document, a two-voice dialogue recorded by Solari and Vanzi ad hoc for INCOMMON.',
     images: [],
   },
   {

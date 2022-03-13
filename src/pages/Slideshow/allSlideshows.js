@@ -7,6 +7,7 @@ import donchisciotte from './don-chisciotte.json'
 import orlandofurioso from './orlandofurioso.json'
 import scontrigenerali from './scontri-generali.json'
 import cenerella from './cenerella.json'
+import rivoltaoggetti from './la-rivolta-degli-oggetti.json'
 
 
 export default {
@@ -20,6 +21,7 @@ export default {
   'orlando-furioso': orlandofurioso,
   'scontri-generali': scontrigenerali,
   'cenerella': cenerella,
+  'la-rivolta-degli-oggetti': rivoltaoggetti
 
 
 

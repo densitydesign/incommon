@@ -1,0 +1,756 @@
+[
+
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center",
+      "background-image": "url('https://archivio.in-common.org/cdn/B2FD5410-D1AF-11EA-859B-E731353053D2/GC0031.jpg')",
+      "background-repeat": "repeat",
+      "background-size": "75vh",
+      "background-position-x": "center",
+      "background-position-y": "bottom"
+    },
+    "images": [
+      {
+        "src": "/slideshow/placeholder-slideshow.png",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "scale-down"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/1033C8D0-D313-11EA-9D93-A723B883799C/GC0034.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%) grayscale(100%) contrast(150%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "flex-start"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/4FC256E0-D342-11EA-BAA1-CD6D31FE0D7D/GC0043.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "auto",
+          "objectFit": "contain",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%) contrast(120%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/A19D75C0-D3D4-11EA-9104-E5BFB34EF50F/GC0052.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-15%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/282F7DF0-D3D4-11EA-9104-E5BFB34EF50F/GC0051.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "130%",
+          "height": "130%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "width": "90%",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginLeft": "auto",
+      "marginRight": "auto"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/391F7340-D4AB-11EA-964E-D345F12ACA19/GC0061.jpeg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "65%",
+          "height": "65%",
+          "objectFit": "scale-down",
+          "margin": "auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/32FF99F0-D3D8-11EA-9104-E5BFB34EF50F/GC0055.jpeg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "65%",
+          "height": "65%",
+          "objectFit": "scale-down",
+          "margin": "auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/F43171B0-D3D4-11EA-9104-E5BFB34EF50F/GC0053.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "65%",
+          "height": "65%",
+          "objectFit": "scale-down",
+          "margin": "auto",
+          "filter": "grayscale(20%) contrast(95%) blur(0.5px)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/AA10DB50-D34F-11EA-8D33-31CF594743DB/GC0047.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/0B95D610-E961-11EA-AF52-D726A628FA31/GC0072.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/7F9A90C0-D34D-11EA-8D33-31CF594743DB/GC0044.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/000D9A30-D34F-11EA-8D33-31CF594743DB/GC0046.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/281FB600-D351-11EA-8D33-31CF594743DB/GC0048.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%)",
+          "mixBlendMode": "screen"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/14017400-D352-11EA-8D33-31CF594743DB/GC0050.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(75%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/6C909D90-D351-11EA-8D33-31CF594743DB/GC0049.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/7913B800-D319-11EA-A3AA-5B50F85147B1/GC0037%20(8).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/7913B800-D319-11EA-A3AA-5B50F85147B1/GC0037%20(6).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%) grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/7913B800-D319-11EA-A3AA-5B50F85147B1/GC0037%20(7).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/633B2E10-8606-11EA-85FA-09E672F48532/GC0001corsetti%20I_intervista_().jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/633B2E10-8606-11EA-85FA-09E672F48532/GC0001corsetti%20I_intervista_(2).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/633B2E10-8606-11EA-85FA-09E672F48532/GC0001corsetti%20I_intervista_(3).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "contrast(90%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E5BCF400-D4BB-11EA-AB83-D723D0936090/GC0065.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%) contrast(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/485D0FA0-D4BC-11EA-AB83-D723D0936090/GC0068.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%) contrast(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/7659F040-D4BB-11EA-AB83-D723D0936090/GC0064.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%) contrast(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+  "style": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0,
+    "display": "flex",
+    "alignItems": "center"
+  },
+  "images": [
+    {
+      "src": "https://archivio.in-common.org/cdn/1AC139A0-D3DF-11EA-94FD-5BBB559EAF57/GC0058.jpeg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto"
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    },
+    {
+      "src": "https://archivio.in-common.org/cdn/B984F3C0-D3DE-11EA-94FD-5BBB559EAF57/GC0057.jpg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto"
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    }
+
+  ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/7BEC32A0-D4A9-11EA-8C77-8705CF06E604/GC0059.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "brightness(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems":"flex-start"
+
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/9D873B60-D33E-11EA-9582-F750975629F7/GC0042%20copia.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "auto",
+          "objectFit": "contain",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%) contrast(105%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-2%",
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems":"flex-start"
+
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/CE820170-D337-11EA-9D87-1BB1B29A768B/GC0039.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "auto",
+          "objectFit": "contain",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "grayscale(100%) contrast(97%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+  "style": {
+  "position": "absolute",
+  "top": 0,
+  "left": 0,
+  "right": 0,
+  "bottom": 0,
+  "display": "flex",
+  "justifyContent": "center",
+  "alignItems": "center"
+  },
+  "images": [
+  {
+    "src": "https://archivio.in-common.org/cdn/3A5C3E40-D3D5-11EA-9104-E5BFB34EF50F/GC0054.jpg",
+    "time": 500,
+    "style": {
+      "transition": "opacity 0.5s ease-in",
+      "opacity": 0,
+      "width": "80%",
+      "height": "80%",
+      "object-fit": "scale-down",
+      "transform": "rotate(0deg)"
+
+    },
+    "animatedStyle": {
+      "opacity": 1
+    }
+  }
+  ]
+  }
+
+
+
+
+
+]
