@@ -9,11 +9,12 @@ import scontrigenerali from './scontri-generali.json'
 import cenerella from './cenerella.json'
 import rivoltaoggetti from './la-rivolta-degli-oggetti.json'
 import rotobolo from './rotobolo.json'
+import lucidellacitta from './luci-della-citta.json'
 
 
 export default {
 
-  'luci-della-citta': slideshow,
+  'luci-della-citta': lucidellacitta,
   'edoardo-2': edoardo2,
   'festival-di-s-beckett': festivalbeckett,
   'nostra-signora-dei-turchi': nostrasignora,
