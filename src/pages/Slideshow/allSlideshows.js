@@ -12,6 +12,7 @@ import rotobolo from './rotobolo.json'
 import lucidellacitta from './luci-della-citta.json'
 import cronachemarziane from './cronache-marziane.json'
 import cottimisti from './cottimisti.json'
+import mors2 from './mors-2'
 
 
 export default {
@@ -28,7 +29,8 @@ export default {
   'la-rivolta-degli-oggetti': rivoltaoggetti,
   'rotobolo': rotobolo,
   'cronache-marziane': cronachemarziane,
-  'cottimisti': cottimisti
+  'cottimisti': cottimisti,
+  'mors': mors2
 
 
 
