@@ -10,6 +10,7 @@ import cenerella from './cenerella.json'
 import rivoltaoggetti from './la-rivolta-degli-oggetti.json'
 import rotobolo from './rotobolo.json'
 import lucidellacitta from './luci-della-citta.json'
+import cronachemarziane from './cronache-marziane.json'
 
 
 export default {
@@ -24,7 +25,8 @@ export default {
   'scontri-generali': scontrigenerali,
   'cenerella': cenerella,
   'la-rivolta-degli-oggetti': rivoltaoggetti,
-  'rotobolo': rotobolo
+  'rotobolo': rotobolo,
+  'cronache-marziane': cronachemarziane,
 
 
 
