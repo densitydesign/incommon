@@ -92,7 +92,7 @@ export const configCaseStudies = [
   {
     titolo: "Rotobolo",
     caption: "Rotobolo",
-    slug: "robotolo",
+    slug: "rotobolo",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1976,
     description: 'Lorem ipsum',

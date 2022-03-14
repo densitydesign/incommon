@@ -8,6 +8,7 @@ import orlandofurioso from './orlandofurioso.json'
 import scontrigenerali from './scontri-generali.json'
 import cenerella from './cenerella.json'
 import rivoltaoggetti from './la-rivolta-degli-oggetti.json'
+import rotobolo from './rotobolo.json'
 
 
 export default {
@@ -21,7 +22,8 @@ export default {
   'orlando-furioso': orlandofurioso,
   'scontri-generali': scontrigenerali,
   'cenerella': cenerella,
-  'la-rivolta-degli-oggetti': rivoltaoggetti
+  'la-rivolta-degli-oggetti': rivoltaoggetti,
+  'rotobolo': rotobolo
 
 
 
