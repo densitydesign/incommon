@@ -11,6 +11,7 @@ import rivoltaoggetti from './la-rivolta-degli-oggetti.json'
 import rotobolo from './rotobolo.json'
 import lucidellacitta from './luci-della-citta.json'
 import cronachemarziane from './cronache-marziane.json'
+import cottimisti from './cottimisti.json'
 
 
 export default {
@@ -27,6 +28,7 @@ export default {
   'la-rivolta-degli-oggetti': rivoltaoggetti,
   'rotobolo': rotobolo,
   'cronache-marziane': cronachemarziane,
+  'cottimisti': cottimisti
 
 
 

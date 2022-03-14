@@ -367,7 +367,7 @@
           "height": "100%",
           "objectFit": "cover",
           "transform": "translateX(0%) translateY(0%)",
-          "filter": "contrast(100%) grayscale(100%)"
+          "filter": "contrast(110%) grayscale(100%)"
         },
         "animatedStyle": {
           "opacity": 1
