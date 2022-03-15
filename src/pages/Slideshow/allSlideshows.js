@@ -15,6 +15,7 @@ import cottimisti from './cottimisti.json'
 import mors2 from './mors-2'
 import theatrefunctionsterminated from './theatre-functions-terminated.json'
 import theatrefunctionscritical from './theatre-functions-critical.json'
+import decentramento from './decentramento.json'
 
 
 export default {
@@ -35,7 +36,7 @@ export default {
   'mors': mors2,
   'theatre-functions-terminated': theatrefunctionsterminated,
   'theatre-functions-critical': theatrefunctionscritical,
-
+  'decentramento': decentramento,
 
 
 }
