@@ -17,6 +17,7 @@ import theatrefunctionsterminated from './theatre-functions-terminated.json'
 import theatrefunctionscritical from './theatre-functions-critical.json'
 import decentramento from './decentramento.json'
 import theatre from './theatre.json'
+import macbeth from './sir-and-lady-macbeth.json'
 
 
 export default {
@@ -39,6 +40,7 @@ export default {
   'theatre-functions-critical': theatrefunctionscritical,
   'decentramento': decentramento,
   'theatre': theatre,
+  'sir-and-lady-macbeth': macbeth,
 
 
 }

@@ -53,6 +53,17 @@ export const configCaseStudies = [
     description: 'Lorem ipsum',
     images: [],
   },
+
+  {
+    titolo: "Sir and Lady Macbeth",
+    caption: "Sir and Lady Macbeth",
+    slug: "sir-and-lady-macbeth",
+    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    year: 1968,
+    description: 'Lorem ipsum',
+    images: [],
+  },
+
   {
     titolo: "Orlando Furioso",
     caption: "Orlando Furioso",
@@ -186,15 +197,6 @@ export const configCaseStudies = [
 
 
 
-  {
-    titolo: "Sir and Lady Macbeth",
-    caption: "Sir and Lady Macbeth",
-    slug: "sir-and-lady-macbeth",
-    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
-    year: 1970,
-    description: 'Lorem ipsum',
-    images: [],
-  },
 
 
 ]
