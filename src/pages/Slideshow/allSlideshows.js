@@ -14,6 +14,7 @@ import cronachemarziane from './cronache-marziane.json'
 import cottimisti from './cottimisti.json'
 import mors2 from './mors-2'
 import theatrefunctionsterminated from './theatre-functions-terminated.json'
+import theatrefunctionscritical from './theatre-functions-critical.json'
 
 
 export default {
@@ -32,7 +33,8 @@ export default {
   'cronache-marziane': cronachemarziane,
   'cottimisti': cottimisti,
   'mors': mors2,
-  'theatre-functions-terminated': theatrefunctionsterminated
+  'theatre-functions-terminated': theatrefunctionsterminated,
+  'theatre-functions-critical': theatrefunctionscritical,
 
 
 
