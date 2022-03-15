@@ -13,6 +13,7 @@ import lucidellacitta from './luci-della-citta.json'
 import cronachemarziane from './cronache-marziane.json'
 import cottimisti from './cottimisti.json'
 import mors2 from './mors-2'
+import theatrefunctionsterminated from './theatre-functions-terminated.json'
 
 
 export default {
@@ -30,7 +31,8 @@ export default {
   'rotobolo': rotobolo,
   'cronache-marziane': cronachemarziane,
   'cottimisti': cottimisti,
-  'mors': mors2
+  'mors': mors2,
+  'theatre-functions-terminated': theatrefunctionsterminated
 
 
 
