@@ -1,0 +1,414 @@
+[
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/A2118E90-7EB6-11EC-B493-29E36F9429AF/VF0077_Sudd.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/43CCEFF0-7ED9-11EC-A3A6-731E4DCCC197/VF0079.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "object-fit": "scale-down",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/D252B5E0-7C70-11EC-BF1F-1FF2B22F4DF9/39_LaRinga%20Giacomo%20(6).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-10%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/C8ED6060-7C5F-11EC-BF1F-1FF2B22F4DF9/35_LaRinga%20Giacomo%20(2).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/EF852710-7CF7-11EC-8C7A-3B61DC3BBFDF/40_LaRinga%20Giacomo%20(7).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/C8809160-7CFA-11EC-8C7A-3B61DC3BBFDF/41_LaRinga%20Giacomo%20(8).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/0049A800-7CFD-11EC-8C7A-3B61DC3BBFDF/42_LaRinga%20Giacomo.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E7701900-7E8B-11EC-A298-299FC98E3DE4/quaderno%20SUDD_p.%2001.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E7701900-7E8B-11EC-A298-299FC98E3DE4/quaderno%20SUDD_p.%2002-03.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E7701900-7E8B-11EC-A298-299FC98E3DE4/quaderno%20SUDD_p.%2014-15.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E7701900-7E8B-11EC-A298-299FC98E3DE4/quaderno%20SUDD_p.%2032-33.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-5%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E7701900-7E8B-11EC-A298-299FC98E3DE4/quaderno%20SUDD_p.%2036-37.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "110%",
+          "height": "110%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/455C5AD0-7C6E-11EC-BF1F-1FF2B22F4DF9/38_LaRinga%20Giacomo%20(5).jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "150%",
+          "height": "150%",
+          "objectFit": "cover",
+          "filter": "contrast(90%) brightness(80%)",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/EF1E48C0-7F85-11EC-B971-4DC8A1715127/VF0083_de%20donatoSUDD.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "40%",
+          "height": "40%",
+          "objectFit": "scale-down",
+          "margin": "auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/4736ED50-7F86-11EC-B971-4DC8A1715127/VF0084_de%20donatoSUDD.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "40%",
+          "height": "40%",
+          "objectFit": "scale-down",
+          "margin": "auto"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/BCF49940-7F84-11EC-B971-4DC8A1715127/VF0081_de%20donatoSUDD.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  }
+]

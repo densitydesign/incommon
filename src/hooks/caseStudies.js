@@ -92,6 +92,15 @@ export const configCaseStudies = [
     images: [],
   },
   {
+    titolo: "SUDD",
+    caption: "SUDD",
+    slug: "sudd",
+    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    year: 1974,
+    description: 'Lorem ipsum',
+    images: [],
+  },
+  {
     titolo: "La rivolta degli oggetti",
     caption: "La rivolta degli oggetti",
     slug: "la-rivolta-degli-oggetti",
