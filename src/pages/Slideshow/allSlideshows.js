@@ -19,6 +19,7 @@ import decentramento from './decentramento.json'
 import theatre from './theatre.json'
 import macbeth from './sir-and-lady-macbeth.json'
 import sudd from './sudd.json'
+import assoli from './assoli.json'
 
 
 export default {
@@ -43,6 +44,7 @@ export default {
   'theatre': theatre,
   'sir-and-lady-macbeth': macbeth,
   'sudd': sudd,
+  'assoli': assoli,
 
 
 }

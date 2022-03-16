@@ -150,6 +150,15 @@ export const configCaseStudies = [
   },
 
   {
+    titolo: "Assoli",
+    caption:"Assoli",
+    slug: "assoli",
+    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    description: 'Lorem ipsum',
+    year: 1977,
+    images: [],
+  },
+  {
     titolo: "Mors II",
     caption:"Mors II",
     slug: "mors",
