@@ -74,6 +74,15 @@ export const configCaseStudies = [
     images: [],
   },
   {
+    titolo: "Decentramento",
+    caption:"Decentramento",
+    slug: "decentramento",
+    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    description: 'Lorem ipsum',
+    year: "1969-1970",
+    images: [],
+  },
+  {
     titolo: "Scontri Generali",
     caption: "Scontri Generali",
     slug: "scontri-generali",
@@ -106,7 +115,7 @@ export const configCaseStudies = [
     slug: "la-rivolta-degli-oggetti",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1976,
-    description: 'The first play ever staged by La Gaia Scienza, La rivolta degli oggetti springs from an assemblage of texts by Mayakovsky, fragmented and divided between voices and movements. The case study gathers materials from the first three performances of the work, starting with the debut at Beat 72. The documents (drafts of the script, posters, notes) come in large part from the private archives of Marco Solari, the photographs from that of Andrea Fiorentino: there are additional materials from the Franco Quadri Fonds, the unpublished notebooks of Alessandra Vanzi and the photographs, also heretofore unpublished, by Giorgio Piredda. The story of the work also unfurls through a valuable audio document, a two-voice dialogue recorded by Solari and Vanzi ad hoc for INCOMMON.',
+    description: 'Lorem ipsum',
     images: [],
   },
   {
@@ -185,15 +194,7 @@ export const configCaseStudies = [
     year: 1979,
     images: [],
   },
-  {
-    titolo: "Decentramento",
-    caption:"Decentramento",
-    slug: "decentramento",
-    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
-    description: 'Lorem ipsum',
-    year: "1969-1970",
-    images: [],
-  },
+
   {
     titolo: "Theatre",
     caption:"Theatre",
@@ -203,16 +204,6 @@ export const configCaseStudies = [
     year: "1978-1980",
     images: [],
   },
-  {
-    titolo: "La faticosa messinscena dell'Amleto di William Shakespeare",
-    caption: "La faticosa messinscena dell'Amleto di William Shakespeare",
-    slug: "la-faticosa-messinscena-dell-amleto-di-william-shakespeare",
-    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
-    year: 1970,
-    description: 'Lorem ipsum',
-    images: [],
-  },
-
 
 
 
