@@ -1,10 +1,12 @@
 .item-spettacolo{
   height: 675px;
   width: 100%;
+
 }
 
 .link-spettacolo{
   color: #FCFCFC;
+
 }
 
 .link-spettacolo:hover{

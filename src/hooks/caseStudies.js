@@ -10,15 +10,15 @@ export const configCaseStudies = [
     titolo: "Edoardo II",
     caption: "Edoardo II",
     slug: "edoardo-2",
-    backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
+    backgroundImage: "url(/spettacolo/Edoardo-2.png)",
     year: 1963,
     description: 'Lorem ipsum',
     images: [],
   },
 
   {
-    titolo: "Festival di Beckett",
-    caption: "Festival di S. Beckett",
+    titolo: "Festival di S. Beckett",
+    caption: "Festival di Beckett",
     slug: "festival-di-s-beckett",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
     year: 1965,
@@ -27,7 +27,7 @@ export const configCaseStudies = [
   },
 
   {
-    titolo: "ZIP",
+    titolo: "Zip-lap-lip-vap-mam-crep-scap-plip-trip-scrap e la grande mam alle prese con la ",
     caption: "ZIP",
     slug: "zip",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
@@ -74,7 +74,7 @@ export const configCaseStudies = [
     images: [],
   },
   {
-    titolo: "Decentramento",
+    titolo: "Azioni di Decentramento (Torino 1969-70)",
     caption:"Decentramento",
     slug: "decentramento",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
@@ -83,7 +83,7 @@ export const configCaseStudies = [
     images: [],
   },
   {
-    titolo: "Scontri Generali",
+    titolo: "Scontri Generali ",
     caption: "Scontri Generali",
     slug: "scontri-generali",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
@@ -101,7 +101,7 @@ export const configCaseStudies = [
     images: [],
   },
   {
-    titolo: "SUDD",
+    titolo: "Sudd",
     caption: "SUDD",
     slug: "sudd",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
@@ -196,7 +196,7 @@ export const configCaseStudies = [
   },
 
   {
-    titolo: "Theatre",
+    titolo: "The a tre",
     caption:"Theatre",
     slug: "theatre",
     backgroundImage: "url(/spettacolo/Aspettando-godot.png)",
