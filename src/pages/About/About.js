@@ -1,17 +1,9 @@
-import React, { useEffect, useRef, useState } from "react"
-import classnames from "classnames"
+import React, { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-import "./Home.css"
 import Footer from "../../components/Footer"
+import "./About.css"
 
-const ARCHIVIO = "performance-remains"
-const SPETTACOLO = "recomposition"
-const FORMA = "the-shape-of-community"
-const LUOGHI = "times-and-places"
-const CATALOGO = "catalogue"
-
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(null)
+export default function About() {
   const firstORef = useRef()
   const secondORef = useRef()
 
@@ -27,11 +19,10 @@ export default function Home() {
       }
     }, 1000)
   })
-
   return (
-    <div className="Home">
-      <div className="TopHome">
-        <div className="ContainerSvg">
+    <div className="About">
+      <Link to="/">
+        <div className="banner pointer">
           <svg
             width="100%"
             height="561"
@@ -205,185 +196,324 @@ export default function Home() {
               fill="white"
             />
           </svg>
-          <Link to="/about">
-            <div
-              style={{
-                position: "absolute",
-                top: Math.random() * 400,
-                left: Math.random() * 1000,
-              }}
-            >
-              <img src={"/about-circle.svg"} alt="About" />
-            </div>
-          </Link>
         </div>
-        <div className="block-text-home">
-          <div>
-            INCOMMON. In praise of community. Shared creativity in arts and
-            politics in Italy (1959-1979) is a research project funded by the
-            European Research Council (ERC Starting Grant 2015) and hosted by
-            IUAV, University of Venice.
+      </Link>
+      <div
+        style={{
+          height: 400,
+          backgroundColor: "red",
+          marginLeft: 60,
+          marginRight: 60,
+        }}
+      >
+        PLACEHOLDER VIDEO
+      </div>
+      <div className="team-incommon">
+        <div className="title-incommon-team">INCOMMON TEAM</div>
+        <div className="row">
+          <div className="col-md-4">
+            <div>
+              <strong>Annalisa Sacchi</strong> is Full Professor and Chair in
+              the Graduate program in Theater and Performing Arts at Iuav
+              University of Venice. She is the PI of the ERC Starting Grant
+              winning project “INCOMMON. In Praise of the Community. Shared
+              creativity in the arts and politics in Italy (1959-1979) ", and
+              member of Pass the MIC! Decolonizing Education through the Arts
+              project, winner of Creative Europe program. She has carried out
+              research in London, at Queen Mary University, the Warburg
+              Institute and UCL, at NYU and at Harvard (Lauro de Bosis
+              fellowship). Among her books, In Fiamme. La performance nello
+              spazio delle lotte (1967-1979) (edited with I. Caleo and P. Di
+              Matteo, 2021); La performance della memoria (edited with F.
+              Bortoletti, 2018), Il posto del re. Estetiche del teatro di regia
+              nel modernismo e nel contemporaneo (2012), Shakespeare per la
+              Socìetas Raffaello Sanzio (2014), Itinera. Trajectoires de la
+              forme Tragedia Endogonidia (with E. Pitozzi, 2008), and the
+              Italian translation of F. Rokem, Philosophers and Thespians:
+              Thinking Performance (2014).
+            </div>
+            <div className="mt-5">
+              <strong>Aleksandra Jovićević</strong> is a Full Professor of
+              performance studies at the Department of History Anthropology
+              Religion Arts Performance at La Sapienza University of Rome, and
+              Director of the Master in Video Editing, Digital Storytelling for
+              Live Performance at the same university. Her book, Orson Welles
+              and Theatre: Shakespeare and Beyond, has just been published by
+              Bulzoni editor in Rome, where she is also a curator of a book
+              series, Politics and Aesthetics of Performance. Aleksandra
+              Jovićević is a Visiting Professor at the Belgrade University of
+              Arts; president of the Dragan Klaić Fellowship Foundation and a
+              member of the scientific committee of the research project
+              INCOMMON.
+            </div>
+            <div className="mt-5">
+              <strong>Stefano Brilli</strong> is a postdoctoral research fellow
+              at the Department of Communication Sciences, Humanities and
+              International Studies (DISCUI) of the University of Urbino Carlo
+              Bo, where he works in research projects on digital cultures and
+              performing arts audiences, and teaches Analysis of Internet
+              Languages. His research interests are centred on the sociology of
+              arts, performing arts audiences and irreverence and visibility in
+              digital culture. From 2017 to 2019, he was a postdoctoral research
+              fellow at the IUAV University of Venice. For the INCOMMON research
+              project, he has studied the relational aspects of the avant-garde
+              theatre scene of the 1960s and 1970s; he worked on the conceptual
+              design of the database and archive, and on the construction of the
+              artists' network.
+            </div>
+            <div className="mt-5">
+              <strong>Gabriele Colombo</strong> is a researcher at the
+              Department of Architecture and Arts of the Università IUAV di
+              Venezia and collaborates with DensityDesign, a research lab at the
+              Design Department of Politecnico di Milano. He is affiliated with
+              the Visual Methodologies collective of the Amsterdam University of
+              Applied Sciences. He is a lecturer in the Final Synthesis Studio
+              of the Master Degree in Communication Design at Politecnico di
+              Milano, where he teaches 'Digital Methods and Communication
+              Design'. His research and teaching activities focus on the design
+              of visual tools in support of digital social research, and on the
+              design of novel strategies for the communication, exploration,
+              analysis and valorisation of collections of images and videos. For
+              INCOMMON he coordinated the design and development of the digital
+              archive.
+            </div>
+            <div className="mt-5">
+              <strong>Giada Cipollone</strong>, PhD, is an adjunct professor at
+              the University of Pavia, where she teaches courses on contemporary
+              theatre. She is a member of the research centre "Self Media Lab.
+              Writings, Performance, Technologies of the Self' and is on the
+              organising committee of the summer school 'The Safekeeping of
+              Memory'. Her first book, entitled Actor portraiture and “still”
+              photography in Italy 1905-43 (1905-1943). Actress images from the
+              Turconi Archive, was published by Scalpendi in 2020. From 2019 to
+              2021 she was a post-doctoral research fellow at the IUAV
+              University of Venice as part of the INCOMMON project. For INCOMMON
+              she worked, on the one hand, on the research into photographic
+              materials from archives and private collections that are part of
+              the INCOMMON digital archive and, on the other hand, on the
+              relationship between photography and performativity, experimental
+              theatre and feminism in the 1970s.
+            </div>
+            <div className="mt-5">
+              <strong>Monica Nannini</strong>. Founder in Bologna of SPA! visual design (1997),
+              joined in 2015 by Pietro Garrone, Monica coordinates editorial
+              material, designs visual identities and relative applicative
+              systems for companies, cultural and social organisations. Art
+              director from 2004 to 2013 of “Art’o”, magazine on the culture and
+              policies of visual and performing arts. She co-authored Web Design
+              in Italy 0.1 (Happy Books, Modena 2004). From 2012 to 2018 she was
+              a member of Aiap’s (Italian Association Visual Communication
+              Design) national board. In 2015 she designed and curated the
+              exhibition “Millennials. The new scene of Italian graphic design”,
+              held in Milan. She followed the INCOMMON project from the very
+              beginning, defining together with Pietro Garrone and Max Ryan the
+              guidelines for the entire communication system, aiming to
+              communicate the radicality and the innovative approach of the
+              project and to bring the academic contents to an informative
+              level, building through the launch of the website an audience for
+              the digital archive and all the initiatives and cultural events
+              that arose from this experience. The INCOMMON visual identity
+              project was selected for the 2019 AWDA (Aiap Women in Design
+              Award) contest.
+            </div>
           </div>
-          <div style={{ marginTop: 40 }}>
-            {" "}
-            INCOMMON is meant to be the first study to systematically analyse
-            the field of performing arts as resulting from the practice of
-            commonality both theorized and experienced over the 1960s and the
-            1970s. In particular, the project is aimed to study the history of
-            the ‘laboratory Italy’ as the place where artistic counterculture
-            expressed by performing arts arose in a milieu characterized by a
-            profound relation between philosophy, politics, and revolutionary
-            practices.
+          <div className="col-md-4">
+            <div>
+              <strong>Stefano Tomassini</strong> teaches at the Iuav University
+              in Venice (I). He has taught at the universities of Ca’ Foscari
+              (I) and University of Italian Switzerland in Lugano (CH) where he
+              was Dance Curator for the LAC (LuganoInScena). In 2008-2009 he was
+              Fulbright-Schuman Research Scholar (NYC); in 2010
+              Scholar-in-Residence at the Archive of the Jacob’s Pillow Dance
+              Festival (Lee, Mass.) and, during the 2011’s fall semester,
+              Associate Research Scholar at the Italian Academy for Advanced
+              Studies in America, Columbia University (NYC). From 2013 to 2016
+              he has collaborated with the artistic director of the Dance
+              Department of La Biennale di Venezia (I). In 2016 he has been
+              Scholar-in-Residence at Scenario Pubblico - Centro Nazionale di
+              Produzione della Danza in Catania (I), on a project about dance
+              reconstruction. From 2017 he is a jury member for the Dance Swiss
+              Days 2019. He is currently a dance writer for the magazine «Teatro
+              e Critica» and member of the Advisory commission of dance of the
+              Italian Ministry of Culture. He was senior researcher of the
+              INCOMMON project, for which he curated and studied the collection
+              of photographic and audiovisual materials from the archives of
+              Luca Ronconi, Carlo Quartucci, Giuliano Scabia and Franco Quadri.
+              In 2018 he published the first monograph of the project entitled
+              New York furioso. Luca Ronconi e «quelli dell'Orlando» a Bryant
+              Park (1970), by Marsilio, on entirely unpublished material
+              preserved at the New York Public Library for the Performing Arts.
+            </div>
+            <div className="mt-5">
+              <strong>Valentina Valentini</strong> teaches performing arts and
+              new media at University of Rome La Sapienza. Her research
+              interests focus on performance in the twentieth century,
+              especially the relationship between theatre, visual art and new
+              technologies. Her most recent book in this field is Worlds Bodies
+              Matters, Performance Research Books, 2014. Her last book is: New
+              Theater in Italy a research project on the Italian theatre of the
+              years between the Sixties of last century and 2013 which produces
+              a publication (Routledge 2017) as the web site. See:{" "}
+              <a
+                className="text-white"
+                href="http://www.nuovoteatromadeinitaly.com"
+              >
+                http://www.nuovoteatromadeinitaly.com
+              </a>
+              <br />
+              The web project amplifies, investigates and supports the
+              analytical progression of the publication, enabling the
+              researchers to reach and view different kinds of documents (texts,
+              photos, videos and audios) to which the publication refers through
+              the link creating a constant dialogue between written page and
+              web. She is a member of the scientific committee of the research
+              project INCOMMON.
+            </div>
+            <div className="mt-5">
+              <strong>Marco Baravalle </strong>is a member of S.a.L.E. Docks, a
+              collective and an independent space for visual arts, activism, and
+              experimental theatre located in what had been an abandoned
+              salt-storage facility in Dorsoduro, Venice, Italy. Founded in
+              2007, its programming includes activist-group meetings, formal
+              exhibitions, and screenings. Baravalle is a research fellow at
+              INCOMMON. In praise of community. Shared creativity in arts and
+              politics in Italy (1959-1979). He is a member of IRI (Institute Of
+              Radical Imagination), a think-tank inviting political scientists,
+              economists, lawyers, architects, hackers, activists, artists and
+              cultural producers to share knowledge on a continuous base with
+              the aim of defining and implementing zones of post-capitalism in
+              Europe’s South and the Mediterranean. He is the author of
+              L’autunno caldo del curatore. Arte, neoliberismo, pandemia
+              (Marsilio, 2021). In 2021 he is awarded with a Fulbright Visiting
+              Student Researcher grant at the CUNY Graduate Center, New York
+            </div>
+            <div className="mt-5">
+              <strong>Veronica Franchi</strong> received her master's degree in
+              Theatre and Performing Arts from the IUAV University of Venice.
+              She collaborates with the communication office of Teatro
+              Metastasio in Prato and she has been working as assistant director
+              with OHT, the curator and theatre maker Filippo Andreatta’s
+              research studio, since 2019. For INCOMMON she joined the research
+              group in the final phase of the project working on the archiving
+              and editing of documents within the digital archive.
+            </div>
+            <div className="mt-5">
+              <strong>Pietro Garrone</strong> is an independent graphic designer
+              based in London and partner of Spa! visual design. A graduate of
+              Central Saint Martins and the Royal College of Art, his work is
+              focused on visual identities and innovative narratives for brands
+              and media platforms. While in the Royal College of Art Visual
+              Communication programme, Pietro produced his dissertation titled
+              Declaration of State of Permanent Happiness – a first
+              comprehensive publication on the visual culture of Bologna, Italy
+              in 1977. Much of this research informed the development of the
+              visual identity for INCOMMON in 2017, executed together with
+              Monica Nannini and Max Ryan. Pietro’s practice is currently
+              focused on creating radical content with the UK digital media
+              platform Novara Media, and teaching as a visiting lecturer in the
+              Kingston University BA Graphic Design programme.
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div>
+              <strong>Enrico Pitozzi</strong> teaches at the University of
+              Bologna. He has taught at the universities of Venice (IUAV) and
+              Padua; he has been a visiting professor at the universities of
+              Paris, Montréal, Valencia and Frankfurt. He is vicedirector of the
+              international center of an artistic voice «Malagola», founded in
+              Ravenna by Ermanna Montanari. He is a member of the Scientific
+              Committee for Entertainment of the Emilia-Romagna Region (LR13/99
+              art. 6 - Regional Council of 12/07/2021, DGR n. 1118/2021). He is
+              a member of the «MeLa research lab» of the IUAV University of
+              Venice, the project «Mixed Reality» at the Université Côte d’Azur
+              de Nice (Francia) and the «Sensory Studies» of Concordia
+              University (Canada). He is a member of the scientific committee of
+              international journals in Italy, Canada and Brazil. He was senior
+              researcher of the INCOMMON project, for which he curated and
+              studied the collection of photographic and audiovisual materials
+              from the archives of Leo De Berardinis, Edoardo Fadini and Franco
+              Quadri
+            </div>
+            <div className="mt-5">
+              <strong>Maria Grazia Berlangieri</strong> is Assistant Professor
+              in Performing Arts and New Media at Sapienza University of Rome.
+              She received her Ph.D. in Digital Technologies for Research on
+              Performing Arts from the University of Rome “Sapienza”. Her
+              current research focuses are the history and the aesthetics of
+              Italian theatre, narrative visualisation of collected data in
+              performing arts, the analysis through motion capture technologies
+              of the actor-dancer movements, transmedia narrative. She
+              participated as a researcher in the European project Eclap,
+              European Collected Library of Artistic Performance. Since 2005 she
+              oversees the archive of Centro Teatro Ateneo, University of Rome
+              “Sapienza”. She teaches Teatro e New Media, Multimedia Design e
+              Archivi e Musei digitali per lo Spettacolo dal vivo at the
+              Sapienza University – Rome. Among others, she has published La
+              forma dell’inarchiviabile. Fonti, dati, metadati: I documenti
+              teatrali e la rimediazione digitale (2020); Performing Space. Lo
+              spazio performativo e l’hacking digitale. Nuove tecnologie e
+              transmedialità. For the INCOMMON research project, she studied the
+              avant-garde theatre scene of the 1960s and 1970s; she worked on
+              the research of unpublished documents from archives and private
+              collections that are part of the INCOMMON digital archive; she
+              also worked on the conceptual design of the database and archive,
+              in particular on metadata form.
+            </div>
+            <div className="mt-5">
+              <strong>Piersandra Di Matteo</strong>. Performing arts theorist,
+              dramaturge, and curator. Member of the research group "INCOMMON"
+              at Iuav University of Venice, where she teaches "Curatorship of
+              Performing Arts". Her theoretical interests range from
+              contemporary theatre to dramaturgy, from the politics of voice to
+              curatorial practices. In recent years she has given lectures and
+              seminars in research centres and universities in Hong Kong,
+              Singapore, Shanghai, Amsterdam, New York, Philadelphia, Montréal,
+              São Paulo, Belo Horizonte, and she has been a visiting scholar at
+              MESTC/CUNY (New York, 2017). She has been the closest theoretical
+              collaborator of Romeo Castellucci, with whom she works in major
+              theatres and international festivals. She was artistic curator of
+              the Atlas of Transitions Biennale (2017-2020) for ERT. Recent
+              publications include, performance + curatela (Sossella Editore
+              2021), All for All! Kinkaleri (bruno 2018), Toccare il Reale.
+              L’arte di Romeo Castellucci (Cronopio 2015), with A. Sacchi and I.
+              Caleo, In fiamme. La performance nello spazio delle lotte
+              (1967-1979) (bruno 2021). She is currently the artistic director
+              of Short Theatre in Rome (2022-2024).
+            </div>
+            <div className="mt-5">
+              <strong>Ilenia Caleo</strong> is a performer, activist and
+              researcher. Since 2000 she has been working as an actress,
+              performer and dramaturg for the contemporary theatre,
+              collaborating with various companies and directors, including
+              nella tempesta, Raffiche and Tutto brucia of Motus theatre
+              company. Together with the artist Silvia Calderoni, she created a
+              nomadic atelier of workshops and artistic residences. Starting
+              with a masterclass at the Biennale College Teatro in 2018, they
+              created KISS, a performance project with 23 performers produced by
+              the Santarcangelo Festival, CSS Udine and Motus. For the Queering
+              Platform of the West Kowloon Cultural District in Hong Kong, they
+              co-curate the SO IT IS transnational project. Master Degree in
+              Contemporary Philosophy, her research focuses on bodies, feminist
+              epistemologies, experimentation in performing arts and new
+              cultural institutions. She is a researcher at IUAV University of
+              Venice and co-founder of Master Gender Studies and Politics of
+              Roma Tre University, and she collaborates with the research
+              project INCOMMON.
+            </div>
+            <div className="mt-5">
+              <strong>Jacopo Poletto</strong>. Milan based, rencently graduated
+              Communication Designer focused in Information and Data
+              Visualization Design. Fascinated by complexity and yearning to
+              create meaningful experiences and knowledge, Jacopo Poletto joined
+              the design team of Incommon during his internship at Density
+              Design. He helped designing the visualizations and their
+              interactions, together with the overall UX/UI of the very first
+              prototype of the digital archive interface.
+            </div>
           </div>
         </div>
       </div>
-      <div className="HomePages">
-        <div
-          className={classnames({
-            "page-home": menuOpen !== ARCHIVIO,
-            "page-home-open": menuOpen === ARCHIVIO,
-          })}
-          onClick={() =>
-            menuOpen !== ARCHIVIO ? setMenuOpen(ARCHIVIO) : setMenuOpen(null)
-          }
-        >
-          <div className="text-page-home">
-            <div className="title-page-home">Performance Remains</div>
-            {menuOpen === ARCHIVIO && (
-              <>
-                <div className="description-page-home">
-                  Like documents spread on a table, this view traces paths that
-                  jump from one performance to another and builds connections
-                  between materials scattered across time and space.
-                </div>
-                <Link className="esplora-home" to={ARCHIVIO}>
-                  <span>EXPLORE</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="image-block">
-            <img src="/performance-remains.png" alt="Performance Remains" />
-          </div>
-        </div>
-        <div
-          className={classnames({
-            "page-home": menuOpen !== SPETTACOLO,
-            "page-home-open": menuOpen === SPETTACOLO,
-          })}
-          onClick={() =>
-            menuOpen !== SPETTACOLO
-              ? setMenuOpen(SPETTACOLO)
-              : setMenuOpen(null)
-          }
-        >
-          <div className="text-page-home">
-            <div className="title-page-home">Recomposition</div>
-            {menuOpen === SPETTACOLO && (
-              <>
-                <div className="description-page-home">
-                  This view plays on the layering of materials as a generative
-                  technique. Documents are treated as raw footage, layered on
-                  top of each other, generating unexpected visions of the
-                  performances.
-                </div>
-                <Link className="esplora-home" to={SPETTACOLO}>
-                  <span>EXPLORE</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="image-block">
-            <img src="/recomposition.png" alt="Recomposition" />
-          </div>
-        </div>
-        <div
-          className={classnames({
-            "page-home": menuOpen !== FORMA,
-            "page-home-open": menuOpen === FORMA,
-          })}
-          onClick={() =>
-            menuOpen !== FORMA ? setMenuOpen(FORMA) : setMenuOpen(null)
-          }
-        >
-          <div className="text-page-home">
-            <div className="title-page-home">The Shape of Community</div>
-            {menuOpen === FORMA && (
-              <>
-                <div className="description-page-home">
-                  With a network visualisation, this view shows different kinds
-                  of relations between people and events characterising the
-                  Incommon community from 1959 to 1979.
-                </div>
-                <Link className="esplora-home" to={FORMA}>
-                  <span>EXPLORE</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="image-block">
-            <img
-              src="/the-shape-of-community.png"
-              alt="The Shape of Community"
-            />
-          </div>
-        </div>
-        <div
-          className={classnames({
-            "page-home": menuOpen !== LUOGHI,
-            "page-home-open": menuOpen === LUOGHI,
-          })}
-          onClick={() =>
-            menuOpen !== LUOGHI ? setMenuOpen(LUOGHI) : setMenuOpen(null)
-          }
-        >
-          <div className="text-page-home">
-            <div className="title-page-home">Times and Places</div>
-            {menuOpen === LUOGHI && (
-              <>
-                <div className="description-page-home">
-                  This view illustrates the geographical and temporal extent of
-                  the community. The visualization displays the various
-                  locations affected by Incommon from 1959 to 1979.
-                </div>
-                <Link className="esplora-home" to={LUOGHI}>
-                  <span>EXPLORE</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="image-block">
-            <img src="/times-and-places.png" alt="Times and Places" />
-          </div>
-        </div>
-        <div
-          className={classnames("last-item-menu", {
-            "page-home": menuOpen !== CATALOGO,
-            "page-home-open": menuOpen === CATALOGO,
-          })}
-          onClick={() =>
-            menuOpen !== CATALOGO ? setMenuOpen(CATALOGO) : setMenuOpen(null)
-          }
-        >
-          <div className="text-page-home">
-            <div className="title-page-home">Catalogue</div>
-            {menuOpen === CATALOGO && (
-              <>
-                <div className="description-page-home">
-                  This view maintains the traditional conception of materials as
-                  documents, but the filtrable grid offers means to stimulate
-                  new readings of documents as collections.
-                </div>
-                <Link className="esplora-home" to={CATALOGO}>
-                  <span>EXPLORE</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="image-block">
-            <img src="/catalogue.png" alt="Catalogue" />
-          </div>
-        </div>
+      <div className="border-top">
         <Footer />
       </div>
     </div>

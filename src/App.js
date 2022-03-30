@@ -7,6 +7,7 @@ import DettaglioDocumento from './pages/DettaglioDocumento'
 import Forma from './pages/Forma'
 import CaseStudies from './pages/CaseStudies'
 import Archivio from './pages/Archivio'
+import About from './pages/About'
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/about" exact>
+          <About />
         </Route>
         <Route path="/catalogue" exact>
           <Catalogo />
