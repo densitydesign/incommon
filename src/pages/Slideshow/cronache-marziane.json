@@ -1,0 +1,379 @@
+[
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/11C7DCA0-D16E-11EA-919E-9783603D2754/GC0015.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "object-fit": "scale-down",
+          "transform": "rotate(0deg)",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/2E27EDA0-D17C-11EA-9671-3BB5840F9C66/GC0020.jpeg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "contrast(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/922F22A0-8636-11EA-8B47-69758C7425DC/GC0002quadri_sc%20227_corsetti%20I_cronache%20marziane%20(completo)_01.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/922F22A0-8636-11EA-8B47-69758C7425DC/GC0002quadri_sc%20227_corsetti%20I_cronache%20marziane%20(completo)_02.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/922F22A0-8636-11EA-8B47-69758C7425DC/GC0002quadri_sc%20227_corsetti%20I_cronache%20marziane%20(completo)_03.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      },
+      {
+        "src": "https://archivio.in-common.org/cdn/922F22A0-8636-11EA-8B47-69758C7425DC/GC0002quadri_sc%20227_corsetti%20I_cronache%20marziane%20(completo)_04.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "50%",
+          "height": "100%",
+          "objectFit": "cover",
+          "margin": "auto",
+          "filter": "grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/36D06850-D178-11EA-919E-9783603D2754/GC0017.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "object-fit": "scale-down",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "display": "flex",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/C87A2EC0-D179-11EA-9671-3BB5840F9C66/GC0018.jpg",
+        "time": 500,
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "80%",
+          "height": "80%",
+          "object-fit": "scale-down",
+          "transform": "rotate(0deg)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-20%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/B5050C00-D0E0-11EA-81A7-490122DE082F/GC0005.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "120%",
+          "height": "120%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "contrast(100%) grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": "-20%",
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/E64EFA20-8A25-11EA-9AA7-298A69CC38A6/GC0003_quadri_sc%20227_corsetti%20I_cronache%20marziane%20(completo)_07.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "180%",
+          "height": "180%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "contrast(120%) grayscale(100%) brightness(110%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  },
+  {
+  "style": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0,
+    "display": "flex",
+    "alignItems": "center"
+  },
+  "images": [
+    {
+      "src": "https://archivio.in-common.org/cdn/B90B2DE0-D183-11EA-9671-3BB5840F9C66/GC0028.jpg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto",
+          "filter": "contrast(75%) grayscale(10%) brightness(100%)"
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    },
+    {
+      "src": "https://archivio.in-common.org/cdn/B054CD50-D183-11EA-9671-3BB5840F9C66/GC0027.jpg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto"
+
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    }
+
+  ]
+  },
+  {
+  "style": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0,
+    "display": "flex",
+    "alignItems": "center"
+  },
+  "images": [
+    {
+      "src": "https://archivio.in-common.org/cdn/9D56E4E0-D183-11EA-9671-3BB5840F9C66/GC0025.jpg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto",
+          "filter": "contrast(75%) grayscale(10%) brightness(100%)"
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    },
+    {
+      "src": "https://archivio.in-common.org/cdn/A5EA0600-D183-11EA-9671-3BB5840F9C66/GC0026.jpg",
+      "time": 500,
+      "style": {
+        "transition": "opacity 0.5s ease-in",
+        "opacity": 0,
+        "width": "70%",
+        "height": "70%",
+        "objectFit": "scale-down",
+        "margin":"auto",
+          "filter": "contrast(75%) grayscale(10%) brightness(100%)"
+
+      },
+      "animatedStyle": {
+        "opacity": 1
+      }
+    }
+
+  ]
+  },
+
+  {
+    "style": {
+      "position": "absolute",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "images": [
+      {
+        "src": "https://archivio.in-common.org/cdn/04CBF310-D182-11EA-9671-3BB5840F9C66/GC0022.jpg",
+        "style": {
+          "transition": "opacity 0.5s ease-in",
+          "opacity": 0,
+          "width": "100%",
+          "height": "100%",
+          "objectFit": "cover",
+          "transform": "translateX(0%) translateY(0%)",
+          "filter": "contrast(110%) grayscale(100%)"
+        },
+        "animatedStyle": {
+          "opacity": 1
+        }
+      }
+    ]
+  }
+
+]
