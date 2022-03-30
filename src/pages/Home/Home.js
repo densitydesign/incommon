@@ -219,9 +219,10 @@ export default function Home() {
             INCOMMON. In praise of community. Shared creativity in arts and
             politics in Italy (1959-1979) is a research project funded by the
             European Research Council (ERC Starting Grant 2015) and hosted by
-            IUAV, University of Venice.{" "}
+            IUAV, University of Venice.
           </div>
           <div style={{ marginTop: 40 }}>
+            {" "}
             INCOMMON is meant to be the first study to systematically analyse
             the field of performing arts as resulting from the practice of
             commonality both theorized and experienced over the 1960s and the
@@ -438,9 +439,22 @@ export default function Home() {
                   <img src="/spa.svg" alt="Spa" width={101} height={157} />
                 </div>
                 <div className="ml-30">
-                  <div className="label-footer mb-3">DESIGNED AND DEVELOPED BY</div>
-                  <img src="/density.png" alt="Density Design" width={86} height={100} />
-                  <img className="ml-4" src="/inmagik.svg" alt="Inmagik" width={95} height={95} />
+                  <div className="label-footer mb-3">
+                    DESIGNED AND DEVELOPED BY
+                  </div>
+                  <img
+                    src="/density.png"
+                    alt="Density Design"
+                    width={86}
+                    height={100}
+                  />
+                  <img
+                    className="ml-4"
+                    src="/inmagik.svg"
+                    alt="Inmagik"
+                    width={95}
+                    height={95}
+                  />
                 </div>
               </div>
             </div>
