@@ -172,7 +172,7 @@ export default function TempiELuoghi() {
             className="position-absolute text-white font-weight-bold year-active"
             style={{ top: 20, right: 30 }}
           >
-            <h1>{year}</h1>
+            <h1 className="year-right">{year}</h1>
           </div>
           <ZoomControl style={styleZoomControl} />
         </Map>
