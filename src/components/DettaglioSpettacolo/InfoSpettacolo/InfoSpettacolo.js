@@ -1,7 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import classnames from "classnames"
 import "./InfoSpettacolo.css"
+import slideshow from "./assets/slideshow.svg"
+import readmore from "./assets/readmore.svg"
 import { countBy } from "lodash"
+import { Link } from "react-router-dom"
 
 const MicroFilter = ({
   name,
@@ -29,7 +32,6 @@ const MicroFilter = ({
 }
 
 export default function InfoSpettacolo({
-  toggleShowMoreInfo,
   caseStudy,
   setArchivio,
   tipologia,
@@ -48,18 +50,40 @@ export default function InfoSpettacolo({
     "content_provider"
   )
 
-  console.log(countByTipologia)
-
   return (
     <div className="block-left-spettacolo">
       <div className="block-info-spettacolo">
         <div className="title-spettacolo">{caseStudy.caption}</div>
-        <div className='description-spettacolo'>
-          {caseStudy.description}
+        <div className="buttons-actions">
+          <Link
+            className="no-link"
+            to={`/recomposition/${caseStudy.slug}/slideshow`}
+          >
+            <div className="d-flex align-items-center">
+              <span>Slideshow</span>{" "}
+              <img
+                className="ml-2"
+                src={slideshow}
+                alt="slideshow"
+                height={10}
+              />
+            </div>
+          </Link>
+          <Link
+            className="no-link"
+            to={`/`}
+          >
+            <div className="d-flex align-items-center">
+              <span>Read more</span>{" "}
+              <img
+                className="ml-2"
+                src={readmore}
+                alt="slideshow"
+                height={10}
+              />
+            </div>
+          </Link>
         </div>
-        {/* <div className="mt-4 pointer more-info" onClick={toggleShowMoreInfo}>
-          + Info
-        </div> */}
         <div className="block-raggruppa">
           <u>Group by</u>:
           <div
@@ -98,7 +122,11 @@ export default function InfoSpettacolo({
                 {Object.keys(countByTipologia).map((tipologiaItem) => (
                   <MicroFilter
                     setTipologia={setTipologia}
-                    onClick={() => tipologia !== tipologiaItem ? setTipologia(tipologiaItem) : setTipologia(null)}
+                    onClick={() =>
+                      tipologia !== tipologiaItem
+                        ? setTipologia(tipologiaItem)
+                        : setTipologia(null)
+                    }
                     key={tipologiaItem}
                     tipologia={tipologia}
                     name={tipologiaItem}
@@ -111,7 +139,11 @@ export default function InfoSpettacolo({
               <div className="mt-2">
                 {Object.keys(countByArchivio).map((archivioItem) => (
                   <MicroFilter
-                    onClick={() => archivio !== archivioItem ? setArchivio(archivioItem) : setArchivio(null)}
+                    onClick={() =>
+                      archivio !== archivioItem
+                        ? setArchivio(archivioItem)
+                        : setArchivio(null)
+                    }
                     key={archivioItem}
                     setArchivio={setArchivio}
                     archivio={archivio}
@@ -123,6 +155,9 @@ export default function InfoSpettacolo({
             )}
           </div>
         )}
+        <div className="click-on-stack">
+          Click on a stack to see the documents in the catalogue
+        </div>
       </div>
     </div>
   )

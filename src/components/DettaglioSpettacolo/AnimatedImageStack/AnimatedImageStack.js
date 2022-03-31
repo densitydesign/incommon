@@ -130,7 +130,7 @@ function ImgContainer({
         height={props.height}
         index={index}
         randomize={randomize}
-        src={image.preview}
+        src={image.image}
       ></RandImage>
     </animated.div>
   )
