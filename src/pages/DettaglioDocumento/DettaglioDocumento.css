@@ -24,7 +24,6 @@
 
 .img-document{
   overflow: auto;
-  margin-top: 20px;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; 
 }
@@ -32,5 +31,10 @@
 .img-document::-webkit-scrollbar{
   display: none;
 }
+
+/* .TransformComponent-module_container__3NwNd {
+  height: 100% !important;
+  width: 100% !important;
+} */
 
 
