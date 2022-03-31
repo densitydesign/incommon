@@ -1,6 +1,7 @@
 .item-spettacolo{
   height: 675px;
   width: 100%;
+  background-size: cover;
 
 }
 
