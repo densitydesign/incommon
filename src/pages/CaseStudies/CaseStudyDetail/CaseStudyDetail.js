@@ -2,16 +2,14 @@ import find from "lodash/find"
 import React, { useMemo, useState } from "react"
 import useMemoCompare from "magik-react-hooks/useMemoCompare"
 import { Link, useParams } from "react-router-dom"
-import FiltersSpettacoloDetail from "../../../components/DettaglioSpettacolo/FiltersSpettacoloDetail"
 import InfoSpettacolo from "../../../components/DettaglioSpettacolo/InfoSpettacolo"
 import MenuTop from "../../../components/MenuTop"
 import { shuffle } from "seed-shuffle"
-import ImagesStack from "../../../components/DettaglioSpettacolo/ImagesStack"
 import AnimatedImageStack from "../../../components/DettaglioSpettacolo/AnimatedImageStack"
 import "./CaseStudy.css"
 import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
 import PannelloInfo from "../../../components/PannelloInfo"
-import { flatMap, groupBy } from "lodash"
+import { groupBy } from "lodash"
 
 // Mantain the same "random" for the entire user session
 // NOTE: Place a literal Es:. 5 to have ALWAYS the same random factor
@@ -123,28 +121,6 @@ function CaseStudy({ caseStudy }) {
             byGroup={byGroup}
           />
         )}
-        {/* {group && group === "archivio" ? (
-          Object.keys(imagesByArchivio).map((archivio, i) => (
-            <ImagesStack
-              key={archivio}
-              images={imagesByArchivio[archivio]}
-              link={`/recomposition/${caseStudy.slug}/slideshow`}
-            />
-          ))
-        ) : group && group === "tipologia" ? (
-          Object.keys(imagesByTipologia).map((tipologia) => (
-            <ImagesStack
-              key={tipologia}
-              images={imagesByTipologia[tipologia]}
-              link={`/recomposition/${caseStudy.slug}/slideshow`}
-            />
-          ))
-        ) : (
-          <ImagesStack
-            images={images}
-            link={`/recomposition/${caseStudy.slug}/slideshow`}
-          />
-        )} */}
       </div>
     </div>
   )

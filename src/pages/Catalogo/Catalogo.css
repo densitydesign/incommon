@@ -40,7 +40,6 @@
 .filters-active {
   padding-left: 20px;
   padding-right: 20px;
-  height: 70px;
   overflow: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
