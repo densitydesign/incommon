@@ -23,7 +23,7 @@ const CarouselImages = ({ currentSlide, document }) => {
             <img
               src={image.image}
               alt={document.spettacolo}
-              style={{ width: "50%" }}
+              style={{ width: "40%" }}
             />
           </div>
         ))}
@@ -112,8 +112,41 @@ export default function DettaglioDocumento() {
                     </div>
                   </div>
                 </div>
-                <div className="img-document d-flex align-items-center justify-content-center mb-4">
+                <div className="img-document d-flex align-items-center justify-content-center">
                   <TransformComponent>
+                    <div
+                      style={{
+                        width: 100,
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                        height: "100%",
+                        zIndex: 100,
+                      }}
+                      onClick={() => {
+                        if (currentSlide !== 0) {
+                          prev()
+                        }
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        width: 100,
+                        position: "absolute",
+                        right: 0,
+                        top: 0,
+                        height: "100%",
+                        zIndex: 100,
+                      }}
+                      onClick={() => {
+                        if (
+                          currentSlide !== document.images.length - 1 &&
+                          document.images.length > 1
+                        ) {
+                          next()
+                        }
+                      }}
+                    ></div>
                     <CarouselImages
                       currentSlide={currentSlide}
                       document={document}
