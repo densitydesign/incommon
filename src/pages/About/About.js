@@ -295,6 +295,11 @@ export default function About() {
               theatre and feminism in the 1970s.
             </div>
             <div className="mt-5">
+              <strong>Cristiano Contin</strong> A software engineer, he works as an independent contractor with Elan42.
+Since 1999, he has developed database based frameworks and automation software, designing and deploying mission critical systems all around Italy.
+For INCOMMON he designed the data backend and the data entry software.
+            </div>
+            <div className="mt-5">
               <strong>Monica Nannini</strong>. Founder in Bologna of SPA! visual design (1997),
               joined in 2015 by Pietro Garrone, Monica coordinates editorial
               material, designs visual identities and relative applicative
@@ -413,6 +418,10 @@ export default function About() {
               platform Novara Media, and teaching as a visiting lecturer in the
               Kingston University BA Graphic Design programme.
             </div>
+            <div className="mt-5">
+              <strong>Simone Zantedeschi</strong> graduated in economics and business at University of Verona and works in the Iuav University of Venice Research Office.
+He deals with the financial and administrative management of the project in regards to the rules for the eligibility of expenses established both at the national and European level. He is entrusted with the financial reporting, and maintaining contacts with the European Commission officials for matters concerning the project’s financial management.
+            </div>
           </div>
           <div className="col-md-4">
             <div>
@@ -509,6 +518,9 @@ export default function About() {
               Design. He helped designing the visualizations and their
               interactions, together with the overall UX/UI of the very first
               prototype of the digital archive interface.
+            </div>
+            <div className="mt-5">
+              <strong>Max Ryan</strong> is a graphic designer, lecturer, researcher and developer based in London, UK and was previously a partner of Studio P2P. He is a graduate of the Royal College of Art and teaches at Kingston University across their BA and MA Graphic Design courses and has given talks and run workshops at many universities and cultural institutions. His research centres on the relation of design to networks and systems at scale, dealing with ideas of complexity, abstraction and the overview.
             </div>
           </div>
         </div>
