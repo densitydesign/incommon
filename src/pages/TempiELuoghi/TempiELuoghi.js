@@ -98,8 +98,7 @@ export default function TempiELuoghi() {
     return network.filter(
       (spettacolo) =>
         parseInt(spettacolo.anno) === year &&
-        spettacolo.citta === town &&
-        spettacolo.luogo
+        spettacolo.citta === town
     )
   }, [year, town])
 

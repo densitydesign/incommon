@@ -21,6 +21,19 @@ function CaseStudy({ caseStudy }) {
   const [tipologia, setTipologia] = useState(null)
   const [group, setGroup] = useState(null)
 
+  console.log(caseStudy)
+
+  const linkDocuments = useMemo(() => {
+    let link = `/catalogue?spettacolo=${caseStudy.titolo}`
+    if(tipologia){
+      link = link + `&tipologia=${tipologia}`
+    }
+    if(archivio){
+      link = link + `&content_provider=${archivio}`
+    }
+    return link
+  }, [caseStudy, tipologia, archivio])
+
   const toggleShowMoreInfo = () => {
     setShowMoreInfo(!showMoreInfo)
   }
@@ -56,9 +69,7 @@ function CaseStudy({ caseStudy }) {
   const groupedTipologia = groupBy(images, "tipologia")
   const imagesByArchivio = Object.assign(
     {},
-    Object.keys(groupedArchivio).map(
-      (archivio) => groupedArchivio[archivio]
-    )
+    Object.keys(groupedArchivio).map((archivio) => groupedArchivio[archivio])
   )
   const imagesByTipologia = Object.assign(
     {},
@@ -116,7 +127,7 @@ function CaseStudy({ caseStudy }) {
         {images && (
           <AnimatedImageStack
             group={group}
-            link={`/recomposition/${caseStudy.slug}/slideshow`}
+            link={linkDocuments}
             images={images}
             byGroup={byGroup}
           />
@@ -130,18 +141,16 @@ export default function CaseStudyDetail({ caseStudies }) {
   const { slug } = useParams()
   const [panelInfo, setPanelInfo] = useState(false)
 
-  const caseStudy = useMemo(() => find(caseStudies, { slug }), [
-    caseStudies,
-    slug,
-  ])
+  const caseStudy = useMemo(
+    () => find(caseStudies, { slug }),
+    [caseStudies, slug]
+  )
 
   return (
     <div className="DettaglioSpettacolo">
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       {caseStudy && <CaseStudy caseStudy={caseStudy} />}
-      {panelInfo &&
-        <PannelloInfo type='spettacoli' />
-      }
+      {panelInfo && <PannelloInfo type="spettacoli" />}
     </div>
   )
 }

@@ -52,6 +52,8 @@
 
 .filters-spettacolo {
   margin-top: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
   -webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 0.4s; /* Firefox < 16 */
   -ms-animation: fadein 0.4s; /* Internet Explorer */
