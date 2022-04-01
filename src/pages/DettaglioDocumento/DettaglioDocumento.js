@@ -1,18 +1,19 @@
-import React, { useState } from "react"
-import MenuTop from "../../components/MenuTop"
-import FiltersDocumentDetail from "../../components/DettaglioDocumento/FiltersDocumentDetail"
-import "./DettaglioDocumento.css"
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
-import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
-import { Carousel } from "react-responsive-carousel"
-import { useDocument } from "../../hooks/documents"
-import { useHistory, useParams } from "react-router-dom"
+import React, { useState } from 'react'
+import MenuTop from '../../components/MenuTop'
+import FiltersDocumentDetail from '../../components/DettaglioDocumento/FiltersDocumentDetail'
+import './DettaglioDocumento.css'
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+import { useDocument } from '../../hooks/documents'
+import { useHistory, useParams } from 'react-router-dom'
 
 const CarouselImages = ({ currentSlide, document }) => {
   return (
     <Carousel
       showArrows={false}
       showStatus={false}
+      swipeable={false}
       showIndicators={false}
       showThumbs={false}
       selectedItem={currentSlide}
@@ -23,7 +24,11 @@ const CarouselImages = ({ currentSlide, document }) => {
             <img
               src={image.image}
               alt={document.spettacolo}
-              style={{ width: "40%" }}
+              style={{
+                paddingLeft: '25%',
+                paddingRight: '25%',
+                width: '70%'
+              }}
             />
           </div>
         ))}
@@ -53,7 +58,11 @@ export default function DettaglioDocumento() {
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
-          <TransformWrapper defaultScale={1}>
+          <TransformWrapper
+            initialPositionX={200}
+            initialPositionY={100}
+            defaultScale={0.8}
+          >
             {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
@@ -61,12 +70,12 @@ export default function DettaglioDocumento() {
                     <div className="pointer" onClick={zoomOut}>
                       <img
                         onMouseOver={(e) =>
-                          (e.currentTarget.src = "/zoom-out-white.svg")
+                          (e.currentTarget.src = '/zoom-out-white.svg')
                         }
                         onMouseLeave={(e) =>
-                          (e.currentTarget.src = "/zoom-out.svg")
+                          (e.currentTarget.src = '/zoom-out.svg')
                         }
-                        src={"/zoom-out.svg"}
+                        src={'/zoom-out.svg'}
                         alt="Zoom out"
                       />
                     </div>
@@ -79,12 +88,12 @@ export default function DettaglioDocumento() {
                     <div className="ml-3 pointer" onClick={zoomIn}>
                       <img
                         onMouseOver={(e) =>
-                          (e.currentTarget.src = "/zoom-in-white.svg")
+                          (e.currentTarget.src = '/zoom-in-white.svg')
                         }
                         onMouseLeave={(e) =>
-                          (e.currentTarget.src = "/zoom-in.svg")
+                          (e.currentTarget.src = '/zoom-in.svg')
                         }
-                        src={"/zoom-in.svg"}
+                        src={'/zoom-in.svg'}
                         alt="Zoom in"
                       />
                     </div>
@@ -113,14 +122,14 @@ export default function DettaglioDocumento() {
                   </div>
                 </div>
                 <div className="img-document d-flex align-items-center justify-content-center">
-                  <TransformComponent>
+                  <TransformComponent style={{ height: '100%' }}>
                     <div
                       style={{
                         width: 100,
-                        position: "absolute",
+                        position: 'absolute',
                         left: 0,
                         top: 0,
-                        height: "100%",
+                        height: '100%',
                         zIndex: 100,
                       }}
                       onClick={() => {
@@ -132,10 +141,10 @@ export default function DettaglioDocumento() {
                     <div
                       style={{
                         width: 100,
-                        position: "absolute",
+                        position: 'absolute',
                         right: 0,
                         top: 0,
-                        height: "100%",
+                        height: '100%',
                         zIndex: 100,
                       }}
                       onClick={() => {

@@ -1,7 +1,7 @@
 import find from "lodash/find"
 import React, { useMemo, useState } from "react"
 import useMemoCompare from "magik-react-hooks/useMemoCompare"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import InfoSpettacolo from "../../../components/DettaglioSpettacolo/InfoSpettacolo"
 import MenuTop from "../../../components/MenuTop"
 import { shuffle } from "seed-shuffle"
@@ -50,11 +50,13 @@ function CaseStudy({ caseStudy }) {
   }, [archivio, caseStudy.images, tipologia])
   // const images = []
 
-  const [{ documents }] = useDocuments(
-    useMemoCompare({
-      casestudy: caseStudy.titolo,
-    })
-  )
+  // const [{ documents }] = useDocuments(
+  //   useMemoCompare({
+  //     casestudy: caseStudy.titolo,
+  //   })
+  // )
+
+  console.log(images, 'images')
 
   // const imagesByTipologiaLength = Object.keys(groupBy(images, "tipologia"))
   //   .length
@@ -76,25 +78,6 @@ function CaseStudy({ caseStudy }) {
     )
   )
 
-  // const imagesByArchivioLength = Object.keys(
-  //   groupBy(images, "content_provider")
-  // ).length
-  // const imagesByArchivioOld = groupBy(
-  //   images.map((img, index) => ({ ...img, index })),
-  //   (img) => img.index % imagesByArchivioLength
-  // )
-
-  // console.log(imagesByArchivio, imagesByArchivioOld)
-
-  // const imagesOfDocs = useMemo(() => {
-  //   if (documents === null) {
-  //     return []
-  //   }
-  //   return flatMap(documents, (doc) => doc.images)
-  // }, [documents])
-
-  // console.log(images)
-
   const byGroup = useMemo(() => {
     return {
       archivio: imagesByArchivio,
@@ -104,13 +87,6 @@ function CaseStudy({ caseStudy }) {
 
   return (
     <div className="d-flex page">
-      {/* TODO: Rename 2 case study */}
-      {/* {showMoreInfo && (
-        <FiltersSpettacoloDetail
-          caseStudy={caseStudy}
-          toggleShowMoreInfo={toggleShowMoreInfo}
-        />
-      )} */}
       <InfoSpettacolo
         caseStudy={caseStudy}
         setArchivio={setArchivio}

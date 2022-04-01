@@ -36,6 +36,9 @@ function RunSlideshow({ slideshowConfig, slug }) {
       if (index < totalImages - 1) {
         return index + 1
       }
+      if (index === totalImages - 1) {
+        return 0
+      }
       return index
     })
   }
