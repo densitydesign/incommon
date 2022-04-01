@@ -8,6 +8,7 @@
   padding: 20px 24px 20px 24px;
   border-bottom: 0.5px solid #555555;
   overflow: auto;
+  height: 40vh;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -50,8 +51,9 @@
 
 .block-filters-detail {
   padding: 24px;
+  padding-bottom: 50px;
   overflow: auto;
-  height: 60vh;
+  height: calc(60vh - 57px);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
