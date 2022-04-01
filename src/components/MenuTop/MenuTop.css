@@ -7,9 +7,6 @@
 }
 
 .item-menu-top {
-  width: 10%;
-  min-width: 10%;
-  max-width: 10%;
   border-right: 0.5px solid #555555;
   overflow: hidden;
   white-space: nowrap;
@@ -26,14 +23,84 @@
   font-size: 27px;
   line-height: 27px;
   position: relative;
-  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
   display: inline-block;
 }
 
-.item-menu-top:hover {
-  width: 350px;
-  min-width: 350px;
-  max-width: 350px;
+.item-menu-top-1 {
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+}
+
+.item-menu-top-1:hover {
+  width: 303px;
+  min-width: 303px;
+  max-width: 303px;
+  background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
+  background-position: left;
+  -webkit-background-clip: text;
+}
+
+.item-menu-top-2 {
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+}
+
+.item-menu-top-2:hover {
+  width: 217px;
+  min-width: 217px;
+  max-width: 217px;
+  background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
+  background-position: left;
+  -webkit-background-clip: text;
+}
+
+.item-menu-top-3 {
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+}
+
+.item-menu-top-3:hover {
+  width: 336px;
+  min-width: 336px;
+  max-width: 336px;
+  background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
+  background-position: left;
+  -webkit-background-clip: text;
+}
+
+.item-menu-top-4 {
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+}
+
+.item-menu-top-4:hover {
+  width: 246px;
+  min-width: 246px;
+  max-width: 246px;
+  background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
+  background-position: left;
+  -webkit-background-clip: text;
+}
+
+.item-menu-top-5 {
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+}
+
+.item-menu-top-5:hover {
+  width: 163px;
+  min-width: 163px;
+  max-width: 163px;
   background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
   background-position: left;
   -webkit-background-clip: text;

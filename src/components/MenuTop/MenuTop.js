@@ -14,35 +14,35 @@ export default function MenuTop({ setPanelInfo, panelInfo = false }) {
         <div>
           <NavLink
             activeClassName="item-menu-top-active"
-            className="item-menu-top"
+            className="item-menu-top item-menu-top-1"
             to="/performance-remains"
           >
             Performance Remains
           </NavLink>
           <NavLink
             activeClassName="item-menu-top-active"
-            className="item-menu-top"
+            className="item-menu-top item-menu-top-2"
             to="/recomposition"
           >
             Recomposition
           </NavLink>
           <NavLink
             activeClassName="item-menu-top-active"
-            className="item-menu-top"
+            className="item-menu-top item-menu-top-3"
             to="/the-shape-of-community"
           >
             The Shape of Community
           </NavLink>
           <NavLink
             activeClassName="item-menu-top-active"
-            className="item-menu-top"
+            className="item-menu-top item-menu-top-4"
             to="/times-and-places"
           >
             Times and Places
           </NavLink>
           <NavLink
             activeClassName="item-menu-top-active"
-            className="item-menu-top"
+            className="item-menu-top item-menu-top-5"
             to="/catalogue"
           >
             Catalogue
