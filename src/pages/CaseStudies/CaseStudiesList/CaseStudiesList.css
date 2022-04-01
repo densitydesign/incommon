@@ -1,25 +1,39 @@
-.item-spettacolo{
+.item-spettacolo {
   height: 675px;
   width: 100%;
   background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(217, 33, 0, 0.6);
 }
 
-.item-spettacolo:hover{
+.item-spettacolo::after {
+  background: rgb(217, 33, 0);
+  mix-blend-mode: multiply;
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.item-spettacolo:hover::after {
+  background: none;
+}
+
+.item-spettacolo:hover {
   box-shadow: none;
 }
 
-.link-spettacolo{
-  color: #FCFCFC;
-
+.link-spettacolo {
+  color: #fcfcfc;
 }
 
-.link-spettacolo:hover{
-  color: #FCFCFC;
+.link-spettacolo:hover {
+  color: #fcfcfc;
   text-decoration: none;
 }
 
-.titolo-spettacolo{
+.titolo-spettacolo {
   position: absolute;
   bottom: 20px;
   left: 40px;
@@ -27,22 +41,25 @@
   font-weight: bold;
   font-size: 48px;
   line-height: var(--topbar-height);
+  z-index: 2;
 }
 
-.info-documento{
+.info-documento {
   padding: 20px;
 }
 
-.num_documenti{
+.num_documenti {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  color: #FCFCFC;
+  color: #fcfcfc;
+  z-index: 2;
 }
 
-.data_documenti{
+.data_documenti {
   font-size: 32px;
   line-height: 38px;
-  color: #FCFCFC;
+  color: #fcfcfc;
+  z-index: 2;
 }
