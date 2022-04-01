@@ -1,13 +1,28 @@
-import React from "react"
-import { NavLink, Link } from "react-router-dom"
-import "./MenuTop.css"
+import classNames from 'classnames'
+import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import './MenuTop.css'
 
-export default function MenuTop({ setPanelInfo, panelInfo = false }) {
+export default function MenuTop({
+  setPanelInfo,
+  panelInfo = false,
+  fixed = false,
+}) {
   return (
-    <div className="menu-top d-flex justify-content-between align-items-center">
+    <div
+      className={classNames(
+        'menu-top d-flex justify-content-between align-items-center',
+        {
+          'position-fixed': fixed,
+          'top-0': fixed,
+          'left-0': fixed,
+          'right-0': fixed,
+        }
+      )}
+    >
       <div className="d-flex align-items-center">
         <div>
-          <Link to={"/"}>
+          <Link to={'/'}>
             <img src="/in-common.svg" alt="INCOMMON" height="57" />
           </Link>
         </div>
