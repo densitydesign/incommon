@@ -21,8 +21,6 @@ function CaseStudy({ caseStudy }) {
   const [tipologia, setTipologia] = useState(null)
   const [group, setGroup] = useState(null)
 
-  console.log(caseStudy)
-
   const linkDocuments = useMemo(() => {
     let link = `/catalogue?spettacolo=${caseStudy.titolo}`
     if(tipologia){
