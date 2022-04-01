@@ -6,10 +6,10 @@ export default function CardCaseStudy({ caseStudy }) {
     <Link className="link-spettacolo" to={`/recomposition/${caseStudy.slug}`}>
       <div
         className="item-spettacolo"
-        style={{ backgroundImage: caseStudy.backgroundImage }}
+        style={{ backgroundImage: `${caseStudy.backgroundImage}` }}
       >
         <div className="info-documento d-flex justify-content-between">
-          <div className="num_documenti">{caseStudy.images.length} doc.</div>
+          <div className="num_documenti">{caseStudy.images.length} documents</div>
           <div className="data_documenti">{caseStudy.year}</div>
         </div>
         <div className="titolo-spettacolo">{caseStudy.caption}</div>

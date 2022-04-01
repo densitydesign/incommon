@@ -11,8 +11,8 @@ export default function CaseStudiesList({ caseStudies }) {
 
   return (
     <div className="Spettacolo">
-      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
-      <div className="container-fluid">
+      <MenuTop fixed panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
+      <div className="container-fluid" style={{ paddingTop: 57 }}>
         {chunkedCaseStudies.map((chunkCaseStudies, i) => (
           <div key={i} className="row mt-3">
             {chunkCaseStudies.map((caseStudy) => (
