@@ -23,6 +23,7 @@ export default function Catalogo() {
       anno: qpList(),
       rivista: qpList(),
       compagnia: qpList(),
+      content_provider: qpList(),
     })
 
   const { q = "" } = queryParams
