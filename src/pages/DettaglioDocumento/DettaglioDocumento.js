@@ -13,6 +13,7 @@ const CarouselImages = ({ currentSlide, document }) => {
     <Carousel
       showArrows={false}
       showStatus={false}
+      dynamicHeight
       swipeable={false}
       showIndicators={false}
       showThumbs={false}
@@ -54,7 +55,7 @@ export default function DettaglioDocumento() {
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
-          <TransformWrapper centerZoomedOut centerOnInit={true} initialScale={0.8}>
+          <TransformWrapper wheel={{ disabled: true }} centerOnInit={true} initialScale={0.8}>
             {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
@@ -73,7 +74,7 @@ export default function DettaglioDocumento() {
                     </div>
                     <div
                       className="ml-3 pointer reset"
-                      onClick={() => zoomOut(10)}
+                      onClick={() => zoomOut(100)}
                     >
                       reset
                     </div>

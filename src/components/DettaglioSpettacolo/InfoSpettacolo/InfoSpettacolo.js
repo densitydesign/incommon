@@ -60,7 +60,7 @@ export default function InfoSpettacolo({
             to={`/recomposition/${caseStudy.slug}/slideshow`}
           >
             <div className="d-flex align-items-center">
-              <span>Slideshow</span>{" "}
+              <span>Watch Slideshow</span>{" "}
               <img
                 className="ml-2"
                 src={slideshow}
