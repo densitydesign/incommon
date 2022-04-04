@@ -602,7 +602,7 @@ export default function Forma() {
       while (zoom < toZoom) {
         zoom = renderer.zoomIn()
       }
-      setLightNode(nodeId)
+      // setLightNode(nodeId)
     }
     // Yazzy!
     setTimeout(() => {
@@ -647,7 +647,7 @@ export default function Forma() {
       while (zoom < toZoom) {
         zoom = renderer.zoomIn()
       }
-      setLightNode(item.title)
+      // setLightNode(item.title)
     }
     // Yazzy!
     setTimeout(() => {
