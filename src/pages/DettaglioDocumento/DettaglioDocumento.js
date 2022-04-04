@@ -54,12 +54,12 @@ export default function DettaglioDocumento() {
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
-          <TransformWrapper centerOnInit defaultScale={1}>
+          <TransformWrapper centerZoomedOut centerOnInit={true} initialScale={0.8}>
             {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
                   <div className="zoom-buttons d-flex align-items-center">
-                    <div className="pointer" onClick={() => zoomOut(0.1)}>
+                    <div className="pointer" onClick={() => zoomOut()}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-out-white.svg')
@@ -73,11 +73,11 @@ export default function DettaglioDocumento() {
                     </div>
                     <div
                       className="ml-3 pointer reset"
-                      onClick={() => resetTransform()}
+                      onClick={() => zoomOut(10)}
                     >
                       reset
                     </div>
-                    <div className="ml-3 pointer" onClick={() => zoomIn(0.1)}>
+                    <div className="ml-3 pointer" onClick={() => zoomIn()}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-in-white.svg')
