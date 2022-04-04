@@ -24,11 +24,7 @@ const CarouselImages = ({ currentSlide, document }) => {
             <img
               src={image.image}
               alt={document.spettacolo}
-              style={{
-                paddingLeft: '25%',
-                paddingRight: '25%',
-                width: '70%'
-              }}
+              style={{ width: 450 }}
             />
           </div>
         ))}
@@ -58,16 +54,12 @@ export default function DettaglioDocumento() {
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
-          <TransformWrapper
-            initialPositionX={200}
-            initialPositionY={100}
-            defaultScale={0.8}
-          >
+          <TransformWrapper centerOnInit defaultScale={1}>
             {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
                   <div className="zoom-buttons d-flex align-items-center">
-                    <div className="pointer" onClick={zoomOut}>
+                    <div className="pointer" onClick={() => zoomOut(0.1)}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-out-white.svg')
@@ -81,11 +73,11 @@ export default function DettaglioDocumento() {
                     </div>
                     <div
                       className="ml-3 pointer reset"
-                      onClick={resetTransform}
+                      onClick={() => resetTransform()}
                     >
                       reset
                     </div>
-                    <div className="ml-3 pointer" onClick={zoomIn}>
+                    <div className="ml-3 pointer" onClick={() => zoomIn(0.1)}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-in-white.svg')
@@ -122,7 +114,10 @@ export default function DettaglioDocumento() {
                   </div>
                 </div>
                 <div className="img-document d-flex align-items-center justify-content-center">
-                  <TransformComponent style={{ height: '100%' }}>
+                  <TransformComponent
+                    // contentStyle={{ paddingTop: 20, paddingBottom: 20, height: '90%' }}
+                    wrapperStyle={{ width: '100%', height: '100%' }}
+                  >
                     <div
                       style={{
                         width: 100,

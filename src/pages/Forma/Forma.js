@@ -25,7 +25,6 @@ const attori = uniqBy(network, "Attore")
 const eventiWithAttori = groupBy(network, "Evento")
 const attoriWithEventi = groupBy(network, "Attore")
 const relazioniCount = countBy(network, "Relazione")
-
 function buildCircleNodeShader() {
   // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
   const ATTRIBUTES_PER_PRIMITIVE = 6,

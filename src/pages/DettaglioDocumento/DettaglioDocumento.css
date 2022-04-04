@@ -23,9 +23,6 @@
 }
 
 .img-document{
-  overflow: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none; 
   width: 100%;
   height: 100%;
 }
@@ -34,7 +31,7 @@
   display: none;
 }
 
-.TransformComponent-module_container__3NwNd {
+/* .TransformComponent-module_container__3NwNd {
   height: 100% !important;
   width: 100% !important; 
 }
@@ -43,6 +40,6 @@
   height: 70% !important;
   width: 100% !important; 
   
-}
+} */
 
 
