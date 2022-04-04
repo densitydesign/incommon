@@ -1,21 +1,26 @@
-import React from "react"
-import { useHistory } from "react-router-dom"
-import "./FiltersDocumentDetail.css"
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import './FiltersDocumentDetail.css'
 
 export default function FiltersDocumentDetail({ document }) {
-
   const history = useHistory()
 
   return (
     <div className="block-left-detail position-relative">
       <div className="block-info-document">
-        {document && <div className="title-document-detail">{document.titolo}</div>}
         {document && (
-          <div className="description-document-detail">{document.descrizione}</div>
+          <div className="title-document-detail">{document.titolo}</div>
         )}
-        {document &&
-          <div className='document-creator'><strong>Creator</strong>: {document.rights}</div>
-        }
+        {document && (
+          <div className="description-document-detail">
+            {document.descrizione}
+          </div>
+        )}
+        {document && (
+          <div className="document-creator">
+            <strong>Creator</strong>: {document.creator}
+          </div>
+        )}
       </div>
       <div className="block-filters-detail overflow-auto">
         <div className="label-filter-detail">Filter the catalogue by:</div>
@@ -38,7 +43,7 @@ export default function FiltersDocumentDetail({ document }) {
                 </div>
               </div>
             )}
-            {(document.luogo || document.citta) && (
+            {document.luogo && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">place</div>
                 <div className="filter-body-detail">
@@ -52,37 +57,17 @@ export default function FiltersDocumentDetail({ document }) {
                       {document.luogo}
                     </div>
                   )}
-                  {document.citta && (
-                    <div
-                      onClick={() =>
-                        history.push(`/catalogue?citta=${document.citta}`)
-                      }
-                      className="circle-filter-detail pointer"
-                    >
-                      {document.citta}
-                    </div>
-                  )}
                 </div>
               </div>
             )}
-            {(document.data || document.anno) && (
+            {(document.data) && (
               <div className="filter-block-document">
                 <div className="filter-name-detail">date</div>
                 <div className="filter-body-detail">
-                  {document.anno && (
+                  {document.data && (
                     <div
                       onClick={() =>
-                        history.push(`/catalogue?anno=${document.anno}`)
-                      }
-                      className="circle-filter-detail pointer"
-                    >
-                      {document.anno}
-                    </div>
-                  )}
-                  {document.anno !== document.data && (
-                    <div
-                      onClick={() =>
-                        history.push(`/catalogue?anno=${document.anno}`)
+                        history.push(`/catalogue?data=${document.data}`)
                       }
                       className="circle-filter-detail pointer"
                     >
