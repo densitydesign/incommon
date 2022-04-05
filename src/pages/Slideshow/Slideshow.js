@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from "react"
-import "./Slideshow.css"
-import { Link, useParams } from "react-router-dom"
-import MenuTop from "../../components/MenuTop/MenuTop"
-import allSlideShows from "./allSlideshows"
-import PannelloInfo from "../../components/PannelloInfo"
+import React, { useMemo, useState } from 'react'
+import './Slideshow.css'
+import { Link, useParams } from 'react-router-dom'
+import MenuTop from '../../components/MenuTop/MenuTop'
+import allSlideShows from './allSlideshows'
+import PannelloInfo from '../../components/PannelloInfo'
 
 function AnimatedImageBase({ style, animatedStyle, time, src, entered }) {
   let imageStyle = style
@@ -14,12 +14,16 @@ function AnimatedImageBase({ style, animatedStyle, time, src, entered }) {
   return <img style={imageStyle} src={src} alt="Slide" />
 }
 
+const VIRTUAL_SLOT_BEFORE = 10
+const VIRTUAL_SLOT_AFTER = 5
+
 const AnimatedImage = React.memo(AnimatedImageBase)
 
 function RunSlideshow({ slideshowConfig, slug }) {
-  const totalImages = useMemo(() => {
-    return slideshowConfig.reduce((t, cont) => t + cont.images.length, 0)
+  const flatImages = useMemo(() => {
+    return slideshowConfig.reduce((flat, cont) => flat.concat(cont.images), [])
   }, [slideshowConfig])
+  const totalImages = flatImages.length
   const [index, setIndex] = useState(0)
   const [panelInfo, setPanelInfo] = useState(false)
 
@@ -46,12 +50,17 @@ function RunSlideshow({ slideshowConfig, slug }) {
   let z = 0
 
   function handleKeyDown(e) {
-    if (e.key === "ArrowRight") {
+    if (e.key === 'ArrowRight') {
       goNext()
-    } else if (e.key === "ArrowLeft") {
+    } else if (e.key === 'ArrowLeft') {
       goPrev()
     }
   }
+  const image = flatImages[index]
+  const docID = image.src.indexOf('https://archivio.in-common.org') === 0
+    ? image.src.split('/').splice(-1)[0].split('.')[0]
+    : null
+  console.log('D', docID, image.src)
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
@@ -60,10 +69,16 @@ function RunSlideshow({ slideshowConfig, slug }) {
         {slideshowConfig.map((container, i) => (
           <div key={i} style={container.style}>
             {container.images.map((image, j) => {
+              const show =
+                z >= index - VIRTUAL_SLOT_BEFORE &&
+                z <= index + VIRTUAL_SLOT_AFTER
               z++
-              return (
-                <AnimatedImage entered={index >= z - 1} key={j} {...image} />
-              )
+              if (show) {
+                return (
+                  <AnimatedImage entered={index >= z - 1} key={j} {...image} />
+                )
+              }
+              return null
             })}
           </div>
         ))}
