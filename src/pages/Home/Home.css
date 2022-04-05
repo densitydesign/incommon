@@ -46,15 +46,18 @@
   padding-left: 61px;
   width: 50%;
   padding-right: 5%;
+  background-color: black;
 }
 
 .page-home > .text-page-home {
   padding-left: 61px;
   width: 50%;
+    background-color: black;
 }
 
 .image-block {
   width: 50%;
+  z-index: -1;
 }
 
 .title-page-home {
@@ -109,6 +112,7 @@
   padding-bottom: 56px;
   padding-left: 61px;
   padding-right: 61px;
+  background-color: black;
 }
 
 .label-footer {
