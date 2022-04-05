@@ -21,17 +21,20 @@
   border-top: 1px solid #ffffff;
   display: flex;
   height: 110px;
-  padding-top: 30px;
+
   /* align-items: center; */
   cursor: pointer;
   overflow: hidden;
+  transition: height ease-out 0.5s;
 }
 
 .page-home-open {
   border-top: 1px solid #ffffff;
   display: flex;
   cursor: pointer;
-  height: max-content;
+  height: 501px;
+  transition: height ease-out 0.5s;
+
 }
 
 .last-item-menu {
@@ -39,18 +42,22 @@
 }
 
 .page-home-open > .text-page-home {
-  padding-top: 30px;
+
   padding-left: 61px;
   width: 50%;
+  padding-right: 5%;
+  background-color: black;
 }
 
 .page-home > .text-page-home {
   padding-left: 61px;
   width: 50%;
+    background-color: black;
 }
 
 .image-block {
   width: 50%;
+  z-index: -1;
 }
 
 .title-page-home {
@@ -59,6 +66,7 @@
   font-size: 40px;
   line-height: 48px;
   letter-spacing: 0.03em;
+  padding-top: 30px;
 }
 
 .esplora-home {
@@ -104,6 +112,7 @@
   padding-bottom: 56px;
   padding-left: 61px;
   padding-right: 61px;
+  background-color: black;
 }
 
 .label-footer {
