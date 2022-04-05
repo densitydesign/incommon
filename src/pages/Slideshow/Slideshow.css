@@ -13,6 +13,8 @@
 
 .slide-index {
   position: absolute;
+  display: flex;
+  align-items: center;
   right: 10px;
   top: 10px;
 }
@@ -34,4 +36,13 @@
   top: 0;
   bottom: 0;
   z-index: 999;
+}
+
+.open-document-file {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
 }

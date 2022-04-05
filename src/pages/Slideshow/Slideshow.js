@@ -57,10 +57,10 @@ function RunSlideshow({ slideshowConfig, slug }) {
     }
   }
   const image = flatImages[index]
-  const docID = image.src.indexOf('https://archivio.in-common.org') === 0
-    ? image.src.split('/').splice(-1)[0].split('.')[0]
-    : null
-  console.log('D', docID, image.src)
+  const docID =
+    image.src.indexOf('https://archivio.in-common.org') === 0
+      ? image.src.split('/').splice(-1)[0].split('.')[0]
+      : null
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
@@ -85,6 +85,9 @@ function RunSlideshow({ slideshowConfig, slug }) {
         <div onClick={goPrev} className="slide-click-spy-prev" />
         <div onClick={goNext} className="slide-click-spy-next" />
         <div className="slide-index">
+          <Link className='no-link text-white open-document-file mr-4' to={`/catalogue/${docID}`}>
+            <div>open document file</div>
+          </Link>
           {index + 1} / {totalImages}
           <Link
             className="pointer ml-3"
