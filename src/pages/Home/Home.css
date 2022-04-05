@@ -33,6 +33,7 @@
   display: flex;
   cursor: pointer;
   height: 501px;
+  transition: height ease-out 0.5s;
 
 }
 
