@@ -12,6 +12,7 @@ import { randomUniform, randomInt } from 'd3-random'
 import { max } from 'lodash'
 import { useSpring, animated } from 'react-spring'
 import { Link } from 'react-router-dom'
+import './AnimatedImageStack.css'
 
 const MAX_STACKS_PER_ROW = 3
 

@@ -1,0 +1,5 @@
+.stackImage {
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
