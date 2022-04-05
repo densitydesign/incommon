@@ -1,11 +1,17 @@
-import React, { useMemo, useRef, useEffect, useState } from "react"
-import chunk from "lodash/chunk"
-import range from "lodash/range"
-import flatten from "lodash/flatten"
-import { randomUniform, randomInt } from "d3-random"
-import { max } from "lodash"
-import { useSpring, animated } from "react-spring"
-import { Link } from "react-router-dom"
+import React, {
+  useMemo,
+  useRef,
+  useEffect,
+  useState,
+  useLayoutEffect,
+} from 'react'
+import chunk from 'lodash/chunk'
+import range from 'lodash/range'
+import flatten from 'lodash/flatten'
+import { randomUniform, randomInt } from 'd3-random'
+import { max } from 'lodash'
+import { useSpring, animated } from 'react-spring'
+import { Link } from 'react-router-dom'
 
 const MAX_STACKS_PER_ROW = 3
 
@@ -43,8 +49,8 @@ function RandImage({ src, randomize, width, height, top, left }) {
 
   return (
     <animated.img
-      className={"stackImage"}
-      alt={"Spettacolo"}
+      className={'stackImage'}
+      alt={'Spettacolo'}
       src={src}
       width={width}
       height={height}
@@ -64,7 +70,7 @@ function makeCenters(width, height, imagesByGroup) {
   const chunked =
     num === 4 ? chunk(range(num), 2) : chunk(range(num), MAX_STACKS_PER_ROW)
 
-  console.log(chunked, "chunked")
+  console.log(chunked, 'chunked')
 
   const numRows = chunked.length
   const rowDelta = height / (numRows + 1)
@@ -90,8 +96,8 @@ function makeCenters(width, height, imagesByGroup) {
 
 function makeSize(width, height, numCols, numRows) {
   return {
-    imageWidth: (width / numCols) * 0.55,
-    imageHeight: (height / numRows) * 0.55,
+    imageWidth: (width / numCols) * 0.45,
+    imageHeight: (height / numRows) * 0.45,
   }
 }
 
@@ -119,7 +125,7 @@ function ImgContainer({
       style={{
         width: props.width,
         height: props.height,
-        position: "absolute",
+        position: 'absolute',
         zIndex: index,
         left: props.left,
         top: props.top,
@@ -138,19 +144,28 @@ function ImgContainer({
 
 export default function AnimatedImageStack({ group, images, byGroup, link }) {
   const imagesByGroup = useMemo(() => {
-    return group ? byGroup[group] : { "": images }
+    return group ? byGroup[group] : { '': images }
   }, [byGroup, group, images])
 
+  const [size, setSize] = useState({ width: 0, height: 0 })
+
   const ref = useRef()
-  const width = ref.current ? ref.current.clientWidth : 0
-  const height = ref.current ? ref.current.clientHeight : 0
+
+  useLayoutEffect(() => {
+    setSize({
+      width: ref.current.clientWidth,
+      height: ref.current.clientHeight,
+    })
+  }, [])
+
+  const { width, height } = size
 
   const { centers, numRows, numColumns } = makeCenters(
     width,
     height,
     imagesByGroup
   )
-
+  console.log({ width, height })
   console.log(numRows, numColumns)
 
   const { imageWidth, imageHeight } = makeSize(
@@ -174,14 +189,14 @@ export default function AnimatedImageStack({ group, images, byGroup, link }) {
   }
 
   return (
-    <div ref={ref} style={{ position: "relative" }} className="w-100 h-100">
-      {groupNames.map((groupName, groupIndex) => (
+    <div ref={ref} style={{ position: 'relative' }} className="w-100 h-100">
+      {height > 0 && width > 0 && groupNames.map((groupName, groupIndex) => (
         <Link to={link} key={groupName}>
           {imagesByGroup[groupName].map((image, index) => (
             <ImgContainer
               randomize={randomizeGroup === groupName}
               toggleRandomize={toggleRandomizeGroup(groupName)}
-              key={image.preview}
+              key={index}
               imageHeight={imageHeight}
               imageWidth={imageWidth}
               index={index}
