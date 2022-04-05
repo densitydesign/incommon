@@ -12,6 +12,16 @@
   z-index: 2000;
 }
 
+.ReadMorePanel .mt-3, .ReadMorePanel .mt-5
+
+{
+font-size: 21px;
+line-height: 123%;
+letter-spacing: 0.07em;
+}
+
+
+
 .img-read-more {
   height: 675px;
   width: 100%;
