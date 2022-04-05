@@ -10,12 +10,13 @@ import "./CaseStudy.css"
 import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
 import PannelloInfo from "../../../components/PannelloInfo"
 import { groupBy } from "lodash"
+import ReadMorePanel from "../../../components/ReadMorePanel"
 
 // Mantain the same "random" for the entire user session
 // NOTE: Place a literal Es:. 5 to have ALWAYS the same random factor
 const RANDOM_SEED = 1 + Math.floor(Math.random() * 1000)
 
-function CaseStudy({ caseStudy }) {
+function CaseStudy({ caseStudy, setReadMore }) {
   const [showMoreInfo, setShowMoreInfo] = useState(false)
   const [archivio, setArchivio] = useState(null)
   const [tipologia, setTipologia] = useState(null)
@@ -56,8 +57,6 @@ function CaseStudy({ caseStudy }) {
   //   })
   // )
 
-  console.log(images, 'images')
-
   // const imagesByTipologiaLength = Object.keys(groupBy(images, "tipologia"))
   //   .length
   // const imagesByTipologia = groupBy(
@@ -91,6 +90,7 @@ function CaseStudy({ caseStudy }) {
         caseStudy={caseStudy}
         setArchivio={setArchivio}
         setTipologia={setTipologia}
+        setReadMore={setReadMore}
         group={group}
         archivio={archivio}
         tipologia={tipologia}
@@ -114,6 +114,7 @@ function CaseStudy({ caseStudy }) {
 export default function CaseStudyDetail({ caseStudies }) {
   const { slug } = useParams()
   const [panelInfo, setPanelInfo] = useState(false)
+  const [readMore, setReadMore] = useState(false)
 
   const caseStudy = useMemo(
     () => find(caseStudies, { slug }),
@@ -123,7 +124,8 @@ export default function CaseStudyDetail({ caseStudies }) {
   return (
     <div className="DettaglioSpettacolo">
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
-      {caseStudy && <CaseStudy caseStudy={caseStudy} />}
+      {caseStudy && <CaseStudy setReadMore={setReadMore} caseStudy={caseStudy} />}
+      {readMore && <ReadMorePanel setReadMore={setReadMore} caseStudy={caseStudy} />}
       {panelInfo && <PannelloInfo type="spettacoli" />}
     </div>
   )

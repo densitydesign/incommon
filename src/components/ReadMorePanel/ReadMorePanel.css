@@ -1,0 +1,43 @@
+.ReadMorePanel {
+  top: calc(var(--topbar-height) - 1px);
+  padding-bottom: 20px;
+  padding-top: 62px;
+  width: 100%;
+  background: #000000;
+  position: absolute;
+  left: 0;
+  height: calc(100vh - var(--topbar-height) - 1px);
+  right: 0;
+  overflow-y: auto;
+  z-index: 2000;
+}
+
+.img-read-more {
+  height: 675px;
+  width: 100%;
+  background-size: cover;
+}
+
+.img-read-more::after {
+  background: rgb(217, 33, 0);
+  mix-blend-mode: multiply;
+  position: absolute;
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: background ease-out 0.5s;
+}
+
+.img-read-more:hover::after {
+  background: none;
+}
+
+.close-read-more{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}

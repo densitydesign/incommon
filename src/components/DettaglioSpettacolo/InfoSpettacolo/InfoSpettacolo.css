@@ -88,7 +88,7 @@
   display: flex;
 }
 
-.buttons-actions > a {
+.buttons-actions > a, .buttons-actions > div {
   width: 50%;
   padding: 16px 24px;
   border-right: 0.5px solid #555555;
@@ -100,6 +100,7 @@
   line-height: 12px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 
