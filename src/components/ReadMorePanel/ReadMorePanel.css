@@ -1,7 +1,5 @@
 .ReadMorePanel {
   top: calc(var(--topbar-height) - 1px);
-  padding-bottom: 20px;
-  padding-top: 62px;
   width: 100%;
   background: #000000;
   position: absolute;
@@ -22,13 +20,16 @@ letter-spacing: 0.07em;
 
 
 
-.img-read-more {
-  height: 675px;
-  width: 100%;
+
+.background-image-read-more {
+  height: calc(100vh - var(--topbar-height) - 1px);
+  width: 50%;
   background-size: cover;
+  position: fixed;
+  right: 0;
 }
 
-.img-read-more::after {
+.background-image-read-more::after {
   background: rgb(217, 33, 0);
   mix-blend-mode: multiply;
   position: absolute;
@@ -41,7 +42,7 @@ letter-spacing: 0.07em;
   transition: background ease-out 0.5s;
 }
 
-.img-read-more:hover::after {
+.background-image-read-more:hover::after {
   background: none;
 }
 
