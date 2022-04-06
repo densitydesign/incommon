@@ -143,10 +143,19 @@ function ImgContainer({
   )
 }
 
-export default function AnimatedImageStack({ group, images, byGroup, link }) {
+export default function AnimatedImageStack({
+  group,
+  images,
+  byGroup,
+  link,
+  tipologia,
+  archivio,
+}) {
   const imagesByGroup = useMemo(() => {
     return group ? byGroup[group] : { '': images }
   }, [byGroup, group, images])
+
+  console.log(byGroup)
 
   const [size, setSize] = useState({ width: 0, height: 0 })
 
@@ -166,8 +175,6 @@ export default function AnimatedImageStack({ group, images, byGroup, link }) {
     height,
     imagesByGroup
   )
-  console.log({ width, height })
-  console.log(numRows, numColumns)
 
   const { imageWidth, imageHeight } = makeSize(
     width,
@@ -178,8 +185,6 @@ export default function AnimatedImageStack({ group, images, byGroup, link }) {
 
   const groupNames = Object.keys(imagesByGroup)
 
-  //console.log(groupNames,'groupNames')
-
   const [randomizeGroup, setRandomizeGroup] = useState(null)
   const toggleRandomizeGroup = (groupName) => () => {
     if (randomizeGroup === groupName) {
@@ -189,25 +194,37 @@ export default function AnimatedImageStack({ group, images, byGroup, link }) {
     }
   }
 
+  const linkToUse = useMemo(() => {
+    if (tipologia) {
+      return `${link}&tipologia=${tipologia}`
+    }
+    if (archivio) {
+      return `${link}&content_provider=${archivio}`
+    }
+    return link
+  }, [archivio, tipologia, link])
+
   return (
     <div ref={ref} style={{ position: 'relative' }} className="w-100 h-100">
-      {height > 0 && width > 0 && groupNames.map((groupName, groupIndex) => (
-        <Link to={link} key={groupName}>
-          {imagesByGroup[groupName].map((image, index) => (
-            <ImgContainer
-              randomize={randomizeGroup === groupName}
-              toggleRandomize={toggleRandomizeGroup(groupName)}
-              key={index}
-              imageHeight={imageHeight}
-              imageWidth={imageWidth}
-              index={index}
-              image={image}
-              left={centers[groupName].x - imageWidth / 2}
-              top={centers[groupName].y - imageHeight / 2}
-            ></ImgContainer>
-          ))}
-        </Link>
-      ))}
+      {height > 0 &&
+        width > 0 &&
+        groupNames.map((groupName, groupIndex) => (
+          <Link to={linkToUse} key={groupName}>
+            {imagesByGroup[groupName].map((image, index) => (
+              <ImgContainer
+                randomize={randomizeGroup === groupName}
+                toggleRandomize={toggleRandomizeGroup(groupName)}
+                key={index}
+                imageHeight={imageHeight}
+                imageWidth={imageWidth}
+                index={index}
+                image={image}
+                left={centers[groupName].x - imageWidth / 2}
+                top={centers[groupName].y - imageHeight / 2}
+              ></ImgContainer>
+            ))}
+          </Link>
+        ))}
     </div>
   )
 }

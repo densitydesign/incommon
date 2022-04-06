@@ -101,6 +101,8 @@ function CaseStudy({ caseStudy, setReadMore }) {
         {images && (
           <AnimatedImageStack
             group={group}
+            archivio={archivio}
+            tipologia={tipologia}
             link={linkDocuments}
             images={images}
             byGroup={byGroup}

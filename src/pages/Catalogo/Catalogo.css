@@ -33,7 +33,6 @@
 .search-filter {
   padding: 15px;
   width: 100%;
-  border-top: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
 }
 
@@ -44,6 +43,7 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   align-content: flex-start;
+  border-bottom: 0.5px solid #555555;
 }
 
 .filters-active::-webkit-scrollbar{
