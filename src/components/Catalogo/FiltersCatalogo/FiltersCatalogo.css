@@ -37,6 +37,9 @@
 .search-filter{
   padding: 10px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-top: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
 }

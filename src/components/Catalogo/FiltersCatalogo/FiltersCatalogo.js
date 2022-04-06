@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from "react"
-import classnames from "classnames"
-import orderBy from "lodash/orderBy"
-import "./FiltersCatalogo.css"
+import React, { useMemo, useState } from 'react'
+import classnames from 'classnames'
+import orderBy from 'lodash/orderBy'
+import './FiltersCatalogo.css'
 
 const ItemFilter = ({
   toggleFilterOpen,
@@ -18,13 +18,15 @@ const ItemFilter = ({
         <span>
           <img
             className={classnames({
-              "rotate-show-hide": filterOpen === name,
+              'rotate-show-hide': filterOpen === name,
             })}
-            src={"/show-hide.svg"}
+            src={'/show-hide.svg'}
             alt="Show Hide"
           />
         </span>
-        <span className="ml-3 pointer text-capitalize">{nameToShow ? nameToShow : name}</span>
+        <span className="ml-3 pointer text-capitalize">
+          {nameToShow ? nameToShow : name}
+        </span>
       </span>
       {filterOpen === name && (
         <MicroFilters
@@ -63,8 +65,8 @@ const MicroFilters = ({ countBy, filters, name, addFilter }) => {
   const showCounts = useMemo(() => {
     return orderBy(
       counts.filter((c) => !values.includes(c.name)),
-      "count",
-      "desc"
+      'count',
+      'desc'
     )
   }, [counts, values])
 
@@ -88,10 +90,10 @@ export default function FiltersCatalogo({
   filters,
   addFilter,
   handleSearch,
+  resetSearch,
   search,
 }) {
   const [filterOpen, setFilterOpen] = useState(null)
-  const [startDate, setStartDate] = useState(null)
 
   const toggleFilterOpen = (item) => {
     if (item === filterOpen) {
@@ -111,6 +113,14 @@ export default function FiltersCatalogo({
           value={search}
           onChange={handleSearch}
         />
+        {search !== '' && (
+          <img
+            src="/close-document.svg"
+            alt="Reset"
+            className="pointer"
+            onClick={() => resetSearch()}
+          />
+        )}
       </div>
       <ItemFilter
         name="tipologia"

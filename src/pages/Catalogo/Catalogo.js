@@ -1,14 +1,14 @@
-import React, { useCallback, useMemo, useState } from "react"
-import useDebounceQueryParams from "magik-react-hooks/useRouterDebounceQueryParams"
-import { qpList } from "magik-react-hooks/qpUtils"
-import MenuTop from "../../components/MenuTop"
-import FiltersCatalogo from "../../components/Catalogo/FiltersCatalogo"
-import "./Catalogo.css"
-import { useDocuments, useDocumentsCount } from "../../hooks/documents"
-import DocumentCatalogItem from "../../components/Catalogo/DocumentCatalogItem"
-import FiltersCatalogoActive from "../../components/Catalogo/FiltersCatalogoActive"
-import { Waypoint } from "react-waypoint"
-import PannelloInfo from "../../components/PannelloInfo"
+import React, { useCallback, useMemo, useState } from 'react'
+import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
+import { qpList } from 'magik-react-hooks/qpUtils'
+import MenuTop from '../../components/MenuTop'
+import FiltersCatalogo from '../../components/Catalogo/FiltersCatalogo'
+import './Catalogo.css'
+import { useDocuments, useDocumentsCount } from '../../hooks/documents'
+import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
+import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
+import { Waypoint } from 'react-waypoint'
+import PannelloInfo from '../../components/PannelloInfo'
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
@@ -26,10 +26,14 @@ export default function Catalogo() {
       content_provider: qpList(),
     })
 
-  const { q = "" } = queryParams
+  const { q = '' } = queryParams
   const handleSearch = (e) => {
     const q = e.target.value
     setDebQueryParams({ q })
+  }
+
+  const resetSearch = () => {
+    setDebQueryParams({ q: '' })
   }
 
   const apiParams = useMemo(
@@ -89,7 +93,7 @@ export default function Catalogo() {
                 className="raggruppa-button pointer w-55"
                 onClick={() => toggleCollapseDocuments()}
               >
-                {isCollapsed ? "separe booklets" : "group booklets"}
+                {isCollapsed ? 'separe booklets' : 'group booklets'}
                 <img
                   height="12"
                   className="ml-2"
@@ -101,7 +105,7 @@ export default function Catalogo() {
                 onClick={() => reset()}
                 className="reset-filtri w-45 pointer"
               >
-                clear filters{" "}
+                clear filters{' '}
                 <img
                   height="13"
                   className="ml-2"
@@ -115,7 +119,7 @@ export default function Catalogo() {
                 <>
                   <span className="medium-font font-weight-bold mr-2">
                     {pagination.count} / {countInfo.count}
-                  </span>{" "}
+                  </span>{' '}
                   documents
                 </>
               )}
@@ -127,6 +131,7 @@ export default function Catalogo() {
           />
           <FiltersCatalogo
             handleSearch={handleSearch}
+            resetSearch={resetSearch}
             countBy={countInfo?.countBy ?? {}}
             filters={debQueryParams}
             addFilter={addFilter}
