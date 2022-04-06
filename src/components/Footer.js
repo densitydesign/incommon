@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 d-flex justify-content-end">
           <div className="d-flex pl-5">
             <div>
               <div className="label-footer">HOST INSTITUTION</div>
