@@ -126,7 +126,7 @@ export default function DettaglioDocumento() {
                       width: 300,
                       position: 'absolute',
                       left: '25%',
-                      top: 0,
+                      top: 57,
                       height: '100%',
                       zIndex: 100,
                     }}
@@ -141,7 +141,7 @@ export default function DettaglioDocumento() {
                       width: 300,
                       position: 'absolute',
                       right: 0,
-                      top: 0,
+                      top: 57,
                       height: '100%',
                       zIndex: 100,
                     }}
