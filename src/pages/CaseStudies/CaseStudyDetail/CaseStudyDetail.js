@@ -76,21 +76,19 @@ function CaseStudy({ caseStudy, setReadMore }) {
         (i) => i.tipologia === 'Partitura di scena'
       )
 
-      const imagesLettera = imagesToUse.filter(
-        (i) => i.tipologia === 'Lettera'
-      )
+      const imagesLettera = imagesToUse.filter((i) => i.tipologia === 'Lettera')
 
       imgs = [
-        ...imagesQuadernoMano.slice(0, 20),
-        ...imagesFogliManoscritti.slice(0, 20),
-        ...imagesDisegniPreparatori.slice(0, 20),
-        ...imagesFotoGrafiaBN.slice(0, 20),
-        ...imagesFogliDattilo.slice(0, 20),
-        ...imagesArticoli.slice(0, 20),
+        ...imagesQuadernoMano.slice(0, 10),
+        ...imagesFogliManoscritti.slice(0, 10),
+        ...imagesDisegniPreparatori.slice(0, 10),
+        ...imagesFotoGrafiaBN.slice(0, 10),
+        ...imagesFogliDattilo.slice(0, 10),
+        ...imagesArticoli.slice(0, 10),
         ...imagesFotoAColori,
         ...imagesVolantino,
-        ...imagesPartitura.slice(0, 20),
-        ...imagesPartitura.slice(0, 20),
+        ...imagesPartitura.slice(0, 10),
+        ...imagesPartitura.slice(0, 10),
         ...imagesLettera,
       ]
       return shuffle(
