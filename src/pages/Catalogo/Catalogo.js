@@ -115,14 +115,19 @@ export default function Catalogo() {
               </div>
             </div>
             <div className="count-documents">
-              {pagination.count && countInfo && (
+              {pagination.count && countInfo ? (
                 <>
                   <span className="medium-font font-weight-bold mr-2">
                     {pagination.count} / {countInfo.count}
                   </span>{' '}
                   documents
                 </>
-              )}
+              ) : <>
+              <span className="medium-font font-weight-bold mr-2">
+                    0 / 0
+                  </span>{' '}
+                  documents
+              </>}
             </div>
           </div>
           <FiltersCatalogoActive
