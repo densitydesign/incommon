@@ -55,7 +55,11 @@ export default function DettaglioDocumento() {
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
-          <TransformWrapper centerOnInit={true} minScale={0.35} initialScale={0.35}>
+          <TransformWrapper
+            centerOnInit={true}
+            minScale={0.35}
+            initialScale={0.35}
+          >
             {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
@@ -115,43 +119,43 @@ export default function DettaglioDocumento() {
                   </div>
                 </div>
                 <div className="img-document d-flex align-items-center justify-content-center">
+                  <div
+                    style={{
+                      width: 300,
+                      position: 'absolute',
+                      left: '25%',
+                      top: 0,
+                      height: '100%',
+                      zIndex: 100,
+                    }}
+                    onClick={() => {
+                      if (currentSlide !== 0) {
+                        prev()
+                      }
+                    }}
+                  ></div>
+                  <div
+                    style={{
+                      width: 300,
+                      position: 'absolute',
+                      right: 0,
+                      top: 0,
+                      height: '100%',
+                      zIndex: 100,
+                    }}
+                    onClick={() => {
+                      if (
+                        currentSlide !== document.images.length - 1 &&
+                        document.images.length > 1
+                      ) {
+                        next()
+                      }
+                    }}
+                  ></div>
                   <TransformComponent
                     // contentStyle={{ paddingTop: 20, paddingBottom: 20, height: '90%' }}
                     wrapperStyle={{ width: '100%', height: '100%' }}
                   >
-                    <div
-                      style={{
-                        width: 300,
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                        height: '100%',
-                        zIndex: 100,
-                      }}
-                      onClick={() => {
-                        if (currentSlide !== 0) {
-                          prev()
-                        }
-                      }}
-                    ></div>
-                    <div
-                      style={{
-                        width: 300,
-                        position: 'absolute',
-                        right: 0,
-                        top: 0,
-                        height: '100%',
-                        zIndex: 100,
-                      }}
-                      onClick={() => {
-                        if (
-                          currentSlide !== document.images.length - 1 &&
-                          document.images.length > 1
-                        ) {
-                          next()
-                        }
-                      }}
-                    ></div>
                     <CarouselImages
                       currentSlide={currentSlide}
                       document={document}
