@@ -64,7 +64,7 @@ export default function DettaglioDocumento() {
               <div className="body-document">
                 <div className="header-images d-flex justify-content-between">
                   <div className="zoom-buttons d-flex align-items-center">
-                    <div className="pointer" onClick={() => zoomOut()}>
+                    <div className="pointer" style={{ zIndex: 101 }} onClick={() => zoomOut()}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-out-white.svg')
@@ -77,12 +77,13 @@ export default function DettaglioDocumento() {
                       />
                     </div>
                     <div
+                      style={{ zIndex: 101 }}
                       className="ml-3 pointer reset"
                       onClick={() => resetTransform()}
                     >
                       reset
                     </div>
-                    <div className="ml-3 pointer" onClick={() => zoomIn()}>
+                    <div style={{ zIndex: 101 }} className="ml-3 pointer" onClick={() => zoomIn()}>
                       <img
                         onMouseOver={(e) =>
                           (e.currentTarget.src = '/zoom-in-white.svg')
@@ -97,7 +98,7 @@ export default function DettaglioDocumento() {
                   </div>
                   <div className="d-flex align-items-center">
                     {currentSlide !== 0 && (
-                      <div className="pointer" onClick={() => prev()}>
+                      <div style={{ zIndex: 101 }} className="pointer" onClick={() => prev()}>
                         <img src="/arrow-left.svg" alt="back" />
                       </div>
                     )}
@@ -106,13 +107,14 @@ export default function DettaglioDocumento() {
                     </div>
                     {currentSlide !== document.images.length - 1 &&
                       document.images.length > 1 && (
-                        <div className="ml-2 pointer" onClick={() => next()}>
+                        <div style={{ zIndex: 101 }} className="ml-2 pointer" onClick={() => next()}>
                           <img src="/arrow-right.svg" alt="back" />
                         </div>
                       )}
                     <div
                       onClick={() => history.goBack()}
                       className="pointer ml-4"
+                      style={{ zIndex: 101 }}
                     >
                       <img src="/close-document.svg" alt="Close document" />
                     </div>
