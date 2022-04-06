@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="d-flex align-items-center">
               <div>
                 <img
-                  src={"/logo-erc-eu.svg"}
+                  src={'/logo-erc-eu.svg'}
                   alt="Logo ERC"
                   width={233}
                   height={100}
@@ -61,13 +61,19 @@ export default function Footer() {
                 width={86}
                 height={100}
               />
-              <img
-                className="ml-4"
-                src="/inmagik.svg"
-                alt="Inmagik"
-                width={95}
-                height={95}
-              />
+              <a
+                href="https://www.inmagik.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="ml-4"
+                  src="/inmagik.svg"
+                  alt="Inmagik"
+                  width={95}
+                  height={95}
+                />
+              </a>
             </div>
           </div>
         </div>
