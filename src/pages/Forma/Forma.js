@@ -365,7 +365,6 @@ export default function Forma() {
     // Click Node Function
     events.click(function (node) {
       const nodeUI = graphics.getNodeUI(node.id)
-      setSearch(nodeUI.node.id)
       onItemSelectFromSearch({
         title: nodeUI.node.id,
         type: nodeUI.node.data.__glType,
