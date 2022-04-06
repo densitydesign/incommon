@@ -60,6 +60,10 @@
   padding-right: 10px;
   border-radius: 16px;
   margin-bottom: 10px;
+  display: table-cell;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .block-filters{

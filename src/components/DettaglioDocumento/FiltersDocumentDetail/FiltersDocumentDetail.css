@@ -97,4 +97,8 @@
   padding-left: 7px;
   padding-right: 7px;
   margin-top: 8px;
+  display: table-cell;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
