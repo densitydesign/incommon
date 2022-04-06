@@ -11,10 +11,10 @@ export default function PerformancePanel() {
         <span className={"title-panel"}>Performance Remains</span> exploits the
         metaphor of the table arrangement arraying documents by visual
         similarity, measured through computational techniques and visualized
-        trough dimensionality reduction algorithms<sup>01</sup>. This view
+        trough a dimensionality reduction algorithm<sup>01</sup>. This view
         traces paths that jump from one performance to another and builds
         connections between documents scattered across time and space. The focus
-        is not on the individual documents but on their programmed affinities
+        is not on the individual documents but on their "programmed affinities"
         <sup>02</sup>, their shared features, and the paths connecting and
         reuniting the elements in the zoomable plot.
       </p>{" "}
@@ -40,23 +40,12 @@ export default function PerformancePanel() {
           />
         </span>{" "}
         . Selecting filters on the right, the user can visualize documents from
-        one or more specific archives. In addition, a set of qualitative
-        annotations{" "}
-        <span>
-          <img
-            src={performance02}
-            width={30}
-            height={28}
-            alt="Performance 03"
-          />
-        </span>{" "}
-        can be displayed, helping to navigate the arrangement of documents.
+        one or more specific archives.
       </p>
       <div className={"info-bottom"}>
         <p className={"info-red-bottom"}>
-          01 — Van der Maaten, L., & Hinton, G. (2008). Visualizing
-          High-Dimensional Data Using t-SNE. Journal of Machine Learning
-          Research, 86(9), 2579–2605.{" "}
+          01 — McInnes, L., Healy, J., & Melville, J. (2018). Umap: Uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426.
+          {" "}
         </p>
         <p className={"info-red-bottom"}>
           02 — Kamin, D. (2017). Mid-Century Visions, Programmed Affinities: The

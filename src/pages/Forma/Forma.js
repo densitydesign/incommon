@@ -276,7 +276,7 @@ export default function Forma() {
       if (node.data.__glType === "attore") {
         return {
           size,
-          fill: 0xff0000,
+          fill: 0xd92100,
           stroke: 0x000000,
           strokeSize: 0.0,
         }
@@ -284,7 +284,7 @@ export default function Forma() {
         return {
           size,
           fill: 0x000000,
-          stroke: 0xff0000,
+          stroke: 0xd92100,
           strokeSize: 5.0,
         }
       }
@@ -367,11 +367,11 @@ export default function Forma() {
       const size = 10 + (nodeUI.node.links ?? []).length * 2
       nodeUI.size = size
       if (node.data.__glType === "attore") {
-        nodeUI.fill = 0xff0000
+        nodeUI.fill = 0xd92100
         nodeUI.stroke = 0x000000
       } else {
         nodeUI.fill = 0x000000
-        nodeUI.stroke = 0xff0000
+        nodeUI.stroke = 0xd92100
       }
 
       forceLabelsToShow.add(nodeUI.node.id)
@@ -381,11 +381,11 @@ export default function Forma() {
         const nodeUI = graphics.getNodeUI(node.id)
         const size = 10 + (nodeUI.node.links ?? []).length * 2
         if (node.data.__glType === "attore") {
-          nodeUI.fill = 0xff0000
+          nodeUI.fill = 0xd92100
           nodeUI.stroke = 0x000000
         } else {
           nodeUI.fill = 0x000000
-          nodeUI.stroke = 0xff0000
+          nodeUI.stroke = 0xd92100
         }
         nodeUI.size = size
         const linkUI = graphics.getLinkUI(link.id)
@@ -400,11 +400,11 @@ export default function Forma() {
         const nodeUI = graphics.getNodeUI(node.id)
         const size = 10 + (nodeUI.node.links ?? []).length * 2
         if (node.data.__glType === "attore") {
-          nodeUI.fill = 0xff0000
+          nodeUI.fill = 0xd92100
           nodeUI.stroke = 0x000000
         } else {
           nodeUI.fill = 0x000000
-          nodeUI.stroke = 0xff0000
+          nodeUI.stroke = 0xd92100
         }
         nodeUI.size = size
       })

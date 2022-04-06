@@ -113,7 +113,7 @@ body {
 }
 
 .info-red-bottom {
-  color: #e52f52;
+  color: rgb(217, 33, 0);
   font-size: 14px;
   line-height: 17px;
   max-width: 540px;
