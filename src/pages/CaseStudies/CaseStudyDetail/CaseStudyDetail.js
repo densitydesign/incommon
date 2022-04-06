@@ -1,16 +1,16 @@
-import find from "lodash/find"
-import React, { useMemo, useState } from "react"
-import useMemoCompare from "magik-react-hooks/useMemoCompare"
-import { useParams } from "react-router-dom"
-import InfoSpettacolo from "../../../components/DettaglioSpettacolo/InfoSpettacolo"
-import MenuTop from "../../../components/MenuTop"
-import { shuffle } from "seed-shuffle"
-import AnimatedImageStack from "../../../components/DettaglioSpettacolo/AnimatedImageStack"
-import "./CaseStudy.css"
-import { useDocuments, imageWithLocaPreview } from "../../../hooks/documents"
-import PannelloInfo from "../../../components/PannelloInfo"
-import { groupBy } from "lodash"
-import ReadMorePanel from "../../../components/ReadMorePanel"
+import find from 'lodash/find'
+import React, { useMemo, useState } from 'react'
+import useMemoCompare from 'magik-react-hooks/useMemoCompare'
+import { useParams } from 'react-router-dom'
+import InfoSpettacolo from '../../../components/DettaglioSpettacolo/InfoSpettacolo'
+import MenuTop from '../../../components/MenuTop'
+import { shuffle } from 'seed-shuffle'
+import AnimatedImageStack from '../../../components/DettaglioSpettacolo/AnimatedImageStack'
+import './CaseStudy.css'
+import { useDocuments, imageWithLocaPreview } from '../../../hooks/documents'
+import PannelloInfo from '../../../components/PannelloInfo'
+import { groupBy } from 'lodash'
+import ReadMorePanel from '../../../components/ReadMorePanel'
 
 // Mantain the same "random" for the entire user session
 // NOTE: Place a literal Es:. 5 to have ALWAYS the same random factor
@@ -24,10 +24,10 @@ function CaseStudy({ caseStudy, setReadMore }) {
 
   const linkDocuments = useMemo(() => {
     let link = `/catalogue?spettacolo=${caseStudy.titolo}`
-    if(tipologia){
+    if (tipologia) {
       link = link + `&tipologia=${tipologia}`
     }
-    if(archivio){
+    if (archivio) {
       link = link + `&content_provider=${archivio}`
     }
     return link
@@ -40,15 +40,78 @@ function CaseStudy({ caseStudy, setReadMore }) {
   const images = useMemo(() => {
     // TODO: FIlter correct types ....
 
+    const imagesToUse = caseStudy.images
+
+    let imgs = []
+
+    if (caseStudy.titolo === 'Scontri Generali ') {
+      const imagesQuadernoMano = imagesToUse.filter(
+        (i) => i.tipologia === 'Quaderno manoscritto'
+      )
+      const imagesFogliManoscritti = imagesToUse.filter(
+        (i) => i.tipologia === 'Fogli manoscritti'
+      )
+      const imagesDisegniPreparatori = imagesToUse.filter(
+        (i) => i.tipologia === 'Disegni preparatori'
+      )
+      const imagesFotoGrafiaBN = imagesToUse.filter(
+        (i) => i.tipologia === 'Fotografia b/n'
+      )
+      const imagesFogliDattilo = imagesToUse.filter(
+        (i) => i.tipologia === 'Fogli dattiloscritti'
+      )
+      const imagesArticoli = imagesToUse.filter(
+        (i) => i.tipologia === 'Articolo di giornale'
+      )
+
+      const imagesFotoAColori = imagesToUse.filter(
+        (i) => i.tipologia === 'Fotografia a colori'
+      )
+
+      const imagesVolantino = imagesToUse.filter(
+        (i) => i.tipologia === 'Volantino'
+      )
+
+      const imagesPartitura = imagesToUse.filter(
+        (i) => i.tipologia === 'Partitura di scena'
+      )
+
+      const imagesLettera = imagesToUse.filter(
+        (i) => i.tipologia === 'Lettera'
+      )
+
+      imgs = [
+        ...imagesQuadernoMano.slice(0, 20),
+        ...imagesFogliManoscritti.slice(0, 20),
+        ...imagesDisegniPreparatori.slice(0, 20),
+        ...imagesFotoGrafiaBN.slice(0, 20),
+        ...imagesFogliDattilo.slice(0, 20),
+        ...imagesArticoli.slice(0, 20),
+        ...imagesFotoAColori,
+        ...imagesVolantino,
+        ...imagesPartitura.slice(0, 20),
+        ...imagesPartitura.slice(0, 20),
+        ...imagesLettera,
+      ]
+      return shuffle(
+        imgs
+          .filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i))
+          .filter((i) => (tipologia ? i.tipologia === tipologia : i))
+          .filter((i) => (archivio ? i.content_provider === archivio : i))
+          .map((i) => imageWithLocaPreview(i)),
+        RANDOM_SEED
+      )
+    }
+
     return shuffle(
-      caseStudy.images
+      imagesToUse
         .filter((i) => i.image.match(/.(jpg|jpeg|png|gif)$/i))
         .filter((i) => (tipologia ? i.tipologia === tipologia : i))
         .filter((i) => (archivio ? i.content_provider === archivio : i))
         .map((i) => imageWithLocaPreview(i)),
       RANDOM_SEED
     )
-  }, [archivio, caseStudy.images, tipologia])
+  }, [archivio, caseStudy.images, caseStudy.titolo, tipologia])
   // const images = []
 
   // const [{ documents }] = useDocuments(
@@ -64,8 +127,10 @@ function CaseStudy({ caseStudy, setReadMore }) {
   //   (img) => img.index % imagesByTipologiaLength
   // )
 
-  const groupedArchivio = groupBy(images, "content_provider")
-  const groupedTipologia = groupBy(images, "tipologia")
+  console.log(images)
+
+  const groupedArchivio = groupBy(images, 'content_provider')
+  const groupedTipologia = groupBy(images, 'tipologia')
   const imagesByArchivio = Object.assign(
     {},
     Object.keys(groupedArchivio).map((archivio) => groupedArchivio[archivio])
@@ -126,8 +191,12 @@ export default function CaseStudyDetail({ caseStudies }) {
   return (
     <div className="DettaglioSpettacolo">
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
-      {caseStudy && <CaseStudy setReadMore={setReadMore} caseStudy={caseStudy} />}
-      {readMore && <ReadMorePanel setReadMore={setReadMore} caseStudy={caseStudy} />}
+      {caseStudy && (
+        <CaseStudy setReadMore={setReadMore} caseStudy={caseStudy} />
+      )}
+      {readMore && (
+        <ReadMorePanel setReadMore={setReadMore} caseStudy={caseStudy} />
+      )}
       {panelInfo && <PannelloInfo type="spettacoli" />}
     </div>
   )
