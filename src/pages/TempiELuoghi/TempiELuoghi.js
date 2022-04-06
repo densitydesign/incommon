@@ -61,7 +61,7 @@ const styleZoomControl = {
   position: "absolute",
   top: 80,
   right: 30,
-  border: "red",
+  border: "#d92100",
 }
 
 export default function TempiELuoghi() {
@@ -155,9 +155,9 @@ export default function TempiELuoghi() {
                   id={"range" + index}
                   paint={{
                     "circle-radius": radiusTown,
-                    "circle-color": "red",
+                    "circle-color": "#d92100",
                     "circle-opacity": opacityCircle,
-                    "circle-stroke-color": "#cc0000",
+                    "circle-stroke-color": "#d92100",
                     "circle-stroke-width": 0,
                     "circle-stroke-opacity": 1,
                   }}
