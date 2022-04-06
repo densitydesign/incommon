@@ -92,7 +92,6 @@ function RunSlideshow({ slideshowConfig, slug }) {
           <Link
             className="pointer ml-3"
             to={`/recomposition/${slug}`}
-            style={{ zIndex: 2000 }}
           >
             <img src="/close-document.svg" alt="Close" />
           </Link>
