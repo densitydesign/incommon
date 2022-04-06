@@ -186,63 +186,6 @@
     },
     "images": [
       {
-        "src": "https://archivio.in-common.org/cdn/ECD3A550-1AA8-11EA-8188-107B44B1D8D7/Copy%20of%20MG0002.jpeg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "200%",
-          "height": "auto",
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "transform": "translateX(0%) translateY(0%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/ECD37D63-1AA8-11EA-8188-107B44B1D8D7/Copy%20of%20MG0001.jpeg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "110%",
-          "height": "auto",
-          "objectFit": "cover",
-          "objectPosition": "center top",
-          "transform": "scaleX(-1)",
-          "mixBlendMode": "multiply"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "alignItems": "center"
-    },
-    "images": [
-      {
         "src": "https://archivio.in-common.org/cdn/ECEE22B9-1AA8-11EA-8188-107B44B1D8D7/MG0073.jpg",
         "style": {
           "transition": "opacity 0.5s ease-in",
