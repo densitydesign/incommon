@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="footer">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-xl-4 col-lg-12">
           <div>
             <div className="label-footer">Funded by</div>
             <div className="d-flex align-items-center">
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="col-md-8 d-flex justify-content-end">
+        <div className="col-xl-8 col-lg-12 d-flex justify-content-end">
           <div className="d-flex pl-5">
             <div>
               <div className="label-footer">HOST INSTITUTION</div>
@@ -44,8 +44,8 @@ export default function Footer() {
                 <img
                   src="/iuav-footer.svg"
                   alt="Iuav"
-                  width={207}
-                  height={142}
+                  width={150}
+                  height={103}
                 />
               </a>
             </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/elan.svg" alt="Elan" width={159} height={39} />
+                <img src="/elan.png" alt="Elan" width={148} height={37} />
               </a>
             </div>
             <div className="ml-30">
@@ -79,7 +79,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/spa.svg" alt="Spa" width={101} height={157} />
+                <img src="/spa.svg" alt="Spa" width={90} height={140} />
               </a>
             </div>
             <div className="ml-30">
@@ -90,9 +90,9 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="/density.png"
+                  src="/density.svg"
                   alt="Density Design"
-                  width={86}
+                  width={86.5}
                   height={100}
                 />
               </a>
