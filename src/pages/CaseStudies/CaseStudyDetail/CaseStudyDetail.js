@@ -75,6 +75,26 @@ function CaseStudy({ caseStudy, setReadMore }) {
         (i) => i.tipologia === 'Partitura di scena'
       )
 
+      const imagesCatalogo = imagesToUse.filter(
+        (i) => i.tipologia === 'Catalogo'
+      )
+
+      const imagesAltro = imagesToUse.filter(
+        (i) => i.tipologia === 'Altro'
+      )
+
+      const imagesStampaGrafica = imagesToUse.filter(
+        (i) => i.tipologia === 'Stampa grafica'
+      )
+
+      const imagesPieghevole = imagesToUse.filter(
+        (i) => i.tipologia === 'Pieghevole'
+      )
+
+      const imagesCopione = imagesToUse.filter(
+        (i) => i.tipologia === 'Copione '
+      )
+
       const imagesLettera = imagesToUse.filter((i) => i.tipologia === 'Lettera')
 
       imgs = [
@@ -89,6 +109,11 @@ function CaseStudy({ caseStudy, setReadMore }) {
         ...imagesPartitura.slice(0, 10),
         ...imagesPartitura.slice(0, 10),
         ...imagesLettera,
+        ...imagesCatalogo.slice(0,10),
+        ...imagesAltro,
+        ...imagesStampaGrafica,
+        ...imagesPieghevole,
+        ...imagesCopione,
       ]
       return shuffle(
         imgs
