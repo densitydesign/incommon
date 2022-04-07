@@ -453,12 +453,19 @@ export default function Forma() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   const renderer = rerenderRef.current
-  //   setTimeout(() => {
-  //     renderer.pause()
-  //   }, 15000)
-  // })
+  useEffect(() => {
+    const renderer = rerenderRef.current
+    setTimeout(() => {
+      renderer.pause()
+    }, 15000)
+  })
+
+  useEffect(() => {
+    const renderer = rerenderRef.current
+    if(relazioneState || !relazioneState){
+      renderer.resume()
+    }
+  },[relazioneState])
 
   const [nodeScreenSet, setNodeScreenSet] = useState(null)
 
