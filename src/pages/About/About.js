@@ -419,6 +419,9 @@ For INCOMMON he designed the data backend and the data entry software.
               Kingston University BA Graphic Design programme.
             </div>
             <div className="mt-5">
+              <strong>Matteo Scaffidi</strong> A web developer, he works for Inmagik from 2019, he has developed many frontend applications and apps. For INCOMMON he developed the frontend website.
+            </div>
+            <div className="mt-5">
               <strong>Simone Zantedeschi</strong> graduated in economics and business at University of Verona and works in the Iuav University of Venice Research Office.
 He deals with the financial and administrative management of the project in regards to the rules for the eligibility of expenses established both at the national and European level. He is entrusted with the financial reporting, and maintaining contacts with the European Commission officials for matters concerning the project’s financial management.
             </div>
