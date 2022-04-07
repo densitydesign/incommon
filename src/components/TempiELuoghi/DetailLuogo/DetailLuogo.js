@@ -4,7 +4,7 @@ import { Line, LineChart, XAxis } from "recharts"
 import "./DetailLuogo.css"
 
 const CustomizedDot = (props) => {
-  const { cx, cy, stroke, payload, value, year } = props
+  const { cx, cy, payload, year } = props
 
   if (payload.year === year) {
     return (
