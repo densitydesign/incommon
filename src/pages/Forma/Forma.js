@@ -304,7 +304,6 @@ export default function Forma() {
 
     // Welcome Back Spaghetti code! (i'm also italian)
     const forceLabelsToShow = new Set()
-    
 
     graphics.placeNode(function (ui, pos) {
       // This callback is called by the renderer before it updates
@@ -455,17 +454,13 @@ export default function Forma() {
 
   useEffect(() => {
     const renderer = rerenderRef.current
-    setTimeout(() => {
-      renderer.pause()
-    }, 15000)
-  })
-
-  useEffect(() => {
-    const renderer = rerenderRef.current
-    if(relazioneState || !relazioneState){
+    if (relazioneState || !relazioneState) {
       renderer.resume()
     }
-  },[relazioneState])
+    setTimeout(() => {
+      renderer.pause()
+    }, 30000)
+  }, [relazioneState])
 
   const [nodeScreenSet, setNodeScreenSet] = useState(null)
 
