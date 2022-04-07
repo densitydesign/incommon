@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'
@@ -8,8 +8,30 @@ import Forma from './pages/Forma'
 import CaseStudies from './pages/CaseStudies'
 import Archivio from './pages/Archivio'
 import About from './pages/About'
+import MobileScreen from './components/MobileScreen'
 
 function App() {
+  const [width, setWidth] = useState(window.innerWidth)
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange)
+    }
+  }, [])
+
+  const isMobile = width <= 768
+
+  if(isMobile){
+    return (
+      <MobileScreen />
+    )
+  }
+
   return (
     <Router>
       <Switch>

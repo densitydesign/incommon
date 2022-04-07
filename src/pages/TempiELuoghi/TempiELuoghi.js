@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react"
-import classNames from "classnames"
 import MenuTop from "../../components/MenuTop"
 import DetailLuogo from "../../components/TempiELuoghi/DetailLuogo"
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl"

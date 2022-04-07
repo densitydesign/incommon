@@ -1,6 +1,5 @@
 import React from "react"
 import performance01 from "../assets/Performance_01@2x.png"
-import performance02 from "../assets/Performance_02@2x.png"
 import performance03 from "../assets/Performance_03@2x.png"
 import "../PannelloInfo.css"
 
