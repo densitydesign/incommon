@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import classnames from 'classnames'
 import orderBy from 'lodash/orderBy'
 import './FiltersCatalogo.css'
+import mapLanguage from '../../../data/DocumentTypeDictionary.json'
 
 const ItemFilter = ({
   toggleFilterOpen,
@@ -49,7 +50,9 @@ const MicroFilter = ({ name, count, onClick, filterName }) => {
       >
         {name !== 'null' && (
           <>
-            <div className="name-micro-filter">{name}</div>
+            <div className="name-micro-filter">
+              {mapLanguage[name] ? mapLanguage[name] : name}
+            </div>
             <div>{count}</div>
           </>
         )}

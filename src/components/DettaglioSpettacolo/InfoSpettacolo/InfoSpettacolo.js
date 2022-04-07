@@ -5,6 +5,7 @@ import slideshow from './assets/slideshow.svg'
 import readmore from './assets/readmore.svg'
 import { countBy } from 'lodash'
 import { Link } from 'react-router-dom'
+import mapLanguage from '../../../data/DocumentTypeDictionary.json'
 
 const MicroFilter = ({
   name,
@@ -24,7 +25,7 @@ const MicroFilter = ({
       })}
     >
       <div className="d-flex w-100 pointer justify-content-between align-items-center">
-        <div style={{ width: '80%' }}>{name}</div>
+        <div style={{ width: '80%' }}>{mapLanguage[name] ? mapLanguage[name] : name}</div>
         <div>{count}</div>
       </div>
     </div>
