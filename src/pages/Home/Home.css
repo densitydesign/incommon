@@ -13,6 +13,8 @@
   color: #ffffff;
 }
 
+
+
 .HomePages {
   margin-top: 32px;
 }
@@ -52,7 +54,7 @@
 .page-home > .text-page-home {
   padding-left: 61px;
   width: 50%;
-    background-color: black;
+  background-color: black;
 }
 
 .image-block {
@@ -68,6 +70,7 @@
   letter-spacing: 0.03em;
   padding-top: 30px;
 }
+
 
 .esplora-home {
   font-style: normal;
@@ -146,4 +149,33 @@
 
 .ml-30 {
   margin-left: 30px;
+}
+
+
+@media screen and (max-width: 1024px){
+    .title-page-home, .description-page-home {
+    font-size: 25px;
+    line-height: 40px;
+    padding-top: 35px;
+     }
+}
+
+@media screen and (max-width: 1024px){
+    .esplora-home {
+    font-size: 20px;
+    line-height: 40px;
+     }
+}
+
+@media screen and (max-width: 1024px){
+    .text-page-home img {
+width: 19px
+     }
+}
+
+
+@media screen and (max-width: 1024px){
+  .page-home-open {
+    height: 421px;
+  }
 }
