@@ -36,31 +36,66 @@ export default function Footer() {
           <div className="d-flex pl-5">
             <div>
               <div className="label-footer">HOST INSTITUTION</div>
-              <img src="/iuav-footer.svg" alt="Iuav" width={207} height={142} />
+              <a
+                href="http://www.iuav.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/iuav-footer.svg"
+                  alt="Iuav"
+                  width={207}
+                  height={142}
+                />
+              </a>
             </div>
             <div className="ml-30">
               <div className="label-footer">PARTNER INSTITUTION</div>
-              <img
-                src="/sapienza.svg"
-                alt="Università Sapienza"
-                width={159}
-                height={48}
-              />
+              <a
+                href="https://www.uniroma1.it/it/pagina-strutturale/home"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/sapienza.svg"
+                  alt="Università Sapienza"
+                  width={159}
+                  height={48}
+                />
+              </a>
               <div className="label-footer mt-3">BACK-END DEVELOPMENT</div>
-              <img src="/elan.svg" alt="Elan" width={159} height={39} />
+              <a
+                href="https://www.elan42.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/elan.svg" alt="Elan" width={159} height={39} />
+              </a>
             </div>
             <div className="ml-30">
               <div className="label-footer">VISUAL IDENTITY</div>
-              <img src="/spa.svg" alt="Spa" width={101} height={157} />
+              <a
+                href="https://spavisualdesign.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/spa.svg" alt="Spa" width={101} height={157} />
+              </a>
             </div>
             <div className="ml-30">
               <div className="label-footer mb-3">DESIGNED AND DEVELOPED BY</div>
-              <img
-                src="/density.png"
-                alt="Density Design"
-                width={86}
-                height={100}
-              />
+              <a
+                href="https://densitydesign.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/density.png"
+                  alt="Density Design"
+                  width={86}
+                  height={100}
+                />
+              </a>
               <a
                 href="https://www.inmagik.com/"
                 target="_blank"
