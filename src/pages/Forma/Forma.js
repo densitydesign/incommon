@@ -453,12 +453,12 @@ export default function Forma() {
     }
   }, [])
 
-  useEffect(() => {
-    const renderer = rerenderRef.current
-    setTimeout(() => {
-      renderer.pause()
-    }, 15000)
-  })
+  // useEffect(() => {
+  //   const renderer = rerenderRef.current
+  //   setTimeout(() => {
+  //     renderer.pause()
+  //   }, 15000)
+  // })
 
   const [nodeScreenSet, setNodeScreenSet] = useState(null)
 
