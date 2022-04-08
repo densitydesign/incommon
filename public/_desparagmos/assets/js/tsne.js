@@ -2998,7 +2998,7 @@ function incommonHackMain() {
         <div class="incommon-provider-text">${provider}</div> <div class="incommon-provider-count">${countsByProvider[provider]}</div></div>`
     })
     const nav = document.getElementById('nav-inner')
-    nav.innerHTML = `<div class="incommon-filters"><div class="incommon-filter-intro">Filter by collection</div>${html}</div>`
+    nav.innerHTML = `<div class="incommon-filters"><div class="incommon-filter-intro">Filter by collection:</div>${html}</div>`
     nav.style.display = 'block'
     document.querySelectorAll('.incommon-provider-item').forEach(e => {
       e.addEventListener('click', handleFilterClick)
@@ -4300,4 +4300,3 @@ var globe = new Globe();
 var data = new Data();
 var attractmode = new AttractMode();
 // vim: ts=2 sw=2 et
-
