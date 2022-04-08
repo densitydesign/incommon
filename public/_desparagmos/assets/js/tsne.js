@@ -2266,7 +2266,7 @@ Picker.prototype.onMouseUp = function(e) {
   // else we're in pan mode; zoom in if the camera is far away, else show the modal
   return world.camera.position.z > config.pickerMaxZ
     ? world.flyToCellIdx(cellIdx)
-    : null//modal.showCells([cellIdx]);
+    : goToDoc(cellIdx)
 }
 
 // get the x, y offsets of a click within the canvas
@@ -2969,12 +2969,15 @@ function handleFilterClick(e) {
   }
 }
 
+const __GLOBAL_DOCS_BY_IMAGES = {}
+
 function incommonHackMain() {
   prepareIncommonData().then(images => {
     const countsByProvider = images.reduce((counts, image) => {
       if (counts[image.content_provider] === undefined) {
         counts[image.content_provider] = 0
       }
+      __GLOBAL_DOCS_BY_IMAGES[image.localName] = image.docID
       counts[image.content_provider]++
       return counts
     }, {})
@@ -2991,6 +2994,11 @@ function incommonHackMain() {
     })
   })
 
+}
+
+function goToDoc(cellIdx) {
+  const docID = __GLOBAL_DOCS_BY_IMAGES[data.json.images[cellIdx]]
+  window.parent.postMessage({ docID: docID })
 }
 
 /**

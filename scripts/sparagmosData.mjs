@@ -1,7 +1,9 @@
+import { program } from 'commander'
 import request from 'superagent'
 import rimraf from 'rimraf'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { existsSync } from 'fs'
 import fs from 'fs/promises'
 import PQueue from 'p-queue'
 
@@ -34,7 +36,7 @@ async function grabAllImagesData() {
     fetchCount += results.length
 
     results.forEach((doc) => {
-      allImages.push(...doc.images)
+      allImages.push(...doc.images.map(img => ({ ...img, docID: doc.id })))
     })
     page++
   } while (fetchCount < count)
@@ -42,7 +44,7 @@ async function grabAllImagesData() {
 }
 
 function sleep(n) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, n)
   })
 }
@@ -58,7 +60,9 @@ async function downloadImage(imageUrl, retry = 0) {
       .then((r) => r.body)
   } catch (e) {
     if ((e.status >= 500 || e.code === 'ECONNRESET') && retry < MAX_RETRY) {
-      console.log(`Retry ${imageUrl} for status ${e.status} in ${SLEEP_RETRY}ms ...`)
+      console.log(
+        `Retry ${imageUrl} for status ${e.status} in ${SLEEP_RETRY}ms ...`
+      )
       await sleep(SLEEP_RETRY)
       return downloadImage(imageUrl, retry + 1)
     }
@@ -68,19 +72,27 @@ async function downloadImage(imageUrl, retry = 0) {
 }
 
 async function downloadAndSaveImage(imageUrl, fileName) {
+  const fullFileName = path.resolve(BASE_DIR, `images/${fileName}`)
+  if (existsSync(fullFileName)) {
+    console.log(`File exists ${fullFileName} skip`)
+    return
+  }
   try {
     const imageBlob = await downloadImage(imageUrl)
-    await fs.writeFile(path.resolve(BASE_DIR, `images/${fileName}`), imageBlob)
+    await fs.writeFile(fullFileName, imageBlob)
   } catch (e) {
     console.log(`Error while downloading and saving image: ${imageUrl}`, e)
   }
 }
 
-async function makeSparagmosData() {
+async function makeSparagmosData(options) {
   const allImages = await grabAllImagesData()
   // Cleanup folders
-  rimraf.sync(path.resolve(BASE_DIR, 'images'))
-  await fs.mkdir(path.resolve(BASE_DIR, 'images'))
+  // Clean images when needed
+  if (options.clean) {
+    rimraf.sync(path.resolve(BASE_DIR, 'images'))
+    await fs.mkdir(path.resolve(BASE_DIR, 'images'))
+  }
   rimraf.sync(path.resolve(BASE_DIR, 'data'))
   await fs.mkdir(path.resolve(BASE_DIR, 'data'))
 
@@ -95,7 +107,11 @@ async function makeSparagmosData() {
   // Grab images files!
   for (const image of allImages) {
     const imageUrl = image.preview
-    const fileName = image.id.replace('/', '__')
+    const fileName = image.id
+      .replace('/', '__')
+      // NOTE: Lazy server make me a lazy boy
+      .replace('.docx', '.jpg')
+      .replace('.doc', '.jpg')
     image.localName = fileName
     queue.add(() => downloadAndSaveImage(imageUrl, fileName))
   }
@@ -105,9 +121,24 @@ async function makeSparagmosData() {
     path.resolve(BASE_DIR, 'data/incommonImages.json'),
     JSON.stringify(allImages, null, 2)
   )
+  const miniImages = allImages.map(img => ({
+    content_provider: img.content_provider,
+    localName: img.localName,
+    docID: img.docID,
+  }))
+  await fs.writeFile(
+    path.resolve(BASE_DIR, 'data/incommonImagesMini.json'),
+    JSON.stringify(miniImages)
+  )
 }
 
-makeSparagmosData().then(
+program.option('-c, --clean', 'Clean previous preview')
+
+program.parse(process.argv)
+
+const options = program.opts()
+
+makeSparagmosData(options).then(
   () => {
     console.log('Data For Sparagoms Done!!!')
   },
