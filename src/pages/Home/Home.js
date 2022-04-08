@@ -263,8 +263,8 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block">
-            <img src="/performance-remains.png" alt="Performance Remains" />
+          <div className="image-block" style={{ backgroundImage: "url('/performance-remains.png')"}}>
+            {/* <img src="/performance-remains.png" alt="Performance Remains" /> */}
           </div>
         </div>
         <div
@@ -294,8 +294,8 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block">
-            <img src="/recomposition.png" alt="Recomposition" />
+          <div className="image-block" style={{ backgroundImage: "url('/recomposition.png')"}}>
+            {/* <img src="/recomposition.png" alt="Recomposition" /> */}
           </div>
         </div>
         <div
@@ -323,11 +323,11 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block">
-            <img
+          <div className="image-block" style={{ backgroundImage: "url('/the-shape-of-community.png')"}}>
+            {/* <img
               src="/the-shape-of-community.png"
               alt="The Shape of Community"
-            />
+            /> */}
           </div>
         </div>
         <div
@@ -355,8 +355,8 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block">
-            <img src="/times-and-places.png" alt="Times and Places" />
+          <div className="image-block" style={{ backgroundImage: "url('/times-and-places.png')"}}>
+            {/* <img src="/times-and-places.png" alt="Times and Places" /> */}
           </div>
         </div>
         <div
@@ -384,8 +384,8 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block">
-            <img src="/catalogue.png" alt="Catalogue" />
+          <div className="image-block" style={{ backgroundImage: "url('/catalogue.png')"}}>
+            {/* <img src="/catalogue.png" alt="Catalogue" /> */}
           </div>
         </div>
         <Footer />

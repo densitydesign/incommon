@@ -1,7 +1,7 @@
-import { groupBy } from "lodash"
-import React from "react"
-import { Line, LineChart, XAxis } from "recharts"
-import "./DetailLuogo.css"
+import { groupBy } from 'lodash'
+import React from 'react'
+import { Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
+import './DetailLuogo.css'
 
 const CustomizedDot = (props) => {
   const { cx, cy, payload, year } = props
@@ -22,7 +22,7 @@ const CustomizedDot = (props) => {
     )
   }
 
-  return ""
+  return ''
 }
 
 export default function DetailLuogo({
@@ -42,7 +42,7 @@ export default function DetailLuogo({
   const spet = showBackground
     ? spettacoli.concat(networkSpettacoli)
     : spettacoli
-  const spettacoliGrouped = groupBy(spet, "luogo")
+  const spettacoliGrouped = groupBy(spet, 'luogo')
 
   const dataForChart = []
 
@@ -52,11 +52,11 @@ export default function DetailLuogo({
 
     const dataChart = {}
     if (showBackground) {
-      dataChart["year"] = index
-      dataChart["numero"] = numSpettacoli + numNetwork
+      dataChart['year'] = index
+      dataChart['numero'] = numSpettacoli + numNetwork
     } else {
-      dataChart["year"] = index
-      dataChart["numero"] = numSpettacoli
+      dataChart['year'] = index
+      dataChart['numero'] = numSpettacoli
     }
     dataForChart.push(dataChart)
   }
@@ -70,20 +70,22 @@ export default function DetailLuogo({
         <h4>{town}</h4>
       </div>
       <div>
-        <LineChart
-          width={340}
-          height={150}
-          data={dataForChart}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <XAxis hide dataKey="year" />
-          <Line
-            dot={<CustomizedDot year={year} />}
-            type="linear"
-            dataKey="numero"
-            stroke="#FFF"
-          />
-        </LineChart>
+        <ResponsiveContainer width={'100%'} height={150}>
+          <LineChart
+            width={340}
+            height={150}
+            data={dataForChart}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <XAxis hide dataKey="year" />
+            <Line
+              dot={<CustomizedDot year={year} />}
+              type="linear"
+              dataKey="numero"
+              stroke="#FFF"
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
       <div className="pl-4 pr-4">
         {Object.keys(spettacoliGrouped).map((place, index) => {

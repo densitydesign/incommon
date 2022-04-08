@@ -105,3 +105,11 @@ input:focus {
 .w-45{
   width: 45%;
 }
+
+
+
+@media screen and (max-width: 1200px){
+    .raggruppa-button > img, .reset-filtri > img{
+    display: none;
+     }
+}

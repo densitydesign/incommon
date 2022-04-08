@@ -5,6 +5,15 @@
   overflow: hidden;
 }
 
+
+@media screen and (max-width: 1200px){
+    .block-left-spettacolo {
+    width: 30%;
+     }
+}
+
+
+
 .title-spettacolo {
   font-style: normal;
   font-weight: bold;
@@ -59,6 +68,8 @@
   -ms-animation: fadein 0.4s; /* Internet Explorer */
   -o-animation: fadein 0.4s; /* Opera < 12.1 */
   animation: fadein 0.4s;
+  height: 50vh;
+  overflow: auto;
 }
 
 .filter-active {
@@ -81,6 +92,7 @@
   color: white;
   letter-spacing: 0.08em;
   padding-left: 24px;
+  padding-right: 24px;
 }
 
 .buttons-actions {
@@ -91,7 +103,7 @@
 .buttons-actions > a, .buttons-actions > div {
   width: 50%;
   padding: 16px 24px;
-  border-right: 0.5px solid #555555;
+
   color: white;
   font-family: FormaDJRMicro;
   font-style: normal;
@@ -103,6 +115,9 @@
   cursor: pointer;
 }
 
+.buttons-actions > a{
+    border-right: 0.5px solid #555555;
+}
 
 .buttons-actions > a:hover {
   text-decoration: none;

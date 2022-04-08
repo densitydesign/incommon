@@ -64,3 +64,24 @@
   color: #fcfcfc;
   z-index: 2;
 }
+
+
+@media screen and (max-width: 1024px){
+  .titolo-spettacolo {
+
+    font-size: 30px;
+    line-height: 30px;
+    max-width: 220px;
+  }
+
+}
+
+@media screen and (max-width: 1024px){
+  .data_documenti {
+
+    font-size: 23px;
+    line-height: 22.4px;
+
+  }
+
+}

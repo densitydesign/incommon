@@ -60,6 +60,9 @@
 .image-block {
   width: 50%;
   z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .title-page-home {
@@ -121,7 +124,7 @@
 .label-footer {
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -134,7 +137,6 @@
   font-size: 13px;
   line-height: 17px;
   letter-spacing: 0.05em;
-  margin-left: 35px;
   width: 260px;
 }
 
@@ -143,7 +145,6 @@
   font-weight: 400;
   font-size: 9px;
   line-height: 12px;
-  margin-top: 45px;
   letter-spacing: 0.03em;
 }
 
@@ -152,29 +153,29 @@
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .title-page-home, .description-page-home {
     font-size: 25px;
-    line-height: 40px;
+    line-height: 37px;
     padding-top: 35px;
      }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .esplora-home {
     font-size: 20px;
     line-height: 40px;
      }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .text-page-home img {
 width: 19px
      }
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
   .page-home-open {
     height: 421px;
   }

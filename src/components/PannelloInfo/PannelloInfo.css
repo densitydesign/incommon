@@ -23,3 +23,11 @@
 .title-panel {
     color: rgb(217, 33, 0);
 }
+
+
+@media screen and (max-width: 1024px){
+    .PannelloInfo > div {
+      padding-left: 100px;
+      padding-right: 100px;
+     }
+}
