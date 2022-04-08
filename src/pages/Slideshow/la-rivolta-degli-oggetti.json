@@ -1,37 +1,6 @@
 [
 
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "background-image": "url('https://archivio.in-common.org/cdn/B2FD5410-D1AF-11EA-859B-E731353053D2/GC0031.jpg')",
-      "background-repeat": "repeat",
-      "background-size": "75vh",
-      "background-position-x": "center",
-      "background-position-y": "bottom"
-    },
-    "images": [
-      {
-        "src": "/slideshow/placeholder-slideshow.png",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "scale-down"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",

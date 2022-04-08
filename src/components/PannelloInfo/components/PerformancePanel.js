@@ -11,7 +11,7 @@ export default function PerformancePanel() {
         metaphor of the table arrangement arraying documents by visual
         similarity, measured through computational techniques and visualized
         trough a dimensionality reduction algorithm<sup>01</sup>. This view
-        traces paths that jump from one performance to another and builds
+        traces paths across performances and builds
         connections between documents scattered across time and space. The focus
         is not on the individual documents but on their "programmed affinities"
         <sup>02</sup>, their shared features, and the paths connecting and

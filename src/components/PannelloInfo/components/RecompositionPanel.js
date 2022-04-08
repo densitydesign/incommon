@@ -31,16 +31,8 @@ export default function RecompositionPanel() {
             alt="Recomposition 01"
           />
         </span>{" "}
-        by type of material or archive. Second, by selecting{" "}
-        <span>
-          <img
-            src={recomposition02}
-            width={24}
-            height={32}
-            alt="Recomposition 02"
-          />
-        </span>{" "}
-        each stack, an interactive slideshow opens up. Slideshows regenerate
+        by type of material or archive. Second, documents are
+      organized in an interactive slideshow. Slideshows regenerate
         performance materials by layering{" "}
         <span>
           <img
