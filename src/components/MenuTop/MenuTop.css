@@ -26,11 +26,14 @@
   display: inline-block;
 }
 
+
+
 .item-menu-top-1 {
   width: 10%;
   min-width: 10%;
   max-width: 10%;
   transition: min-width 0.8s ease-in, max-width 0.8s ease-out;
+
 }
 
 .item-menu-top-1:hover {
@@ -40,6 +43,7 @@
   background: -webkit-linear-gradient(360deg, #fcfcfc, #fcfcfc);
   background-position: left;
   -webkit-background-clip: text;
+
 }
 
 .item-menu-top-2 {
