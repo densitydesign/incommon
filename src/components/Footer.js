@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="col-xl-8 col-lg-12 d-flex justify-content-end">
+        <div className="col-md-8 col-xl-8 col-lg-12 d-flex justify-content-end">
           <div className="d-flex pl-5">
             <div>
               <div className="label-footer">HOST INSTITUTION</div>
@@ -59,8 +59,8 @@ export default function Footer() {
                 <img
                   src="/sapienza.svg"
                   alt="Università Sapienza"
-                  width={159}
-                  height={48}
+                  width={150}
+                  height={45.2}
                 />
               </a>
               <div className="label-footer mt-3">BACK-END DEVELOPMENT</div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/elan.png" alt="Elan" width={148} height={37} />
+                <img src="/elan.png" alt="Elan" width={140} height={35} />
               </a>
             </div>
             <div className="ml-30">
@@ -79,7 +79,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/spa.svg" alt="Spa" width={90} height={140} />
+                <img src="/spa.svg" alt="Spa" width={78} height={121.2} />
               </a>
             </div>
             <div className="ml-30">
@@ -92,8 +92,8 @@ export default function Footer() {
                 <img
                   src="/density.svg"
                   alt="Density Design"
-                  width={86.5}
-                  height={100}
+                  width={76}
+                  height={87.8}
                 />
               </a>
               <a
@@ -105,8 +105,8 @@ export default function Footer() {
                   className="ml-4"
                   src="/inmagik.svg"
                   alt="Inmagik"
-                  width={95}
-                  height={95}
+                  width={76}
+                  height={76}
                 />
               </a>
             </div>

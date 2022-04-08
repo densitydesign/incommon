@@ -124,7 +124,7 @@
 .label-footer {
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -155,7 +155,7 @@
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .title-page-home, .description-page-home {
     font-size: 25px;
     line-height: 40px;
@@ -163,21 +163,21 @@
      }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .esplora-home {
     font-size: 20px;
     line-height: 40px;
      }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
     .text-page-home img {
 width: 19px
      }
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
   .page-home-open {
     height: 421px;
   }
