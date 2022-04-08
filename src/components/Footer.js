@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="col-xl-4 col-lg-12">
           <div>
             <div className="label-footer">Funded by</div>
-            <div className="d-xl-block d-lg-flex align-items-xl-start align-items-lg-center">
+            <div className="d-xl-block d-lg-flex d-md-flex align-items-xl-start align-items-lg-center align-items-md-center">
               <div className="d-flex flex-xl-column">
                 <div>
                   <img
@@ -17,13 +17,13 @@ export default function Footer() {
                     height={100}
                   />
                 </div>
-                <div className="text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0">
+                <div className="text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0 pl-md-5">
                   This project has received funding from the European Research
                   Council (ERC) under the European Union's Horizon 2020 research
                   and innovation programme (grant agreement No 678711)
                 </div>
               </div>
-              <div className="copyright-text-footer pl-xl-0 mt-xl-5  mt-lg-0 pl-lg-5">
+              <div className="copyright-text-footer pl-xl-0 mt-xl-5  mt-lg-0 pl-lg-5 pl-md-5">
                 The information and views set out in this website are those of
                 the author(s) and do not necessarily reflect the official
                 opinion of the European Union. Neither the European Union
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="col-md-12 col-xl-8 col-lg-12 d-flex justify-content-xl-end">
-          <div className="d-flex pl-xl-5 mt-lg-3">
+          <div className="d-flex pl-xl-5 mt-lg-5 mt-md-5 mt-xl-0">
             <div>
               <div className="label-footer">HOST INSTITUTION</div>
               <a
