@@ -8,6 +8,7 @@ export default function Archivio() {
     <div className="Archivio">
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       {panelInfo && <PannelloInfo type="archivio" />}
+      <iframe src="/_desparagmos/" title="sparagmons" className="page w-100 border-0"></iframe>
     </div>
   )
 }

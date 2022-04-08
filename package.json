@@ -61,6 +61,7 @@
     "csv2json": "^2.0.2",
     "mkdirp": "^1.0.4",
     "node-geocoder": "^3.27.0",
+    "p-queue": "^7.2.0",
     "rimraf": "^3.0.2",
     "sharp": "^0.27.2",
     "superagent": "^6.1.0"

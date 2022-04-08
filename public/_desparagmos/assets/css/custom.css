@@ -1,0 +1,36 @@
+html, body {
+  background: #000 !important;
+}
+#loader-scene > .welcome {
+  display: none !important;
+}
+#loader-scene > .loader-container {
+  display: none !important;
+}
+#loader-scene > #enter-button {
+  display: none !important;
+}
+.incommon-loader {
+  text-align: center;
+}
+#header-container {
+  display: none !important;
+}
+#nav-inner {
+  display: none;
+}
+#selection-icons {
+  display: none !important;
+}
+.incommon-active {
+  color: deeppink;
+}
+nav {
+  padding: 0 !important;
+  background-color: black !important;
+  border-right: 0.5px solid #555555;
+  width: 255px !important;
+}
+#canvas-container {
+  left: 255px !important;
+}
