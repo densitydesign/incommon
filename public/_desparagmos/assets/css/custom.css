@@ -23,7 +23,27 @@ html, body {
   display: none !important;
 }
 .incommon-active {
-  color: deeppink;
+  color: #D92100;
+}
+.incommon-filters {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.incommon-filter-intro {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+.incommon-provider-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+/* .incommon-provider-text {
+} */
+.incommon-provider-count {
+  margin-left: 10px;
 }
 nav {
   padding: 0 !important;

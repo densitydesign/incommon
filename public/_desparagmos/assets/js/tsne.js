@@ -2953,18 +2953,19 @@ function applyIncommonFilter(provider) {
 }
 
 function handleFilterClick(e) {
-  if (e.target.classList.contains('incommon-active')) {
+  const element = this
+  if (element.classList.contains('incommon-active')) {
     document.querySelectorAll('.incommon-provider-item').forEach(e => {
       e.classList.remove('incommon-active')
     })
-    e.target.classList.remove('incommon-active')
+    element.classList.remove('incommon-active')
     applyIncommonFilter(null)
   } else {
-    const provider = e.target.getAttribute('data-provider')
+    const provider = element.getAttribute('data-provider')
     document.querySelectorAll('.incommon-provider-item').forEach(e => {
       e.classList.remove('incommon-active')
     })
-    e.target.classList.add('incommon-active')
+    element.classList.add('incommon-active')
     applyIncommonFilter(provider)
   }
 }
@@ -2982,12 +2983,22 @@ function incommonHackMain() {
       return counts
     }, {})
     let html = ''
-    Object.keys(countsByProvider).forEach(provider => {
+    Object.keys(countsByProvider).sort((k1, k2) => {
+      const a = countsByProvider[k1]
+      const b = countsByProvider[k2]
+      if (a < b) {
+        return 1
+      } else if (b < a) {
+        return -1
+      }
+      return 0
+    })
+    .forEach(provider => {
       html += `<div class="incommon-provider-item" data-provider="${provider}">
-        ${provider} ${countsByProvider[provider]}</div>`
+        <div class="incommon-provider-text">${provider}</div> <div class="incommon-provider-count">${countsByProvider[provider]}</div></div>`
     })
     const nav = document.getElementById('nav-inner')
-    nav.innerHTML = `<div class="incommon-filters">${html}</div>`
+    nav.innerHTML = `<div class="incommon-filters"><div class="incommon-filter-intro">Filtra per collezzione</div>${html}</div>`
     nav.style.display = 'block'
     document.querySelectorAll('.incommon-provider-item').forEach(e => {
       e.addEventListener('click', handleFilterClick)
