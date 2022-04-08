@@ -1410,6 +1410,7 @@ noscript {
   border: 1px solid #717171;
   display: none;
   border-radius: 3px;
+  display: none!important;
 }
 
 .dismissible-tooltip#select-tooltip {
