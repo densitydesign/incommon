@@ -92,8 +92,8 @@ export default function Footer() {
                 <img
                   src="/density.svg"
                   alt="Density Design"
-                  width={76}
-                  height={87.8}
+                  width={70}
+                  height={80.9}
                 />
               </a>
               <a
