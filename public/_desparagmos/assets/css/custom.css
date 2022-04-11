@@ -22,8 +22,14 @@ html, body {
 #selection-icons {
   display: none !important;
 }
-.incommon-active {
-  color: #D92100;
+.incommon-filters-container{
+  color: white;
+}
+.incommon-filters-container.incommon-some-filters-active{
+  color: #6c757d;
+}
+.incommon-filters-container .incommon-active{
+  color: white;
 }
 .incommon-filters {
   padding-left: 25px;
