@@ -7,7 +7,6 @@ import { shuffle } from 'seed-shuffle'
 import AnimatedImageStack from '../../../components/DettaglioSpettacolo/AnimatedImageStack'
 import './CaseStudy.css'
 import { imageWithLocaPreview } from '../../../hooks/documents'
-import PannelloInfo from '../../../components/PannelloInfo'
 import { groupBy } from 'lodash'
 import ReadMorePanel from '../../../components/ReadMorePanel'
 
@@ -202,7 +201,6 @@ function CaseStudy({ caseStudy, setReadMore }) {
 
 export default function CaseStudyDetail({ caseStudies }) {
   const { slug } = useParams()
-  const [panelInfo, setPanelInfo] = useState(false)
   const [readMore, setReadMore] = useState(false)
 
   const caseStudy = useMemo(
@@ -212,14 +210,13 @@ export default function CaseStudyDetail({ caseStudies }) {
 
   return (
     <div className="DettaglioSpettacolo">
-      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
+      <MenuTop typePanel={'spettacoli'} />
       {caseStudy && (
         <CaseStudy setReadMore={setReadMore} caseStudy={caseStudy} />
       )}
       {readMore && (
         <ReadMorePanel setReadMore={setReadMore} caseStudy={caseStudy} />
       )}
-      {panelInfo && <PannelloInfo type="spettacoli" />}
     </div>
   )
 }

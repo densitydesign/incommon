@@ -589,7 +589,6 @@ export default function Forma() {
   }
 
   const [search, setSearch] = useState('')
-  const [panelInfo, setPanelInfo] = useState(false)
 
   const searchResults = useMemo(() => {
     let results = []
@@ -693,7 +692,7 @@ export default function Forma() {
 
   return (
     <div style={{ overflow: 'hidden' }}>
-      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
+      <MenuTop />
       <div className="d-flex">
         <div
           style={{
@@ -801,7 +800,6 @@ export default function Forma() {
           }}
         ></div>
       </div>
-      {panelInfo && <PannelloInfo type="forma" />}
     </div>
   )
 }

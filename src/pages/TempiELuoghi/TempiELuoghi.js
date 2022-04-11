@@ -195,7 +195,6 @@ export default function TempiELuoghi() {
           </div>
         </div>
       </div>
-      {panelInfo && <PannelloInfo type="luoghi" />}
     </div>
   )
 }

@@ -11,12 +11,12 @@
   overflow: auto;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  animation: animationname 0.5s linear;
+  animation: animationTranslate 0.5s linear;
   /*animation: animation-name animation-duration animation-direction animation-iteration-count */
   transition: 0.2s ease-in-out;
 }
 
-@keyframes animationname {
+@keyframes animationTranslate {
   0% {
     transform: translateX(-100%);
   }

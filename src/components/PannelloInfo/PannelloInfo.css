@@ -11,8 +11,7 @@
   overflow-y: auto;
   z-index: 2000;
   animation: animationname 0.5s linear;
-  /*animation: animation-name animation-duration animation-direction animation-iteration-count */
-  transition: 0.2s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 @keyframes animationname {
@@ -23,6 +22,20 @@
     transform: translateY(0);
   }
 }
+
+.closing {
+  animation: animationname2 0.5s linear;
+  transition: 0.5s ease-in-out;
+}
+
+@keyframes animationname2 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 
 .PannelloInfo > div {
   font-size: 40px;

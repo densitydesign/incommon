@@ -8,7 +8,6 @@ import { useDocuments, useDocumentsCount } from '../../hooks/documents'
 import DocumentCatalogItem from '../../components/Catalogo/DocumentCatalogItem'
 import FiltersCatalogoActive from '../../components/Catalogo/FiltersCatalogoActive'
 import { Waypoint } from 'react-waypoint'
-import PannelloInfo from '../../components/PannelloInfo'
 
 export default function Catalogo() {
   const [{ countInfo }] = useDocumentsCount()
@@ -157,7 +156,7 @@ export default function Catalogo() {
           <Waypoint onEnter={onReachBottom} />
         </div>
       </div>
-      {panelInfo && <PannelloInfo type="catalogo" />}
+      {/* {panelInfo && <PannelloInfo type="catalogo" />} */}
     </div>
   )
 }

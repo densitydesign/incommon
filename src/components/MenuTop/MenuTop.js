@@ -1,13 +1,27 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+// import { useRouteMatch } from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
+import PannelloInfo from '../PannelloInfo'
 import './MenuTop.css'
 
+const MAP_PAGES = {
+  "/times-and-places" : "luoghi",
+  "/performance-remains": "archivio",
+  "/recomposition": "spettacoli",
+  "/the-shape-of-community": "forma",
+  "/catalogue": "catalogo"
+}
+
 export default function MenuTop({
-  setPanelInfo,
-  panelInfo = false,
   fixed = false,
+  typePanel
 }) {
+  const [panelInfo, setPanelInfo] = useState(false)
+  const [closing, setClosing] = useState(false)
+  const route = useLocation()
+  console.log(route)
   return (
     <div
       className={classNames(
@@ -64,13 +78,32 @@ export default function MenuTop({
           </NavLink>
         </div>
       </div>
-      <div className="panel-info-icon" onClick={() => setPanelInfo(!panelInfo)}>
+      <div
+        className="panel-info-icon"
+        onClick={() => {
+          if (panelInfo) {
+            setClosing(true)
+          } else {
+            setPanelInfo(true)
+          }
+        }}
+      >
         {panelInfo ? (
           <img src="/close-document.svg" alt="close" />
         ) : (
           <img src="/open-right-panel-button.svg" alt="Info Panel" />
         )}
       </div>
+      {panelInfo && (
+        <PannelloInfo
+          className={closing ? 'closing' : ''}
+          closing={closing}
+          setClosing={setClosing}
+          setPanelInfo={setPanelInfo}
+          panelInfo={panelInfo}
+          type={MAP_PAGES[route.pathname] || typePanel }
+        />
+      )}
     </div>
   )
 }
