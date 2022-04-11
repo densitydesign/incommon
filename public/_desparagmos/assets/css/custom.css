@@ -1,4 +1,6 @@
 html, body {
+  margin: 0;
+  padding: 0;
   background: #000 !important;
 }
 #loader-scene > .welcome {
@@ -21,6 +23,9 @@ html, body {
 }
 #selection-icons {
   display: none !important;
+}
+#canvas-target {
+  top: 0 !important;
 }
 .incommon-filters-container{
   color: white;

@@ -19,11 +19,13 @@ export default function Archivio() {
     <div className="Archivio">
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       {panelInfo && <PannelloInfo type="archivio" />}
-      <iframe
-        src="/_desparagmos/"
-        title="sparagmons"
-        className="page w-100 border-0"
-      ></iframe>
+      <div className='page w-100'>
+        <iframe
+          src="/_desparagmos/"
+          title="sparagmons"
+          className="h-100 w-100 border-0"
+        ></iframe>
+      </div>
     </div>
   )
 }
