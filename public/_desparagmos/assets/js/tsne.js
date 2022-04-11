@@ -2959,6 +2959,7 @@ function handleFilterClick(e) {
       e.classList.remove('incommon-active')
     })
     element.classList.remove('incommon-active')
+    document.querySelector('.incommon-filters-container').classList.remove('incommon-some-filters-active')
     applyIncommonFilter(null)
   } else {
     const provider = element.getAttribute('data-provider')
@@ -2967,6 +2968,7 @@ function handleFilterClick(e) {
     })
     element.classList.add('incommon-active')
     applyIncommonFilter(provider)
+    document.querySelector('.incommon-filters-container').classList.add('incommon-some-filters-active')
   }
 }
 
@@ -2998,6 +3000,7 @@ function incommonHackMain() {
         <div class="incommon-provider-text">${provider}</div> <div class="incommon-provider-count">${countsByProvider[provider]}</div></div>`
     })
     const nav = document.getElementById('nav-inner')
+    html = `<div class="incommon-filters-container">${html}</div>`
     nav.innerHTML = `<div class="incommon-filters"><div class="incommon-filter-intro">Filter by collection:</div>${html}</div>`
     nav.style.display = 'block'
     document.querySelectorAll('.incommon-provider-item').forEach(e => {
