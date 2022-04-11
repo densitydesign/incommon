@@ -2935,7 +2935,7 @@ const IncommonFilter = {
 }
 
 function applyIncommonFilter(provider) {
-  if (!provider) {
+  if (provider === null) {
     IncommonFilter.imageSelected = () => true
     filters.filterImages()
     return
@@ -2996,8 +2996,9 @@ function incommonHackMain() {
       return 0
     })
     .forEach(provider => {
+      const providerLabel = provider.trim() === '' ? 'Unknown archive' : provider
       html += `<div class="incommon-provider-item" data-provider="${provider}">
-        <div class="incommon-provider-text">${provider}</div> <div class="incommon-provider-count">${countsByProvider[provider]}</div></div>`
+        <div class="incommon-provider-text">${providerLabel}</div> <div class="incommon-provider-count">${countsByProvider[provider]}</div></div>`
     })
     const nav = document.getElementById('nav-inner')
     html = `<div class="incommon-filters-container">${html}</div>`
