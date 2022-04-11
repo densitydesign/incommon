@@ -78,9 +78,7 @@ function CaseStudy({ caseStudy, setReadMore }) {
         (i) => i.tipologia === 'Catalogo'
       )
 
-      const imagesAltro = imagesToUse.filter(
-        (i) => i.tipologia === 'Altro'
-      )
+      const imagesAltro = imagesToUse.filter((i) => i.tipologia === 'Altro')
 
       const imagesStampaGrafica = imagesToUse.filter(
         (i) => i.tipologia === 'Stampa grafica'
@@ -108,7 +106,7 @@ function CaseStudy({ caseStudy, setReadMore }) {
         ...imagesPartitura.slice(0, 10),
         ...imagesPartitura.slice(0, 10),
         ...imagesLettera,
-        ...imagesCatalogo.slice(0,10),
+        ...imagesCatalogo.slice(0, 10),
         ...imagesAltro,
         ...imagesStampaGrafica,
         ...imagesPieghevole,
@@ -202,6 +200,7 @@ function CaseStudy({ caseStudy, setReadMore }) {
 export default function CaseStudyDetail({ caseStudies }) {
   const { slug } = useParams()
   const [readMore, setReadMore] = useState(false)
+  const [closing, setClosing] = useState(false)
 
   const caseStudy = useMemo(
     () => find(caseStudies, { slug }),
@@ -215,7 +214,13 @@ export default function CaseStudyDetail({ caseStudies }) {
         <CaseStudy setReadMore={setReadMore} caseStudy={caseStudy} />
       )}
       {readMore && (
-        <ReadMorePanel setReadMore={setReadMore} caseStudy={caseStudy} />
+        <ReadMorePanel
+          setClosing={setClosing}
+          closing={closing}
+          readMore={readMore}
+          setReadMore={setReadMore}
+          caseStudy={caseStudy}
+        />
       )}
     </div>
   )

@@ -65,9 +65,9 @@ const styleZoomControl = {
 
 export default function TempiELuoghi() {
   const [town, setTown] = useState(null)
+  const [closing,setClosing] = useState(false)
   const [year, setYear] = useState(1969)
   const [showBackgound, setShowBackground] = useState(true)
-  const [panelInfo, setPanelInfo] = useState(false)
 
   const [{ spettacoli }] = useSpettacoli()
   const incommonDataYearsTown = useMemo(() => {
@@ -103,13 +103,15 @@ export default function TempiELuoghi() {
 
   return (
     <div className="TempiELuoghi position-relative vh-100">
-      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
+      <MenuTop />
       {town && (
         <DetailLuogo
           showBackground={showBackgound}
           spettacoli={spettacoliYear}
           networkYear={networkYear}
           town={town}
+          closing={closing}
+          setClosing={setClosing}
           year={year}
           toggleTown={toggleInfoTown}
           incommonDataYearsTown={incommonDataYearsTown}

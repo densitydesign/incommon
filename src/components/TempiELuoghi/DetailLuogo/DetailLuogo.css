@@ -25,6 +25,21 @@
   }
 }
 
+.closingDetail {
+  animation: animationTranslateClose 0.5s linear;
+  /*animation: animation-name animation-duration animation-direction animation-iteration-count */
+  transition: 0.2s ease-in-out;
+}
+
+@keyframes animationTranslateClose {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 ::-webkit-scrollbar {
   display: none;

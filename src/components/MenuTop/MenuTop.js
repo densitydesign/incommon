@@ -21,7 +21,6 @@ export default function MenuTop({
   const [panelInfo, setPanelInfo] = useState(false)
   const [closing, setClosing] = useState(false)
   const route = useLocation()
-  console.log(route)
   return (
     <div
       className={classNames(

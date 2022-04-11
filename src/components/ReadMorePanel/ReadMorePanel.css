@@ -20,6 +20,19 @@
     transform: translateY(0);
   }
 }
+.closing {
+  animation: animationname2 0.5s linear;
+  transition: 0.5s ease-in-out;
+}
+
+@keyframes animationname2 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 
 .ReadMorePanel .mt-3, .ReadMorePanel .mt-5
 

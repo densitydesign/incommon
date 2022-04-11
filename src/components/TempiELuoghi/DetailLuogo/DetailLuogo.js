@@ -1,5 +1,5 @@
 import { groupBy } from 'lodash'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
 import './DetailLuogo.css'
 
@@ -33,6 +33,8 @@ export default function DetailLuogo({
   showBackground,
   dataYearsTown,
   incommonDataYearsTown,
+  closing,
+  setClosing,
   year,
 }) {
   const networkSpettacoli = networkYear.map((spet) => ({
@@ -61,9 +63,28 @@ export default function DetailLuogo({
     dataForChart.push(dataChart)
   }
 
+  const closeClass = useMemo(() => {
+    if (closing) {
+      return 'closingDetail'
+    }
+  }, [closing])
+
   return (
-    <div className="DetailLuogo">
-      <div className="pointer p-4 text-right" onClick={() => toggleTown(null)}>
+    <div
+      className={`DetailLuogo ${closeClass}`}
+      onAnimationEnd={() => {
+        if (closing) {
+          setClosing(false)
+          toggleTown(null)
+        }
+      }}
+    >
+      <div
+        className="pointer p-4 text-right"
+        onClick={() => {
+          setClosing(true)
+        }}
+      >
         <img src="/close-document.svg" alt="close" />
       </div>
       <div className="p-4">
