@@ -267,7 +267,17 @@ export default function Forma() {
     const containerHeight = graphDomRef.current.clientHeight
     const containerWidth = graphDomRef.current.clientWidth
 
-    const graphics = Viva.Graph.View.webglGraphics()
+    var graphicsOptions = {
+      clearColor: true, // we want to avoid rendering artifacts
+      clearColorValue: { // use black color to erase background
+        r: 0,
+        g: 0,
+        b: 0,
+        a: 1
+      }
+    };
+
+    const graphics = Viva.Graph.View.webglGraphics(graphicsOptions)
 
     const circleNode = buildCircleNodeShader()
     graphics.setNodeProgram(circleNode)
