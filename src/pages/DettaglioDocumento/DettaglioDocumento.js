@@ -7,6 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loa
 import { Carousel } from 'react-responsive-carousel'
 import { useDocument } from '../../hooks/documents'
 import { useHistory, useParams } from 'react-router-dom'
+import PannelloInfo from '../../components/PannelloInfo'
 
 const CarouselImages = ({ currentSlide, document }) => {
   return (
@@ -25,7 +26,6 @@ const CarouselImages = ({ currentSlide, document }) => {
             <img
               src={image.image}
               alt={document.spettacolo}
-              // style={{ width: 450 }}
             />
           </div>
         ))}
@@ -36,6 +36,7 @@ const CarouselImages = ({ currentSlide, document }) => {
 export default function DettaglioDocumento() {
   const { id } = useParams()
   const [{ document }] = useDocument(id)
+  const [panelInfo, setPanelInfo] = useState(false)
 
   const history = useHistory()
 
@@ -51,7 +52,7 @@ export default function DettaglioDocumento() {
 
   return (
     <div className="DettaglioDocumento">
-      <MenuTop />
+      <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
         {document && (
@@ -169,6 +170,7 @@ export default function DettaglioDocumento() {
           </TransformWrapper>
         )}
       </div>
+      {panelInfo && <PannelloInfo type="catalogo" />}
     </div>
   )
 }
