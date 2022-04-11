@@ -1,7 +1,6 @@
 import React from "react"
 import "../PannelloInfo.css"
 import recomposition01 from "../assets/Recomposition_01@2x.png"
-import recomposition02 from "../assets/Recomposition_03@2x.png"
 import recomposition03 from "../assets/Recomposition_04@2x.png"
 import recomposition04 from "../assets/Recomposition_05@2x.png"
 import recomposition05 from "../assets/Recomposition_02@2x.png"
