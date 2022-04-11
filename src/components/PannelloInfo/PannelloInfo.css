@@ -1,33 +1,44 @@
-.PannelloInfo{
-    top: calc(var(--topbar-height) - 1px);
-    padding-bottom: 20px;
-    padding-top: 80px;
-    width: 100%;
-    background: #000000;
-    position: fixed;
-    left: 0;
-    height: calc(100vh - var(--topbar-height) - 1px);
-    right: 0;
-    overflow-y: auto;
-    z-index: 2000;
+.PannelloInfo {
+  top: calc(var(--topbar-height) - 1px);
+  padding-bottom: 20px;
+  padding-top: 80px;
+  width: 100%;
+  background: #000000;
+  position: fixed;
+  left: 0;
+  height: calc(100vh - var(--topbar-height) - 1px);
+  right: 0;
+  overflow-y: auto;
+  z-index: 2000;
+  animation: animationname 0.5s linear;
+  /*animation: animation-name animation-duration animation-direction animation-iteration-count */
+  transition: 0.2s ease-in-out;
+}
+
+@keyframes animationname {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .PannelloInfo > div {
-    font-size: 40px;
-    letter-spacing: 0.8px;
-    line-height: 48px;
-    padding-left: 260px;
-    padding-right: 260px;
+  font-size: 40px;
+  letter-spacing: 0.8px;
+  line-height: 48px;
+  padding-left: 260px;
+  padding-right: 260px;
 }
 
 .title-panel {
-    color: rgb(217, 33, 0);
+  color: rgb(217, 33, 0);
 }
 
-
-@media screen and (max-width: 1024px){
-    .PannelloInfo > div {
-      padding-left: 100px;
-      padding-right: 100px;
-     }
+@media screen and (max-width: 1024px) {
+  .PannelloInfo > div {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

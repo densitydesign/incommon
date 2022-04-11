@@ -8,7 +8,21 @@
   right: 0;
   overflow-y: auto;
   z-index: 2000;
+  animation: animationname 0.5s linear;
+  /*animation: animation-name animation-duration animation-direction animation-iteration-count */
+  transition: 0.2s ease-in-out;
 }
+
+@keyframes animationname {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
 
 .ReadMorePanel .mt-3, .ReadMorePanel .mt-5
 

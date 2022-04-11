@@ -11,7 +11,20 @@
   overflow: auto;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  animation: animationname 0.5s linear;
+  /*animation: animation-name animation-duration animation-direction animation-iteration-count */
+  transition: 0.2s ease-in-out;
 }
+
+@keyframes animationname {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 
 ::-webkit-scrollbar {
   display: none;
