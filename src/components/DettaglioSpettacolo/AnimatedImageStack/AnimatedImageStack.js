@@ -194,22 +194,12 @@ export default function AnimatedImageStack({
     }
   }
 
-  const linkToUse = useMemo(() => {
-    if (tipologia) {
-      return `${link}&tipologia=${tipologia}`
-    }
-    if (archivio) {
-      return `${link}&content_provider=${archivio}`
-    }
-    return link
-  }, [archivio, tipologia, link])
-
   return (
     <div ref={ref} style={{ position: 'relative' }} className="w-100 h-100">
       {height > 0 &&
         width > 0 &&
         groupNames.map((groupName, groupIndex) => (
-          <Link to={linkToUse} key={groupName}>
+          <Link to={link} key={groupName}>
             {imagesByGroup[groupName].map((image, index) => (
               <ImgContainer
                 randomize={randomizeGroup === groupName}

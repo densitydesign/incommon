@@ -131,22 +131,6 @@ function CaseStudy({ caseStudy, setReadMore }) {
       RANDOM_SEED
     )
   }, [archivio, caseStudy.images, caseStudy.titolo, tipologia])
-  // const images = []
-
-  // const [{ documents }] = useDocuments(
-  //   useMemoCompare({
-  //     casestudy: caseStudy.titolo,
-  //   })
-  // )
-
-  // const imagesByTipologiaLength = Object.keys(groupBy(images, "tipologia"))
-  //   .length
-  // const imagesByTipologia = groupBy(
-  //   images.map((img, index) => ({ ...img, index })),
-  //   (img) => img.index % imagesByTipologiaLength
-  // )
-
-  console.log(images)
 
   const groupedArchivio = groupBy(images, 'content_provider')
   const groupedTipologia = groupBy(images, 'tipologia')
