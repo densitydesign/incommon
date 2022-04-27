@@ -21,7 +21,7 @@ function CaseStudy({ caseStudy, setReadMore }) {
   const [group, setGroup] = useState(null)
 
   const linkDocuments = useMemo(() => {
-    let link = `/catalogue?spettacolo=${caseStudy.titolo}`
+    let link = `/catalogue?casestudy=${caseStudy.titolo}`
     if (tipologia) {
       link = link + `&tipologia=${tipologia}`
     }

@@ -180,6 +180,15 @@ export default function FiltersCatalogo({
         countBy={countBy}
       />
       <ItemFilter
+        name="casestudy"
+        addFilter={addFilter}
+        nameToShow={'Case Study'}
+        filters={filters}
+        filterOpen={filterOpen}
+        toggleFilterOpen={toggleFilterOpen}
+        countBy={countBy}
+      />
+      <ItemFilter
         name="content_provider"
         nameToShow={'Content provider'}
         addFilter={addFilter}

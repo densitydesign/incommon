@@ -23,6 +23,7 @@ export default function Catalogo() {
       rivista: qpList(),
       compagnia: qpList(),
       content_provider: qpList(),
+      casestudy: qpList()
     })
 
   const { q = '' } = queryParams

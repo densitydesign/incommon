@@ -86,6 +86,15 @@ export default function FiltersCatalogoActive({ filters, removeFilter }) {
           {content_provider} <small className="ml-1">x</small>
         </span>
       ))}
+      {(filters.casestudy ?? []).map((casestudy) => (
+        <span
+          onClick={() => removeFilter('casestudy', casestudy)}
+          className="mr-3"
+          key={casestudy}
+        >
+          {casestudy} <small className="ml-1">x</small>
+        </span>
+      ))}
     </div>
   )
 }
