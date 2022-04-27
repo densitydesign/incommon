@@ -126,7 +126,7 @@ export default function DettaglioDocumento() {
                       position: 'absolute',
                       left: '25%',
                       top: 57,
-                      height: '100%',
+                      height: 'calc(100vh - 120px)',
                       zIndex: 100,
                     }}
                     onClick={() => {
@@ -141,7 +141,7 @@ export default function DettaglioDocumento() {
                       position: 'absolute',
                       right: 0,
                       top: 57,
-                      height: '100%',
+                      height: 'calc(100vh - 120px)',
                       zIndex: 100,
                     }}
                     onClick={() => {

@@ -24,7 +24,7 @@
 
 .img-document{
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 120px);
 }
 
 .img-document::-webkit-scrollbar{
