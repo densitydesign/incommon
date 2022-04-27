@@ -155,7 +155,7 @@ export default function AnimatedImageStack({
     return group ? byGroup[group] : { '': images }
   }, [byGroup, group, images])
 
-  console.log(byGroup)
+  console.log(byGroup, group)
 
   const [size, setSize] = useState({ width: 0, height: 0 })
 
@@ -194,27 +194,37 @@ export default function AnimatedImageStack({
     }
   }
 
+  console.log(groupNames, imagesByGroup)
+
   return (
     <div ref={ref} style={{ position: 'relative' }} className="w-100 h-100">
       {height > 0 &&
         width > 0 &&
-        groupNames.map((groupName, groupIndex) => (
-          <Link to={link} key={groupName}>
-            {imagesByGroup[groupName].map((image, index) => (
-              <ImgContainer
-                randomize={randomizeGroup === groupName}
-                toggleRandomize={toggleRandomizeGroup(groupName)}
-                key={index}
-                imageHeight={imageHeight}
-                imageWidth={imageWidth}
-                index={index}
-                image={image}
-                left={centers[groupName].x - imageWidth / 2}
-                top={centers[groupName].y - imageHeight / 2}
-              ></ImgContainer>
-            ))}
-          </Link>
-        ))}
+        groupNames.map((groupName, groupIndex) => {
+          const filter =
+            group === 'archivio'
+              ? `&content_provider=${byGroup[group][groupName][0].content_provider}`
+              : group === 'tipologia'
+              ? `&tipologia=${byGroup[group][groupName][0].tipologia}`
+              : ''
+          return (
+            <Link to={`${link}${filter}`} key={groupName}>
+              {imagesByGroup[groupName].map((image, index) => (
+                <ImgContainer
+                  randomize={randomizeGroup === groupName}
+                  toggleRandomize={toggleRandomizeGroup(groupName)}
+                  key={index}
+                  imageHeight={imageHeight}
+                  imageWidth={imageWidth}
+                  index={index}
+                  image={image}
+                  left={centers[groupName].x - imageWidth / 2}
+                  top={centers[groupName].y - imageHeight / 2}
+                ></ImgContainer>
+              ))}
+            </Link>
+          )
+        })}
     </div>
   )
 }

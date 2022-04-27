@@ -20,16 +20,7 @@ function CaseStudy({ caseStudy, setReadMore }) {
   const [tipologia, setTipologia] = useState(null)
   const [group, setGroup] = useState(null)
 
-  const linkDocuments = useMemo(() => {
-    let link = `/catalogue?casestudy=${caseStudy.titolo}`
-    if (tipologia) {
-      link = link + `&tipologia=${tipologia}`
-    }
-    if (archivio) {
-      link = link + `&content_provider=${archivio}`
-    }
-    return link
-  }, [caseStudy, tipologia, archivio])
+  const linkDocuments = `/catalogue?casestudy=${caseStudy.titolo}`
 
   const toggleShowMoreInfo = () => {
     setShowMoreInfo(!showMoreInfo)
