@@ -5,11 +5,12 @@
 }
 
 .block-text-home {
+  padding-top: 20px;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
-  line-height: 58px;
-  letter-spacing: 0.03em;
+  line-height: 57px;
+  letter-spacing: 0.02em;
   color: #ffffff;
 }
 
@@ -97,6 +98,7 @@
   line-height: 46px;
   font-style: normal;
   font-weight: normal;
+  letter-spacing: 0.02em;
 }
 
 .first-circle {
@@ -153,11 +155,22 @@
 }
 
 
+
+@media screen and (max-width: 1200px){
+  .block-text-home {
+    padding-top: 3px;
+    font-size: 40px;
+    line-height: 45px;
+    letter-spacing: 0.02em;
+}
+}
+
 @media screen and (max-width: 1200px){
     .title-page-home, .description-page-home {
     font-size: 25px;
-    line-height: 37px;
+    line-height: 32px;
     padding-top: 35px;
+    letter-spacing: 0.02em;
      }
 }
 

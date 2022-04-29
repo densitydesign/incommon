@@ -528,6 +528,63 @@ He deals with the financial and administrative management of the project in rega
           </div>
         </div>
       </div>
+
+      <div className="team-incommon">
+        <div className="title-incommon-team">Publications</div>
+        <div className="row">
+          <div className="col-md-4">
+            <div>
+            <strong>Giada Cipollone </strong>  Fotografia e performatività. Teorie, pratiche e immagini dalla scena sperimentale degli anni Sessanta e Settanta, Venezia, Marsilio, forthcoming
+            </div>
+            <div className="mt-5">
+            <strong>Giada Cipollone </strong> Ritrattistica d’attore e fotografia di scena in Italia (1905-43). Immagini d’attrice dal Fondo Turconi, Milano, Scalpendi, 2020
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div>
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div>
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+
+            </div>
+            <div className="mt-5">
+            
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="border-top">
         <Footer />
       </div>
