@@ -62,6 +62,10 @@ function RunSlideshow({ slideshowConfig, slug }) {
       ? image.src.split('/').splice(-1)[0].split('.')[0]
       : null
 
+  if (docID.indexOf('_') > -1) {
+    docID = docID.split('_')[0]
+  }
+
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
