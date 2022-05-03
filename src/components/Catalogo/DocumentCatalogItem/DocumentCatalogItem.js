@@ -9,12 +9,17 @@ export default function DocumentCatalogItem({ document, isCollapsed }) {
     return document.images
   }, [document.images])
 
+  function addDefaultSrc(ev){
+    ev.target.src = 'placeholder-image.png'
+  }
+
   return (
     <>
       {!isCollapsed ? (
         images.map((img, index) => {
           return (
             <img
+              onError={(e) => addDefaultSrc(e)}
               className={classnames('mr-4 mt-4 pointer img-catalog')}
               onClick={() => history.push('/catalogue/' + document.id)}
               key={index}
