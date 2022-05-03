@@ -22,7 +22,7 @@ export default function About() {
   return (
     <div className="About">
       <Link to="/">
-        <div className="banner pointer">
+        <div className="pointer">
           <svg
             width={'100%'}
             height={600}
