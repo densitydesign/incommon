@@ -773,16 +773,23 @@ export default function Forma() {
           </div>
           <div
             className="mt-5 ml-4 pointer"
+            style={{ opacity: dataType === 'api' ? 1 : 0.5}}
             onClick={() => {
-              if (dataType === 'normal') {
-                setDataType('api')
-              } else {
-                setDataType('normal')
-              }
+              setDataType('api')
               setRelazione(null)
             }}
           >
-            Change data
+            Show Incommon network
+          </div>
+          <div
+            className="mt-2 ml-4 pointer"
+            style={{ opacity: dataType === 'normal' ? 1 : 0.5}}
+            onClick={() => {
+              setDataType('normal')
+              setRelazione(null)
+            }}
+          >
+            Show theatrographic network
           </div>
         </div>
         <ZoomControls
