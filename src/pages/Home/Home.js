@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import Footer from '../../components/Footer'
+import { Modal, ModalBody } from 'reactstrap'
 
 const ARCHIVIO = 'performance-remains'
 const SPETTACOLO = 'recomposition'
@@ -14,6 +15,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(null)
   const firstORef = useRef()
   const secondORef = useRef()
+  const [video, setVideo] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
@@ -237,6 +239,13 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div onClick={() => setVideo(!video)} className="TopHome pointer">
+        <img
+          className="img-fluid"
+          src="/incommon-video-home-thumbnail.png"
+          alt="Video"
+        />
+      </div>
       <div className="HomePages">
         <div
           className={classnames({
@@ -252,7 +261,9 @@ export default function Home() {
             {menuOpen === ARCHIVIO && (
               <>
                 <div className="description-page-home">
-                Like documents spread on a table, this view traces paths that jump from one performance to another, connecting materials across time and space.
+                  Like documents spread on a table, this view traces paths that
+                  jump from one performance to another, connecting materials
+                  across time and space.
                 </div>
                 <div className="d-flex align-items-center">
                   <Link className="esplora-home mt-1" to={ARCHIVIO}>
@@ -263,7 +274,10 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block" style={{ backgroundImage: "url('/performance-remains.png')"}}>
+          <div
+            className="image-block"
+            style={{ backgroundImage: "url('/performance-remains.png')" }}
+          >
             {/* <img src="/performance-remains.png" alt="Performance Remains" /> */}
           </div>
         </div>
@@ -283,7 +297,9 @@ export default function Home() {
             {menuOpen === SPETTACOLO && (
               <>
                 <div className="description-page-home">
-                  This view plays on the layering of materials as a generative technique. Documents, treated as raw footage, generate unexpected visions of the performances.
+                  This view plays on the layering of materials as a generative
+                  technique. Documents, treated as raw footage, generate
+                  unexpected visions of the performances.
                 </div>
                 <div className="d-flex align-items-center">
                   <Link className="esplora-home mt-1" to={SPETTACOLO}>
@@ -294,7 +310,10 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block" style={{ backgroundImage: "url('/recomposition.png')"}}>
+          <div
+            className="image-block"
+            style={{ backgroundImage: "url('/recomposition.png')" }}
+          >
             {/* <img src="/recomposition.png" alt="Recomposition" /> */}
           </div>
         </div>
@@ -312,7 +331,8 @@ export default function Home() {
             {menuOpen === FORMA && (
               <>
                 <div className="description-page-home">
-              This view shows the network of relations between people and events characterizing the Incommon community.
+                  This view shows the network of relations between people and
+                  events characterizing the Incommon community.
                 </div>
                 <div className="d-flex align-items-center">
                   <Link className="esplora-home mt-1" to={FORMA}>
@@ -323,7 +343,10 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block" style={{ backgroundImage: "url('/the-shape-of-community.png')"}}>
+          <div
+            className="image-block"
+            style={{ backgroundImage: "url('/the-shape-of-community.png')" }}
+          >
             {/* <img
               src="/the-shape-of-community.png"
               alt="The Shape of Community"
@@ -344,7 +367,9 @@ export default function Home() {
             {menuOpen === LUOGHI && (
               <>
                 <div className="description-page-home">
-                  This view illustrates the geographical and temporal extent of the community. The visualization displays the locations of Incommon from 1959 to 1979.
+                  This view illustrates the geographical and temporal extent of
+                  the community. The visualization displays the locations of
+                  Incommon from 1959 to 1979.
                 </div>
                 <div className="d-flex align-items-center">
                   <Link className="esplora-home mt-1" to={LUOGHI}>
@@ -355,7 +380,10 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block" style={{ backgroundImage: "url('/times-and-places.png')"}}>
+          <div
+            className="image-block"
+            style={{ backgroundImage: "url('/times-and-places.png')" }}
+          >
             {/* <img src="/times-and-places.png" alt="Times and Places" /> */}
           </div>
         </div>
@@ -373,7 +401,9 @@ export default function Home() {
             {menuOpen === CATALOGO && (
               <>
                 <div className="description-page-home">
-              This view maintains the traditional conception of materials as documents. The filters offer means to stimulate new readings of documents as collections.
+                  This view maintains the traditional conception of materials as
+                  documents. The filters offer means to stimulate new readings
+                  of documents as collections.
                 </div>
                 <div className="d-flex align-items-center">
                   <Link className="esplora-home mt-1" to={CATALOGO}>
@@ -384,11 +414,27 @@ export default function Home() {
               </>
             )}
           </div>
-          <div className="image-block" style={{ backgroundImage: "url('/catalogue.png')"}}>
+          <div
+            className="image-block"
+            style={{ backgroundImage: "url('/catalogue.png')" }}
+          >
             {/* <img src="/catalogue.png" alt="Catalogue" /> */}
           </div>
         </div>
         <Footer />
+        <Modal centered size="lg" isOpen={video} toggle={() => setVideo(!video)}>
+          <ModalBody>
+            {/* <iframe
+              width="100%"
+              height="450"
+              src="https://www.youtube.com/embed/Rnh_buYU4Qw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe> */}
+          </ModalBody>
+        </Modal>
       </div>
     </div>
   )

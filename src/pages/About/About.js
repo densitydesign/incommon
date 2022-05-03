@@ -198,16 +198,6 @@ export default function About() {
           </svg>
         </div>
       </Link>
-      <div
-        style={{
-          height: 400,
-          backgroundColor: "red",
-          marginLeft: 60,
-          marginRight: 60,
-        }}
-      >
-        PLACEHOLDER VIDEO
-      </div>
       <div className="team-incommon">
         <div className="title-incommon-team">INCOMMON TEAM</div>
         <div className="row">
