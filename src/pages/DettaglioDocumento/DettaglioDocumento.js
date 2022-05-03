@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import MenuTop from '../../components/MenuTop'
 import FiltersDocumentDetail from '../../components/DettaglioDocumento/FiltersDocumentDetail'
 import './DettaglioDocumento.css'
@@ -22,13 +22,154 @@ const CarouselImages = ({ currentSlide, document }) => {
       {document.images &&
         document.images.map((image, key) => (
           <div key={key}>
-            <img
-              src={image.image}
-              alt={document.spettacolo}
-            />
+            <img src={image.image} alt={document.spettacolo} />
           </div>
         ))}
     </Carousel>
+  )
+}
+
+function ImageDetail({ currentSlide, next, prev, document }) {
+  const history = useHistory()
+  return (
+    <TransformWrapper centerOnInit={true} minScale={0.35} initialScale={0.35}>
+      {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+        <div className="body-document">
+          <div className="header-images d-flex justify-content-between">
+            <div className="zoom-buttons d-flex align-items-center">
+              <div
+                className="pointer"
+                style={{ zIndex: 101 }}
+                onClick={() => zoomOut()}
+              >
+                <img
+                  onMouseOver={(e) =>
+                    (e.currentTarget.src = '/zoom-out-white.svg')
+                  }
+                  onMouseLeave={(e) => (e.currentTarget.src = '/zoom-out.svg')}
+                  src={'/zoom-out.svg'}
+                  alt="Zoom out"
+                />
+              </div>
+              <div
+                style={{ zIndex: 101 }}
+                className="ml-3 pointer reset"
+                onClick={() => resetTransform()}
+              >
+                reset
+              </div>
+              <div
+                style={{ zIndex: 101 }}
+                className="ml-3 pointer"
+                onClick={() => zoomIn()}
+              >
+                <img
+                  onMouseOver={(e) =>
+                    (e.currentTarget.src = '/zoom-in-white.svg')
+                  }
+                  onMouseLeave={(e) => (e.currentTarget.src = '/zoom-in.svg')}
+                  src={'/zoom-in.svg'}
+                  alt="Zoom in"
+                />
+              </div>
+            </div>
+            <div className="d-flex align-items-center">
+              {currentSlide !== 0 && (
+                <div
+                  style={{ zIndex: 101 }}
+                  className="pointer"
+                  onClick={() => prev()}
+                >
+                  <img src="/arrow-left.svg" alt="back" />
+                </div>
+              )}
+              <div className="ml-2">
+                {currentSlide + 1} / {document.images.length}
+              </div>
+              {currentSlide !== document.images.length - 1 &&
+                document.images.length > 1 && (
+                  <div
+                    style={{ zIndex: 101 }}
+                    className="ml-2 pointer"
+                    onClick={() => next()}
+                  >
+                    <img src="/arrow-right.svg" alt="back" />
+                  </div>
+                )}
+              <div
+                onClick={() => history.goBack()}
+                className="pointer ml-4"
+                style={{ zIndex: 101 }}
+              >
+                <img src="/close-document.svg" alt="Close document" />
+              </div>
+            </div>
+          </div>
+          <div className="img-document d-flex align-items-center justify-content-center">
+            <div
+              style={{
+                width: 300,
+                position: 'absolute',
+                left: '25%',
+                top: 57,
+                height: 'calc(100vh - 120px)',
+                zIndex: 100,
+              }}
+              onClick={() => {
+                if (currentSlide !== 0) {
+                  prev()
+                }
+              }}
+            ></div>
+            <div
+              style={{
+                width: 300,
+                position: 'absolute',
+                right: 0,
+                top: 57,
+                height: 'calc(100vh - 120px)',
+                zIndex: 100,
+              }}
+              onClick={() => {
+                if (
+                  currentSlide !== document.images.length - 1 &&
+                  document.images.length > 1
+                ) {
+                  next()
+                }
+              }}
+            ></div>
+            <TransformComponent
+              // contentStyle={{ paddingTop: 20, paddingBottom: 20, height: '90%' }}
+              wrapperStyle={{ width: '100%', height: '100%' }}
+            >
+              <CarouselImages currentSlide={currentSlide} document={document} />
+            </TransformComponent>
+          </div>
+        </div>
+      )}
+    </TransformWrapper>
+  )
+}
+
+function VideoDetail({ currentSlide, document }) {
+  return (
+    <div className="body-document">
+      <video autoPlay controls className="p-5" height={'100%'} width="100%">
+        <source src={document.images[currentSlide].image} />
+      </video>
+    </div>
+  )
+}
+
+
+function AudioDetail({ currentSlide, document }) {
+  return (
+    <div className="body-document d-flex align-items-center justify-content-center">
+      <audio autoPlay controls height={'200'} width="100%">
+        <source type="audio/mpeg" src={document.images[currentSlide].image} />
+      </audio>
+    </div>
   )
 }
 
@@ -36,7 +177,22 @@ export default function DettaglioDocumento() {
   const { id } = useParams()
   const [{ document }] = useDocument(id)
 
-  const history = useHistory()
+  const type = useMemo(() => {
+    if (
+      document &&
+      (document.images[0].image.split('.').pop() === 'mp4' ||
+        document.images[0].image.split('.').pop() === 'mov')
+    ) {
+      return 'video'
+    } else if (
+      document &&
+      document.images[0].image.split('.').pop() === 'mp3'
+    ) {
+      return 'audio'
+    } else {
+      return 'image'
+    }
+  }, [document])
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -50,122 +206,32 @@ export default function DettaglioDocumento() {
 
   return (
     <div className="DettaglioDocumento">
-      <MenuTop typePanel='catalogo' />
+      <MenuTop typePanel="catalogo" />
       <div className="d-flex page">
         <FiltersDocumentDetail document={document} />
-        {document && (
-          <TransformWrapper
-            centerOnInit={true}
-            minScale={0.35}
-            initialScale={0.35}
-          >
-            {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-              <div className="body-document">
-                <div className="header-images d-flex justify-content-between">
-                  <div className="zoom-buttons d-flex align-items-center">
-                    <div className="pointer" style={{ zIndex: 101 }} onClick={() => zoomOut()}>
-                      <img
-                        onMouseOver={(e) =>
-                          (e.currentTarget.src = '/zoom-out-white.svg')
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.src = '/zoom-out.svg')
-                        }
-                        src={'/zoom-out.svg'}
-                        alt="Zoom out"
-                      />
-                    </div>
-                    <div
-                      style={{ zIndex: 101 }}
-                      className="ml-3 pointer reset"
-                      onClick={() => resetTransform()}
-                    >
-                      reset
-                    </div>
-                    <div style={{ zIndex: 101 }} className="ml-3 pointer" onClick={() => zoomIn()}>
-                      <img
-                        onMouseOver={(e) =>
-                          (e.currentTarget.src = '/zoom-in-white.svg')
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.src = '/zoom-in.svg')
-                        }
-                        src={'/zoom-in.svg'}
-                        alt="Zoom in"
-                      />
-                    </div>
-                  </div>
-                  <div className="d-flex align-items-center">
-                    {currentSlide !== 0 && (
-                      <div style={{ zIndex: 101 }} className="pointer" onClick={() => prev()}>
-                        <img src="/arrow-left.svg" alt="back" />
-                      </div>
-                    )}
-                    <div className="ml-2">
-                      {currentSlide + 1} / {document.images.length}
-                    </div>
-                    {currentSlide !== document.images.length - 1 &&
-                      document.images.length > 1 && (
-                        <div style={{ zIndex: 101 }} className="ml-2 pointer" onClick={() => next()}>
-                          <img src="/arrow-right.svg" alt="back" />
-                        </div>
-                      )}
-                    <div
-                      onClick={() => history.goBack()}
-                      className="pointer ml-4"
-                      style={{ zIndex: 101 }}
-                    >
-                      <img src="/close-document.svg" alt="Close document" />
-                    </div>
-                  </div>
-                </div>
-                <div className="img-document d-flex align-items-center justify-content-center">
-                  <div
-                    style={{
-                      width: 300,
-                      position: 'absolute',
-                      left: '25%',
-                      top: 57,
-                      height: 'calc(100vh - 120px)',
-                      zIndex: 100,
-                    }}
-                    onClick={() => {
-                      if (currentSlide !== 0) {
-                        prev()
-                      }
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      width: 300,
-                      position: 'absolute',
-                      right: 0,
-                      top: 57,
-                      height: 'calc(100vh - 120px)',
-                      zIndex: 100,
-                    }}
-                    onClick={() => {
-                      if (
-                        currentSlide !== document.images.length - 1 &&
-                        document.images.length > 1
-                      ) {
-                        next()
-                      }
-                    }}
-                  ></div>
-                  <TransformComponent
-                    // contentStyle={{ paddingTop: 20, paddingBottom: 20, height: '90%' }}
-                    wrapperStyle={{ width: '100%', height: '100%' }}
-                  >
-                    <CarouselImages
-                      currentSlide={currentSlide}
-                      document={document}
-                    />
-                  </TransformComponent>
-                </div>
-              </div>
-            )}
-          </TransformWrapper>
+        {document && type === 'image' && (
+          <ImageDetail
+            prev={prev}
+            next={next}
+            document={document}
+            currentSlide={currentSlide}
+          />
+        )}
+        {document && type === 'video' && (
+          <VideoDetail
+            prev={prev}
+            next={next}
+            document={document}
+            currentSlide={currentSlide}
+          />
+        )}
+        {document && type === 'audio' && (
+          <AudioDetail
+            prev={prev}
+            next={next}
+            document={document}
+            currentSlide={currentSlide}
+          />
         )}
       </div>
     </div>

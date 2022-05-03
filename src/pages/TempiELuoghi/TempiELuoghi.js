@@ -10,7 +10,6 @@ import network from "../../data/network-luoghi.json"
 import "rc-slider/assets/index.css"
 import "./TempiELuoghi.css"
 import useSpettacoli from "../../hooks/spettacoli"
-import PannelloInfo from "../../components/PannelloInfo"
 
 const Map = ReactMapboxGl({
   accessToken:

@@ -236,8 +236,6 @@ export default function Forma() {
   const attoriWithEventi = groupBy(network, 'Attore')
   const relazioniCount = countBy(network, 'Relazione')
 
-  console.log(relazioniCount)
-
   const [relazioneState, setRelazione] = useState(null)
 
   const filterRelazione = (relazione) => {
