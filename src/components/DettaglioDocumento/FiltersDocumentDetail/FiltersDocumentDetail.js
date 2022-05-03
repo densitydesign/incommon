@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import './FiltersDocumentDetail.css'
+import mapLanguage from '../../../data/DocumentTypeDictionary.json'
 
 export default function FiltersDocumentDetail({ document }) {
   const history = useHistory()
@@ -83,11 +84,11 @@ export default function FiltersDocumentDetail({ document }) {
                 <div className="filter-body-detail">
                   <div
                     onClick={() =>
-                      history.push(`/catalogue?tipologia=${document.tipologia}`)
+                      history.push(`/catalogue?tipologia=${document.tipologia.replace(' ','%20')}`)
                     }
                     className="circle-filter-detail pointer"
                   >
-                    {document.tipologia}
+                    {mapLanguage[document.tipologia]}
                   </div>
                 </div>
               </div>
