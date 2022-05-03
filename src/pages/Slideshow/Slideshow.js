@@ -57,10 +57,14 @@ function RunSlideshow({ slideshowConfig, slug }) {
     }
   }
   const image = flatImages[index]
-  const docID =
+  let docID =
     image.src.indexOf('https://archivio.in-common.org') === 0
       ? image.src.split('/').splice(-1)[0].split('.')[0]
       : null
+
+  if (docID.indexOf('_') > -1) {
+    docID = docID.split('_')[0]
+  }
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
@@ -85,14 +89,14 @@ function RunSlideshow({ slideshowConfig, slug }) {
         <div onClick={goPrev} className="slide-click-spy-prev" />
         <div onClick={goNext} className="slide-click-spy-next" />
         <div className="slide-index">
-          <Link className='no-link text-white open-document-file mr-4' to={`/catalogue/${docID}`}>
+          <Link
+            className="no-link text-white open-document-file mr-4"
+            to={`/catalogue/${docID}`}
+          >
             <div>open document file</div>
           </Link>
           {index + 1} / {totalImages}
-          <Link
-            className="pointer ml-3"
-            to={`/recomposition/${slug}`}
-          >
+          <Link className="pointer ml-3" to={`/recomposition/${slug}`}>
             <img src="/close-document.svg" alt="Close" />
           </Link>
         </div>
