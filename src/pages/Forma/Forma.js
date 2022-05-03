@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import MenuTop from '../../components/MenuTop'
 import Viva from 'vivagraphjs'
 import networkBig from '../../data/network-forma.json'
+import networkApi from '../../data/network-forma-api.json'
 import groupBy from 'lodash/groupBy'
 import uniqBy from 'lodash/uniqBy'
 import truncate from 'lodash/truncate'
@@ -11,20 +12,8 @@ import SearchResults from './SearchResults'
 import SelectedCard from './SelectedCard'
 import { X } from 'react-bootstrap-icons'
 import ZoomControls from './ZoomControls'
-import PannelloInfo from '../../components/PannelloInfo'
 import './Forma.css'
 
-const network = networkBig
-
-// NOTE: Maybe calculate them inside react component
-// The downside to have this here is that memory is always used
-// ... also in other page ... but for now is ok
-// .. on the other hand .. have stuff here speed up inital rendering
-const eventi = uniqBy(network, 'Evento')
-const attori = uniqBy(network, 'Attore')
-const eventiWithAttori = groupBy(network, 'Evento')
-const attoriWithEventi = groupBy(network, 'Attore')
-const relazioniCount = countBy(network, 'Relazione')
 function buildCircleNodeShader() {
   // For each primitive we need 6 attributes: x, y, size, fill, stroke, strokeSize.
   const ATTRIBUTES_PER_PRIMITIVE = 6,
@@ -233,6 +222,21 @@ export default function Forma() {
   const graphDomRef = useRef()
   const graphRef = useRef()
   const rerenderRef = useRef()
+  const [dataType, setDataType] = useState('normal')
+
+  const network = dataType === 'normal' ? networkBig : networkApi
+
+  // NOTE: Maybe calculate them inside react component
+  // The downside to have this here is that memory is always used
+  // ... also in other page ... but for now is ok
+  // .. on the other hand .. have stuff here speed up inital rendering
+  const eventi = uniqBy(network, 'Evento')
+  const attori = uniqBy(network, 'Attore')
+  const eventiWithAttori = groupBy(network, 'Evento')
+  const attoriWithEventi = groupBy(network, 'Attore')
+  const relazioniCount = countBy(network, 'Relazione')
+
+  console.log(relazioniCount)
 
   const [relazioneState, setRelazione] = useState(null)
 
@@ -240,6 +244,12 @@ export default function Forma() {
     setRelazione(relazione)
     filterGraphRelation(relazione)
   }
+
+  useEffect(() => {
+    document.querySelectorAll('.node-label').forEach((label) => {
+      label.style.display = 'none'
+    })
+  }, [dataType, relazioneState])
 
   useEffect(() => {
     const graph = Viva.Graph.graph()
@@ -269,13 +279,14 @@ export default function Forma() {
 
     var graphicsOptions = {
       clearColor: true, // we want to avoid rendering artifacts
-      clearColorValue: { // use black color to erase background
+      clearColorValue: {
+        // use black color to erase background
         r: 0,
         g: 0,
         b: 0,
-        a: 1
-      }
-    };
+        a: 1,
+      },
+    }
 
     const graphics = Viva.Graph.View.webglGraphics(graphicsOptions)
 
@@ -455,12 +466,11 @@ export default function Forma() {
       })
       return labels
     }
-
     renderer.run()
     return () => {
       renderer.dispose()
     }
-  }, [])
+  }, [dataType])
 
   useEffect(() => {
     const renderer = rerenderRef.current
@@ -621,8 +631,6 @@ export default function Forma() {
     return orderBy(results.slice(0, 100), 'title')
   }, [nodeScreenSet, search])
 
-  console.log(searchResults)
-
   const [selectedItem, setSelectedItem] = useState(null)
 
   function enterItem(item, type) {
@@ -741,7 +749,7 @@ export default function Forma() {
               <div style={{ marginTop: 100 }}>
                 <u>Filter by relation</u>
                 <div>
-                  {Object.keys(relazioniCount).map((relazione) => (
+                  {Object.keys(relazioniCount).sort().map((relazione) => (
                     <div
                       onClick={() =>
                         relazione === relazioneState
@@ -764,6 +772,19 @@ export default function Forma() {
                 </div>
               </div>
             )}
+          </div>
+          <div
+            className="mt-5 ml-4 pointer"
+            onClick={() => {
+              if (dataType === 'normal') {
+                setDataType('api')
+              } else {
+                setDataType('normal')
+              }
+              setRelazione(null)
+            }}
+          >
+            Change data
           </div>
         </div>
         <ZoomControls
