@@ -21,7 +21,10 @@ export default function SelectedCard({
         <div key={relationName} className="mt-4">
           <h5 className="relation-name">{relationName}</h5>
           <ul className="list-events-actors">
-            {uniqBy(relationsByType[relationName],'Evento').map((relation, i) => (
+            {uniqBy(
+              relationsByType[relationName],
+              item.type === 'attore' ? 'Evento' : 'Attore'
+            ).map((relation, i) => (
               <li
                 className={classNames(
                   'd-flex justify-content-between pointer',
