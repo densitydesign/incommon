@@ -6,6 +6,8 @@
 
 .block-text-home {
   padding-top: 20px;
+  padding-left: 61px;
+  padding-right: 61px;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
@@ -13,8 +15,6 @@
   letter-spacing: 0.02em;
   color: #ffffff;
 }
-
-
 
 .HomePages {
   margin-top: 32px;
@@ -37,7 +37,6 @@
   cursor: pointer;
   height: 501px;
   transition: height ease-out 0.5s;
-
 }
 
 .last-item-menu {
@@ -45,7 +44,6 @@
 }
 
 .page-home-open > .text-page-home {
-
   padding-left: 61px;
   width: 50%;
   padding-right: 5%;
@@ -75,7 +73,6 @@
   padding-top: 30px;
 }
 
-
 .esplora-home {
   font-style: normal;
   font-weight: normal;
@@ -102,17 +99,18 @@
 }
 
 .first-circle {
-  transform: translateY(-60px);
+  transform: translateY(-30px);
   transition: all 0.7s ease-in-out;
 }
 
 .second-circle {
-  transform: translateY(80px);
+  transform: translateY(30px);
   transition: all 0.7s ease-in-out;
 }
 
 .ContainerSvg {
   position: relative;
+  margin-top: 30px;
 }
 
 .footer {
@@ -131,6 +129,15 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 8px;
+}
+
+.st0 {
+  fill: #ffffff;
+}
+.st1 {
+  /* fill-rule: evenodd;
+  clip-rule: evenodd; */
+  fill: #ffffff;
 }
 
 .text-project {
@@ -154,41 +161,39 @@
   margin-left: 30px;
 }
 
-
-
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   .block-text-home {
     padding-top: 3px;
     font-size: 40px;
     line-height: 45px;
     letter-spacing: 0.02em;
-}
+  }
 }
 
-@media screen and (max-width: 1200px){
-    .title-page-home, .description-page-home {
+@media screen and (max-width: 1200px) {
+  .title-page-home,
+  .description-page-home {
     font-size: 25px;
     line-height: 32px;
     padding-top: 35px;
     letter-spacing: 0.02em;
-     }
+  }
 }
 
-@media screen and (max-width: 1200px){
-    .esplora-home {
+@media screen and (max-width: 1200px) {
+  .esplora-home {
     font-size: 20px;
     line-height: 40px;
-     }
+  }
 }
 
-@media screen and (max-width: 1200px){
-    .text-page-home img {
-width: 19px
-     }
+@media screen and (max-width: 1200px) {
+  .text-page-home img {
+    width: 19px;
+  }
 }
 
-
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   .page-home-open {
     height: 421px;
   }
