@@ -704,6 +704,7 @@ export default function Forma() {
           style={{
             background: 'black',
             width: '21.7%',
+            minWidth: '275px',
             zIndex: 1000,
             borderRight: '1px solid #555555',
             overflow: 'auto',
@@ -725,7 +726,7 @@ export default function Forma() {
               <X color="white" size={30} />
             </div>
           )}
-          <div className="ml-4 mr-4" style={{ marginTop: 30 }}>
+          <div className="ml-4 mr-4" style={{ marginTop: 30, minHeight:500, }}>
             {!selectedItem && (
               <SearchResults
                 search={search}
@@ -782,7 +783,7 @@ export default function Forma() {
             Show Incommon network
           </div>
           <div
-            className="mt-2 ml-4 pointer"
+            className="mt-2 ml-4 mb-4 pointer"
             style={{ opacity: dataType === 'normal' ? 1 : 0.5}}
             onClick={() => {
               setDataType('normal')
@@ -818,6 +819,7 @@ export default function Forma() {
         />
         <div
           ref={graphDomRef}
+
           style={{
             position: 'relative',
             height: 'calc(100vh - var(--topbar-height))',
