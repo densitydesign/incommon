@@ -66,6 +66,19 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = docID.split('_')[0]
   }
 
+  if (slug === 'theatre') {
+    docID = 'GC' + docID
+  }
+
+  console.log(docID)
+
+  if (
+    slug === 'theatre' &&
+    (docID === 'GC153%20(4)' || docID === 'GC153%20(3)')
+  ) {
+    docID = 'GC0153'
+  }
+
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
