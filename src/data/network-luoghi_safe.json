@@ -3,7 +3,7 @@
     "anno": "1959",
     "citta": "Roma",
     "luogo": "Teatro Brancaccio",
-    "evento": "Aspettando Godot (Quartucci '59)",
+    "evento": "Aspettando Godot [Quartucci '59]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -36,7 +36,7 @@
     "anno": "1959",
     "citta": "Roma",
     "luogo": "Teatro delle Arti",
-    "evento": "Caligola (Ruggiero '59)",
+    "evento": "Caligola [Ruggiero '59]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -267,7 +267,7 @@
     "anno": "1961",
     "citta": "Genova",
     "luogo": "Teatro Politeama",
-    "evento": "Caligola (Bene '61)",
+    "evento": "Caligola [Bene '61]",
     "coords": [
       {
         "formattedAddress": "Genoa, Metropolitan City of Genoa, Italy",
@@ -366,7 +366,7 @@
     "anno": "1962",
     "citta": "Bologna",
     "luogo": "Teatro La Ribalta",
-    "evento": "Spettacolo concerto Majakovskij (Bene giugno '62)",
+    "evento": "Spettacolo concerto Majakovskij [Bene giugno '62]",
     "coords": [
       {
         "formattedAddress": "Bologna, Metropolitan City of Bologna, Italy",
@@ -531,7 +531,7 @@
     "anno": "1962",
     "citta": "Roma",
     "luogo": "Teatro Laboratorio S. Cosimato",
-    "evento": "Amleto (Bene '62)",
+    "evento": "Amleto [Bene '62]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -597,7 +597,7 @@
     "anno": "1962",
     "citta": "Roma",
     "luogo": "Teatro Laboratorio S. Cosimato",
-    "evento": "Spettacolo concerto Majakovskij (Bene novembre '62)",
+    "evento": "Spettacolo concerto Majakovskij [Bene novembre '62]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -663,7 +663,7 @@
     "anno": "1963",
     "citta": "Roma",
     "luogo": "Teatro Ateneo",
-    "evento": "Finale di partita (Quartucci '63)",
+    "evento": "Finale di partita [Quartucci '63]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -795,7 +795,7 @@
     "anno": "1964",
     "citta": "Genova",
     "luogo": "Teatro Duse",
-    "evento": "Aspettando Godot (Quartucci '64)",
+    "evento": "Aspettando Godot [Quartucci '64]",
     "coords": [
       {
         "formattedAddress": "Genoa, Metropolitan City of Genoa, Italy",
@@ -894,7 +894,7 @@
     "anno": "1964",
     "citta": "Roma",
     "luogo": "Teatro delle Muse",
-    "evento": "Salomè (Bene '64)",
+    "evento": "Salomè [Bene '64]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -1660,7 +1660,7 @@
     "anno": "1966",
     "citta": "Roma",
     "luogo": "Beat 72",
-    "evento": "Nostra Signora dei Turchi (Bene '66)",
+    "evento": "Nostra Signora dei Turchi [Bene '66]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -1891,7 +1891,7 @@
     "anno": "1966",
     "citta": "Roma",
     "luogo": "Teatro Club Orsoline 15",
-    "evento": "Salomè (Ricci '66)",
+    "evento": "Salomè [Ricci '66]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -2620,7 +2620,7 @@
     "anno": "1967",
     "citta": "Napoli",
     "luogo": "Teatro Esse",
-    "evento": "I Cenci (Vitiello '67)",
+    "evento": "I Cenci [Vitiello '67]",
     "coords": [
       {
         "formattedAddress": "2601 Ohio Ave, Parkersburg, WV 26101, USA",
@@ -3514,7 +3514,7 @@
     "anno": "1968",
     "citta": "Carpi",
     "luogo": "",
-    "evento": "Gli uccelli (Cobelli '68)",
+    "evento": "Gli uccelli [Cobelli '68]",
     "coords": [
       {
         "formattedAddress": "41012 Carpi MO, Italy",
@@ -3651,7 +3651,7 @@
     "anno": "1968",
     "citta": "Napoli",
     "luogo": "Centro Teatro Esse",
-    "evento": "Uomo-Massa (Vitiello '68)",
+    "evento": "Uomo-Massa [Vitiello '68]",
     "coords": [
       {
         "formattedAddress": "2601 Ohio Ave, Parkersburg, WV 26101, USA",
@@ -4318,7 +4318,7 @@
     "anno": "1969",
     "citta": "Budrio",
     "luogo": "Teatro Consorziale",
-    "evento": "Woyzeck (Cobelli '69)",
+    "evento": "Woyzeck [Cobelli '69]",
     "coords": [
       {
         "formattedAddress": "40054 Budrio, Metropolitan City of Bologna, Italy",
@@ -4693,7 +4693,7 @@
     "anno": "1969",
     "citta": "Roma",
     "luogo": "Beat 72",
-    "evento": "Woyzech (Mazzoni '69)",
+    "evento": "Woyzech [Mazzoni '69]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -4825,7 +4825,7 @@
     "anno": "1969",
     "citta": "Spoleto",
     "luogo": "Festival de Due Mondi",
-    "evento": "Orlando Furioso (Ronconi Spoleto '69)",
+    "evento": "Orlando Furioso [Ronconi Spoleto '69]",
     "coords": [
       {
         "formattedAddress": "06049 Spoleto, Province of Perugia, Italy",
@@ -5057,7 +5057,7 @@
     "anno": "1969",
     "citta": "Vicenza",
     "luogo": "Teatro Olimpico",
-    "evento": "Woyzech (Mezzadri '69)",
+    "evento": "Woyzech [Mezzadri '69]",
     "coords": [
       {
         "formattedAddress": "36100 Vicenza, Province of Vicenza, Italy",
@@ -5124,7 +5124,7 @@
     "anno": "1970",
     "citta": "Bologna",
     "luogo": "",
-    "evento": "Uomo-Massa (Guicciardini '70)",
+    "evento": "Uomo-Massa [Guicciardini '70]",
     "coords": [
       {
         "formattedAddress": "Bologna, Metropolitan City of Bologna, Italy",
@@ -5157,7 +5157,7 @@
     "anno": "1970",
     "citta": "Bologna",
     "luogo": "Teatro La Ribalta",
-    "evento": "I Cenci (Molè '70)",
+    "evento": "I Cenci [Molè '70]",
     "coords": [
       {
         "formattedAddress": "Bologna, Metropolitan City of Bologna, Italy",
@@ -5362,7 +5362,7 @@
     "anno": "1970",
     "citta": "New York",
     "luogo": "Bryant Park",
-    "evento": "Orlando Furioso (Ronconi New York '70)",
+    "evento": "Orlando Furioso [Ronconi New York '70]",
     "coords": [
       {
         "formattedAddress": "New York, NY, USA",
@@ -5590,7 +5590,7 @@
     "anno": "1970",
     "citta": "Roma",
     "luogo": "Teatro di via Stamira",
-    "evento": "Finale di partita (Sepe '70)",
+    "evento": "Finale di partita [Sepe '70]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -5921,7 +5921,7 @@
     "anno": "1971",
     "citta": "Napoli",
     "luogo": "Palazzetto dello Sport di Mestre",
-    "evento": "Scontri generali (Versione 1971, Venezia)",
+    "evento": "Scontri generali [Versione 1971, Venezia]",
     "coords": [
       {
         "formattedAddress": "2601 Ohio Ave, Parkersburg, WV 26101, USA",
@@ -6054,7 +6054,7 @@
     "anno": "1971",
     "citta": "Roma",
     "luogo": "Beat 72",
-    "evento": "Amleto (Vasilicò '71)",
+    "evento": "Amleto [Vasilicò '71]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -6417,7 +6417,7 @@
     "anno": "1972",
     "citta": "Bologna",
     "luogo": "Teatro La Ribalta",
-    "evento": "Risveglio di primavera (Nanni '72)",
+    "evento": "Risveglio di primavera [Nanni '72]",
     "coords": [
       {
         "formattedAddress": "Bologna, Metropolitan City of Bologna, Italy",
@@ -7543,7 +7543,7 @@
     "anno": "1973",
     "citta": "Roma",
     "luogo": "Teatro delle Arti",
-    "evento": "Nostra Signora dei Turchi (Bene '73)",
+    "evento": "Nostra Signora dei Turchi [Bene '73]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -7776,7 +7776,7 @@
     "anno": "1973",
     "citta": "Torino",
     "luogo": "Quartiere Lingotto",
-    "evento": "Woyzeck (Cecchi '73)",
+    "evento": "Woyzeck [Cecchi '73]",
     "coords": [
       {
         "formattedAddress": "Turin, Metropolitan City of Turin, Italy",
@@ -8607,7 +8607,7 @@
     "anno": "1974",
     "citta": "Roma",
     "luogo": "Teatro Tordinona",
-    "evento": "Woyzeck (Mazzoni '74)",
+    "evento": "Woyzeck [Mazzoni '74]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -8907,7 +8907,7 @@
     "anno": "1975",
     "citta": "Prato",
     "luogo": "Teatro Metastasio",
-    "evento": "Amleto (Bene '75)",
+    "evento": "Amleto [Bene '75]",
     "coords": [
       {
         "formattedAddress": "124 N Park Ave, Winter Park, FL 32789, USA",
@@ -8941,7 +8941,7 @@
     "anno": "1975",
     "citta": "Roma",
     "luogo": "Beat 72",
-    "evento": "Cavalcata sul lago di Costanza (Carella '75)",
+    "evento": "Cavalcata sul lago di Costanza [Carella '75]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -9106,7 +9106,7 @@
     "anno": "1975",
     "citta": "Roma",
     "luogo": "Teatro Centrale",
-    "evento": "La cimice (Orfeo '75)",
+    "evento": "La cimice [Orfeo '75]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -9238,7 +9238,7 @@
     "anno": "1975",
     "citta": "Scandiano",
     "luogo": "Cinema Teatro Nuovo",
-    "evento": "La cimice (Cecchi '75)",
+    "evento": "La cimice [Cecchi '75]",
     "coords": [
       {
         "formattedAddress": "42019 Scandiano, Province of Reggio Emilia, Italy",
@@ -11005,7 +11005,7 @@
     "anno": "1978",
     "citta": "Roma",
     "luogo": "La Piramide",
-    "evento": "Risveglio di primavera (Perlini '78)",
+    "evento": "Risveglio di primavera [Perlini '78]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -11071,7 +11071,7 @@
     "anno": "1978",
     "citta": "Roma",
     "luogo": "Teatro Alberico",
-    "evento": "Omaggio a Marcel Duchamp (Di Marca novembre '78)",
+    "evento": "Omaggio a Marcel Duchamp [Di Marca novembre '78]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -12215,7 +12215,7 @@
     "anno": "1979",
     "citta": "Roma",
     "luogo": "La Piramide",
-    "evento": "Cavalcata sul lago di Costanza (Perlini '79)",
+    "evento": "Cavalcata sul lago di Costanza [Perlini '79]",
     "coords": [
       {
         "formattedAddress": "Rome, Metropolitan City of Rome, Italy",
@@ -12645,7 +12645,7 @@
   {
     "anno": "1979",
     "citta": "Stoccarda",
-    "luogo": "Tagblatt Turm (Rassegna \"Europa- 79 Kunst der 80 er Jarhe\")",
+    "luogo": "Tagblatt Turm [Rassegna \"Europa- 79 Kunst der 80 er Jarhe\"]",
     "evento": "Dallas 1983",
     "coords": [
       {
