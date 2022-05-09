@@ -153,22 +153,47 @@ function ImageDetail({ currentSlide, next, prev, document }) {
 }
 
 function VideoDetail({ currentSlide, document }) {
+  const history = useHistory()
   return (
     <div className="body-document">
-      <video autoPlay controls className="p-5" height={'100%'} width="100%">
+      <div className="header-images d-flex justify-content-end">
+        <div className="zoom-buttons d-flex align-items-end">
+          <div
+            onClick={() => history.goBack()}
+            className="pointer ml-4"
+            style={{ zIndex: 101 }}
+          >
+            <img src="/close-document.svg" alt="Close document" />
+          </div>
+        </div>
+      </div>
+      <video autoPlay controls className="p-5" height={'90%'} width="100%">
         <source src={document.images[currentSlide].image} />
       </video>
     </div>
   )
 }
 
-
 function AudioDetail({ currentSlide, document }) {
+  const history = useHistory()
   return (
-    <div className="body-document d-flex align-items-center justify-content-center">
-      <audio autoPlay controls height={'200'} width="100%">
-        <source type="audio/mpeg" src={document.images[currentSlide].image} />
-      </audio>
+    <div className="body-document">
+      <div className="header-images d-flex justify-content-end">
+        <div className="zoom-buttons d-flex align-items-end">
+          <div
+            onClick={() => history.goBack()}
+            className="pointer ml-4"
+            style={{ zIndex: 101 }}
+          >
+            <img src="/close-document.svg" alt="Close document" />
+          </div>
+        </div>
+      </div>
+      <div style={{ height: 'calc(100% - 120px)'}} className='w-100 d-flex align-items-center justify-content-center'>
+        <audio autoPlay controls height={'200'} width="100%">
+          <source type="audio/mpeg" src={document.images[currentSlide].image} />
+        </audio>
+      </div>
     </div>
   )
 }
