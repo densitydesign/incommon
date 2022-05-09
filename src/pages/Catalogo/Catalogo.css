@@ -9,6 +9,7 @@
 .count-documents {
   font-size: 15px;
   padding: 20px;
+  display: none;
 }
 
 .reset-filtri {

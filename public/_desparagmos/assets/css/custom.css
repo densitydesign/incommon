@@ -55,6 +55,7 @@ html, body {
 } */
 .incommon-provider-count {
   margin-left: 10px;
+  display: none!important;
 }
 nav {
   padding: 0 !important;

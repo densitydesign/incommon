@@ -80,6 +80,13 @@
   width: 200px;
 }
 
+/* per nascondere i numeri
+.name-micro-filter + div{
+  display: none!important;
+}
+*/
+
+
 .item-micro-filter:hover:before
 {
     content: "+";

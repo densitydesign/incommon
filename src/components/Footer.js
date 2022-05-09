@@ -17,13 +17,13 @@ export default function Footer() {
                     height={100}
                   />
                 </div>
-                <div className="text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0 pl-md-5">
+                <div className="col-md-6 text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0 pl-md-5">
                   This project has received funding from the European Research
                   Council (ERC) under the European Union's Horizon 2020 research
                   and innovation programme (grant agreement No 678711)
                 </div>
               </div>
-              <div className="copyright-text-footer pl-xl-0 mt-xl-5  mt-lg-0 pl-lg-5 pl-md-5">
+              <div className="col-md-6 col-xl-12 copyright-text-footer pl-xl-0 mt-xl-5  mt-lg-0 pl-lg-5 pl-md-5">
                 The information and views set out in this website are those of
                 the author(s) and do not necessarily reflect the official
                 opinion of the European Union. Neither the European Union
