@@ -1,21 +1,36 @@
 .raggruppa-button {
-  padding: 20px 15px 20px 15px;
+  padding: 27px 15px 20px 15px;
   border-right: 0.5px solid #555555;
   border-bottom: 0.5px solid #555555;
-  font-size: 14px;
-  letter-spacing: 0.45px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
+
 .count-documents {
-  font-size: 15px;
+  font-size: 18px;
   padding: 20px;
-  display: none;
+    letter-spacing: 0.04em;
+display: none;
 }
+
+
 
 .reset-filtri {
   border-bottom: 0.5px solid #555555;
-  padding: 20px;
-  font-size: 15px;
+  padding: 26px 20px 20px 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+      text-align: center;
 }
 
 .filters {
@@ -40,11 +55,14 @@
 .filters-active {
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   overflow: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   align-content: flex-start;
   border-bottom: 0.5px solid #555555;
+  min-height: 70px;
 }
 
 .filters-active::-webkit-scrollbar{
@@ -56,10 +74,12 @@
   border: 1px solid #fff;
   height: 22px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 16px;
+  margin-top: 10px;
   margin-bottom: 10px;
   display: table-cell;
   white-space: nowrap;
@@ -109,8 +129,9 @@ input:focus {
 
 
 
-@media screen and (max-width: 1200px){
-    .raggruppa-button > img, .reset-filtri > img{
-    display: none;
+@media screen and (max-width: 1330px){
+    .raggruppa-button, .reset-filtri{
+
+      font-size: 10px;
      }
 }

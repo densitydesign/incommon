@@ -258,7 +258,7 @@
     },
     "images": [
       {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_01.jpg",
+        "src": "https://archivio.in-common.org/cdn/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_01.jpg",
         "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
@@ -273,7 +273,7 @@
         }
       },
       {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_02.jpg",
+        "src": "https://archivio.in-common.org/cdn/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_02.jpg",
         "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
@@ -301,7 +301,7 @@
     },
     "images": [
       {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_03.jpg",
+        "src": "https://archivio.in-common.org/cdn/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_03.jpg",
         "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
@@ -316,7 +316,7 @@
         }
       },
       {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_04.jpg",
+        "src": "https://archivio.in-common.org/cdn/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_04.jpg",
         "time": 500,
         "style": {
           "transition": "opacity 0.5s ease-in",
@@ -332,49 +332,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_05.jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "50%",
-          "height": "100%",
-          "objectFit": "cover",
-          "margin": "auto"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      },
-      {
-        "src": "https://archivio.in-common.org/preview/5B14AEB0-26AA-11EB-993E-C72ED9E69D6A/PD0117_07.jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "50%",
-          "height": "100%",
-          "objectFit": "cover",
-          "margin": "auto"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",

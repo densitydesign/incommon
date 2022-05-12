@@ -13,7 +13,7 @@ export default function PerformancePanel() {
         trough a dimensionality reduction algorithm<sup>01</sup>. This view
         traces paths across performances and builds
         connections between documents scattered across time and space. The focus
-        is not on the individual documents but on their "programmed affinities"
+        is not on the individual documents but on their programmed affinities
         <sup>02</sup>, their shared features, and the paths connecting and
         reuniting the elements in the zoomable plot.
       </p>{" "}

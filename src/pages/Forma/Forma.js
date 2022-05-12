@@ -790,7 +790,7 @@ export default function Forma() {
               setRelazione(null)
             }}
           >
-            Show theatrographic network
+            Show historiographic network
           </div>
         </div>
         <ZoomControls

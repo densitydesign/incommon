@@ -90,28 +90,28 @@ export default function Catalogo() {
           <div className="">
             <div className="d-flex">
               <div
-                className="raggruppa-button pointer w-55"
+                className="raggruppa-button pointer w-50"
                 onClick={() => toggleCollapseDocuments()}
               >
                 {isCollapsed ? 'separe booklets' : 'group booklets'}
-                <img
+            {/*    <img
                   height="12"
                   className="ml-2"
                   src="raggruppa_fascicoli.svg"
                   alt="Raggruppa fascicoli"
-                />
+                /> */}
               </div>
               <div
                 onClick={() => reset()}
-                className="reset-filtri w-45 pointer"
+                className="reset-filtri w-50 pointer"
               >
                 clear filters{' '}
-                <img
+              {/*     <img
                   height="13"
                   className="ml-2"
                   src="mostra_filtri.svg"
                   alt="Reset filtri"
-                />
+                /> */}
               </div>
             </div>
             <div className="count-documents">

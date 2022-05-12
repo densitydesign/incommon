@@ -61,20 +61,20 @@ export default function InfoSpettacolo({
             className="no-link"
             to={`/recomposition/${caseStudy.slug}/slideshow`}
           >
-            <div className="d-flex align-items-center">
-              <span>Watch Slideshow</span>{' '}
-              <img
+            <div className="d-flex align-items-center justify-content-center">
+              <span>Slideshow</span>{' '}
+            {/*  <img
                 className="ml-2"
                 src={slideshow}
                 alt="slideshow"
                 height={10}
-              />
+              /> */}
             </div>
           </Link>
 
-          <div className="d-flex align-items-center" onClick={() => setReadMore(true)}>
-            <span>Read more</span>{' '}
-            <img className="ml-2" src={readmore} alt="slideshow" height={10} />
+          <div className="d-flex align-items-center justify-content-center" onClick={() => setReadMore(true)}>
+            <span>Info</span>{' '}
+      {/*  <img className="ml-2" src={readmore} alt="slideshow" height={10} />*/}
           </div>
         </div>
         <div className="block-raggruppa">
