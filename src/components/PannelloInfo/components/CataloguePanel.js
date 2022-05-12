@@ -11,8 +11,8 @@ export default function CataloguePanel() {
         <span className={"title-panel"}>Catalogue</span> displays documents in a
         grid layout that can be filtered according to different criteria. The
         catalogue maintains the traditional conception of materials as
-        documents, but the filtrable grid offers the needed ‘contextual
-        pressure’01 to stimulate new readings of documents as collections.
+        documents, but the filtrable grid offers the needed contextual
+        pressure<sup>01</sup> to stimulate new readings of documents as collections.
       </p>
       <p>
         {" "}
@@ -34,6 +34,13 @@ export default function CataloguePanel() {
         on one item, the document card opens up, showing the associated
         metadata.
       </p>
+      <div className={"info-bottom"}>
+        <p className={"info-red-bottom"}>
+          01 — Eco, U. (2009). The infinity of lists. Rizzoli.
+          {" "}
+        </p>
+
+      </div>
     </div>
   )
 }
