@@ -50,3 +50,22 @@
   align-items: flex-end;
   justify-content: center;
 }
+
+
+
+.switch-network-button{
+  border: 0.5px solid #ffffff;
+  border-radius: 17px;
+  font-size: 13px;
+  text-align: center;
+  width: max-content;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 2px;
+  margin-top: 8px;
+  
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  letter-spacing: 0.03em;
+}

@@ -28,31 +28,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": "-20%",
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/1D6B62C0-28E9-11EB-BE97-D1EB37ED0785/SCAP%203046_per%20libro.jpg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "120%",
-          "height": "120%",
-          "objectFit": "cover",
-          "transform": "translateX(-5%) translateY(0%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",

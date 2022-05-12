@@ -773,7 +773,7 @@ export default function Forma() {
             )}
           </div>
           <div
-            className="mt-5 ml-4 pointer"
+            className="mt-5 ml-4 mb-4 pointer switch-network-button"
             style={{ opacity: dataType === 'api' ? 1 : 0.5}}
             onClick={() => {
               setDataType('api')
@@ -783,7 +783,7 @@ export default function Forma() {
             Show Incommon network
           </div>
           <div
-            className="mt-2 ml-4 mb-4 pointer"
+            className="mt-2 ml-4 mb-4 pointer switch-network-button"
             style={{ opacity: dataType === 'normal' ? 1 : 0.5}}
             onClick={() => {
               setDataType('normal')
