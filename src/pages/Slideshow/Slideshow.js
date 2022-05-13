@@ -86,6 +86,35 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'VF0055'
   }
 
+  if (
+    slug === 'zip' &&
+    (docID === 'zip%206' || docID === 'zip%206a')
+  ) {
+    docID = 'VF0048'
+  }
+
+  if (
+    slug === 'zip' &&
+    (docID === 'zip%203' || docID === 'zip%203a')
+  ) {
+    docID = 'VF0045'
+  }
+
+  if (
+    slug === 'zip' &&
+    (docID === 'zip%205' || docID === 'zip%205a')
+  ) {
+    docID = 'VF0047'
+  }
+
+  if (
+    slug === 'zip' &&
+    (docID === 'zip%204' || docID === 'zip%204a')
+  ) {
+    docID = 'VF0046'
+  }
+
+
 
 
 
