@@ -114,8 +114,104 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'VF0046'
   }
 
+  if (
+    slug === 'don-chisciotte' &&
+    (docID === 'EP0004')
+  ) {
+    docID = 'PD0004'
+  }
 
 
+  if (
+    slug === 'sir-and-lady-macbeth' &&
+    (docID === '13')
+  ) {
+    docID = 'EP0013'
+  }
+
+  if (
+    slug === 'sir-and-lady-macbeth' &&
+    (docID === 'Vf0102')
+  ) {
+    docID = 'VF0102'
+  }
+
+  if (
+    slug === 'sir-and-lady-macbeth' &&
+    (docID === '14')
+  ) {
+    docID = 'EP0014'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'image00009')
+  ) {
+    docID = 'MB0086'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'Un%20nome%20cos%C3%AC%20grande')
+  ) {
+    docID = 'VF0068'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'le%20vallette%20locandina')
+  ) {
+    docID = 'VF0067'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'image00002')
+  ) {
+    docID = 'MB0082'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'image00031')
+  ) {
+    docID = 'MB0097'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'dec01-a' || docID === 'dec01-b')
+  ) {
+    docID = 'VF0066'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'image00007')
+  ) {
+    docID = 'MB0085'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'image00034')
+  ) {
+    docID = 'MB0099'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === 'ts')
+  ) {
+    docID = 'MB0105'
+  }
+
+  if (
+    slug === 'decentramento' &&
+    (docID === '600')
+  ) {
+    docID = 'VF0064'
+  }
 
 
   return (

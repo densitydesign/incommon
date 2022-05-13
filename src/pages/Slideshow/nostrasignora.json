@@ -577,8 +577,8 @@
       "right": 0,
       "bottom": 0,
       "display": "flex",
-      "justifyContent": "flexEnd",
-      "alignItems": "end"
+      "justifyContent": "center",
+      "alignItems": "center"
     },
     "images": [
       {
@@ -589,8 +589,8 @@
           "width": "30%",
           "height": "auto",
           "objectFit": "scaleDown",
-          "transform": "rotate(-1deg)",
-          "marginLeft": "auto"
+          "transform": "rotate(-1deg)"
+
         },
         "animatedStyle": {
           "opacity": 1
@@ -618,7 +618,7 @@
           "width": "35vh",
           "height": "auto",
           "objectFit": "scaleDown",
-          "transform": "rotate(3deg) translateX(70%)"
+          "transform": "rotate(3deg)"
         },
         "animatedStyle": {
           "opacity": 1

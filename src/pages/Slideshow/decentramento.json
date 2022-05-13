@@ -70,58 +70,8 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/15595EA0-DE3A-11EB-9C93-D9275CCD0914/image00006.jpg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "102%",
-          "height": "102%",
-          "objectFit": "cover",
-          "transform": "translateX(0%) translateY(0%)",
-          "filter": "contrast(100%) grayscale(100%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/B3147B00-DE3C-11EB-9C93-D9275CCD0914/image00012.jpg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "102%",
-          "height": "102%",
-          "objectFit": "cover",
-          "transform": "translateX(0%) translateY(0%)",
-          "filter": "contrast(100%) grayscale(100%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
+
   {
     "style": {
       "position": "absolute",
@@ -270,68 +220,8 @@
       }
     ]
   },
-  {
-  "style": {
-  "position": "absolute",
-  "top": 0,
-  "left": 0,
-  "right": 0,
-  "bottom": 0,
-  "display": "flex",
-  "justifyContent": "center",
-  "alignItems": "center"
-  },
-  "images": [
-  {
-    "src": "https://archivio.in-common.org/cdn/8CB75770-E085-11EB-99C5-91D0622C3232/image00036.jpg",
-    "time": 500,
-    "style": {
-      "transition": "opacity 0.5s ease-in",
-      "opacity": 0,
-      "width": "60%",
-      "height": "60%",
-      "object-fit": "scale-down",
-      "transform": "rotate(0deg)",
-      "filter": "contrast(100%) grayscale(100%)"
 
-    },
-    "animatedStyle": {
-      "opacity": 1
-    }
-  }
-  ]
-  },
-  {
-  "style": {
-  "position": "absolute",
-  "top": 0,
-  "left": 0,
-  "right": 0,
-  "bottom": 0,
-  "display": "flex",
-  "justifyContent": "center",
-  "alignItems": "center"
-  },
-  "images": [
-  {
-    "src": "https://archivio.in-common.org/cdn/8CB75770-E085-11EB-99C5-91D0622C3232/image00037.jpg",
-    "time": 500,
-    "style": {
-      "transition": "opacity 0.5s ease-in",
-      "opacity": 0,
-      "width": "60%",
-      "height": "60%",
-      "object-fit": "scale-down",
-      "transform": "rotate(0deg)",
-      "filter": "contrast(100%) grayscale(100%)"
 
-    },
-    "animatedStyle": {
-      "opacity": 1
-    }
-  }
-  ]
-},
 {
 "style": {
 "position": "absolute",
@@ -363,125 +253,8 @@
 }
 ]
 },
-{
-"style": {
-"position": "absolute",
-"top": 0,
-"left": 0,
-"right": 0,
-"bottom": 0,
-"display": "flex",
-"justifyContent": "center",
-"alignItems": "center"
-},
-"images": [
-{
-  "src": "https://archivio.in-common.org/cdn/6474D8D0-DE3E-11EB-9C93-D9275CCD0914/image00050.jpg",
-  "time": 500,
-  "style": {
-    "transition": "opacity 0.5s ease-in",
-    "opacity": 0,
-    "width": "57%",
-    "height": "57%",
-    "object-fit": "scale-down",
-    "transform": "rotate(0deg)",
-    "filter": "contrast(100%) grayscale(100%)"
 
-  },
-  "animatedStyle": {
-    "opacity": 1
-  }
-}
-]
-},
-{
-"style": {
-"position": "absolute",
-"top": 0,
-"left": 0,
-"right": 0,
-"bottom": 0,
-"display": "flex",
-"justifyContent": "center",
-"alignItems": "center"
-},
-"images": [
-{
-  "src": "https://archivio.in-common.org/cdn/6D063CA0-DF38-11EB-ACB8-1B6F8663DC16/image00022.jpg",
-  "time": 500,
-  "style": {
-    "transition": "opacity 0.5s ease-in",
-    "opacity": 0,
-    "width": "60%",
-    "height": "60%",
-    "object-fit": "scale-down",
-    "transform": "rotate(0deg)",
-    "filter": "contrast(100%) grayscale(100%)"
 
-  },
-  "animatedStyle": {
-    "opacity": 1
-  }
-}
-]
-},
-{
-"style": {
-"position": "absolute",
-"top": 0,
-"left": 0,
-"right": 0,
-"bottom": 0,
-"display": "flex",
-"justifyContent": "center",
-"alignItems": "center"
-},
-"images": [
-{
-  "src": "https://archivio.in-common.org/cdn/C88894E0-DF3F-11EB-ACB8-1B6F8663DC16/image00046.jpg",
-  "time": 500,
-  "style": {
-    "transition": "opacity 0.5s ease-in",
-    "opacity": 0,
-    "width": "60%",
-    "height": "60%",
-    "object-fit": "scale-down",
-    "transform": "rotate(0deg)",
-    "filter": "contrast(100%) grayscale(100%)"
-
-  },
-  "animatedStyle": {
-    "opacity": 1
-  }
-}
-]
-},
-{
-  "style": {
-    "position": "absolute",
-    "top": 0,
-    "left": 0,
-    "right": 0,
-    "bottom": 0
-  },
-  "images": [
-    {
-      "src": "https://archivio.in-common.org/cdn/D4E77F00-E087-11EB-99C5-91D0622C3232/ts_0002.jpg",
-      "style": {
-        "transition": "opacity 0.5s ease-in",
-        "opacity": 0,
-        "width": "102%",
-        "height": "102%",
-        "objectFit": "cover",
-        "transform": "translateX(0%) translateY(0%)",
-        "filter": "contrast(100%) grayscale(100%)"
-      },
-      "animatedStyle": {
-        "opacity": 1
-      }
-    }
-  ]
-},
 {
   "style": {
     "position": "absolute",
@@ -508,32 +281,7 @@
     }
   ]
 },
-{
-  "style": {
-    "position": "absolute",
-    "top": 0,
-    "left": "-15%",
-    "right": 0,
-    "bottom": 0
-  },
-  "images": [
-    {
-      "src": "https://archivio.in-common.org/cdn/E6D2D310-FB6F-11EB-B1C6-919984D8FB7B/FADINI-rinascita%2033ore.jpg",
-      "style": {
-        "transition": "opacity 0.5s ease-in",
-        "opacity": 0,
-        "width": "152%",
-        "height": "152%",
-        "objectFit": "cover",
-        "transform": "translateX(0%) translateY(0%)",
-        "filter": "contrast(120%) grayscale(100%) brightness(110%)"
-      },
-      "animatedStyle": {
-        "opacity": 1
-      }
-    }
-  ]
-},
+
 {
 "style": {
 "position": "absolute",
