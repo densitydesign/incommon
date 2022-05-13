@@ -79,6 +79,16 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'GC0153'
   }
 
+  if (
+    slug === 'zip' &&
+    (docID === 'image00111')
+  ) {
+    docID = 'VF0055'
+  }
+
+
+
+
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>
       <MenuTop panelInfo={panelInfo} setPanelInfo={setPanelInfo} />
