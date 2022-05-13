@@ -145,7 +145,7 @@
 
 .footer {
   padding-top: 76px;
-  padding-bottom: 56px;
+  padding-bottom: 20px;
   padding-left: 61px;
   padding-right: 61px;
   background-color: black;
@@ -173,8 +173,8 @@
 .text-project {
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 17px;
+  font-size: 11px;
+  line-height: 15px;
   letter-spacing: 0.05em;
   width: 260px;
 }
@@ -184,7 +184,7 @@
   font-weight: 400;
   font-size: 9px;
   line-height: 12px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .ml-30 {

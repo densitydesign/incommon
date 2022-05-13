@@ -9,12 +9,12 @@ export default function Footer() {
             <div className="label-footer">Funded by</div>
             <div className="d-xl-block d-lg-flex d-md-flex align-items-xl-start align-items-lg-center align-items-md-center">
               <div className="d-flex flex-xl-column">
-                <div>
+                <div className="d-flex flex-xl-column" >
                   <img
                     src={'/logo-erc-eu.svg'}
                     alt="Logo ERC"
-                    width={233}
-                    height={100}
+                    width={200}
+                    height={85.8}
                   />
                 </div>
                 <div className="col-md-6 text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0 pl-md-5">
@@ -23,14 +23,7 @@ export default function Footer() {
                   and innovation programme (grant agreement No 678711)
                 </div>
               </div>
-              <div className="col-md-6 col-xl-12 copyright-text-footer pl-xl-0 mt-xl-5  mt-lg-0 pl-lg-5 pl-md-5">
-                The information and views set out in this website are those of
-                the author(s) and do not necessarily reflect the official
-                opinion of the European Union. Neither the European Union
-                Institutions and bodies nor any person acting on their behalf
-                may be held responsible for the use which may be made of the
-                information contained therein.
-              </div>
+
             </div>
           </div>
         </div>
@@ -46,8 +39,8 @@ export default function Footer() {
                 <img
                   src="/iuav-footer.svg"
                   alt="Iuav"
-                  width={150}
-                  height={103}
+                  width={121}
+                  height={83}
                 />
               </a>
             </div>
@@ -61,8 +54,8 @@ export default function Footer() {
                 <img
                   src="/sapienza.svg"
                   alt="Università Sapienza"
-                  width={150}
-                  height={45.2}
+                  width={120}
+                  height={36.1}
                 />
               </a>
               <div className="label-footer mt-3">BACK-END DEVELOPMENT</div>
@@ -71,7 +64,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/elan.png" alt="Elan" width={140} height={35} />
+                <img src="/elan.png" alt="Elan" width={116} height={29} />
               </a>
             </div>
             <div className="ml-30">
@@ -81,7 +74,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/spa.svg" alt="Spa" width={78} height={121.2} />
+                <img src="/spa.svg" alt="Spa" width={67} height={104.1} />
               </a>
             </div>
             <div className="ml-30">
@@ -94,8 +87,8 @@ export default function Footer() {
                 <img
                   src="/density.svg"
                   alt="Density Design"
-                  width={70}
-                  height={80.9}
+                  width={66}
+                  height={76.2}
                 />
               </a>
               <a
@@ -107,13 +100,21 @@ export default function Footer() {
                   className="ml-4"
                   src="/inmagik.svg"
                   alt="Inmagik"
-                  width={76}
-                  height={76}
+                  width={66}
+                  height={66}
                 />
               </a>
             </div>
           </div>
         </div>
+      </div>
+      <div className="col-md-12 col-xl-12 copyright-text-footer pl-xl-0 mt-xl-5  mt-md-5 pl-lg-0 pl-md-0">
+        The information and views set out in this website are those of
+        the author(s) and do not necessarily reflect the official
+        opinion of the European Union. Neither the European Union
+        Institutions and bodies nor any person acting on their behalf
+        may be held responsible for the use which may be made of the
+        information contained therein.
       </div>
     </div>
   )
