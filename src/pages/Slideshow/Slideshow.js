@@ -70,7 +70,7 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'GC' + docID
   }
 
-  console.log(docID)
+
 
   if (
     slug === 'theatre' &&
@@ -213,6 +213,78 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'VF0064'
   }
 
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00052' || docID === 'image00051' || docID === 'image00050' || docID === 'image00049')
+  ) {
+    docID = 'VF0029'
+  }
+
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'SB0009%2035' || docID === 'SB0009%2018' || docID === 'SB0009%2030' || docID === 'SB0009%2050' || docID === 'SB0009%2009' || docID === 'SB0009%2004' || docID === 'SB0009%2006' || docID === 'SB0009%2007')
+  ) {
+    docID = 'SB0009'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00037')
+  ) {
+    docID = 'VF0007'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image0007')
+  ) {
+    docID = 'VF0001'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00039')
+  ) {
+    docID = 'VF0008'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00027')
+  ) {
+    docID = 'VF0003'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === '2021')
+  ) {
+    docID = 'SB0006'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === '2021')
+  ) {
+    docID = 'SB0006'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00077')
+  ) {
+    docID = 'VF0023'
+  }
+
+  if (
+    slug === 'scontri-generali' &&
+    (docID === 'image00003')
+  ) {
+    docID = 'VF0032'
+  }
+
+    console.log(docID)
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>

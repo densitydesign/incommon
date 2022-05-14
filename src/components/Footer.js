@@ -8,8 +8,8 @@ export default function Footer() {
           <div>
             <div className="label-footer">Funded by</div>
             <div className="d-xl-block d-lg-flex d-md-flex align-items-xl-start align-items-lg-center align-items-md-center">
-              <div className="d-flex flex-xl-column">
-                <div className="d-flex flex-xl-column" >
+              <div className="d-flex">
+                <div className="d-flex" >
                   <img
                     src={'/logo-erc-eu.svg'}
                     alt="Logo ERC"
@@ -17,7 +17,7 @@ export default function Footer() {
                     height={85.8}
                   />
                 </div>
-                <div className="col-md-6 text-project pl-xl-0 pl-lg-5 pt-xl-3 pt-lg-0 pl-md-5">
+                <div className="ml-30 col-md-6 text-project pl-xl-0 pl-lg-5 pt-lg-0 pl-md-5">
                   This project has received funding from the European Research
                   Council (ERC) under the European Union's Horizon 2020 research
                   and innovation programme (grant agreement No 678711)
