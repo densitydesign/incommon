@@ -284,6 +284,84 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'VF0032'
   }
 
+  if(
+    slug === 'cenerella' &&
+    (docID === '0246' || docID === '0243' || docID === '0250' || docID === '0245' || docID === '0249' || docID === '0248' || docID === '0247'  || docID === '0244' )
+  ) {
+    docID = 'GC' + docID
+  }
+
+  if (
+    slug === 'cenerella' &&
+    (docID === 'GC0230%20(9)' || docID === 'GC0230%20(6)')
+  ) {
+    docID = 'GC0230'
+  }
+
+  if (
+    slug === 'cenerella' &&
+    (docID === 'GC0236%20intro%201')
+  ) {
+    docID = 'GC0236'
+  }
+
+  if(
+    slug === 'sudd' &&
+    (docID === '35' || docID === '40' || docID === '41' || docID === '42' || docID === '39' || docID === '38')
+  ) {
+    docID = 'EP00' + docID
+  }
+
+  if (
+    slug === 'sudd' &&
+      (docID === 'quaderno%20SUDD')
+  ) {
+    docID = 'EP0033'
+  }
+
+  if (
+    slug === 'la-rivolta-degli-oggetti' &&
+      (docID === 'GC0037%20(8)' || docID === 'GC0037%20(6)'|| docID === 'GC0037%20(7)' )
+  ) {
+    docID = 'GC0037'
+  }
+
+  if (
+    slug === 'la-rivolta-degli-oggetti' &&
+      (docID === 'GC0042%20copia' )
+  ) {
+    docID = 'GC0042'
+  }
+
+  if(
+    slug === 'rotobolo' &&
+    (docID === '0117' || docID === '0131' || docID === '0133'  || docID === '0135'  || docID === '0138' || docID === '0115' || docID === '0114' || docID === '0120' || docID === '0095'  || docID === '0100' || docID === '0118' || docID === '0124' )
+  ) {
+    docID = 'GC' + docID
+  }
+
+  if(
+    slug === 'rotobolo' &&
+    (docID === '0104%20(2)' || docID === '0104%20(3)' || docID === '0104%20(5)')
+  ) {
+    docID = 'GC0104'
+  }
+
+  if(
+    slug === 'rotobolo' &&
+    (docID === '110')
+  ) {
+    docID = 'GC0110'
+  }
+
+  if(
+    slug === 'rotobolo' &&
+    (docID === 'GC0187%20(1)' || docID === 'GC0187%20(2)' || docID === 'GC0187%20(3)' || docID === 'GC0187%20(4)')
+  ) {
+    docID = 'GC0187'
+  }
+
+
     console.log(docID)
 
   return (

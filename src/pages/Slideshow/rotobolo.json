@@ -103,32 +103,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/61FD5D70-2273-11EB-8090-A7A018202097/0104%20(3).jpg",
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "cover",
-          "transform": "translateX(0%) translateY(0%)",
-          "filter": "contrast(110%) grayscale(100%) brightness(120%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",
@@ -394,51 +369,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/8AC3AE10-2275-11EB-B438-B16091B84FE0/0106%20(1).jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "50%",
-          "height": "100%",
-          "objectFit": "cover",
-          "margin": "auto",
-          "filter": "grayscale(100%) brightness(130%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      },
-      {
-        "src": "https://archivio.in-common.org/cdn/4BB0C4E0-2123-11EB-93DE-794AD10BD1A5/0096.jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "50%",
-          "height": "100%",
-          "objectFit": "cover",
-          "margin": "auto",
-          "filter": "grayscale(100%) brightness(120%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",
