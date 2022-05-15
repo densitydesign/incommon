@@ -46,4 +46,13 @@
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  background-color: #c1c1c129;
+}
+
+.open-document-file:hover {
+  background-color: black;
+  transition: background-color 0.7s;
+  text-decoration: none;
 }

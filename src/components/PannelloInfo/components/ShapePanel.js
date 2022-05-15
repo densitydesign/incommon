@@ -24,10 +24,7 @@ export default function ShapePanel() {
         <span>
           <img src={shape03} width={100} alt="Shape 03" />
         </span>{" "}
-        according to the number of mentions in the dataset. The network layout
-        is based on force-directed graph drawing algorithm01, meaning that the
-        nodes’ position is calculated so to there are as few crossing edges as
-        possible.
+        according to the number of mentions in the dataset.
       </p>
       <p>
         {" "}
@@ -42,6 +39,7 @@ export default function ShapePanel() {
         connections, offering a fluid and frictionless navigation through the
         community.
       </p>
+
     </div>
   )
 }

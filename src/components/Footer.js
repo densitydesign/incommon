@@ -39,8 +39,8 @@ export default function Footer() {
                 <img
                   src="/iuav-footer.svg"
                   alt="Iuav"
-                  width={121}
-                  height={83}
+                  width={100}
+                  height='auto'
                 />
               </a>
             </div>
@@ -54,19 +54,23 @@ export default function Footer() {
                 <img
                   src="/sapienza.svg"
                   alt="Università Sapienza"
-                  width={120}
-                  height={36.1}
+                  width={103}
+                  height='auto'
                 />
               </a>
-              <div className="label-footer mt-3">BACK-END DEVELOPMENT</div>
-              <a
-                href="https://www.elan42.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="/elan.png" alt="Elan" width={116} height={29} />
-              </a>
+
             </div>
+      <div className="ml-30">
+            <div className="label-footer">DATABASE DESIGN</div>
+            <a
+              href="https://www.elan42.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/elan.png" alt="Elan" width={86} height='auto' />
+            </a>
+            </div>
+
             <div className="ml-30">
               <div className="label-footer">VISUAL IDENTITY</div>
               <a
@@ -74,7 +78,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/spa.svg" alt="Spa" width={67} height={104.1} />
+                <img src="/spa.svg" alt="Spa" width={50} height='auto' />
               </a>
             </div>
             <div className="ml-30">
@@ -87,8 +91,8 @@ export default function Footer() {
                 <img
                   src="/density.svg"
                   alt="Density Design"
-                  width={66}
-                  height={76.2}
+                  width={50}
+                  height='auto'
                 />
               </a>
               <a
@@ -100,8 +104,8 @@ export default function Footer() {
                   className="ml-4"
                   src="/inmagik.svg"
                   alt="Inmagik"
-                  width={66}
-                  height={66}
+                  width={50}
+                  height='auto'
                 />
               </a>
             </div>
