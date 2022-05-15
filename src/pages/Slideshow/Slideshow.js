@@ -361,8 +361,78 @@ function RunSlideshow({ slideshowConfig, slug }) {
     docID = 'GC0187'
   }
 
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '6%20(6)')
+    ) {
+      docID = 'MG0116'
+    }
 
-    console.log(docID)
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '2%20(6)')
+    ) {
+      docID = 'MG0144'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === 'striscia%201%20(4)')
+    ) {
+      docID = 'MG0159'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '3%20(5)')
+    ) {
+      docID = 'MG0145'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '0082%20(1)' || docID === '0082%20(2)' || docID === '0082%20(3)' || docID === '0082%20(4)' || docID === '0082%20(5)' || docID === '0082%20(6)')
+    ) {
+      docID = 'GC0082'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '5%20(1)')
+    ) {
+      docID = 'MG0149'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '4%20(2)')
+    ) {
+      docID = 'MG0146'
+    }
+
+    if(
+      slug === 'luci-della-citta' &&
+      (docID === '4%20(4)')
+    ) {
+      docID = 'MG0147'
+    }
+
+    if(
+      slug === 'assoli' &&
+      (docID === '0057')
+    ) {
+      docID = 'EP0057'
+    }
+
+    if(
+      slug === 'mors' &&
+      (docID === 'MB0063-01' || docID === 'MB0063-02' || docID === 'MB0063-03' || docID === 'MB0063-04' || docID === 'MB0063-15' || docID === 'MB0063-16' || docID === 'MB0063-24' || docID === 'MB0063-25')
+    ) {
+      docID = 'MB0063'
+    }
+
+
+
 
   return (
     <div className="slideshow-container" onKeyDown={handleKeyDown} tabIndex={0}>

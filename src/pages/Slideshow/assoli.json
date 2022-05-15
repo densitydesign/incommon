@@ -170,58 +170,8 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/6BE11060-8A88-11EC-B135-EF2A459C0029/Assoli%201977%20Archivio%20Bologna%20(1).jpeg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "cover",
-          "transform": "rotate(0deg)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/6BE11060-8A88-11EC-B135-EF2A459C0029/Assoli%201977%20Archivio%20Bologna%20(2).jpeg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "cover",
-          "transform": "rotate(0deg)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
+
   {
     "style": {
       "position": "absolute",
@@ -265,33 +215,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/0CA687D0-801D-11EC-9F7A-792C429B3B25/61_Assoli.jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "120%",
-          "height": "120%",
-          "objectFit": "cover",
-          "transform": "rotate(0deg)",
-          "filter": "grayscale(100%) brightness(100%) contrast(80%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",
@@ -330,87 +254,6 @@
           "objectFit": "scale-down",
           "margin": "auto",
           "filter": "grayscale(100%) brightness(100%) contrast(80%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/05FF2430-8C1D-11EC-B9EF-01F9173748EA/Assoli%20testo%20(Scena)%20(1).jpeg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "cover",
-          "transform": "rotate(0deg)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/05FF2430-8C1D-11EC-B9EF-01F9173748EA/Assoli%20testo%20(Scena)%20(2).jpeg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "100%",
-          "height": "100%",
-          "objectFit": "cover",
-          "transform": "rotate(0deg)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/3A9BE5C0-8A8D-11EC-A937-7F2BB438B1BD/Assoli%20-copertina%20Scena04.jpeg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "80%",
-          "height": "80%",
-          "object-fit": "scale-down",
-          "transform": "rotate(0deg)"
         },
         "animatedStyle": {
           "opacity": 1

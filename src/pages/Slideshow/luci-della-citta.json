@@ -1,34 +1,5 @@
 [
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/1DEDF840-EC91-11EB-962B-BBE5FD29B164/LUCI_DELLA_CITTA_COSENZA.jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "70%",
-          "height": "70%",
-          "object-fit": "scale-down",
-          "transform": "rotate(0deg)",
-          "filter": "grayscale(100%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",
@@ -398,36 +369,7 @@
       }
     ]
   },
-  {
-    "style": {
-      "position": "absolute",
-      "top": 0,
-      "left": 0,
-      "right": 0,
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "alignItems": "center"
-    },
-    "images": [
-      {
-        "src": "https://archivio.in-common.org/cdn/D70D1440-F084-11EB-8833-2739B04F5CDB/striscia%201%20(1).jpg",
-        "time": 500,
-        "style": {
-          "transition": "opacity 0.5s ease-in",
-          "opacity": 0,
-          "width": "70%",
-          "height": "70%",
-          "object-fit": "scale-down",
-          "transform": "rotate(0deg)",
-          "filter": "grayscale(100%) brightness(105%)"
-        },
-        "animatedStyle": {
-          "opacity": 1
-        }
-      }
-    ]
-  },
+
   {
     "style": {
       "position": "absolute",
