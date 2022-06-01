@@ -176,6 +176,9 @@ I. Caleo, P. Di Matteo, A. Sacchi (eds), “In fiamme. La performance nello spaz
               and maintaining contacts with the European Commission officials
               for matters concerning the project’s financial management.
             </div>
+            <div className="mt-5">
+              <strong>Olga Barmine</strong> Trained as an architect and working in the field of design as a professional and university professor, she began to work as a translator in 1993 to maintain her proficiency of thought and expression in her native language, English, while living permanently in Italy. As a translator, she concentrates exclusively on publications and academic work in the fields of design, architecture and the arts. For INCOMMON, she translated the results of the research work in academic papers and material for the website, and provided linguistic support throughout the project. 
+            </div>
           </div>
           <div className="col-md-4">
             <div>
