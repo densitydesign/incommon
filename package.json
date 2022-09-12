@@ -19,6 +19,7 @@
     "react-bootstrap-icons": "^1.4.0",
     "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
+    "react-hls-player": "^3.0.7",
     "react-mapbox-gl": "^4.8.6",
     "react-medium-image-zoom": "^4.3.1",
     "react-responsive-carousel": "^3.2.10",

@@ -7,6 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loa
 import { Carousel } from 'react-responsive-carousel'
 import { useDocument } from '../../hooks/documents'
 import { useHistory, useParams } from 'react-router-dom'
+import ReactHlsPlayer from 'react-hls-player/dist'
 
 const CarouselImages = ({ currentSlide, document }) => {
   return (
@@ -170,6 +171,14 @@ function VideoDetail({ currentSlide, document }) {
       <video autoPlay controls className="p-5" height={'90%'} width="100%">
         <source src={document.images[currentSlide].image} />
       </video>
+      {/* <ReactHlsPlayer
+        src={document.images[currentSlide].image}
+        autoPlay={true}
+        controls={true}
+        className="p-5"
+        height={'90%'}
+        width="100%"
+      /> */}
     </div>
   )
 }
@@ -189,7 +198,10 @@ function AudioDetail({ currentSlide, document }) {
           </div>
         </div>
       </div>
-      <div style={{ height: 'calc(100% - 120px)'}} className='w-100 d-flex align-items-center justify-content-center'>
+      <div
+        style={{ height: 'calc(100% - 120px)' }}
+        className="w-100 d-flex align-items-center justify-content-center"
+      >
         <audio autoPlay controls height={'200'} width="100%">
           <source type="audio/mpeg" src={document.images[currentSlide].image} />
         </audio>
