@@ -168,17 +168,14 @@ function VideoDetail({ currentSlide, document }) {
           </div>
         </div>
       </div>
-      <video autoPlay controls className="p-5" height={'90%'} width="100%">
-        <source src={document.images[currentSlide].image} />
-      </video>
-      {/* <ReactHlsPlayer
+      <ReactHlsPlayer
         src={document.images[currentSlide].image}
         autoPlay={true}
         controls={true}
         className="p-5"
         height={'90%'}
         width="100%"
-      /> */}
+      />
     </div>
   )
 }
