@@ -170,15 +170,7 @@ export default function FiltersCatalogo({
         toggleFilterOpen={toggleFilterOpen}
         countBy={countBy}
       />
-      <ItemFilter
-        name="persona"
-        nameToShow={'Person'}
-        addFilter={addFilter}
-        filters={filters}
-        filterOpen={filterOpen}
-        toggleFilterOpen={toggleFilterOpen}
-        countBy={countBy}
-      />
+    
       <ItemFilter
         name="casestudy"
         addFilter={addFilter}

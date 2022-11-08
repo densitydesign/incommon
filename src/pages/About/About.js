@@ -28,7 +28,12 @@ export default function About() {
         </div>
       </Link>
       <div className="team-incommon">
-        <div className="title-incommon-team">INCOMMON TEAM</div>
+        <div className="title-incommon-team"><a
+          className="text-white"
+          href="https://blog.in-common.org/"
+        >
+        → Read the blog
+        </a></div>
         <div className="row">
           <div className="col-md-4">
             <div>
@@ -177,7 +182,7 @@ I. Caleo, P. Di Matteo, A. Sacchi (eds), “In fiamme. La performance nello spaz
               for matters concerning the project’s financial management.
             </div>
             <div className="mt-5">
-              <strong>Olga Barmine</strong> Trained as an architect and working in the field of design as a professional and university professor, she began to work as a translator in 1993 to maintain her proficiency of thought and expression in her native language, English, while living permanently in Italy. As a translator, she concentrates exclusively on publications and academic work in the fields of design, architecture and the arts. For INCOMMON, she translated the results of the research work in academic papers and material for the website, and provided linguistic support throughout the project. 
+              <strong>Olga Barmine</strong> Trained as an architect and working in the field of design as a professional and university professor, she began to work as a translator in 1993 to maintain her proficiency of thought and expression in her native language, English, while living permanently in Italy. As a translator, she concentrates exclusively on publications and academic work in the fields of design, architecture and the arts. For INCOMMON, she translated the results of the research work in academic papers and material for the website, and provided linguistic support throughout the project.
             </div>
           </div>
           <div className="col-md-4">
@@ -256,6 +261,7 @@ With a Master Degree in Contemporary Philosophy, her research focuses on bodies,
             </div>
           </div>
         </div>
+
       </div>
 
 
