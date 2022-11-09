@@ -89,7 +89,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="/density.svg"
+                  src="/density.png"
                   alt="Density Design"
                   width={50}
                   height='auto'
