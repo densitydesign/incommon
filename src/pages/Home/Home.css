@@ -236,3 +236,23 @@
     height: 380px;
   }
 }
+
+
+.modal-body{
+padding:0px;
+border: 0px;
+
+}
+
+.modal-content{
+padding:0px;
+border: 0px;
+background-color: black;
+width: auto;
+}
+
+.modal-dialog{
+  width: 700px;
+  margin: 0 auto;
+  max-width: none;
+}
