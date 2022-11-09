@@ -277,7 +277,7 @@ export default function Home() {
           toggle={() => setVideo(!video)}
         >
           <ModalBody>
-            { <iframe width="560" height="315" src="https://www.youtube.com/embed/4L07uLe60fk?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>}
+            { <iframe src="https://player.vimeo.com/video/768602060?h=caa984ee09&autoplay=1&loop=1&color=000000&title=0&byline=0&portrait=0" width="700" height="394" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>  }
           </ModalBody>
         </Modal>
       </div>
