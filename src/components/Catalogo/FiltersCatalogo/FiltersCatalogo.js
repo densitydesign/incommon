@@ -53,7 +53,6 @@ const MicroFilter = ({ name, count, onClick, filterName }) => {
             <div className="name-micro-filter">
               {mapLanguage[name] ? mapLanguage[name] : name}
             </div>
-            <div>{count}</div>
           </>
         )}
       </div>
@@ -65,13 +64,21 @@ const emptyList = []
 const MicroFilters = ({ countBy, filters, name, addFilter }) => {
   const counts = countBy[name] ?? emptyList
   const values = filters[name] ?? emptyList
+
+  const tipologiaCounts = useMemo(() => {
+    return counts.map((c) => ({
+      ...c,
+      nameEng: mapLanguage[c.name] ? mapLanguage[c.name] : c.name,
+    }))
+  }, [counts])
+
   const showCounts = useMemo(() => {
     return orderBy(
-      counts.filter((c) => !values.includes(c.name)),
-      'count',
-      'desc'
+      tipologiaCounts.filter((c) => !values.includes(c.name)),
+      name === 'tipologia' ? 'nameEng' : 'name',
+      'asc'
     )
-  }, [counts, values])
+  }, [tipologiaCounts, values, name])
 
   return (
     <div className="micro-filters">
@@ -170,7 +177,7 @@ export default function FiltersCatalogo({
         toggleFilterOpen={toggleFilterOpen}
         countBy={countBy}
       />
-    
+
       <ItemFilter
         name="casestudy"
         addFilter={addFilter}
